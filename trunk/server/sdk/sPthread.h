@@ -8,7 +8,7 @@ class sPthread{
 	public:
 			sPthread(pthread_func pFunc)
 			{
-				//int error = pthread_create(&_ntid,NULL,pFunc,this);
+				int error = pthread_create(&_ntid,NULL,pFunc,this);
 				if(error != 0)
 				{
 					printf("pthrad Create Error \n");	
