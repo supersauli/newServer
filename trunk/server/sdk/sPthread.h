@@ -13,6 +13,7 @@ class sPthread{
 				{
 					printf("pthrad Create Error \n");	
 				}
+
 			}
 		virtual void run(){};
 		virtual bool init(){return true;};
