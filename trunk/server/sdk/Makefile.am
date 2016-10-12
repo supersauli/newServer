@@ -14,7 +14,7 @@ fileList = \
 		sSctpPthread.cpp \
 		sLogManager.cpp \
 		XmlFile.cpp \
-		sTask.cpp
+		sTask.cpp 
 
 
 #动态库
