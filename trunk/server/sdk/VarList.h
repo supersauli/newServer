@@ -3,48 +3,230 @@
 //#include <list>
 #include<vector>
 #include <assert.h>
+#include <memory>
+#include "sDefine.h"
+
 
 class VarObj
 {
 	public:	
-		VarObj(int value):_value(value){
-	}
-	int GetValue(){
-		return _value;
-	}
+		enum class ValueType
+		{
+			BOOLVALUE,
+			INTVALUE,
+			DWORDVALUE,
+			QWORDVALUE,
+			LONGVALUE,
+			FLOATVALUE,
+			DOUBLEVALUE,
+			STRVALUE,	
+		};
+
+
+		
+		void setValue(const char* value)
+		{
+			_value._valueType = ValueType::STRVALUE;
+			_value._strValue = value;	
+		
+		}
+
+		void setValue(char *value)
+		{
+			_value._valueType = ValueType::STRVALUE;
+			_value._strValue = value;
+		
+		}
+
+		void setValue(bool value)
+		{
+
+			_value._valueType = ValueType::BOOLVALUE;
+			_value._numValue.boolValue = value;
+		}
+
+		void setValue(int value)
+		{
+
+			_value._valueType = ValueType::INTVALUE;
+			_value._numValue.intValue = value;	
+		}
+
+		void setValue(LONG value)
+		{
+			_value._valueType = ValueType::LONGVALUE;
+			_value._numValue.longValue = value;	
+		}
+
+		void setValue(FLOAT value)
+		{
+			_value._valueType = ValueType::FLOATVALUE;
+			_value._numValue.floatValue = value;	
+		
+		}
+		void setValue(double value)
+		{
+			_value._valueType = ValueType::DOUBLEVALUE;
+			_value._numValue.doubleValue = value;	
+	
+		}
+
+		int GetIntValue(){
+			if(_value._valueType != ValueType::INTVALUE){
+				printf("valueType error!");
+			}
+			return _value._numValue.intValue;	
+		};
+
+		bool GetBoolValue(){
+
+		if(_value._valueType != ValueType::BOOLVALUE){
+				printf("valueType error!");
+			}
+
+			return _value._numValue.boolValue;
+		}
+
+		DWORD GetDWValue(){
+			if(_value._valueType != ValueType::DWORDVALUE){
+				printf("valueType error!");
+			}
+			return _value._numValue.dwValue;
+		}
+
+		QWORD GetQWValue(){
+			if(_value._valueType != ValueType::QWORDVALUE){
+				printf("valueType error!");
+			}
+			return _value._numValue.qValue;
+		}
+		
+		std::string GetStrValue(){
+			if(_value._valueType != ValueType::STRVALUE){
+					printf("valueType error!");
+			}
+
+			return _value._strValue;
+		}
+
+		LONG GetLongValue(){
+			if(_value._valueType != ValueType::LONGVALUE){
+				printf("valueType error!");
+			}
+			return _value._numValue.longValue;
+		}
+
+		FLOAT GetFloatValue(){
+			if(_value._valueType != ValueType::FLOATVALUE){
+				printf("valueType error!");
+			}
+
+			return _value._numValue.floatValue;	
+		}
+
+		double GetDoubleValue(){
+			if(_value._valueType != ValueType::DOUBLEVALUE){
+				printf("valueType error!");
+			}
+			return _value._numValue.doubleValue;
+		}
+
 	private:
-		int _value;
 
+		union NumValue{
+			bool		boolValue;
+			char*		strValue;	
+			DWORD		dwValue;
+			WORD		wValue;
+			QWORD		qValue;
+			int			intValue;
+			LONG        longValue;
+			FLOAT       floatValue;
+			double      doubleValue;
+		};
 
+		struct Value {
+			NumValue _numValue;
+			std::string _strValue;
+			ValueType _valueType;
+		};
+
+	Value _value;
 };
+
+
+
 
 class VarList
 {
 
 	public:
 
-		int GetValue(int i)
+		int GetIntValue(DWORD i)
 		{
 			assert(i<_varList.size());
-			if(i>=_varList.size())	
-			{
-				return 0;
-			}
-			return _varList[i].GetValue();
+			return _varList[i].GetIntValue();
 		};
 
-		VarList& operator<<(int value)
+		bool GetBoolValue(DWORD i)
 		{
-			_varList.push_back(VarObj(value));	
+			assert(i<_varList.size());
+			return _varList[i].GetBoolValue();
+		}
+
+		DWORD GetDWValue(DWORD i)
+		{
+			assert(i<_varList.size());
+			return _varList[i].GetDWValue();
+		}
+
+		DWORD GetQWValue(DWORD i)
+		{
+			assert(i<_varList.size());
+			return _varList[i].GetQWValue();
+		}
+
+		std::string GetStrValue(DWORD i)
+		{
+			assert(i<_varList.size());
+			return _varList[i].GetStrValue();
+		}
+		
+		LONG GetLongValue(DWORD i)
+		{
+			assert(i<_varList.size());
+			return _varList[i].GetLongValue();
+		}
+
+		FLOAT GetFloatValue(DWORD i)
+		{
+			assert(i<_varList.size());
+			return _varList[i].GetFloatValue();	
+		}
+		
+		double GetDoubleValue(DWORD i)
+		{
+			assert(i<_varList.size());
+			return _varList[i].GetDoubleValue();	
+	
+		}
+
+		template<typename T>
+		VarList& operator<<(T value)
+		{
+			VarObj var;
+			var.setValue(value);
+			_varList.push_back(var);	
 			return *this;
 
 		}
-		inline int size(){
+		inline DWORD size(){
 			return _varList.size();
 		}
 
 
 	private:	
+
 		std::vector<VarObj> _varList;
 
 };
