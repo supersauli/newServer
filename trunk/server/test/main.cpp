@@ -2,14 +2,32 @@
 #include <stdio.h>
 #include <iostream>
 #include <string.h>
+#include "sdk/XmlFile.h"
 using namespace std;
 int main()
 {
 
 
+	XmlFile xml;
+	xml.InitXml("DynamicActivity.xml");
+	
+	auto root = xml.GetRootElement();
 
+	auto children = xml.GetChildNode(root,"Property");
+	if(children !=nullptr)	
+	{
 
+		do{
+	
+			DWORD a = 0;
+			xml.GetNodeValue(children,"ID",a);
+			cout<<a<<endl;
+			children = xml.GetNext(children);	
+			
+		}while(children != nullptr);
 
+	
+	}
 
 
 

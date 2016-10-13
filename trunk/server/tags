@@ -70,6 +70,7 @@ AWK	Makefile	/^AWK = gawk$/;"	m
 AWK	sdk/Makefile	/^AWK = gawk$/;"	m
 AWK	test/Makefile	/^AWK = gawk$/;"	m
 AddACrontabTask	sdk/CornJob.cpp	/^void CornJob::AddACrontabTask(CornFunc,const char* strTime)$/;"	f	class:CornJob
+BOOLVALUE	sdk/VarList.h	/^			BOOLVALUE,$/;"	m	class:VarObj::ValueType
 BYTE	sdk/sDefine.h	/^typedef unsigned char BYTE;$/;"	t
 CC	Gate/Makefile	/^CC = gcc$/;"	m
 CC	Makefile	/^CC = gcc$/;"	m
@@ -193,6 +194,7 @@ DUMPBIN	Makefile	/^DUMPBIN = $/;"	m
 DUMPBIN	sdk/Makefile	/^DUMPBIN = $/;"	m
 DUMPBIN	test/Makefile	/^DUMPBIN = $/;"	m
 DWORD	sdk/sDefine.h	/^typedef unsigned int DWORD;$/;"	t
+DWORDVALUE	sdk/VarList.h	/^			DWORDVALUE,$/;"	m	class:VarObj::ValueType
 DelayTaskCompare	sdk/sTask.h	/^struct DelayTaskCompare$/;"	s
 DelayTaskContext	sdk/sTask.h	/^	DelayTaskContext(Closure function,int delayTime):$/;"	f	struct:DelayTaskContext
 DelayTaskContext	sdk/sTask.h	/^struct DelayTaskContext$/;"	s
@@ -241,13 +243,28 @@ Gate_DEPENDENCIES	Gate/Makefile	/^Gate_DEPENDENCIES = ..\/sdk\/libsdk.la$/;"	m
 Gate_LDADD	Gate/Makefile	/^Gate_LDADD = ..\/sdk\/libsdk.la$/;"	m
 Gate_OBJECTS	Gate/Makefile	/^Gate_OBJECTS = $(am_Gate_OBJECTS)$/;"	m
 Gate_SOURCES	Gate/Makefile	/^Gate_SOURCES = Gate.cpp $/;"	m
+GetBoolValue	sdk/VarList.h	/^		bool GetBoolValue(){$/;"	f	class:VarObj
+GetBoolValue	sdk/VarList.h	/^		bool GetBoolValue(DWORD i)$/;"	f	class:VarList
+GetChildNode	sdk/XmlFile.cpp	/^xmlNodePtr XmlFile::GetChildNode(const xmlNodePtr node,const char* name)$/;"	f	class:XmlFile
+GetDWValue	sdk/VarList.h	/^		DWORD GetDWValue(){$/;"	f	class:VarObj
+GetDWValue	sdk/VarList.h	/^		DWORD GetDWValue(DWORD i)$/;"	f	class:VarList
 GetHour	sdk/sTime.h	/^		DWORD GetHour()const$/;"	f	class:final
+GetIntValue	sdk/VarList.h	/^		int GetIntValue(){$/;"	f	class:VarObj
+GetIntValue	sdk/VarList.h	/^		int GetIntValue(DWORD i)$/;"	f	class:VarList
 GetMDay	sdk/sTime.h	/^		DWORD GetMDay()const$/;"	f	class:final
 GetMinute	sdk/sTime.h	/^		DWORD GetMinute()const$/;"	f	class:final
 GetMonth	sdk/sTime.h	/^		DWORD GetMonth()const$/;"	f	class:final
+GetNext	sdk/XmlFile.cpp	/^xmlNodePtr XmlFile::GetNext(xmlNodePtr node)$/;"	f	class:XmlFile
+GetNodeElement	sdk/XmlFile.cpp	/^void XmlFile::GetNodeElement(const xmlNodePtr node,const char*name,DWORD&value,DWORD defaultValue )$/;"	f	class:XmlFile
+GetNodeElement	sdk/XmlFile.cpp	/^void XmlFile::GetNodeElement(const xmlNodePtr node,const char*name,std::string&value,std::string defaultValue)$/;"	f	class:XmlFile
+GetNodeElement	sdk/XmlFile.cpp	/^xmlNodePtr XmlFile::GetNodeElement(const xmlNodePtr node,const char*name)$/;"	f	class:XmlFile
+GetQWValue	sdk/VarList.h	/^		DWORD GetQWValue(DWORD i)$/;"	f	class:VarList
+GetQWValue	sdk/VarList.h	/^		QWORD GetQWValue(){$/;"	f	class:VarObj
 GetRootElement	sdk/XmlFile.cpp	/^xmlNodePtr XmlFile::GetRootElement()$/;"	f	class:XmlFile
 GetRootElement	sdk/XmlFile.cpp	/^xmlNodePtr XmlFile::GetRootElement(const char* name)$/;"	f	class:XmlFile
-GetSec	sdk/sTime.h	/^		DWORD GetSec(){$/;"	f	class:final
+GetSec	sdk/sTime.h	/^		DWORD GetSec()const$/;"	f	class:final
+GetStrValue	sdk/VarList.h	/^		std::string GetStrValue(){$/;"	f	class:VarObj
+GetStrValue	sdk/VarList.h	/^		std::string GetStrValue(DWORD i)$/;"	f	class:VarList
 GetWDay	sdk/sTime.h	/^		DWORD GetWDay()const$/;"	f	class:final
 GetYDay	sdk/sTime.h	/^		DWORD GetYDay()const$/;"	f	class:final
 GetYear	sdk/sTime.h	/^		DWORD GetYear()const$/;"	f	class:final
@@ -289,6 +306,7 @@ INSTALL_STRIP_PROGRAM	Makefile	/^INSTALL_STRIP_PROGRAM = $(install_sh) -c -s$/;"
 INSTALL_STRIP_PROGRAM	sdk/Makefile	/^INSTALL_STRIP_PROGRAM = $(install_sh) -c -s$/;"	m
 INSTALL_STRIP_PROGRAM	test/Makefile	/^INSTALL_STRIP_PROGRAM = $(install_sh) -c -s$/;"	m
 INT64	sdk/sDefine.h	/^typedef long INT64;$/;"	t
+INTVALUE	sdk/VarList.h	/^			INTVALUE,$/;"	m	class:VarObj::ValueType
 InitXml	sdk/XmlFile.cpp	/^bool XmlFile::InitXml(const char *fileName)$/;"	f	class:XmlFile
 LD	Gate/Makefile	/^LD = \/usr\/bin\/ld -m elf_x86_64$/;"	m
 LD	Makefile	/^LD = \/usr\/bin\/ld -m elf_x86_64$/;"	m
@@ -304,7 +322,7 @@ LIBOBJS	sdk/Makefile	/^LIBOBJS = $/;"	m
 LIBOBJS	test/Makefile	/^LIBOBJS = $/;"	m
 LIBS	Gate/Makefile	/^LIBS = $/;"	m
 LIBS	Makefile	/^LIBS = $/;"	m
-LIBS	sdk/Makefile	/^LIBS = -llog4cplus -lsctp -lpthread -lstdc++$/;"	m
+LIBS	sdk/Makefile	/^LIBS = -llog4cplus -lsctp -lpthread -lstdc++ -lxml2$/;"	m
 LIBS	test/Makefile	/^LIBS = $/;"	m
 LIBTOOL	Gate/Makefile	/^LIBTOOL = $(SHELL) $(top_builddir)\/libtool$/;"	m
 LIBTOOL	Makefile	/^LIBTOOL = $(SHELL) $(top_builddir)\/libtool$/;"	m
@@ -319,7 +337,7 @@ LN_S	Gate/Makefile	/^LN_S = ln -s$/;"	m
 LN_S	Makefile	/^LN_S = ln -s$/;"	m
 LN_S	sdk/Makefile	/^LN_S = ln -s$/;"	m
 LN_S	test/Makefile	/^LN_S = ln -s$/;"	m
-LOG4_DEBUG	test/main.cpp	12;"	d	file:
+LOG4_DEBUG	test/main1.cpp	13;"	d	file:
 LOG_BUFF_SIZE	sdk/sLogManager.h	22;"	d
 LOG_LEVEL_ALL	sdk/sLogManager.h	/^		LOG_LEVEL_ALL	= log4cplus::ALL_LOG_LEVEL,	$/;"	m	class:base::LogLevel
 LOG_LEVE_DEBUAG	sdk/sLogManager.h	/^		LOG_LEVE_DEBUAG = log4cplus::DEBUG_LOG_LEVEL, $/;"	m	class:base::LogLevel
@@ -377,6 +395,7 @@ NORMAL_UNINSTALL	Gate/Makefile	/^NORMAL_UNINSTALL = :$/;"	m
 NORMAL_UNINSTALL	Makefile	/^NORMAL_UNINSTALL = :$/;"	m
 NORMAL_UNINSTALL	sdk/Makefile	/^NORMAL_UNINSTALL = :$/;"	m
 NORMAL_UNINSTALL	test/Makefile	/^NORMAL_UNINSTALL = :$/;"	m
+NumValue	sdk/VarList.h	/^		union NumValue{$/;"	u	class:VarObj
 OBJDUMP	Gate/Makefile	/^OBJDUMP = objdump$/;"	m
 OBJDUMP	Makefile	/^OBJDUMP = objdump$/;"	m
 OBJDUMP	sdk/Makefile	/^OBJDUMP = objdump$/;"	m
@@ -459,6 +478,7 @@ ProtoBuffMessage	sdk/sProtobuf.h	/^typedef google::protobuf::Message			ProtoBuff
 ProtoBuffMessageFactory	sdk/sProtobuf.h	/^typedef google::protobuf::MessageFactory    ProtoBuffMessageFactory;$/;"	t
 ProtobufManage	sdk/sProtobuf.h	/^class ProtobufManage: std::noncopyable$/;"	c
 QWORD	sdk/sDefine.h	/^typedef unsigned long QWORD;$/;"	t
+QWORDVALUE	sdk/VarList.h	/^			QWORDVALUE,$/;"	m	class:VarObj::ValueType
 RANLIB	Gate/Makefile	/^RANLIB = ranlib$/;"	m
 RANLIB	Makefile	/^RANLIB = ranlib$/;"	m
 RANLIB	sdk/Makefile	/^RANLIB = ranlib$/;"	m
@@ -493,6 +513,7 @@ STRIP	Gate/Makefile	/^STRIP = strip$/;"	m
 STRIP	Makefile	/^STRIP = strip$/;"	m
 STRIP	sdk/Makefile	/^STRIP = strip$/;"	m
 STRIP	test/Makefile	/^STRIP = strip$/;"	m
+STRVALUE	sdk/VarList.h	/^			STRVALUE,	$/;"	m	class:VarObj::ValueType
 SUBDIRS	Makefile	/^SUBDIRS = sdk  test Gate$/;"	m
 SWORD	sdk/sDefine.h	/^typedef signed short SWORD;$/;"	t
 Sec	sdk/sTime.h	/^	 DWORD Sec()const$/;"	f	class:ClockTime
@@ -513,6 +534,10 @@ VERSION	Makefile	/^VERSION = VERSION$/;"	m
 VERSION	config.h	69;"	d
 VERSION	sdk/Makefile	/^VERSION = VERSION$/;"	m
 VERSION	test/Makefile	/^VERSION = VERSION$/;"	m
+Value	sdk/VarList.h	/^		struct Value {$/;"	s	class:VarObj
+ValueType	sdk/VarList.h	/^		enum class ValueType$/;"	c	class:VarObj
+VarList	sdk/VarList.h	/^class VarList$/;"	c
+VarObj	sdk/VarList.h	/^class VarObj$/;"	c
 WORD	sdk/sDefine.h	/^typedef unsigned short WORD;$/;"	t
 XmlFile	sdk/XmlFile.h	/^class XmlFile$/;"	c
 _DEFINE_H__	sdk/sDefine.h	2;"	d
@@ -536,15 +561,14 @@ __GATE_H__	Gate/Gate.h	2;"	d
 __LOG_MANAGER_H__	sdk/sLogManager.h	2;"	d
 __PROTOBUF_MANAGE_H__	sdk/sProtobuf.h	2;"	d
 __TASK_H__	sdk/Task.h	2;"	d
+__VAR_LIST_H__	sdk/VarList.h	2;"	d
 __XML_FILE_H__	sdk/XmlFile.h	2;"	d
 _buf	sdk/sSctpScoket.h	/^		char _buf[1024];$/;"	m	class:sSctpScoket
 _clockTime	sdk/sTime.h	/^	 	timespec		_clockTime;	$/;"	m	class:ClockTime
 _cornFunc	sdk/CornJob.h	/^	CornFunc _cornFunc; \/\/执行内容$/;"	m	struct:CornDetails
-_cur	sdk/XmlFile.h	/^		xmlNodePtr _cur;$/;"	m	class:XmlFile
 _cycleMsec	sdk/sTime.h	/^		int _cycleMsec ;$/;"	m	class:CycleTime
 _delayTaskList	sdk/sTask.h	/^		std::list<DelayTaskContext> _delayTaskList;$/;"	m	class:Task
 _delayTime	sdk/sTask.h	/^	int _delayTime;$/;"	m	struct:DelayTaskContext
-_doc	sdk/XmlFile.h	/^		xmlDocPtr _doc;$/;"	m	class:XmlFile
 _dwID	sdk/sTask.h	/^	DWORD			_dwID;	$/;"	m	struct:TaskContext
 _dwSocket	sdk/UserTest.h	/^		DWORD _dwSocket;$/;"	m	class:UserTest
 _dwTimes	sdk/sSctpPool.h	/^	 DWORD _dwTimes;$/;"	m	class:sSctpPool
@@ -561,6 +585,7 @@ _mutex	sdk/sPthread.h	/^		 sMutex _mutex;$/;"	m	class:sPthread
 _name	Logic/FriendManage.h	/^	std::string _name;	$/;"	m	struct:FriendInfo
 _nextMsec	sdk/sTime.h	/^		time_t _nextMsec;$/;"	m	class:CycleTime
 _ntid	sdk/sPthread.h	/^		pthread_t _ntid;$/;"	m	class:sPthread
+_numValue	sdk/VarList.h	/^			NumValue _numValue;$/;"	m	struct:VarObj::Value
 _pLayout	sdk/sLogManager.h	/^			log4cplus::Layout *_pLayout;$/;"	m	class:base::Logger
 _pShareAppend	sdk/sLogManager.h	/^			log4cplus::helpers::SharedObjectPtr<log4cplus::Appender>  _pShareAppend;$/;"	m	class:base::Logger
 _pool	pool.h	/^		Memory_List * _pool[POOL_LIST_MAX_LENGTH];$/;"	m	class:sPool
@@ -571,10 +596,14 @@ _sSockListen	sdk/sSctpScoket.h	/^		int _sSockListen;$/;"	m	class:sSctpScoket
 _sctpPool	sdk/sSctpPool.h	/^	 sPthreadPool _sctpPool;$/;"	m	class:sSctpPool
 _sctpPth	sdk/UserTest.h	/^		sSctpPthread* _sctpPth;$/;"	m	class:UserTest
 _servaddr	sdk/sSctpScoket.h	/^		struct sockaddr_in _servaddr;$/;"	m	class:sSctpScoket	typeref:struct:sSctpScoket::sockaddr_in
+_strValue	sdk/VarList.h	/^			std::string _strValue;$/;"	m	struct:VarObj::Value
 _tTime	sdk/sTime.h	/^		time_t _tTime;$/;"	m	class:final
 _taskList	sdk/sTask.h	/^		std::list<TaskContext> _taskList;$/;"	m	class:Task
 _taskName	sdk/sTask.h	/^	std::string		_taskName;	$/;"	m	struct:TaskContext
 _tmTime	sdk/sTime.h	/^		struct tm _tmTime;$/;"	m	class:final	typeref:struct:final::tm
+_value	sdk/VarList.h	/^	Value _value;$/;"	m	class:VarObj
+_valueType	sdk/VarList.h	/^			ValueType _valueType;$/;"	m	struct:VarObj::Value
+_varList	sdk/VarList.h	/^		std::vector<VarObj> _varList;$/;"	m	class:VarList
 abs_builddir	Gate/Makefile	/^abs_builddir = \/home\/sauli\/server\/Gate$/;"	m
 abs_builddir	Makefile	/^abs_builddir = \/home\/sauli\/server$/;"	m
 abs_builddir	sdk/Makefile	/^abs_builddir = \/home\/sauli\/server\/sdk$/;"	m
@@ -814,6 +843,7 @@ bindir	Gate/Makefile	/^bindir = ${exec_prefix}\/bin$/;"	m
 bindir	Makefile	/^bindir = ${exec_prefix}\/bin$/;"	m
 bindir	sdk/Makefile	/^bindir = ${exec_prefix}\/bin$/;"	m
 bindir	test/Makefile	/^bindir = ${exec_prefix}\/bin$/;"	m
+boolValue	sdk/VarList.h	/^			bool		boolValue;$/;"	m	union:VarObj::NumValue
 build	Gate/Makefile	/^build = x86_64-unknown-linux-gnu$/;"	m
 build	Makefile	/^build = x86_64-unknown-linux-gnu$/;"	m
 build	sdk/Makefile	/^build = x86_64-unknown-linux-gnu$/;"	m
@@ -872,8 +902,9 @@ dvidir	Makefile	/^dvidir = ${docdir}$/;"	m
 dvidir	sdk/Makefile	/^dvidir = ${docdir}$/;"	m
 dvidir	test/Makefile	/^dvidir = ${docdir}$/;"	m
 dwSocket	sdk/UserTest.cpp	/^int dwSocket = 0;$/;"	v
+dwValue	sdk/VarList.h	/^			DWORD		dwValue;$/;"	m	union:VarObj::NumValue
 ecode	sdk/sProtobuf.h	/^		inline  Message* ecode(const char* buf,int len)$/;"	f	class:ProtobufManage
-elapseSec	sdk/sTime.h	/^		time_t elapseSec(const time_t&sec)$/;"	f	class:final
+elapseSec	sdk/sTime.h	/^		int elapseSec(const time_t&sec)$/;"	f	class:final
 end	sdk/UserTest.h	/^		bool end;$/;"	m	class:UserTest
 epollAddEvent	sdk/sEpoll.cpp	/^bool sEpoll::epollAddEvent(int epollfd,int event,int fd)$/;"	f	class:sEpoll
 epollChangeEvent	sdk/sEpoll.cpp	/^bool  sEpoll::epollChangeEvent(int epollfd,int event,int fd)$/;"	f	class:sEpoll
@@ -884,8 +915,8 @@ exec_prefix	Gate/Makefile	/^exec_prefix = ${prefix}$/;"	m
 exec_prefix	Makefile	/^exec_prefix = ${prefix}$/;"	m
 exec_prefix	sdk/Makefile	/^exec_prefix = ${prefix}$/;"	m
 exec_prefix	test/Makefile	/^exec_prefix = ${prefix}$/;"	m
-f1	test/main.cpp	/^void f1()$/;"	f
-f2	test/main.cpp	/^void f2(int a,int b)$/;"	f
+f1	test/main1.cpp	/^void f1()$/;"	f
+f2	test/main1.cpp	/^void f2(int a,int b)$/;"	f
 fatal	sdk/sLogManager.cpp	/^void Logger::fatal(const char*fmt,...)$/;"	f	class:Logger
 fileList	sdk/Makefile	/^fileList = \\$/;"	m
 final	sdk/sTime.h	/^class Time final$/;"	c
@@ -981,8 +1012,10 @@ func_enable_tag	ltmain.sh	/^func_enable_tag ()$/;"	f
 func_error	ar-lib	/^func_error ()$/;"	f
 func_error	libtool	/^func_error ()$/;"	f
 func_error	ltmain.sh	/^func_error ()$/;"	f
+func_exec_program	Gate/Gate	/^func_exec_program ()$/;"	f
 func_exec_program	libtool	/^func_exec_program ()$/;"	f
 func_exec_program	ltmain.sh	/^func_exec_program ()$/;"	f
+func_exec_program_core	Gate/Gate	/^func_exec_program_core ()$/;"	f
 func_exec_program_core	libtool	/^func_exec_program_core ()$/;"	f
 func_exec_program_core	ltmain.sh	/^func_exec_program_core ()$/;"	f
 func_execute_cmds	libtool	/^func_execute_cmds ()$/;"	f
@@ -991,6 +1024,7 @@ func_extract_an_archive	libtool	/^func_extract_an_archive ()$/;"	f
 func_extract_an_archive	ltmain.sh	/^func_extract_an_archive ()$/;"	f
 func_extract_archives	libtool	/^func_extract_archives ()$/;"	f
 func_extract_archives	ltmain.sh	/^func_extract_archives ()$/;"	f
+func_fallback_echo	Gate/Gate	/^func_fallback_echo ()$/;"	f
 func_fallback_echo	config.status	/^func_fallback_echo ()$/;"	f
 func_fallback_echo	configure	/^  func_fallback_echo ()$/;"	f
 func_fallback_echo	configure	/^func_fallback_echo ()$/;"	f
@@ -1027,6 +1061,7 @@ func_lo2o	config.status	/^func_lo2o ()\\$/;"	f
 func_lo2o	configure	/^func_lo2o ()\\$/;"	f
 func_lo2o	libtool	/^func_lo2o ()$/;"	f
 func_lo2o	ltmain.sh	/^func_lo2o ()$/;"	f
+func_lt_dump_args	Gate/Gate	/^func_lt_dump_args ()$/;"	f
 func_lt_dump_args	libtool	/^func_lt_dump_args ()$/;"	f
 func_lt_dump_args	ltmain.sh	/^func_lt_dump_args ()$/;"	f
 func_ltwrapper_executable_p	libtool	/^func_ltwrapper_executable_p ()$/;"	f
@@ -1059,6 +1094,7 @@ func_mode_uninstall	libtool	/^func_mode_uninstall ()$/;"	f
 func_mode_uninstall	ltmain.sh	/^func_mode_uninstall ()$/;"	f
 func_normal_abspath	libtool	/^func_normal_abspath ()$/;"	f
 func_normal_abspath	ltmain.sh	/^func_normal_abspath ()$/;"	f
+func_parse_lt_options	Gate/Gate	/^func_parse_lt_options ()$/;"	f
 func_parse_lt_options	libtool	/^func_parse_lt_options ()$/;"	f
 func_parse_lt_options	ltmain.sh	/^func_parse_lt_options ()$/;"	f
 func_quote_for_eval	libtool	/^func_quote_for_eval ()$/;"	f
@@ -1180,6 +1216,7 @@ install_sh_SCRIPT	Gate/Makefile	/^install_sh_SCRIPT = $(install_sh) -c$/;"	m
 install_sh_SCRIPT	Makefile	/^install_sh_SCRIPT = $(install_sh) -c$/;"	m
 install_sh_SCRIPT	sdk/Makefile	/^install_sh_SCRIPT = $(install_sh) -c$/;"	m
 install_sh_SCRIPT	test/Makefile	/^install_sh_SCRIPT = $(install_sh) -c$/;"	m
+intValue	sdk/VarList.h	/^			int			intValue;$/;"	m	union:VarObj::NumValue
 isSameDay	sdk/sTime.h	/^	static bool isSameDay(time_t&src,time_t&other)$/;"	f	class:TimeHelp
 isSameHour	sdk/sTime.h	/^	static bool isSameHour(time_t&src,time_t&other) $/;"	f	class:TimeHelp
 isSameMinute	sdk/sTime.h	/^		bool isSameMinute(const Time &other)const$/;"	f	class:final
@@ -1217,6 +1254,7 @@ main	config.guess	/^		main()$/;"	f
 main	config.guess	/^	main ()$/;"	f
 main	config.guess	/^main ()$/;"	f
 main	test/main.cpp	/^int main()$/;"	f
+main	test/main1.cpp	/^int main()$/;"	f
 main_DEPENDENCIES	test/Makefile	/^main_DEPENDENCIES = ..\/sdk\/libsdk.la$/;"	m
 main_LDADD	test/Makefile	/^main_LDADD = ..\/sdk\/libsdk.la  $/;"	m
 main_LDFLAGS	test/Makefile	/^main_LDFLAGS = -no-install$/;"	m
@@ -1249,6 +1287,7 @@ operator ()	sdk/sTime.h	/^		bool operator ()(const time_t& Msec)$/;"	f	class:Cyc
 operator +	sdk/sTime.h	/^		Time& operator +(const Time&other)$/;"	f	class:final
 operator -	sdk/sTime.h	/^		Time& operator - (const Time&other)$/;"	f	class:final
 operator <	sdk/sTime.h	/^		bool operator < (const Time&other) const$/;"	f	class:final
+operator <<	sdk/VarList.h	/^		VarList& operator<<(T value)$/;"	f	class:VarList
 operator <=	sdk/sTime.h	/^		bool operator <= (const Time&other) const$/;"	f	class:final
 operator =	sdk/sTask.h	/^	TaskContext& operator =  (TaskContext& other)$/;"	f	struct:TaskContext
 operator =	sdk/sTime.h	/^		Time& operator = (const Time&other)$/;"	f	class:final
@@ -1291,6 +1330,7 @@ psdir	Makefile	/^psdir = ${docdir}$/;"	m
 psdir	sdk/Makefile	/^psdir = ${docdir}$/;"	m
 psdir	test/Makefile	/^psdir = ${docdir}$/;"	m
 pthread_func	sdk/sPthread.h	/^typedef void* (*pthread_func)(void *arg);$/;"	t
+qValue	sdk/VarList.h	/^			QWORD		qValue;$/;"	m	union:VarObj::NumValue
 recvMessage	sdk/sProtobuf.h	/^		inline void recvMessage(void *buf){};$/;"	f	class:ProtobufManage
 run	sdk/sPthread.h	/^		virtual void run(){};$/;"	f	class:sPthread
 run	sdk/sSctpPthread.cpp	/^void sSctpPthread::run()$/;"	f	class:sSctpPthread
@@ -1321,12 +1361,17 @@ sendCmd	sdk/UserTest.cpp	/^bool UserTest::sendCmd(DWORD dwSocket,char *buf)$/;"	
 sendCmd	sdk/sSctpPthread.cpp	/^void sSctpPthread::sendCmd(DWORD dwSocket,char *buf)$/;"	f	class:sSctpPthread
 setLevel	sdk/sLogManager.cpp	/^void Logger::setLevel(const LogLevel& level)$/;"	f	class:Logger
 setSec	sdk/sTime.h	/^		void setSec(const time_t&sec)$/;"	f	class:final
+setValue	sdk/VarList.h	/^		void setValue(bool value)$/;"	f	class:VarObj
+setValue	sdk/VarList.h	/^		void setValue(char *value)$/;"	f	class:VarObj
+setValue	sdk/VarList.h	/^		void setValue(const char* value)$/;"	f	class:VarObj
+setValue	sdk/VarList.h	/^		void setValue(int value)$/;"	f	class:VarObj
 set_base_from	depcomp	/^set_base_from ()$/;"	f
 set_dir_from	depcomp	/^set_dir_from ()$/;"	f
 sharedstatedir	Gate/Makefile	/^sharedstatedir = ${prefix}\/com$/;"	m
 sharedstatedir	Makefile	/^sharedstatedir = ${prefix}\/com$/;"	m
 sharedstatedir	sdk/Makefile	/^sharedstatedir = ${prefix}\/com$/;"	m
 sharedstatedir	test/Makefile	/^sharedstatedir = ${prefix}\/com$/;"	m
+size	sdk/VarList.h	/^		inline DWORD size(){$/;"	f	class:VarList
 srcdir	Gate/Makefile	/^srcdir = .$/;"	m
 srcdir	Makefile	/^srcdir = .$/;"	m
 srcdir	sdk/Makefile	/^srcdir = .$/;"	m
@@ -1334,6 +1379,7 @@ srcdir	test/Makefile	/^srcdir = .$/;"	m
 ss	sdk/UserTest.cpp	/^UserTest* ss = NULL;$/;"	v
 stcpAccept	sdk/sSctpScoket.cpp	/^void sSctpScoket::stcpAccept()$/;"	f	class:sSctpScoket
 stcpNewClient	sdk/sSctpPool.cpp	/^void sSctpPool::stcpNewClient(DWORD dwSocket)$/;"	f	class:sSctpPool
+strValue	sdk/VarList.h	/^			char*		strValue;	$/;"	m	union:VarObj::NumValue
 subdir	Gate/Makefile	/^subdir = Gate$/;"	m
 subdir	Makefile	/^subdir = .$/;"	m
 subdir	sdk/Makefile	/^subdir = sdk$/;"	m
@@ -1371,6 +1417,8 @@ transform	sdk/Makefile	/^transform = $(program_transform_name)$/;"	m
 transform	test/Makefile	/^transform = $(program_transform_name)$/;"	m
 unLock	sdk/sMutex.cpp	/^void sMutex::unLock()$/;"	f	class:sMutex
 usage_error	test-driver	/^usage_error ()$/;"	f
+wValue	sdk/VarList.h	/^			WORD		wValue;$/;"	m	union:VarObj::NumValue
 warn	sdk/sLogManager.cpp	/^void Logger::warn(const char*fmt,...)$/;"	f	class:Logger
 ~Logger	sdk/sLogManager.h	/^			~Logger(){$/;"	f	class:base::Logger
+~XmlFile	sdk/XmlFile.h	/^		~XmlFile(){$/;"	f	class:XmlFile
 ~sMutex	sdk/sMutex.cpp	/^sMutex:: ~sMutex()$/;"	f	class:sMutex
