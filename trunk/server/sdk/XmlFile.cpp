@@ -23,8 +23,6 @@ bool XmlFile::InitXml(const char *fileName)
 xmlNodePtr XmlFile::GetRootElement()
 {
 	CHECK_NULL_RETURN(_doc);
-
-
 	return xmlDocGetRootElement(_doc);
 }
 
@@ -65,7 +63,6 @@ xmlNodePtr XmlFile::GetRootElement(const char* name)
 			if(!xmlStrcmp(_cur->name, reinterpret_cast <const xmlChar*>(name))){
 					return _cur;
 			}
-
 			 _cur = _cur->xmlChildrenNode;
 
 			 if(_cur == nullptr){
@@ -78,7 +75,7 @@ xmlNodePtr XmlFile::GetRootElement(const char* name)
 }
 
 
-xmlNodePtr XmlFile::GetNodeElement(const xmlNodePtr node,const char*name)
+xmlNodePtr XmlFile::GetNode(const xmlNodePtr node,const char*name)
 {
 	xmlNodePtr cur = node;
 
@@ -97,13 +94,33 @@ xmlNodePtr XmlFile::GetNodeElement(const xmlNodePtr node,const char*name)
 
 }
 
+
+
+
+const char* XmlFile::GetNodeAttrStr(const xmlNodePtr node,const char*attrName)
+{
+
+	auto attrPtr = node->properties;
+	while (attrPtr != nullptr)
+	{
+		if (!xmlStrcmp(attrPtr->name,BAD_CAST attrName))
+		{
+			return (char*) (xmlGetProp(node, BAD_CAST attrName));
+		}
+		attrPtr = attrPtr->next;
+	}
+
+
+	return nullptr;
+}
+
 void XmlFile::GetNodeValue(const xmlNodePtr node,const char*name,DWORD&value,DWORD defaultValue )
 {
 
-	xmlNodePtr cur = GetNodeElement(node,name);
-	if(cur != nullptr)
+	auto rValue = GetNodeAttrStr(node,name);
+	if(rValue != nullptr)
 	{
-		value = atoi(reinterpret_cast<const char*>(xmlNodeGetContent(cur)));
+		value = atoi(rValue);
 	}
 	else
 	{
@@ -118,9 +135,9 @@ void XmlFile::GetNodeValue(const xmlNodePtr node,const char*name,DWORD&value,DWO
 void XmlFile::GetNodeValue(const xmlNodePtr node,const char*name,std::string&value,std::string defaultValue)
 {
 
-	xmlNodePtr cur = GetNodeElement(node,name);
-	if(cur != nullptr){
-		value = reinterpret_cast<const char*>(xmlNodeGetContent(cur));
+	auto rValue = GetNodeAttrStr(node,name);
+	if(rValue != nullptr){
+		value = reinterpret_cast<const char*>(rValue);
 	}
 	else
 	{
@@ -131,9 +148,9 @@ void XmlFile::GetNodeValue(const xmlNodePtr node,const char*name,std::string&val
 
 void XmlFile::GetNodeValue(const xmlNodePtr node,const char*name,float &value,float defaultValue)
 {
-	xmlNodePtr cur = GetNodeElement(node,name);
-	if(cur != nullptr){
-		value = atof(reinterpret_cast<const char*>(xmlNodeGetContent(cur)));
+	auto rValue = GetNodeAttrStr(node,name);
+	if(rValue != nullptr){
+		value = atof(rValue);
 	}
 	else
 	{
@@ -143,14 +160,13 @@ void XmlFile::GetNodeValue(const xmlNodePtr node,const char*name,float &value,fl
 
 void XmlFile::GetNodeValue(const xmlNodePtr node,const char*name,double &value,double defaultValue)
 {
-	xmlNodePtr cur = GetNodeElement(node,name);
-	if(cur != nullptr){
-		value = strtod(reinterpret_cast<const char*>(xmlNodeGetContent(cur)),NULL);
+	auto rValue = GetNodeAttrStr(node,name);
+	if(rValue != nullptr){
+		value = strtod(rValue,nullptr);
 	}
 	else
 	{
 		value = defaultValue;
-	
 	}
 }
 
@@ -159,7 +175,18 @@ xmlNodePtr XmlFile::GetNext(xmlNodePtr node)
 {
 
 	CHECK_NULL_RETURN(node);
-	return node->next;
+
+	node = node->next;
+	while(node !=nullptr)
+	{
+		if(node->type == XML_ELEMENT_NODE){
+			return node;
+		}
+		node = node->next;
+	}
+
+
+	return nullptr;
 
 }
 

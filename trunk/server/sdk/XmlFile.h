@@ -42,14 +42,26 @@ class XmlFile
 		xmlNodePtr GetChildNode(const xmlNodePtr node,const char* name);
 
 		/**
-		 * @brief 
+		 * @brief 获取节点
 		 *
 		 * @param node
-		 * @param name
+		 * @param name 节点名称
 		 *
 		 * @return 
 		 */
-		xmlNodePtr GetNodeElement(const xmlNodePtr node,const char*name);
+		xmlNodePtr GetNode(const xmlNodePtr node,const char*name);
+
+
+
+		/**
+		 * @brief 获得属性值 
+		 *
+		 * @param node
+		 * @param attrName
+		 *
+		 * @return 
+		 */
+		const char* GetNodeAttrStr(const xmlNodePtr node,const char*attrName);
 
 		/**
 		 * @brief 过得根节点数据
