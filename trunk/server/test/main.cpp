@@ -21,7 +21,10 @@ int main()
 	
 			DWORD a = 0;
 			xml.GetNodeValue(children,"ID",a);
+			std::string name;
+			xml.GetNodeValue(children,"NAME",name);
 			cout<<a<<endl;
+			cout<<name.c_str()<<endl;
 			children = xml.GetNext(children);	
 			
 		}while(children != nullptr);

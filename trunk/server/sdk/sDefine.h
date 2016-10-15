@@ -73,7 +73,10 @@ typedef signed long SQWORD;
  */
 typedef long INT64;
 
-
+/**
+ * @brief double 
+ */
+typedef double DOUBLE;
 
 
 

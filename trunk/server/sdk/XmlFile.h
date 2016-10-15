@@ -4,6 +4,7 @@
 #include <libxml/tree.h>
 #include <libxml/parser.h>
 #include <string>
+#include <string.h>
 class XmlFile
 {
 
@@ -14,7 +15,24 @@ class XmlFile
 			}
 
 		};
+
+		/**
+		 * @brief xml文件初始化
+		 *
+		 * @param fileName 文件名
+		 *
+		 * @return 
+		 */
 		bool InitXml(const char *fileName);
+
+		/**
+		 * @brief 
+		 *
+		 * @param buf
+		 *
+		 * @return 
+		 */
+		bool Parse(const char*buf,int size = -1);
 
 		/**
 		 * @brief 获得根节点
@@ -81,7 +99,7 @@ class XmlFile
 		 * @param value
 		 * @param defaultValue
 		 */
-		void GetNodeValue(const xmlNodePtr node,const char*name,std::string&value,std::string defaultValue = "");
+		void GetNodeValue(const xmlNodePtr node,const char*name,std::string&value,const char* defaultValue = "");
 
 		/**
 		 * @brief 获得根节点数据
@@ -102,10 +120,139 @@ class XmlFile
 		 * @param value
 		 * @param defaultValue
 		 */
-		void GetNodeValue(const xmlNodePtr node,const char*name,double &value,double defaultValue = 0.0);
+		void GetNodeValue(const xmlNodePtr node,const char*name,DOUBLE &value,DOUBLE defaultValue = 0.0);
+
+		/**
+		 * @brief 获得节点文本 
+		 *
+		 * @param node
+		 *
+		 * @return 
+		 */
+		std::string GetNodeContent(const xmlNodePtr node);
 
 
+		/**
+		 * @brief 保存到buff
+		 *
+		 * @param node 
+		 * @param out
+		 * @param len
+		 * @param format 0 表示不格式化 1表示格式化
+		 * @param encoding
+		 *
+		 * @return 
+		 */
+		int saveToString(xmlDocPtr node,std::string &out,const char*encoding=nullptr,int format = 1);
+
+		/**
+		 * @brief 保存节点内容到文件 
+		 *
+		 * @param fileName
+		 * @param cur
+		 * @param format 0 表示不格式化 1表示格式化
+		 * @param encoding
+		 *
+		 * @return 
+		 */
+		bool saveToFile(const char*fileName,xmlDocPtr node,const char*encoding=nullptr,int format = 1);
+
+			
+
+		/**
+		 * @brief 获得下一个节点 
+		 *
+		 * @param node
+		 *
+		 * @return 
+		 */
 		xmlNodePtr GetNext(xmlNodePtr node);
+
+		
+
+		/**
+		 * @brief 创建xml文档
+		 *
+		 * @return 
+		 */
+		xmlDocPtr Create();
+
+
+		/**
+		 * @brief 创建新节点
+		 *
+		 * @param node
+		 * @param name
+		 *
+		 * @return 
+		 */
+		xmlNodePtr CreateNode(const char* name);
+
+		/**
+		 * @brief 创建子节点
+		 *
+		 * @param node
+		 * @param name
+		 * @param content
+		 *
+		 * @return 
+		 */
+		xmlNodePtr CreateChild(xmlNodePtr node,const char*name,const char*content);
+
+
+		/**
+		 * @brief 给指定节点添加节点
+		 *
+		 * @param parent
+		 * @param cur
+		 *
+		 * @return 
+		 */
+		xmlNodePtr AddChild(xmlNodePtr parent,xmlNodePtr cur);
+		/**
+		 * @brief 添加后一个兄弟节点
+		 *
+		 * @param parent
+		 * @param cur
+		 *
+		 * @return 
+		 */
+		xmlNodePtr AddNextSibling(xmlNodePtr cur,xmlNodePtr elem);
+		/**
+		 * @brief 添加前一个兄弟节点
+		 *
+		 * @param parent
+		 * @param cur
+		 *
+		 * @return 
+		 */
+		xmlNodePtr AddPrevSibling(xmlNodePtr cur,xmlNodePtr elem);
+		/**
+		 * @brief 添加兄弟节点
+		 *
+		 * @param parent
+		 * @param cur
+		 *
+		 * @return 
+		 */
+		xmlNodePtr AddSibling(xmlNodePtr cur,xmlNodePtr elem);
+
+			
+		/**
+		 * @brief 释放文档
+		 *
+		 * @param node
+		 */
+		void Free(xmlDocPtr node);
+
+		/**
+		 * @brief设置节点内容 
+		 *
+		 * @param node
+		 * @param content
+		 * @param len
+		 */
+		void SetNodeContent(xmlNodePtr node,const char* content,int len=-1);
 
 	private:
 
