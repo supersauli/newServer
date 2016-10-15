@@ -3,3 +3,7 @@
 .deps
 .Plo
 *.lo
+Makefile
+config.log
+config.status
+
