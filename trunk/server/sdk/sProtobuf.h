@@ -10,6 +10,7 @@
 #include <string>
 #include "sDefine.h"
 #include <cstdlib>
+#include <string.h>
 typedef google::protobuf::Message			ProtoBuffMessage;
 typedef google::protobuf::Descriptor		ProtoBuffDesc;
 typedef google::protobuf::DescriptorPool    ProtoBuffDescPool;
@@ -51,7 +52,7 @@ class ProtobufManage//: std::noncopyable
 		 * @param buf
 		 * @param message
 		 */
-		inline void decode(const char*buf,ProtoBuffMessage& message){
+		inline void decode( char*buf,ProtoBuffMessage& message){
 			std::string buffer; 
 			const std::string& typeName = message.GetTypeName();
 			DWORD nameLen = static_cast<DWORD>(typeName.size()+1);
@@ -60,6 +61,7 @@ class ProtobufManage//: std::noncopyable
 			DWORD byteSize = message.ByteSize();
 			buffer.append(std::to_string(byteSize));
 			buffer.append(message.SerializeAsString());
+			strncpy(buf,buffer.c_str(),buffer.size());
 
 		};
 		
@@ -72,6 +74,7 @@ class ProtobufManage//: std::noncopyable
 		{
 
 			std::string buffer(buf);
+
 			int size = 0;
 			int NameLen = std::atoi(buffer.substr(size,sizeof(DWORD)).c_str());	
 			size+=sizeof(DWORD);
