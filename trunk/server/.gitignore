@@ -3,7 +3,8 @@
 .deps
 .Plo
 *.lo
+test/main
+Gate/Gate
 Makefile
 config.log
 config.status
-test/main

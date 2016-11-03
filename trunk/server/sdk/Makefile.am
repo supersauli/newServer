@@ -1,7 +1,7 @@
 AUTOMAKE_OPTIONS=foreign
 CXX := clang++
 #CXXFLAGS +=-llog4cplus -lsctp -lpthread
-LIBS = -llog4cplus -lsctp -lpthread -lstdc++ -lxml2
+LIBS = -llog4cplus -lsctp -lpthread -lstdc++ -lxml2 -lprotobuf
 #文件列表
 fileList = \
 		sMutex.cpp \

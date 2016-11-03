@@ -3,35 +3,61 @@
 #include <iostream>
 #include <string.h>
 #include "sdk/XmlFile.h"
+#include "test.pb.h"
+#include "sdk/sProtobuf.h"
 using namespace std;
 int main()
 {
-
-
-	XmlFile xml;
-	xml.InitXml("DynamicActivity.xml");
+	ProtobufManage msg;
 	
-	auto root = xml.GetRootElement();
+	muduo::pack mproto;
+	mproto.set_dwid(10);
+	//mproto.set_name("fsdafd");
+	char buff[1024] = {0};
+	msg.decode(buff,mproto);	
+	auto m1 = msg.ecode(buff);
+	auto m2 = (muduo::pack*)m1;
+	cout<<m2->dwid()<<endl;
 
-	auto children = xml.GetChildNode(root,"Property");
-	if(children !=nullptr)	
-	{
 
-		do{
-	
-			DWORD a = 0;
-			xml.GetNodeValue(children,"ID",a);
-			std::string name;
-			xml.GetNodeValue(children,"NAME",name);
-			cout<<a<<endl;
-			cout<<name.c_str()<<endl;
-			children = xml.GetNext(children);	
-			
-		}while(children != nullptr);
 
-	
-	}
 
+
+
+
+
+
+
+
+
+
+
+
+
+//	XmlFile xml;
+//	xml.InitXml("DynamicActivity.xml");
+//	
+//	auto root = xml.GetRootElement();
+//
+//	auto children = xml.GetChildNode(root,"Property");
+//	if(children !=nullptr)	
+//	{
+//
+//		do{
+//	
+//			DWORD a = 0;
+//			xml.GetNodeValue(children,"ID",a);
+//			std::string name;
+//			xml.GetNodeValue(children,"NAME",name);
+//			cout<<a<<endl;
+//			cout<<name.c_str()<<endl;
+//			children = xml.GetNext(children);	
+//			
+//		}while(children != nullptr);
+//
+//	
+//	}
+//
 
 
 

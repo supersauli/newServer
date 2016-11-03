@@ -9,20 +9,21 @@
 #include <functional>
 #include <string>
 #include "sDefine.h"
-
+#include <cstdlib>
+#include <string.h>
 typedef google::protobuf::Message			ProtoBuffMessage;
 typedef google::protobuf::Descriptor		ProtoBuffDesc;
 typedef google::protobuf::DescriptorPool    ProtoBuffDescPool;
 typedef google::protobuf::MessageFactory    ProtoBuffMessageFactory;
 
-class ProtobufManage: std::noncopyable
+class ProtobufManage//: std::noncopyable
 {
 	public:
 
 		inline void recvMessage(void *buf){};
 
 		inline void sendBuf(void *buf){};
-	private:
+	//private:
 		
 		/**
 		 * @brief 创建消息
@@ -31,8 +32,8 @@ class ProtobufManage: std::noncopyable
 		 *
 		 * @return 
 		 */
-		inline ProtoBuffMessage*  crateMessage(const std::stiring& name){
-			ProtoBuffDesc *desc = ProtoBufDescPool::generated_pool()->findMessageTypeByName(typeName); 
+		inline ProtoBuffMessage*  createMessage(const std::string& name){
+			const ProtoBuffDesc *desc = ProtoBuffDescPool::generated_pool()->FindMessageTypeByName(name); 
 			if(desc != nullptr )
 			{
 				const ProtoBuffMessage * prototype = ProtoBuffMessageFactory::generated_factory()->GetPrototype(desc); 
@@ -51,15 +52,16 @@ class ProtobufManage: std::noncopyable
 		 * @param buf
 		 * @param message
 		 */
-		inline void decode(const char*buf,ProtoBuffMessage& message){
+		inline void decode( char*buf,ProtoBuffMessage& message){
 			std::string buffer; 
-			const std::stirng& typeName = message.GetTypeeName();
+			const std::string& typeName = message.GetTypeName();
 			DWORD nameLen = static_cast<DWORD>(typeName.size()+1);
-			buffer.append(atoi(NameLen));
+			buffer.append(std::to_string(nameLen));
 			buffer.append(typeName.c_str(),nameLen);
 			DWORD byteSize = message.ByteSize();
-			buffer.append(atoi(byteSize));
+			buffer.append(std::to_string(byteSize));
 			buffer.append(message.SerializeAsString());
+			strncpy(buf,buffer.c_str(),buffer.size());
 
 		};
 		
@@ -67,41 +69,36 @@ class ProtobufManage: std::noncopyable
 		 * @brief 解码
 		 *
 		 * @param buf
-		 * @param len
 		 */
-		inline  Message* ecode(const char* buf,int len)
+		inline  ProtoBuffMessage* ecode(const char* buf)
 		{
 
-			std::string buffer(buf):
+			std::string buffer(buf);
+
 			int size = 0;
-			int NameLen = buffer.substr(size,sizeof(DWORD));	
+			int NameLen = std::atoi(buffer.substr(size,sizeof(DWORD)).c_str());	
 			size+=sizeof(DWORD);
 			std::string typeName = buffer.substr(size,NameLen);
 			size+=NameLen;
-			int contentSize = buffer.substr(size,sizeof(DWORD));
+			int contentSize = std::atoi(buffer.substr(size,sizeof(DWORD)).c_str());
 			size+=sizeof(DWORD);
-			MessagePtr message;
-			message.reset(createMessage(typeName));
+			ProtoBuffMessage* message;
+			//google::protobuf::Message message;
+			message = createMessage(typeName);
 			if(message)
 			{
 				if(message->ParseFromArray(buffer.c_str()+size,contentSize))
 				{
-				
-				
+					return message;
 				
 				}
-				return message;
-					
-
 			}
 
-
-
-			}
+			return nullptr;
+		}
 
 
 		
-		};
 
 			
 
