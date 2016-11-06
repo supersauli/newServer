@@ -36,5 +36,7 @@ AC_CHECK_FUNCS([gettimeofday])
 AC_CONFIG_FILES([Makefile
                  sdk/Makefile
 				 Gate/Makefile
-                 test/Makefile])
+                 test/Makefile
+				 proto/Makefile
+				 ])
 AC_OUTPUT

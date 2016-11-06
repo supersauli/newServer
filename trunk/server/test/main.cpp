@@ -12,7 +12,7 @@ int main()
 	
 	muduo::pack mproto;
 	mproto.set_dwid(10);
-	//mproto.set_name("fsdafd");
+	mproto.set_name("fsdafd");
 	char buff[1024] = {0};
 	msg.decode(buff,mproto);	
 	auto m1 = msg.ecode(buff);

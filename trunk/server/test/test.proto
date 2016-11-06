@@ -1,5 +1,0 @@
-package muduo;
-message pack{
-	required int32 dwID = 1;
-	required string name = 2;
-}

@@ -45,6 +45,20 @@ class ProtobufManage//: std::noncopyable
 			return nullptr;
 		};
 
+		template<class DATA>
+		void PushData(char*&buf,const DATA &data)
+		{
+			bcopy(reinterpret_cast<const BYTE*>(&data),buf,sizeof(DATA));	
+			buf+=sizeof(DATA);
+		};
+		template<class DATA>
+		void PushData(char*&buf,const DATA &data,int size)
+		{
+			//bcopy(reinterpret_cast<const BYTE*>(&data),buf,size);	
+			bcopy(data,buf,size);	
+			buf+=size;
+		};
+
 
 		/**
 		 * @brief 编码
@@ -53,17 +67,20 @@ class ProtobufManage//: std::noncopyable
 		 * @param message
 		 */
 		inline void decode( char*buf,ProtoBuffMessage& message){
-			std::string buffer; 
+
+			
+
+			char *ptr =buf;
 			const std::string& typeName = message.GetTypeName();
 			DWORD nameLen = static_cast<DWORD>(typeName.size()+1);
-			buffer.append(std::to_string(nameLen));
-			buffer.append(typeName.c_str(),nameLen);
+			PushData(ptr,nameLen);
+			PushData(ptr,typeName.c_str(),nameLen);
 			DWORD byteSize = message.ByteSize();
-			buffer.append(std::to_string(byteSize));
-			buffer.append(message.SerializeAsString());
-			strncpy(buf,buffer.c_str(),buffer.size());
-
+			PushData(ptr,byteSize);
+			PushData(ptr,message.SerializeAsString().c_str(),byteSize);	
 		};
+
+
 		
 		/**
 		 * @brief 解码
@@ -73,21 +90,21 @@ class ProtobufManage//: std::noncopyable
 		inline  ProtoBuffMessage* ecode(const char* buf)
 		{
 
-			std::string buffer(buf);
-
+			const char*ptr = buf;
 			int size = 0;
-			int NameLen = std::atoi(buffer.substr(size,sizeof(DWORD)).c_str());	
-			size+=sizeof(DWORD);
-			std::string typeName = buffer.substr(size,NameLen);
-			size+=NameLen;
-			int contentSize = std::atoi(buffer.substr(size,sizeof(DWORD)).c_str());
+			DWORD NameLen = *(ptr+size);	
+			size += sizeof(DWORD);
+			 char typeName[12] = {0};
+			 //bcopy(reinterpret_cast<const BYTE*>(ptr+size),typeName,NameLen);
+			 bcopy((ptr+size),typeName,NameLen);
+			 size+=NameLen;
+			int contentSize = *(ptr+size);
 			size+=sizeof(DWORD);
 			ProtoBuffMessage* message;
-			//google::protobuf::Message message;
 			message = createMessage(typeName);
 			if(message)
 			{
-				if(message->ParseFromArray(buffer.c_str()+size,contentSize))
+				if(message->ParseFromArray(ptr+size,contentSize))
 				{
 					return message;
 				
