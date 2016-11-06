@@ -220,6 +220,12 @@ class VarList
 			return *this;
 
 		}
+
+		VarList& operator<<(VarList& other)
+		{
+			_varList.insert(_varList.end(),other._varList.begin(),other._varList.end());
+		}
+
 		inline DWORD size(){
 			return _varList.size();
 		}
