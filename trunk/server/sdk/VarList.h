@@ -224,6 +224,7 @@ class VarList
 		VarList& operator<<(VarList& other)
 		{
 			_varList.insert(_varList.end(),other._varList.begin(),other._varList.end());
+			return *this;
 		}
 
 		inline DWORD size(){
