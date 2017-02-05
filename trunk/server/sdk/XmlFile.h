@@ -59,6 +59,26 @@ class XmlFile
 		 */
 		xmlNodePtr GetChildNode(const xmlNodePtr node,const char* name);
 
+		
+		/**
+		 * @brief 获得子节点
+		 *
+		 * @param node
+		 *
+		 * @return 
+		 */
+		xmlNodePtr GetChildNode(const xmlNodePtr node);
+
+
+		/**
+		 * @brief 获得当今节点名字
+		 *
+		 * @param node
+		 *
+		 * @return 
+		 */
+		static const char* GetNodeName(const xmlNodePtr node);
+
 		/**
 		 * @brief 获取节点
 		 *
@@ -79,7 +99,7 @@ class XmlFile
 		 *
 		 * @return 
 		 */
-		const char* GetNodeAttrStr(const xmlNodePtr node,const char*attrName);
+		static const char* GetNodeAttrStr(const xmlNodePtr node,const char*attrName);
 
 		/**
 		 * @brief 过得根节点数据
@@ -89,7 +109,7 @@ class XmlFile
 		 * @param value
 		 * @param defaultValue
 		 */
-		void GetNodeValue(const xmlNodePtr node,const char*name,DWORD&value,DWORD defaultValue = 0 );
+		static void GetNodeValue(const xmlNodePtr node,const char*name,DWORD&value,DWORD defaultValue = 0 );
 
 		/**
 		 * @brief 获得根节点数据
@@ -99,7 +119,7 @@ class XmlFile
 		 * @param value
 		 * @param defaultValue
 		 */
-		void GetNodeValue(const xmlNodePtr node,const char*name,std::string&value,const char* defaultValue = "");
+		static void GetNodeValue(const xmlNodePtr node,const char*name,std::string&value,const char* defaultValue = "");
 
 		/**
 		 * @brief 获得根节点数据
@@ -110,7 +130,7 @@ class XmlFile
 		 * @param defaultValue
 		 */
 
-		void GetNodeValue(const xmlNodePtr node,const char*name,float &value,float defaultValue = 0.0f);
+		static void GetNodeValue(const xmlNodePtr node,const char*name,float &value,float defaultValue = 0.0f);
 
 		/**
 		 * @brief 获得根节点数据
@@ -120,7 +140,17 @@ class XmlFile
 		 * @param value
 		 * @param defaultValue
 		 */
-		void GetNodeValue(const xmlNodePtr node,const char*name,DOUBLE &value,DOUBLE defaultValue = 0.0);
+		static void GetNodeValue(const xmlNodePtr node,const char*name,DOUBLE &value,DOUBLE defaultValue = 0.0);
+
+		/**
+		 * @brief 获得根节点数据
+		 *
+		 * @param node
+		 * @param name
+		 * @param value
+		 * @param defaultValue
+		 */
+		static void GetNodeValue(const xmlNodePtr node,const char*name,int &value,DOUBLE defaultValue = 0.0);
 
 		/**
 		 * @brief 获得节点文本 
@@ -166,7 +196,7 @@ class XmlFile
 		 *
 		 * @return 
 		 */
-		xmlNodePtr GetNext(xmlNodePtr node);
+		static xmlNodePtr GetNext(xmlNodePtr node);
 
 		
 

@@ -29,7 +29,7 @@ bool XmlFile::Parse(const char*buf,int size)
 		size = strlen(buf);	
 	}
 
-	_doc = xmlParseMemory(buf,strlen(buf));
+	_doc = xmlParseMemory(buf,size);
 	if(_doc == nullptr){
 		return false;
 	}
@@ -48,7 +48,7 @@ xmlNodePtr XmlFile::GetChildNode(const xmlNodePtr node,const char* name)
 	if(node == nullptr){
 		return nullptr;
 	}
-	xmlNodePtr cur = node->xmlChildrenNode;
+	auto cur = node->xmlChildrenNode;
 	do{
 		if(cur == nullptr){
 			break;
@@ -66,6 +66,33 @@ xmlNodePtr XmlFile::GetChildNode(const xmlNodePtr node,const char* name)
 	return nullptr;
 
 }
+
+xmlNodePtr XmlFile::GetChildNode(const xmlNodePtr node)
+{
+	xmlNodePtr childrenNode = nullptr;		
+	if(node != nullptr)
+	{
+		childrenNode = node->xmlChildrenNode;
+		if(childrenNode != nullptr)
+		{
+			if(childrenNode->type != XML_ELEMENT_NODE){
+				childrenNode = GetNext(childrenNode);
+			}
+		}
+	}
+
+	return childrenNode;
+}
+
+const char* XmlFile::GetNodeName(const xmlNodePtr node)
+{
+	return reinterpret_cast<const char*>(node->name);
+}
+
+
+
+
+
 
 xmlNodePtr XmlFile::GetRootElement(const char* name)
 {
@@ -179,7 +206,16 @@ void XmlFile::GetNodeValue(const xmlNodePtr node,const char*name,DOUBLE &value,D
 		value = defaultValue;
 	}
 }
-
+void XmlFile::GetNodeValue(const xmlNodePtr node,const char*name,int &value,DOUBLE defaultValue)
+{
+	auto rValue = GetNodeAttrStr(node,name);
+	if(rValue != nullptr){
+		value = atoi(rValue);
+	}
+	else{
+		value = defaultValue;
+	}
+}
 std::string XmlFile::GetNodeContent(const xmlNodePtr node)
 {
 	auto content = xmlNodeGetContent(node);
@@ -263,7 +299,7 @@ xmlNodePtr XmlFile::CreateNode(const char* name)
 
 xmlNodePtr XmlFile::CreateChild(xmlNodePtr node,const char*name,const char*content)
 {
-	if(node == nullptr || node == nullptr)	{
+	if(node == nullptr || name == nullptr)	{
 		return nullptr;
 	}
 	return xmlNewChild(node,nullptr,reinterpret_cast<const xmlChar*> (name),reinterpret_cast<const xmlChar*>(content));
