@@ -1,0 +1,3 @@
+#!/bin/sh
+g++ c2lua.cpp -o run1 -llua -std=c++11 -g
+g++ lua2c.cpp -o run2 -llua -std=c++11 -g
