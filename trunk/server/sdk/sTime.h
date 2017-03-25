@@ -556,9 +556,17 @@ class TimeHelp
 
 
 };
+typedef std::function<void()> TimerTasKFunc
+
+clss TimerTask
+{
+	public:
+		void AddCycle(int cycleTime,TimerTasKFunc&func);
+	private:
+		std::list
 
 
-
+};
 
 
 

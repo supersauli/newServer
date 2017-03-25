@@ -1,7 +1,7 @@
 AUTOMAKE_OPTIONS=foreign
 CXX := clang++
 #INCLUDES=-I ../sdk/
-CXXFLAGS+=-I ../sdk/ -lstdc++
+CXXFLAGS+=-I ../sdk/ -lstdc++ -static
 #CFLAGS=-I ../sdk/ -stdlib=libc++
 bin_PROGRAMS=main
 main_SOURCES=main.cpp \

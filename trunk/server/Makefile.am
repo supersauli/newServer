@@ -5,7 +5,7 @@ proto:
 
 
 INCLUES=-I/sdk
-SUBDIRS=sdk  test Gate proto
+SUBDIRS=sdk  test Gate 
 #bin_PROGRAMS=main
 #main_SOURCES= \
 #			main 
