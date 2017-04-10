@@ -93,8 +93,8 @@ int main()
 	int a,x,y;
 	float b;
 	std::string c;
-	double m;
-	std::string type = redis->GetFormatSymbol(a,b,c.c_str(),m);
+	//double m;
+	std::string type = redis->GetFormatSymbol(a,b,c.c_str());
 	//printf("%s \n",type.c_str());
 	redis->Set("name","sauli");
 	redis->Set("age","sauli");

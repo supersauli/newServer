@@ -111,8 +111,6 @@ public:
 		static_assert(CheckType<const char*,T>::value,"error parameter is not string");
 	}
 
-
-
 	template<typename ...T>
 	redisReply*Command(const char* cmd,T ... value)
 	{
@@ -138,16 +136,16 @@ public:
 		return "%d";	
 	}
 
-	 std::string GetFormatSymbol(const char*)
+	std::string GetFormatSymbol(const char*)
 	{
 		return "%s";	
 	}
-
 
 	template<class T>
 	const char* GetFormatSymbol(T value)
 	{
 		static_assert(error<T>::value,"GetFormatSymbol unknown parameter type !");
+		//编译会失败,不用返回值
 	}
 
 private:
