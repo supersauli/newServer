@@ -13,7 +13,6 @@
 #define REDIS_REPLY_TRUE "OK"
 
 
-
 class Redis
 {
 public:
@@ -90,10 +89,12 @@ public:
 	template<typename ...T>
 	const char* GetFormatCmdStr(const char* cmd,T... keyList)
 	{
+		
+		_formatSymbol.clear();
 		std::string formatCmd;
 		formatCmd = cmd ;
 		formatCmd +=" ";
-		formatCmd +=GetFormatSymbol(keyList...);	
+		formatCmd += GetFormatSymbol(keyList...);	
 		return formatCmd.c_str();
 	}
 
@@ -120,23 +121,26 @@ public:
 	}
 	
 	template<typename Type ,typename... TypeList>
-    std::string GetFormatSymbol(Type value,TypeList... typeList)
+    const char* GetFormatSymbol(Type value,TypeList... typeList)
 	{
-		return  GetFormatSymbol(value) +" "+ GetFormatSymbol(typeList ...);
+		_formatSymbol +=GetFormatSymbol(value);
+		_formatSymbol	+=" ";
+		GetFormatSymbol(typeList ...);
+		return _formatSymbol.c_str();
 	};
 
 
-	std::string GetFormatSymbol(float)
+	const char* GetFormatSymbol(float)
 	{
 		return "%f";	
 	}
 
-	std::string GetFormatSymbol(int)
+	const char* GetFormatSymbol(int)
 	{
 		return "%d";	
 	}
 
-	std::string GetFormatSymbol(const char*)
+	const char* GetFormatSymbol(const char*)
 	{
 		return "%s";	
 	}
@@ -161,6 +165,7 @@ private:
 
 
 	private:
+		std::string _formatSymbol;
 		redisContext * _connect{nullptr};
 	    redisReply* _reply{nullptr};
 	     
