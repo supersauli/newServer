@@ -94,14 +94,14 @@ int main()
 	float b;
 	std::string c;
 
-	std::string type = redis->GetFormattingType(a,b,c.c_str());
-	printf("%s \n",type.c_str());
+	//std::string type = redis->GetFormatSymbol(a,b,c.c_str());
+	//printf("%s \n",type.c_str());
 	redis->Set("name","sauli");
 	redis->Set("age","sauli");
 	redis->Set("user","sauli");
 
 	printf("get name = %s \n",redis->Get("name").c_str());
-	redis->Del("name","age","user");
+	redis->Del("age","user");
 	std::string delName  = "name";
 	if(!redis->Del(delName.c_str()))
 	{

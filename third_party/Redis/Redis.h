@@ -76,9 +76,9 @@ public:
 	{
 
 		CheckString(keyList...);
-		std::string cmd = "del "+ GetFormatSymbol(keyList...);
+		const char* cmd = GetFormatCmdStr("del",keyList ...);
 		int delNum = 0;
-		_reply= Command(cmd.c_str(),keyList...); 
+		_reply= Command(cmd,keyList...); 
 		if(_reply != nullptr)
 		{    
 			delNum = _reply->integer;
@@ -87,7 +87,15 @@ public:
 		return delNum;
 	};
 
-
+	template<typename ...T>
+	const char* GetFormatCmdStr(const char* cmd,T... keyList)
+	{
+		std::string formatCmd;
+		formatCmd = cmd ;
+		formatCmd +=" ";
+		formatCmd +=GetFormatSymbol(keyList...);	
+		return formatCmd.c_str();
+	}
 
 
 	template <typename T,typename ...ValueList>
@@ -116,7 +124,7 @@ public:
 	template<typename Type ,typename... TypeList>
     std::string GetFormatSymbol(Type value,TypeList... typeList)
 	{
-		return  GetFormatSymbol(value) +" "+ GetFormattingType(typeList ...);
+		return  GetFormatSymbol(value) +" "+ GetFormatSymbol(typeList ...);
 	};
 
 
@@ -137,10 +145,9 @@ public:
 
 
 	template<class T>
-	std::string GetFormatSymbol(T value)
+	void GetFormatSymbol(T value)
 	{
 		static_assert(error<T>::value,"GetFormatSymbol unknown parameter type !");
-		return "";
 	}
 
 private:
