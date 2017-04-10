@@ -145,7 +145,7 @@ public:
 
 
 	template<class T>
-	void GetFormatSymbol(T value)
+	const char* GetFormatSymbol(T value)
 	{
 		static_assert(error<T>::value,"GetFormatSymbol unknown parameter type !");
 	}
