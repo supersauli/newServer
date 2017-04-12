@@ -42,17 +42,11 @@ struct Text
 };
 
 #define TEXT_CHECK_TYPE(M,N) \
-	cout<<#M<<","<<#N<<"="<< CheckType<M,N>::value <<endl;
+	cout<<#M<<","<<#N<<"="<< std::is_same<M,N>::value <<endl;
 
 
 int main()
 {
-	Redis *redis = new Redis();
-	if(!redis->Connect(HOST,PORT))
-	{
-		printf("connect error \n");	
-		return 0;
-	}
 
 
 
@@ -74,8 +68,16 @@ int main()
 	TEXT_CHECK_TYPE(const char*,float);
 	TEXT_CHECK_TYPE(const char*,char*);
 	TEXT_CHECK_TYPE(long long,int);
+	TEXT_CHECK_TYPE(int,int);
 
 	TEXT_CHECK_TYPE(int,double);
+	Redis *redis = new Redis();
+	if(!redis->Connect(HOST,PORT))
+	{
+		printf("connect error \n");	
+		return 0;
+	}
+
 
 //	static_assert(Text<int,string>::value,"fdsfa");
 //	static_assert(Text<int,int>::value,"fdsfa");

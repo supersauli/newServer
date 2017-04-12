@@ -102,14 +102,14 @@ public:
 	template <typename T,typename ...ValueList>
 	void CheckString(T v,ValueList ...list){
 		//这里要判断所有参数是不是字符串
-		static_assert(CheckType<const char*,T>::value,"error parameter is not string");
+		static_assert(std::is_same<const char*,T>::value,"error parameter is not string");
 		CheckString(list...);
 	}
 
 	template<typename T>
 	void CheckString(T v)
 	{
-		static_assert(CheckType<const char*,T>::value,"error parameter is not string");
+		static_assert(std::is_same<const char*,T>::value,"error parameter is not string");
 	}
 
 	template<typename ...T>
