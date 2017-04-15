@@ -37,6 +37,5 @@ AC_CONFIG_FILES([Makefile
                  sdk/Makefile
 				 Gate/Makefile
                  test/Makefile
-				 proto/Makefile
 				 ])
 AC_OUTPUT

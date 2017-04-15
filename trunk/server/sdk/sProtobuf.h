@@ -23,15 +23,7 @@ class ProtobufManage//: std::noncopyable
 		inline void recvMessage(void *buf){};
 
 		inline void sendBuf(void *buf){};
-	//private:
-		
-		/**
-		 * @brief 创建消息
-		 *
-		 * @param name
-		 *
-		 * @return 
-		 */
+
 		inline ProtoBuffMessage*  createMessage(const std::string& name){
 			const ProtoBuffDesc *desc = ProtoBuffDescPool::generated_pool()->FindMessageTypeByName(name); 
 			if(desc != nullptr )
@@ -51,6 +43,7 @@ class ProtobufManage//: std::noncopyable
 			bcopy(reinterpret_cast<const BYTE*>(&data),buf,sizeof(DATA));	
 			buf+=sizeof(DATA);
 		};
+
 		template<class DATA>
 		void PushData(char*&buf,const DATA &data,int size)
 		{
@@ -66,10 +59,8 @@ class ProtobufManage//: std::noncopyable
 		 * @param buf
 		 * @param message
 		 */
-		inline void decode( char*buf,ProtoBuffMessage& message){
-
-			
-
+		inline void decode( char*buf,const ProtoBuffMessage& message)
+		{
 			char *ptr =buf;
 			const std::string& typeName = message.GetTypeName();
 			DWORD nameLen = static_cast<DWORD>(typeName.size()+1);
@@ -89,15 +80,13 @@ class ProtobufManage//: std::noncopyable
 		 */
 		inline  ProtoBuffMessage* ecode(const char* buf)
 		{
-
 			const char*ptr = buf;
 			int size = 0;
 			DWORD NameLen = *(ptr+size);	
 			size += sizeof(DWORD);
-			 char typeName[12] = {0};
-			 //bcopy(reinterpret_cast<const BYTE*>(ptr+size),typeName,NameLen);
-			 bcopy((ptr+size),typeName,NameLen);
-			 size+=NameLen;
+			char typeName[12] = {0};
+			bcopy((ptr+size),typeName,NameLen);
+			size+=NameLen;
 			int contentSize = *(ptr+size);
 			size+=sizeof(DWORD);
 			ProtoBuffMessage* message;
@@ -107,38 +96,13 @@ class ProtobufManage//: std::noncopyable
 				if(message->ParseFromArray(ptr+size,contentSize))
 				{
 					return message;
-				
+
 				}
 			}
 
 			return nullptr;
 		}
 
-
-		
-
-			
-
-
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #endif

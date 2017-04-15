@@ -107,15 +107,17 @@ Gate.o: Gate.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/asm/posix_types_64.h /usr/include/asm-generic/posix_types.h \
  ../sdk/sDefine.h /usr/include/sys/epoll.h /usr/include/bits/epoll.h \
  /usr/include/fcntl.h /usr/include/bits/fcntl.h \
- /usr/include/bits/fcntl-linux.h /usr/include/bits/stat.h \
- ../sdk/sPthreadPool.h ../sdk/sPthread.h ../sdk/sMutex.h \
- /usr/include/c++/4.8.2/map /usr/include/c++/4.8.2/bits/stl_tree.h \
+ /usr/include/bits/fcntl-linux.h /usr/include/bits/stat.h ../sdk/sEpoll.h \
+ /usr/include/c++/4.8.2/functional /usr/include/c++/4.8.2/typeinfo \
+ /usr/include/c++/4.8.2/tuple /usr/include/c++/4.8.2/utility \
+ /usr/include/c++/4.8.2/bits/stl_relops.h /usr/include/c++/4.8.2/array \
+ /usr/include/c++/4.8.2/stdexcept \
+ /usr/include/c++/4.8.2/bits/uses_allocator.h ../sdk/sPthreadPool.h \
+ ../sdk/sPthread.h ../sdk/sMutex.h /usr/include/c++/4.8.2/map \
+ /usr/include/c++/4.8.2/bits/stl_tree.h \
  /usr/include/c++/4.8.2/bits/alloc_traits.h \
  /usr/include/c++/4.8.2/bits/ptr_traits.h \
- /usr/include/c++/4.8.2/bits/stl_map.h /usr/include/c++/4.8.2/tuple \
- /usr/include/c++/4.8.2/utility /usr/include/c++/4.8.2/bits/stl_relops.h \
- /usr/include/c++/4.8.2/array /usr/include/c++/4.8.2/stdexcept \
- /usr/include/c++/4.8.2/bits/uses_allocator.h \
+ /usr/include/c++/4.8.2/bits/stl_map.h \
  /usr/include/c++/4.8.2/bits/stl_multimap.h ../sdk/sPthreadPool.h
 
 /usr/include/stdc-predef.h:
@@ -448,6 +450,24 @@ Gate.o: Gate.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
 
 /usr/include/bits/stat.h:
 
+../sdk/sEpoll.h:
+
+/usr/include/c++/4.8.2/functional:
+
+/usr/include/c++/4.8.2/typeinfo:
+
+/usr/include/c++/4.8.2/tuple:
+
+/usr/include/c++/4.8.2/utility:
+
+/usr/include/c++/4.8.2/bits/stl_relops.h:
+
+/usr/include/c++/4.8.2/array:
+
+/usr/include/c++/4.8.2/stdexcept:
+
+/usr/include/c++/4.8.2/bits/uses_allocator.h:
+
 ../sdk/sPthreadPool.h:
 
 ../sdk/sPthread.h:
@@ -463,18 +483,6 @@ Gate.o: Gate.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
 /usr/include/c++/4.8.2/bits/ptr_traits.h:
 
 /usr/include/c++/4.8.2/bits/stl_map.h:
-
-/usr/include/c++/4.8.2/tuple:
-
-/usr/include/c++/4.8.2/utility:
-
-/usr/include/c++/4.8.2/bits/stl_relops.h:
-
-/usr/include/c++/4.8.2/array:
-
-/usr/include/c++/4.8.2/stdexcept:
-
-/usr/include/c++/4.8.2/bits/uses_allocator.h:
 
 /usr/include/c++/4.8.2/bits/stl_multimap.h:
 

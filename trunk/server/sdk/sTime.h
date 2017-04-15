@@ -418,10 +418,6 @@ class CycleTime
 		 */
 		time_t _nextMsec;
 
-	
-
-		
-
 };
 
 
@@ -563,7 +559,7 @@ clss TimerTask
 	public:
 		void AddCycle(int cycleTime,TimerTasKFunc&func);
 	private:
-		std::list
+//		std::list
 
 
 };

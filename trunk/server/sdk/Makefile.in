@@ -119,9 +119,9 @@ am__uninstall_files_from_dir = { \
 am__installdirs = "$(DESTDIR)$(libdir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
 libsdk_la_LIBADD =
-am__objects_1 = sMutex.lo sTime.lo sSctpScoket.lo sPthreadPool.lo \
-	sEpoll.lo sSctpPool.lo UserTest.lo sSctpPthread.lo \
-	sLogManager.lo XmlFile.lo sTask.lo
+am__objects_1 = sMutex.lo sSctpScoket.lo sPthreadPool.lo sEpoll.lo \
+	sSctpPool.lo UserTest.lo sSctpPthread.lo sLogManager.lo \
+	XmlFile.lo sTask.lo
 am_libsdk_la_OBJECTS = $(am__objects_1)
 libsdk_la_OBJECTS = $(am_libsdk_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
@@ -228,7 +228,7 @@ LD = @LD@
 LDFLAGS = @LDFLAGS@
 LIBOBJS = @LIBOBJS@
 #CXXFLAGS +=-llog4cplus -lsctp -lpthread
-LIBS = -llog4cplus -lsctp -lpthread -lstdc++ -lxml2 -lprotobuf
+LIBS = -llog4cplus -lsctp -lpthread -lstdc++ -lxml2 -lprotobuf -static
 LIBTOOL = @LIBTOOL@
 LIPO = @LIPO@
 LN_S = @LN_S@
@@ -313,7 +313,6 @@ AUTOMAKE_OPTIONS = foreign
 #文件列表
 fileList = \
 		sMutex.cpp \
-		sTime.cpp \
 		sSctpScoket.cpp \
 		sPthreadPool.cpp \
 		sEpoll.cpp \
@@ -421,7 +420,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sSctpPthread.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sSctpScoket.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sTask.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sTime.Plo@am__quote@
 
 .cpp.o:
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<

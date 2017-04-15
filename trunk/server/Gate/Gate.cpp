@@ -13,13 +13,13 @@ int main()
 {
 
 	sSctpPool sock;
-	if(!sock.initSocket())
+	if(!sock.Init())
 	{   
 		printf("false\n");
 		return 0;
 
 	};  
-	if(!sock.bind(2222))
+	if(!sock.Bind(2222))
 	{   
 		printf("false\n");  
 		return 0;
@@ -28,5 +28,5 @@ int main()
 
 	sock.initPool(1);
 
-	sock.stcpAccept();
+	//sock.Loop();
 }

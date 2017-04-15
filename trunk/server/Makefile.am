@@ -1,5 +1,5 @@
 AUTOMAKE_OPTIONS=foreign
-
+.PHONY: proto
 proto:
 	protoc  --cpp_out=./  ./proto/*.proto
 

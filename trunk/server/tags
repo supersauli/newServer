@@ -69,9 +69,19 @@ AWK	Gate/Makefile	/^AWK = gawk$/;"	m
 AWK	Makefile	/^AWK = gawk$/;"	m
 AWK	sdk/Makefile	/^AWK = gawk$/;"	m
 AWK	test/Makefile	/^AWK = gawk$/;"	m
+Accept	sdk/sSctpScoket.cpp	/^void sSctpScoket::Accept(int fd)$/;"	f	class:sSctpScoket
 AddACrontabTask	sdk/CornJob.cpp	/^void CornJob::AddACrontabTask(CornFunc,const char* strTime)$/;"	f	class:CornJob
+AddChild	sdk/XmlFile.cpp	/^xmlNodePtr XmlFile::AddChild(xmlNodePtr parent,xmlNodePtr cur)$/;"	f	class:XmlFile
+AddEvent	sdk/sEpoll.cpp	/^bool sEpoll::AddEvent(int event,int fd)$/;"	f	class:sEpoll
+AddNextSibling	sdk/XmlFile.cpp	/^xmlNodePtr XmlFile::AddNextSibling(xmlNodePtr cur,xmlNodePtr elem)$/;"	f	class:XmlFile
+AddPrevSibling	sdk/XmlFile.cpp	/^xmlNodePtr XmlFile::AddPrevSibling(xmlNodePtr cur,xmlNodePtr elem)$/;"	f	class:XmlFile
+AddSibling	sdk/XmlFile.cpp	/^xmlNodePtr AddSibling(xmlNodePtr cur,xmlNodePtr elem)$/;"	f
 BOOLVALUE	sdk/VarList.h	/^			BOOLVALUE,$/;"	m	class:VarObj::ValueType
+BUFFER_SIZE	sdk/sSocket.cpp	2;"	d	file:
 BYTE	sdk/sDefine.h	/^typedef unsigned char BYTE;$/;"	t
+Bind	sdk/sSctpScoket.cpp	/^bool sSctpScoket::Bind(DWORD dwPort)$/;"	f	class:sSctpScoket
+ByteSize	proto/Gate.pb.cc	/^int Info::ByteSize() const {$/;"	f	class:Gate::Info
+ByteSize	test/test.pb.cc	/^int pack::ByteSize() const {$/;"	f	class:muduo::pack
 CC	Gate/Makefile	/^CC = gcc$/;"	m
 CC	Makefile	/^CC = gcc$/;"	m
 CC	sdk/Makefile	/^CC = gcc$/;"	m
@@ -132,7 +142,7 @@ CXXDEPMODE	test/Makefile	/^CXXDEPMODE = depmode=gcc3$/;"	m
 CXXFLAGS	Gate/Makefile	/^CXXFLAGS = -Wall -g3 -O0	-std=c++11 -fPIC$/;"	m
 CXXFLAGS	Makefile	/^CXXFLAGS = -Wall -g3 -O0	-std=c++11 -fPIC$/;"	m
 CXXFLAGS	sdk/Makefile	/^CXXFLAGS = -Wall -g3 -O0	-std=c++11 -fPIC$/;"	m
-CXXFLAGS	test/Makefile	/^CXXFLAGS = -Wall -g3 -O0	-std=c++11 -fPIC -I ..\/sdk\/ -lstdc++$/;"	m
+CXXFLAGS	test/Makefile	/^CXXFLAGS = -Wall -g3 -O0	-std=c++11 -fPIC -I ..\/sdk\/ -lstdc++ -static$/;"	m
 CXXLD	Gate/Makefile	/^CXXLD = $(CXX)$/;"	m
 CXXLD	sdk/Makefile	/^CXXLD = $(CXX)$/;"	m
 CXXLD	test/Makefile	/^CXXLD = $(CXX)$/;"	m
@@ -143,21 +153,33 @@ CYGPATH_W	Gate/Makefile	/^CYGPATH_W = echo$/;"	m
 CYGPATH_W	Makefile	/^CYGPATH_W = echo$/;"	m
 CYGPATH_W	sdk/Makefile	/^CYGPATH_W = echo$/;"	m
 CYGPATH_W	test/Makefile	/^CYGPATH_W = echo$/;"	m
+Clear	proto/Gate.pb.cc	/^void Info::Clear() {$/;"	f	class:Gate::Info
+Clear	test/test.pb.cc	/^void pack::Clear() {$/;"	f	class:muduo::pack
 ClockTime	sdk/sTime.h	/^		ClockTime(){$/;"	f	class:ClockTime
 ClockTime	sdk/sTime.h	/^class ClockTime{$/;"	c
 Closure	sdk/sTask.h	/^typedef std::function<void()> Closure;$/;"	t
+CopyFrom	proto/Gate.pb.cc	/^void Info::CopyFrom(const ::google::protobuf::Message& from) {$/;"	f	class:Gate::Info
+CopyFrom	proto/Gate.pb.cc	/^void Info::CopyFrom(const Info& from) {$/;"	f	class:Gate::Info
+CopyFrom	test/test.pb.cc	/^void pack::CopyFrom(const ::google::protobuf::Message& from) {$/;"	f	class:muduo::pack
+CopyFrom	test/test.pb.cc	/^void pack::CopyFrom(const pack& from) {$/;"	f	class:muduo::pack
 CornDetails	sdk/CornJob.h	/^struct CornDetails$/;"	s
 CornFunc	sdk/CornJob.h	/^typedef std::function<void()> CornFunc;$/;"	t
 CornJob	sdk/CornJob.h	/^class CornJob$/;"	c
 CornSort	sdk/CornJob.h	/^struct CornSort$/;"	s
+Create	sdk/XmlFile.cpp	/^xmlDocPtr XmlFile::Create()$/;"	f	class:XmlFile
+CreateChild	sdk/XmlFile.cpp	/^xmlNodePtr XmlFile::CreateChild(xmlNodePtr node,const char*name,const char*content)$/;"	f	class:XmlFile
+CreateNode	sdk/XmlFile.cpp	/^xmlNodePtr XmlFile::CreateNode(const char* name)$/;"	f	class:XmlFile
 CreateProcess	libtool	/^   CreateProcess().  We must quote the arguments since Win32 CreateProcess()$/;"	f
 CreateProcess	ltmain.sh	/^   CreateProcess().  We must quote the arguments since Win32 CreateProcess()$/;"	f
 CycleTime	sdk/sTime.h	/^		CycleTime(const int& cycleMsec,const Time& time):_cycleMsec(cycleMsec)$/;"	f	class:CycleTime
 CycleTime	sdk/sTime.h	/^		CycleTime(const int& cycleMsec,const time_t&  msec = ClockTime().Msec()):_cycleMsec(cycleMsec)$/;"	f	class:CycleTime
 CycleTime	sdk/sTime.h	/^class CycleTime$/;"	c
+DEFAULT_BACKLOG	sdk/sSctpScoket.h	16;"	d
 DEFAULT_INCLUDES	Gate/Makefile	/^DEFAULT_INCLUDES = -I. -I$(top_builddir)$/;"	m
 DEFAULT_INCLUDES	sdk/Makefile	/^DEFAULT_INCLUDES = -I. -I$(top_builddir)$/;"	m
 DEFAULT_INCLUDES	test/Makefile	/^DEFAULT_INCLUDES = -I. -I$(top_builddir)$/;"	m
+DEFAULT_MAX_EVENTS	sdk/sEpoll.h	9;"	d
+DEFAULT_TIMEOUT_TIMES	sdk/sEpoll.h	8;"	d
 DEFS	Gate/Makefile	/^DEFS = -DHAVE_CONFIG_H$/;"	m
 DEFS	Makefile	/^DEFS = -DHAVE_CONFIG_H$/;"	m
 DEFS	sdk/Makefile	/^DEFS = -DHAVE_CONFIG_H$/;"	m
@@ -185,6 +207,12 @@ DLLTOOL	Gate/Makefile	/^DLLTOOL = false$/;"	m
 DLLTOOL	Makefile	/^DLLTOOL = false$/;"	m
 DLLTOOL	sdk/Makefile	/^DLLTOOL = false$/;"	m
 DLLTOOL	test/Makefile	/^DLLTOOL = false$/;"	m
+DOUBLE	sdk/sDefine.h	/^typedef double DOUBLE;$/;"	t
+DOUBLEVALUE	sdk/VarList.h	/^			DOUBLEVALUE,$/;"	m	class:VarObj::ValueType
+DO_	proto/Gate.pb.cc	179;"	d	file:
+DO_	proto/Gate.pb.cc	232;"	d	file:
+DO_	test/test.pb.cc	186;"	d	file:
+DO_	test/test.pb.cc	244;"	d	file:
 DSYMUTIL	Gate/Makefile	/^DSYMUTIL = $/;"	m
 DSYMUTIL	Makefile	/^DSYMUTIL = $/;"	m
 DSYMUTIL	sdk/Makefile	/^DSYMUTIL = $/;"	m
@@ -195,6 +223,7 @@ DUMPBIN	sdk/Makefile	/^DUMPBIN = $/;"	m
 DUMPBIN	test/Makefile	/^DUMPBIN = $/;"	m
 DWORD	sdk/sDefine.h	/^typedef unsigned int DWORD;$/;"	t
 DWORDVALUE	sdk/VarList.h	/^			DWORDVALUE,$/;"	m	class:VarObj::ValueType
+DelEvent	sdk/sEpoll.cpp	/^bool sEpoll::DelEvent(int fd)$/;"	f	class:sEpoll
 DelayTaskCompare	sdk/sTask.h	/^struct DelayTaskCompare$/;"	s
 DelayTaskContext	sdk/sTask.h	/^	DelayTaskContext(Closure function,int delayTime):$/;"	f	struct:DelayTaskContext
 DelayTaskContext	sdk/sTask.h	/^struct DelayTaskContext$/;"	s
@@ -231,33 +260,64 @@ FGREP	Makefile	/^FGREP = \/usr\/bin\/grep -F$/;"	m
 FGREP	sdk/Makefile	/^FGREP = \/usr\/bin\/grep -F$/;"	m
 FGREP	test/Makefile	/^FGREP = \/usr\/bin\/grep -F$/;"	m
 FLOAT	sdk/sDefine.h	/^typedef float FLOAT;$/;"	t
+FLOATVALUE	sdk/VarList.h	/^			FLOATVALUE,$/;"	m	class:VarObj::ValueType
+Free	sdk/XmlFile.cpp	/^void XmlFile::Free(xmlDocPtr node)$/;"	f	class:XmlFile
 FriendInfo	Logic/FriendManage.h	/^struct FriendInfo$/;"	s
 GET_INDEX	pool.cpp	/^static  int GET_INDEX(int x)$/;"	f	file:
+GOOGLE_ATTRIBUTE_COLD	proto/Gate.pb.cc	/^void protobuf_AddDesc_proto_2fGate_2eproto() GOOGLE_ATTRIBUTE_COLD;$/;"	m	namespace:Gate	file:
+GOOGLE_ATTRIBUTE_COLD	proto/Gate.pb.cc	/^void protobuf_AssignDesc_proto_2fGate_2eproto() GOOGLE_ATTRIBUTE_COLD;$/;"	m	namespace:Gate	file:
+GOOGLE_ATTRIBUTE_COLD	proto/Gate.pb.cc	/^void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;$/;"	m	namespace:Gate::__anon5	file:
+GOOGLE_ATTRIBUTE_COLD	test/test.pb.cc	/^void protobuf_AddDesc_test_2eproto() GOOGLE_ATTRIBUTE_COLD;$/;"	m	namespace:muduo	file:
+GOOGLE_ATTRIBUTE_COLD	test/test.pb.cc	/^void protobuf_AssignDesc_test_2eproto() GOOGLE_ATTRIBUTE_COLD;$/;"	m	namespace:muduo	file:
+GOOGLE_ATTRIBUTE_COLD	test/test.pb.cc	/^void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;$/;"	m	namespace:muduo::__anon3	file:
 GREP	Gate/Makefile	/^GREP = \/usr\/bin\/grep$/;"	m
 GREP	Makefile	/^GREP = \/usr\/bin\/grep$/;"	m
 GREP	sdk/Makefile	/^GREP = \/usr\/bin\/grep$/;"	m
 GREP	test/Makefile	/^GREP = \/usr\/bin\/grep$/;"	m
 GZIP_ENV	Makefile	/^GZIP_ENV = --best$/;"	m
 Gate	Gate/Gate.h	/^class Gate{$/;"	c
+Gate	proto/Gate.pb.cc	/^namespace Gate {$/;"	n	file:
+Gate	proto/Gate.pb.h	/^namespace Gate {$/;"	n
 Gate_DEPENDENCIES	Gate/Makefile	/^Gate_DEPENDENCIES = ..\/sdk\/libsdk.la$/;"	m
 Gate_LDADD	Gate/Makefile	/^Gate_LDADD = ..\/sdk\/libsdk.la$/;"	m
 Gate_OBJECTS	Gate/Makefile	/^Gate_OBJECTS = $(am_Gate_OBJECTS)$/;"	m
 Gate_SOURCES	Gate/Makefile	/^Gate_SOURCES = Gate.cpp $/;"	m
+GetArenaNoVirtual	proto/Gate.pb.h	/^  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {$/;"	f	class:Gate::Info
+GetArenaNoVirtual	test/test.pb.h	/^  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {$/;"	f	class:muduo::pack
 GetBoolValue	sdk/VarList.h	/^		bool GetBoolValue(){$/;"	f	class:VarObj
 GetBoolValue	sdk/VarList.h	/^		bool GetBoolValue(DWORD i)$/;"	f	class:VarList
+GetCachedSize	proto/Gate.pb.h	/^  int GetCachedSize() const { return _cached_size_; }$/;"	f	class:Gate::Info
+GetCachedSize	test/test.pb.h	/^  int GetCachedSize() const { return _cached_size_; }$/;"	f	class:muduo::pack
+GetChildNode	sdk/XmlFile.cpp	/^xmlNodePtr XmlFile::GetChildNode(const xmlNodePtr node)$/;"	f	class:XmlFile
 GetChildNode	sdk/XmlFile.cpp	/^xmlNodePtr XmlFile::GetChildNode(const xmlNodePtr node,const char* name)$/;"	f	class:XmlFile
 GetDWValue	sdk/VarList.h	/^		DWORD GetDWValue(){$/;"	f	class:VarObj
 GetDWValue	sdk/VarList.h	/^		DWORD GetDWValue(DWORD i)$/;"	f	class:VarList
+GetData	sdk/Tool.h	/^void GetData(char*&ptr,T&data)$/;"	f	namespace:Tool
+GetData	sdk/Tool.h	/^void GetData(char*&ptr,std::string&value)$/;"	f	namespace:Tool
+GetDoubleValue	sdk/VarList.h	/^		double GetDoubleValue(){$/;"	f	class:VarObj
+GetDoubleValue	sdk/VarList.h	/^		double GetDoubleValue(DWORD i)$/;"	f	class:VarList
+GetFloatValue	sdk/VarList.h	/^		FLOAT GetFloatValue(){$/;"	f	class:VarObj
+GetFloatValue	sdk/VarList.h	/^		FLOAT GetFloatValue(DWORD i)$/;"	f	class:VarList
 GetHour	sdk/sTime.h	/^		DWORD GetHour()const$/;"	f	class:final
 GetIntValue	sdk/VarList.h	/^		int GetIntValue(){$/;"	f	class:VarObj
 GetIntValue	sdk/VarList.h	/^		int GetIntValue(DWORD i)$/;"	f	class:VarList
+GetLongValue	sdk/VarList.h	/^		LONG GetLongValue(){$/;"	f	class:VarObj
+GetLongValue	sdk/VarList.h	/^		LONG GetLongValue(DWORD i)$/;"	f	class:VarList
 GetMDay	sdk/sTime.h	/^		DWORD GetMDay()const$/;"	f	class:final
+GetMetadata	proto/Gate.pb.cc	/^::google::protobuf::Metadata Info::GetMetadata() const {$/;"	f	class:Gate::Info
+GetMetadata	test/test.pb.cc	/^::google::protobuf::Metadata pack::GetMetadata() const {$/;"	f	class:muduo::pack
 GetMinute	sdk/sTime.h	/^		DWORD GetMinute()const$/;"	f	class:final
 GetMonth	sdk/sTime.h	/^		DWORD GetMonth()const$/;"	f	class:final
 GetNext	sdk/XmlFile.cpp	/^xmlNodePtr XmlFile::GetNext(xmlNodePtr node)$/;"	f	class:XmlFile
-GetNodeElement	sdk/XmlFile.cpp	/^void XmlFile::GetNodeElement(const xmlNodePtr node,const char*name,DWORD&value,DWORD defaultValue )$/;"	f	class:XmlFile
-GetNodeElement	sdk/XmlFile.cpp	/^void XmlFile::GetNodeElement(const xmlNodePtr node,const char*name,std::string&value,std::string defaultValue)$/;"	f	class:XmlFile
-GetNodeElement	sdk/XmlFile.cpp	/^xmlNodePtr XmlFile::GetNodeElement(const xmlNodePtr node,const char*name)$/;"	f	class:XmlFile
+GetNode	sdk/XmlFile.cpp	/^xmlNodePtr XmlFile::GetNode(const xmlNodePtr node,const char*name)$/;"	f	class:XmlFile
+GetNodeAttrStr	sdk/XmlFile.cpp	/^const char* XmlFile::GetNodeAttrStr(const xmlNodePtr node,const char*attrName)$/;"	f	class:XmlFile
+GetNodeContent	sdk/XmlFile.cpp	/^std::string XmlFile::GetNodeContent(const xmlNodePtr node)$/;"	f	class:XmlFile
+GetNodeName	sdk/XmlFile.cpp	/^const char* XmlFile::GetNodeName(const xmlNodePtr node)$/;"	f	class:XmlFile
+GetNodeValue	sdk/XmlFile.cpp	/^void XmlFile::GetNodeValue(const xmlNodePtr node,const char*name,DOUBLE &value,DOUBLE defaultValue)$/;"	f	class:XmlFile
+GetNodeValue	sdk/XmlFile.cpp	/^void XmlFile::GetNodeValue(const xmlNodePtr node,const char*name,DWORD&value,DWORD defaultValue )$/;"	f	class:XmlFile
+GetNodeValue	sdk/XmlFile.cpp	/^void XmlFile::GetNodeValue(const xmlNodePtr node,const char*name,float &value,float defaultValue)$/;"	f	class:XmlFile
+GetNodeValue	sdk/XmlFile.cpp	/^void XmlFile::GetNodeValue(const xmlNodePtr node,const char*name,int &value,DOUBLE defaultValue)$/;"	f	class:XmlFile
+GetNodeValue	sdk/XmlFile.cpp	/^void XmlFile::GetNodeValue(const xmlNodePtr node,const char*name,std::string&value,const char* defaultValue)$/;"	f	class:XmlFile
 GetQWValue	sdk/VarList.h	/^		DWORD GetQWValue(DWORD i)$/;"	f	class:VarList
 GetQWValue	sdk/VarList.h	/^		QWORD GetQWValue(){$/;"	f	class:VarObj
 GetRootElement	sdk/XmlFile.cpp	/^xmlNodePtr XmlFile::GetRootElement()$/;"	f	class:XmlFile
@@ -306,8 +366,27 @@ INSTALL_STRIP_PROGRAM	Makefile	/^INSTALL_STRIP_PROGRAM = $(install_sh) -c -s$/;"
 INSTALL_STRIP_PROGRAM	sdk/Makefile	/^INSTALL_STRIP_PROGRAM = $(install_sh) -c -s$/;"	m
 INSTALL_STRIP_PROGRAM	test/Makefile	/^INSTALL_STRIP_PROGRAM = $(install_sh) -c -s$/;"	m
 INT64	sdk/sDefine.h	/^typedef long INT64;$/;"	t
+INTERNAL_SUPPRESS_PROTOBUF_FIELD_DEPRECATION	proto/Gate.pb.cc	4;"	d	file:
+INTERNAL_SUPPRESS_PROTOBUF_FIELD_DEPRECATION	test/test.pb.cc	4;"	d	file:
 INTVALUE	sdk/VarList.h	/^			INTVALUE,$/;"	m	class:VarObj::ValueType
+Info	proto/Gate.pb.cc	/^Info::Info()$/;"	f	class:Gate::Info
+Info	proto/Gate.pb.cc	/^Info::Info(const Info& from)$/;"	f	class:Gate::Info
+Info	proto/Gate.pb.h	/^class Info : public ::google::protobuf::Message \/* @@protoc_insertion_point(class_definition:Gate.Info) *\/ {$/;"	c	namespace:Gate
+Info_descriptor_	proto/Gate.pb.cc	/^const ::google::protobuf::Descriptor* Info_descriptor_ = NULL;$/;"	m	namespace:Gate::__anon4	file:
+Info_reflection_	proto/Gate.pb.cc	/^  Info_reflection_ = NULL;$/;"	m	namespace:Gate::__anon4	file:
+Init	sdk/LuaSystem.cpp	/^bool LuaSystem::Init()$/;"	f	class:LuaSystem
+Init	sdk/sEpoll.cpp	/^bool sEpoll::Init(int maxfdSize)$/;"	f	class:sEpoll
+Init	sdk/sSctpScoket.cpp	/^bool sSctpScoket::Init()$/;"	f	class:sSctpScoket
+Init	sdk/sSocket.cpp	/^bool sSocket::Init(const std::string& ipPort)$/;"	f	class:sSocket
+InitAsDefaultInstance	proto/Gate.pb.cc	/^void Info::InitAsDefaultInstance() {$/;"	f	class:Gate::Info
+InitAsDefaultInstance	test/test.pb.cc	/^void pack::InitAsDefaultInstance() {$/;"	f	class:muduo::pack
 InitXml	sdk/XmlFile.cpp	/^bool XmlFile::InitXml(const char *fileName)$/;"	f	class:XmlFile
+InternalSerializeWithCachedSizesToArray	proto/Gate.pb.cc	/^::google::protobuf::uint8* Info::InternalSerializeWithCachedSizesToArray($/;"	f	class:Gate::Info
+InternalSerializeWithCachedSizesToArray	test/test.pb.cc	/^::google::protobuf::uint8* pack::InternalSerializeWithCachedSizesToArray($/;"	f	class:muduo::pack
+InternalSwap	proto/Gate.pb.cc	/^void Info::InternalSwap(Info* other) {$/;"	f	class:Gate::Info
+InternalSwap	test/test.pb.cc	/^void pack::InternalSwap(pack* other) {$/;"	f	class:muduo::pack
+IsInitialized	proto/Gate.pb.cc	/^bool Info::IsInitialized() const {$/;"	f	class:Gate::Info
+IsInitialized	test/test.pb.cc	/^bool pack::IsInitialized() const {$/;"	f	class:muduo::pack
 LD	Gate/Makefile	/^LD = \/usr\/bin\/ld -m elf_x86_64$/;"	m
 LD	Makefile	/^LD = \/usr\/bin\/ld -m elf_x86_64$/;"	m
 LD	sdk/Makefile	/^LD = \/usr\/bin\/ld -m elf_x86_64$/;"	m
@@ -322,7 +401,7 @@ LIBOBJS	sdk/Makefile	/^LIBOBJS = $/;"	m
 LIBOBJS	test/Makefile	/^LIBOBJS = $/;"	m
 LIBS	Gate/Makefile	/^LIBS = $/;"	m
 LIBS	Makefile	/^LIBS = $/;"	m
-LIBS	sdk/Makefile	/^LIBS = -llog4cplus -lsctp -lpthread -lstdc++ -lxml2$/;"	m
+LIBS	sdk/Makefile	/^LIBS = -llog4cplus -lsctp -lpthread -lstdc++ -lxml2 -lprotobuf -static$/;"	m
 LIBS	test/Makefile	/^LIBS = $/;"	m
 LIBTOOL	Gate/Makefile	/^LIBTOOL = $(SHELL) $(top_builddir)\/libtool$/;"	m
 LIBTOOL	Makefile	/^LIBTOOL = $(SHELL) $(top_builddir)\/libtool$/;"	m
@@ -349,6 +428,7 @@ LOG_LEVE_TRACE	sdk/sLogManager.h	/^		LOG_LEVE_TRACE	= log4cplus::TRACE_LOG_LEVEL
 LOG_LEVE_WARN	sdk/sLogManager.h	/^		LOG_LEVE_WARN   = log4cplus::WARN_LOG_LEVEL,$/;"	m	class:base::LogLevel
 LONG	sdk/sDefine.h	/^typedef long LONG;$/;"	t
 LONGLONG	sdk/sDefine.h	/^typedef long long LONGLONG;$/;"	t
+LONGVALUE	sdk/VarList.h	/^			LONGVALUE,$/;"	m	class:VarObj::ValueType
 LTCOMPILE	test/Makefile	/^LTCOMPILE = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \\$/;"	m
 LTCXXCOMPILE	Gate/Makefile	/^LTCXXCOMPILE = $(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) \\$/;"	m
 LTCXXCOMPILE	sdk/Makefile	/^LTCXXCOMPILE = $(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) \\$/;"	m
@@ -359,9 +439,12 @@ LTLIBOBJS	sdk/Makefile	/^LTLIBOBJS = $/;"	m
 LTLIBOBJS	test/Makefile	/^LTLIBOBJS = $/;"	m
 LTLIBRARIES	sdk/Makefile	/^LTLIBRARIES = $(lib_LTLIBRARIES)$/;"	m
 LT_OBJDIR	config.h	42;"	d
+LoadLuaFile	sdk/LuaSystem.cpp	/^bool LuaSystem::LoadLuaFile(const char* luaFile_)$/;"	f	class:LuaSystem
 LogLevel	sdk/sLogManager.h	/^	enum class LogLevel{$/;"	c	namespace:base
 Logger	sdk/sLogManager.h	/^			Logger()$/;"	f	class:base::Logger
 Logger	sdk/sLogManager.h	/^	class Logger{$/;"	c	namespace:base
+Loop	sdk/sEpoll.cpp	/^bool sEpoll::Loop()$/;"	f	class:sEpoll
+LuaSystem	sdk/LuaSystem.h	/^class LuaSystem$/;"	c
 MAKEINFO	Gate/Makefile	/^MAKEINFO = ${SHELL} \/home\/sauli\/server\/missing makeinfo$/;"	m
 MAKEINFO	Makefile	/^MAKEINFO = ${SHELL} \/home\/sauli\/server\/missing makeinfo$/;"	m
 MAKEINFO	sdk/Makefile	/^MAKEINFO = ${SHELL} \/home\/sauli\/server\/missing makeinfo$/;"	m
@@ -374,10 +457,19 @@ MKDIR_P	Gate/Makefile	/^MKDIR_P = \/usr\/bin\/mkdir -p$/;"	m
 MKDIR_P	Makefile	/^MKDIR_P = \/usr\/bin\/mkdir -p$/;"	m
 MKDIR_P	sdk/Makefile	/^MKDIR_P = \/usr\/bin\/mkdir -p$/;"	m
 MKDIR_P	test/Makefile	/^MKDIR_P = \/usr\/bin\/mkdir -p$/;"	m
+MSG	sdk/sSocket.h	10;"	d
 MapManage	sdk/MapManage.h	/^		MapManage(K& key,V& value){ $/;"	f	class:MapManage
 MapManage	sdk/MapManage.h	/^class MapManage$/;"	c
+MaybeArenaPtr	proto/Gate.pb.h	/^  inline void* MaybeArenaPtr() const {$/;"	f	class:Gate::Info
+MaybeArenaPtr	test/test.pb.h	/^  inline void* MaybeArenaPtr() const {$/;"	f	class:muduo::pack
 Memory	pool.h	/^union Memory{$/;"	u
 Memory_List	pool.h	/^struct Memory_List$/;"	s
+MergeFrom	proto/Gate.pb.cc	/^void Info::MergeFrom(const ::google::protobuf::Message& from) {$/;"	f	class:Gate::Info
+MergeFrom	proto/Gate.pb.cc	/^void Info::MergeFrom(const Info& from) {$/;"	f	class:Gate::Info
+MergeFrom	test/test.pb.cc	/^void pack::MergeFrom(const ::google::protobuf::Message& from) {$/;"	f	class:muduo::pack
+MergeFrom	test/test.pb.cc	/^void pack::MergeFrom(const pack& from) {$/;"	f	class:muduo::pack
+MergePartialFromCodedStream	proto/Gate.pb.cc	/^bool Info::MergePartialFromCodedStream($/;"	f	class:Gate::Info
+MergePartialFromCodedStream	test/test.pb.cc	/^bool pack::MergePartialFromCodedStream($/;"	f	class:muduo::pack
 Msec	sdk/sTime.h	/^	 QWORD Msec()const$/;"	f	class:ClockTime
 NM	Gate/Makefile	/^NM = \/usr\/bin\/nm -B$/;"	m
 NM	Makefile	/^NM = \/usr\/bin\/nm -B$/;"	m
@@ -395,6 +487,10 @@ NORMAL_UNINSTALL	Gate/Makefile	/^NORMAL_UNINSTALL = :$/;"	m
 NORMAL_UNINSTALL	Makefile	/^NORMAL_UNINSTALL = :$/;"	m
 NORMAL_UNINSTALL	sdk/Makefile	/^NORMAL_UNINSTALL = :$/;"	m
 NORMAL_UNINSTALL	test/Makefile	/^NORMAL_UNINSTALL = :$/;"	m
+New	proto/Gate.pb.cc	/^Info* Info::New(::google::protobuf::Arena* arena) const {$/;"	f	class:Gate::Info
+New	proto/Gate.pb.h	/^  inline Info* New() const { return New(NULL); }$/;"	f	class:Gate::Info
+New	test/test.pb.cc	/^pack* pack::New(::google::protobuf::Arena* arena) const {$/;"	f	class:muduo::pack
+New	test/test.pb.h	/^  inline pack* New() const { return New(NULL); }$/;"	f	class:muduo::pack
 NumValue	sdk/VarList.h	/^		union NumValue{$/;"	u	class:VarObj
 OBJDUMP	Gate/Makefile	/^OBJDUMP = objdump$/;"	m
 OBJDUMP	Makefile	/^OBJDUMP = objdump$/;"	m
@@ -471,12 +567,19 @@ PRE_UNINSTALL	sdk/Makefile	/^PRE_UNINSTALL = :$/;"	m
 PRE_UNINSTALL	test/Makefile	/^PRE_UNINSTALL = :$/;"	m
 PROGRAMS	Gate/Makefile	/^PROGRAMS = $(bin_PROGRAMS)$/;"	m
 PROGRAMS	test/Makefile	/^PROGRAMS = $(bin_PROGRAMS)$/;"	m
+PROTOBUF_proto_2fGate_2eproto__INCLUDED	proto/Gate.pb.h	5;"	d
+PROTOBUF_test_2eproto__INCLUDED	test/test.pb.h	5;"	d
 PTHREADIT	sdk/sPthreadPool.h	/^	typedef std::map<DWORD ,sPthread*>::iterator PTHREADIT;$/;"	t	class:sPthreadPool
+Parse	sdk/XmlFile.cpp	/^bool XmlFile::Parse(const char*buf,int size)$/;"	f	class:XmlFile
 ProtoBuffDesc	sdk/sProtobuf.h	/^typedef google::protobuf::Descriptor		ProtoBuffDesc;$/;"	t
 ProtoBuffDescPool	sdk/sProtobuf.h	/^typedef google::protobuf::DescriptorPool    ProtoBuffDescPool;$/;"	t
 ProtoBuffMessage	sdk/sProtobuf.h	/^typedef google::protobuf::Message			ProtoBuffMessage;$/;"	t
 ProtoBuffMessageFactory	sdk/sProtobuf.h	/^typedef google::protobuf::MessageFactory    ProtoBuffMessageFactory;$/;"	t
-ProtobufManage	sdk/sProtobuf.h	/^class ProtobufManage: std::noncopyable$/;"	c
+ProtobufManage	sdk/sProtobuf.h	/^class ProtobufManage\/\/: std::noncopyable$/;"	c
+PushData	sdk/Tool.h	/^void PushData(char*&ptr, std::string&value)$/;"	f	namespace:Tool
+PushData	sdk/Tool.h	/^void PushData(char*&ptr,T& data)$/;"	f	namespace:Tool
+PushData	sdk/sProtobuf.h	/^		void PushData(char*&buf,const DATA &data)$/;"	f	class:ProtobufManage
+PushData	sdk/sProtobuf.h	/^		void PushData(char*&buf,const DATA &data,int size)$/;"	f	class:ProtobufManage
 QWORD	sdk/sDefine.h	/^typedef unsigned long QWORD;$/;"	t
 QWORDVALUE	sdk/VarList.h	/^			QWORDVALUE,$/;"	m	class:VarObj::ValueType
 RANLIB	Gate/Makefile	/^RANLIB = ranlib$/;"	m
@@ -487,6 +590,8 @@ RECURSIVE_CLEAN_TARGETS	Makefile	/^RECURSIVE_CLEAN_TARGETS = mostlyclean-recursi
 RECURSIVE_TARGETS	Makefile	/^RECURSIVE_TARGETS = all-recursive check-recursive cscopelist-recursive \\$/;"	m
 Refresh	sdk/sTime.h	/^		void Refresh(){$/;"	f	class:final
 RefreshTimer	sdk/sTime.h	/^	 void RefreshTimer()$/;"	f	class:ClockTime
+RegisterFunc	sdk/LuaSystem.cpp	/^void LuaSystem::RegisterFunc(const char* funcName_,luaFunc func_)$/;"	f	class:LuaSystem
+RequiredFieldsByteSizeFallback	test/test.pb.cc	/^int pack::RequiredFieldsByteSizeFallback() const {$/;"	f	class:muduo::pack
 Reset	sdk/sTime.h	/^		void Reset(const time_t &time)$/;"	f	class:CycleTime
 SAFE_DEL	sdk/sDefine.h	3;"	d
 SAFE_DEL_ARRAY	sdk/sDefine.h	4;"	d
@@ -514,18 +619,45 @@ STRIP	Makefile	/^STRIP = strip$/;"	m
 STRIP	sdk/Makefile	/^STRIP = strip$/;"	m
 STRIP	test/Makefile	/^STRIP = strip$/;"	m
 STRVALUE	sdk/VarList.h	/^			STRVALUE,	$/;"	m	class:VarObj::ValueType
-SUBDIRS	Makefile	/^SUBDIRS = sdk  test Gate$/;"	m
+SUBDIRS	Makefile	/^SUBDIRS = sdk  test Gate $/;"	m
 SWORD	sdk/sDefine.h	/^typedef signed short SWORD;$/;"	t
 Sec	sdk/sTime.h	/^	 DWORD Sec()const$/;"	f	class:ClockTime
+SerializeWithCachedSizes	proto/Gate.pb.cc	/^void Info::SerializeWithCachedSizes($/;"	f	class:Gate::Info
+SerializeWithCachedSizes	test/test.pb.cc	/^void pack::SerializeWithCachedSizes($/;"	f	class:muduo::pack
+SerializeWithCachedSizesToArray	proto/Gate.pb.h	/^  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {$/;"	f	class:Gate::Info
+SerializeWithCachedSizesToArray	test/test.pb.h	/^  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {$/;"	f	class:muduo::pack
+SetBackLog	sdk/sSctpScoket.h	/^		void	SetBackLog(int backLog){$/;"	f	class:sSctpScoket
+SetCachedSize	proto/Gate.pb.cc	/^void Info::SetCachedSize(int size) const {$/;"	f	class:Gate::Info
+SetCachedSize	test/test.pb.cc	/^void pack::SetCachedSize(int size) const {$/;"	f	class:muduo::pack
+SetListenSocket	sdk/sEpoll.h	/^		void SetListenSocket(int listenSocket){$/;"	f	class:sEpoll
+SetMaxEvents	sdk/sEpoll.h	/^		void  SetMaxEvents(int maxEvents){$/;"	f	class:sEpoll
 SetMsecCycle	sdk/sTime.h	/^		void SetMsecCycle(int msec){$/;"	f	class:CycleTime
+SetNoBlock	sdk/sSctpScoket.cpp	/^void sSctpScoket::SetNoBlock(int fd){$/;"	f	class:sSctpScoket
+SetNodeContent	sdk/XmlFile.cpp	/^void XmlFile::SetNodeContent(xmlNodePtr node,const char* content,int len)$/;"	f	class:XmlFile
+SetOverTime	sdk/sSocket.h	/^	void SetOverTime(int time){$/;"	f	class:sSocket
 SetSec	sdk/sTime.h	/^		void SetSec(int sec){$/;"	f	class:CycleTime
+SetTimeOut	sdk/sEpoll.h	/^		void SetTimeOut(int timeOut){$/;"	f	class:sEpoll
+SharedCtor	proto/Gate.pb.cc	/^void Info::SharedCtor() {$/;"	f	class:Gate::Info
+SharedCtor	test/test.pb.cc	/^void pack::SharedCtor() {$/;"	f	class:muduo::pack
+SharedDtor	proto/Gate.pb.cc	/^void Info::SharedDtor() {$/;"	f	class:Gate::Info
+SharedDtor	test/test.pb.cc	/^void pack::SharedDtor() {$/;"	f	class:muduo::pack
+StaticDescriptorInitializer_proto_2fGate_2eproto	proto/Gate.pb.cc	/^  StaticDescriptorInitializer_proto_2fGate_2eproto() {$/;"	f	struct:Gate::StaticDescriptorInitializer_proto_2fGate_2eproto
+StaticDescriptorInitializer_proto_2fGate_2eproto	proto/Gate.pb.cc	/^struct StaticDescriptorInitializer_proto_2fGate_2eproto {$/;"	s	namespace:Gate	file:
+StaticDescriptorInitializer_test_2eproto	test/test.pb.cc	/^  StaticDescriptorInitializer_test_2eproto() {$/;"	f	struct:muduo::StaticDescriptorInitializer_test_2eproto
+StaticDescriptorInitializer_test_2eproto	test/test.pb.cc	/^struct StaticDescriptorInitializer_test_2eproto {$/;"	s	namespace:muduo	file:
+Swap	proto/Gate.pb.cc	/^void Info::Swap(Info* other) {$/;"	f	class:Gate::Info
+Swap	test/test.pb.cc	/^void pack::Swap(pack* other) {$/;"	f	class:muduo::pack
+Task	sdk/Task.h	/^class Task$/;"	c
 Task	sdk/sTask.h	/^class Task$/;"	c
 TaskContext	sdk/sTask.h	/^	TaskContext(Closure function):$/;"	f	struct:TaskContext
 TaskContext	sdk/sTask.h	/^struct TaskContext{$/;"	s
+TaskFunc	sdk/Task.h	/^typedef std::function<void()> TaskFunc;$/;"	t
 Time	sdk/sTime.h	/^		Time(){$/;"	f	class:final
 Time	sdk/sTime.h	/^		Time(time_t dwTime):_tTime(dwTime){$/;"	f	class:final
 TimeHelp	sdk/sTime.h	/^class TimeHelp$/;"	c
 TimeOut	sdk/sSctpScoket.h	/^static const int TimeOut = -1;$/;"	v
+Tool	sdk/Tool.h	/^namespace Tool$/;"	n
+UpdateEvent	sdk/sEpoll.cpp	/^bool  sEpoll::UpdateEvent(int event,int fd)$/;"	f	class:sEpoll
 UserRun	sdk/UserTest.cpp	/^void * UserRun (void *)$/;"	f
 UserTest	sdk/UserTest.h	/^		UserTest(DWORD dwSocket,sSctpPthread* pth){$/;"	f	class:UserTest
 UserTest	sdk/UserTest.h	/^class UserTest$/;"	c
@@ -559,13 +691,21 @@ _USERTEXT_H__	sdk/UserTest.h	2;"	d
 __CORN_JOB_H__	sdk/CornJob.h	2;"	d
 __GATE_H__	Gate/Gate.h	2;"	d
 __LOG_MANAGER_H__	sdk/sLogManager.h	2;"	d
+__LUA_SYSTEM_H__	sdk/LuaSystem.h	2;"	d
+__PROTOBUF_LIST_H__	proto/ProtobufList.h	2;"	d
 __PROTOBUF_MANAGE_H__	sdk/sProtobuf.h	2;"	d
+__S_SOCKET_H__	sdk/sSocket.h	2;"	d
 __TASK_H__	sdk/Task.h	2;"	d
+__TOOL_H__	sdk/Tool.h	2;"	d
 __VAR_LIST_H__	sdk/VarList.h	2;"	d
 __XML_FILE_H__	sdk/XmlFile.h	2;"	d
 _buf	sdk/sSctpScoket.h	/^		char _buf[1024];$/;"	m	class:sSctpScoket
+_cached_size_	proto/Gate.pb.h	/^  mutable int _cached_size_;$/;"	m	class:Gate::Info
+_cached_size_	test/test.pb.h	/^  mutable int _cached_size_;$/;"	m	class:muduo::pack
 _clockTime	sdk/sTime.h	/^	 	timespec		_clockTime;	$/;"	m	class:ClockTime
+_closeCB	sdk/sEpoll.h	/^		 std::function<void(int)>  _newClientCB,_readCB,_closeCB;$/;"	m	class:sEpoll
 _cornFunc	sdk/CornJob.h	/^	CornFunc _cornFunc; \/\/执行内容$/;"	m	struct:CornDetails
+_ctx	sdk/sSocket.h	/^	void *_ctx;$/;"	m	class:sSocket
 _cycleMsec	sdk/sTime.h	/^		int _cycleMsec ;$/;"	m	class:CycleTime
 _delayTaskList	sdk/sTask.h	/^		std::list<DelayTaskContext> _delayTaskList;$/;"	m	class:Task
 _delayTime	sdk/sTask.h	/^	int _delayTime;$/;"	m	struct:DelayTaskContext
@@ -573,29 +713,39 @@ _dwID	sdk/sTask.h	/^	DWORD			_dwID;	$/;"	m	struct:TaskContext
 _dwSocket	sdk/UserTest.h	/^		DWORD _dwSocket;$/;"	m	class:UserTest
 _dwTimes	sdk/sSctpPool.h	/^	 DWORD _dwTimes;$/;"	m	class:sSctpPool
 _efd	sdk/sSctpPthread.h	/^		 int _efd;$/;"	m	class:sSctpPthread
-_efd	sdk/sSctpScoket.h	/^		int _efd;$/;"	m	class:sSctpScoket
+_epoll	sdk/sSctpScoket.h	/^		sEpoll _epoll;$/;"	m	class:sSctpScoket
+_epollfd	sdk/sEpoll.h	/^		 int _epollfd;\/\/epoll句柄$/;"	m	class:sEpoll
 _executeTime	sdk/CornJob.h	/^	Time _executeTime;      \/\/执行时间$/;"	m	struct:CornDetails
 _function	sdk/sTask.h	/^	Closure			_function;$/;"	m	struct:TaskContext
 _function	sdk/sTask.h	/^	Closure _function;$/;"	m	struct:DelayTaskContext
 _globaTime	sdk/sTime.h	/^static ClockTime _globaTime;$/;"	v
+_has_bits_	test/test.pb.h	/^  ::google::protobuf::uint32 _has_bits_[1];$/;"	m	class:muduo::pack
+_internal_metadata_	proto/Gate.pb.h	/^  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;$/;"	m	class:Gate::Info
+_internal_metadata_	test/test.pb.h	/^  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;$/;"	m	class:muduo::pack
+_ipPort	sdk/sSocket.h	/^	std::string _ipPort;$/;"	m	class:sSocket
+_is_default_instance_	proto/Gate.pb.h	/^  bool _is_default_instance_;$/;"	m	class:Gate::Info
 _keyValue	sdk/MapManage.h	/^		static std::map<K,V> _keyValue;$/;"	m	class:MapManage
 _logger	sdk/sLogManager.h	/^			log4cplus::Logger _logger;$/;"	m	class:base::Logger
+_maxfdSize	sdk/sEpoll.h	/^		 int _maxfdSize;$/;"	m	class:sEpoll
 _mutex	sdk/sMutex.h	/^		pthread_mutex_t _mutex;$/;"	m	class:sMutex
 _mutex	sdk/sPthread.h	/^		 sMutex _mutex;$/;"	m	class:sPthread
 _name	Logic/FriendManage.h	/^	std::string _name;	$/;"	m	struct:FriendInfo
+_newClientCB	sdk/sEpoll.h	/^		 std::function<void(int)>  _newClientCB,_readCB,_closeCB;$/;"	m	class:sEpoll
 _nextMsec	sdk/sTime.h	/^		time_t _nextMsec;$/;"	m	class:CycleTime
 _ntid	sdk/sPthread.h	/^		pthread_t _ntid;$/;"	m	class:sPthread
 _numValue	sdk/VarList.h	/^			NumValue _numValue;$/;"	m	struct:VarObj::Value
 _pLayout	sdk/sLogManager.h	/^			log4cplus::Layout *_pLayout;$/;"	m	class:base::Logger
+_pLuaState	sdk/LuaSystem.h	/^		lua_State* _pLuaState;$/;"	m	class:LuaSystem
 _pShareAppend	sdk/sLogManager.h	/^			log4cplus::helpers::SharedObjectPtr<log4cplus::Appender>  _pShareAppend;$/;"	m	class:base::Logger
 _pool	pool.h	/^		Memory_List * _pool[POOL_LIST_MAX_LENGTH];$/;"	m	class:sPool
 _poolIndex	sdk/sPthreadPool.h	/^	DWORD _poolIndex;$/;"	m	class:sPthreadPool
+_protobufManage	sdk/sSocket.h	/^	ProtobufManage _protobufManage;$/;"	m	class:sSocket
 _pthreadPool	sdk/sPthreadPool.h	/^	std::map<DWORD ,sPthread*> _pthreadPool;$/;"	m	class:sPthreadPool
-_ret	sdk/sSctpScoket.h	/^		int _ret;$/;"	m	class:sSctpScoket
-_sSockListen	sdk/sSctpScoket.h	/^		int _sSockListen;$/;"	m	class:sSctpScoket
+_readCB	sdk/sEpoll.h	/^		 std::function<void(int)>  _newClientCB,_readCB,_closeCB;$/;"	m	class:sEpoll
 _sctpPool	sdk/sSctpPool.h	/^	 sPthreadPool _sctpPool;$/;"	m	class:sSctpPool
 _sctpPth	sdk/UserTest.h	/^		sSctpPthread* _sctpPth;$/;"	m	class:UserTest
 _servaddr	sdk/sSctpScoket.h	/^		struct sockaddr_in _servaddr;$/;"	m	class:sSctpScoket	typeref:struct:sSctpScoket::sockaddr_in
+_socket	sdk/sSocket.h	/^	void *_socket;$/;"	m	class:sSocket
 _strValue	sdk/VarList.h	/^			std::string _strValue;$/;"	m	struct:VarObj::Value
 _tTime	sdk/sTime.h	/^		time_t _tTime;$/;"	m	class:final
 _taskList	sdk/sTask.h	/^		std::list<TaskContext> _taskList;$/;"	m	class:Task
@@ -715,7 +865,7 @@ am__mv	test/Makefile	/^am__mv = mv -f$/;"	m
 am__nobase_list	sdk/Makefile	/^am__nobase_list = $(am__nobase_strip_setup); \\$/;"	m
 am__nobase_strip	sdk/Makefile	/^am__nobase_strip = \\$/;"	m
 am__nobase_strip_setup	sdk/Makefile	/^am__nobase_strip_setup = \\$/;"	m
-am__objects_1	sdk/Makefile	/^am__objects_1 = sMutex.lo sTime.lo sSctpScoket.lo sPthreadPool.lo \\$/;"	m
+am__objects_1	sdk/Makefile	/^am__objects_1 = sMutex.lo sSctpScoket.lo sPthreadPool.lo sEpoll.lo \\$/;"	m
 am__post_remove_distdir	Makefile	/^am__post_remove_distdir = $(am__remove_distdir)$/;"	m
 am__quote	Gate/Makefile	/^am__quote = $/;"	m
 am__quote	Makefile	/^am__quote = $/;"	m
@@ -814,7 +964,7 @@ am__v_lt_1	test/Makefile	/^am__v_lt_1 = $/;"	m
 am__vpath_adj	sdk/Makefile	/^am__vpath_adj = case $$p in \\$/;"	m
 am__vpath_adj_setup	sdk/Makefile	/^am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;$/;"	m
 am_libsdk_la_OBJECTS	sdk/Makefile	/^am_libsdk_la_OBJECTS = $(am__objects_1)$/;"	m
-am_main_OBJECTS	test/Makefile	/^am_main_OBJECTS = main.$(OBJEXT)$/;"	m
+am_main_OBJECTS	test/Makefile	/^am_main_OBJECTS = main.$(OBJEXT) test.pb.$(OBJEXT)$/;"	m
 as_fn_append	config.status	/^  as_fn_append ()$/;"	f
 as_fn_append	configure	/^  as_fn_append ()$/;"	f
 as_fn_arith	config.status	/^  as_fn_arith ()$/;"	f
@@ -838,7 +988,6 @@ as_fn_unset	configure	/^as_fn_unset ()$/;"	f
 base	sdk/sLogManager.h	/^namespace base{$/;"	n
 bin_PROGRAMS	Gate/Makefile	/^bin_PROGRAMS = Gate$(EXEEXT)$/;"	m
 bin_PROGRAMS	test/Makefile	/^bin_PROGRAMS = main$(EXEEXT)$/;"	m
-bind	sdk/sSctpScoket.cpp	/^bool sSctpScoket::bind(DWORD dwPort)$/;"	f	class:sSctpScoket
 bindir	Gate/Makefile	/^bindir = ${exec_prefix}\/bin$/;"	m
 bindir	Makefile	/^bindir = ${exec_prefix}\/bin$/;"	m
 bindir	sdk/Makefile	/^bindir = ${exec_prefix}\/bin$/;"	m
@@ -872,7 +1021,19 @@ builddir	Gate/Makefile	/^builddir = .$/;"	m
 builddir	Makefile	/^builddir = .$/;"	m
 builddir	sdk/Makefile	/^builddir = .$/;"	m
 builddir	test/Makefile	/^builddir = .$/;"	m
-crateMessage	sdk/sProtobuf.h	/^		inline ProtoBuffMessage*  crateMessage(const std::stiring& name){$/;"	f	class:ProtobufManage
+clear_dwid	proto/Gate.pb.cc	/^void Info::clear_dwid() {$/;"	f	class:Gate::Info
+clear_dwid	proto/Gate.pb.h	/^inline void Info::clear_dwid() {$/;"	f	class:Gate::Info
+clear_dwid	test/test.pb.cc	/^void pack::clear_dwid() {$/;"	f	class:muduo::pack
+clear_dwid	test/test.pb.h	/^inline void pack::clear_dwid() {$/;"	f	class:muduo::pack
+clear_has_dwid	test/test.pb.cc	/^void pack::clear_has_dwid() {$/;"	f	class:muduo::pack
+clear_has_dwid	test/test.pb.h	/^inline void pack::clear_has_dwid() {$/;"	f	class:muduo::pack
+clear_has_name	test/test.pb.cc	/^void pack::clear_has_name() {$/;"	f	class:muduo::pack
+clear_has_name	test/test.pb.h	/^inline void pack::clear_has_name() {$/;"	f	class:muduo::pack
+clear_name	test/test.pb.cc	/^void pack::clear_name() {$/;"	f	class:muduo::pack
+clear_name	test/test.pb.h	/^inline void pack::clear_name() {$/;"	f	class:muduo::pack
+clear_str	proto/Gate.pb.cc	/^void Info::clear_str() {$/;"	f	class:Gate::Info
+clear_str	proto/Gate.pb.h	/^inline void Info::clear_str() {$/;"	f	class:Gate::Info
+createMessage	sdk/sProtobuf.h	/^		inline ProtoBuffMessage*  createMessage(const std::string& name){$/;"	f	class:ProtobufManage
 createNewPthread	sdk/sPthreadPool.h	/^	T*  createNewPthread(pthread_func func)$/;"	f	class:sPthreadPool
 data	pool.h	/^	Memory *data;	$/;"	m	struct:Memory_List
 data	pool.h	/^	char data[1];$/;"	m	union:Memory
@@ -886,10 +1047,18 @@ datarootdir	sdk/Makefile	/^datarootdir = ${prefix}\/share$/;"	m
 datarootdir	test/Makefile	/^datarootdir = ${prefix}\/share$/;"	m
 dealMsg	sdk/UserTest.cpp	/^void UserTest::dealMsg(char *arg)$/;"	f	class:UserTest
 debug	sdk/sLogManager.cpp	/^void Logger::debug(const char *fmt,...)$/;"	f	class:Logger
-decode	sdk/sProtobuf.h	/^		inline void decode(const char*buf,ProtoBuffMessage& message){$/;"	f	class:ProtobufManage
+decode	sdk/sProtobuf.h	/^		inline void decode( char*buf,const ProtoBuffMessage& message)$/;"	f	class:ProtobufManage
+default_instance	proto/Gate.pb.cc	/^const Info& Info::default_instance() {$/;"	f	class:Gate::Info
+default_instance	test/test.pb.cc	/^const pack& pack::default_instance() {$/;"	f	class:muduo::pack
+default_instance_	proto/Gate.pb.cc	/^Info* Info::default_instance_ = NULL;$/;"	m	class:Gate::Info	file:
+default_instance_	proto/Gate.pb.h	/^  static Info* default_instance_;$/;"	m	class:Gate::Info
+default_instance_	test/test.pb.cc	/^pack* pack::default_instance_ = NULL;$/;"	m	class:muduo::pack	file:
+default_instance_	test/test.pb.h	/^  static pack* default_instance_;$/;"	m	class:muduo::pack
 depcomp	Gate/Makefile	/^depcomp = $(SHELL) $(top_srcdir)\/depcomp$/;"	m
 depcomp	sdk/Makefile	/^depcomp = $(SHELL) $(top_srcdir)\/depcomp$/;"	m
 depcomp	test/Makefile	/^depcomp = $(SHELL) $(top_srcdir)\/depcomp$/;"	m
+descriptor	proto/Gate.pb.cc	/^const ::google::protobuf::Descriptor* Info::descriptor() {$/;"	f	class:Gate::Info
+descriptor	test/test.pb.cc	/^const ::google::protobuf::Descriptor* pack::descriptor() {$/;"	f	class:muduo::pack
 distcleancheck_listfiles	Makefile	/^distcleancheck_listfiles = find . -type f -print$/;"	m
 distdir	Makefile	/^distdir = $(PACKAGE)-$(VERSION)$/;"	m
 distuninstallcheck_listfiles	Makefile	/^distuninstallcheck_listfiles = find . -type f -print$/;"	m
@@ -897,19 +1066,22 @@ docdir	Gate/Makefile	/^docdir = ${datarootdir}\/doc\/${PACKAGE_TARNAME}$/;"	m
 docdir	Makefile	/^docdir = ${datarootdir}\/doc\/${PACKAGE_TARNAME}$/;"	m
 docdir	sdk/Makefile	/^docdir = ${datarootdir}\/doc\/${PACKAGE_TARNAME}$/;"	m
 docdir	test/Makefile	/^docdir = ${datarootdir}\/doc\/${PACKAGE_TARNAME}$/;"	m
+doubleValue	sdk/VarList.h	/^			double      doubleValue;$/;"	m	union:VarObj::NumValue
 dvidir	Gate/Makefile	/^dvidir = ${docdir}$/;"	m
 dvidir	Makefile	/^dvidir = ${docdir}$/;"	m
 dvidir	sdk/Makefile	/^dvidir = ${docdir}$/;"	m
 dvidir	test/Makefile	/^dvidir = ${docdir}$/;"	m
 dwSocket	sdk/UserTest.cpp	/^int dwSocket = 0;$/;"	v
 dwValue	sdk/VarList.h	/^			DWORD		dwValue;$/;"	m	union:VarObj::NumValue
-ecode	sdk/sProtobuf.h	/^		inline  Message* ecode(const char* buf,int len)$/;"	f	class:ProtobufManage
+dwid	proto/Gate.pb.cc	/^ ::google::protobuf::uint32 Info::dwid() const {$/;"	f	class:Gate::Info
+dwid	proto/Gate.pb.h	/^inline ::google::protobuf::uint32 Info::dwid() const {$/;"	f	class:Gate::Info
+dwid	test/test.pb.cc	/^ ::google::protobuf::int32 pack::dwid() const {$/;"	f	class:muduo::pack
+dwid	test/test.pb.h	/^inline ::google::protobuf::int32 pack::dwid() const {$/;"	f	class:muduo::pack
+dwid_	proto/Gate.pb.h	/^  ::google::protobuf::uint32 dwid_;$/;"	m	class:Gate::Info
+dwid_	test/test.pb.h	/^  ::google::protobuf::int32 dwid_;$/;"	m	class:muduo::pack
+ecode	sdk/sProtobuf.h	/^		inline  ProtoBuffMessage* ecode(const char* buf)$/;"	f	class:ProtobufManage
 elapseSec	sdk/sTime.h	/^		int elapseSec(const time_t&sec)$/;"	f	class:final
 end	sdk/UserTest.h	/^		bool end;$/;"	m	class:UserTest
-epollAddEvent	sdk/sEpoll.cpp	/^bool sEpoll::epollAddEvent(int epollfd,int event,int fd)$/;"	f	class:sEpoll
-epollChangeEvent	sdk/sEpoll.cpp	/^bool  sEpoll::epollChangeEvent(int epollfd,int event,int fd)$/;"	f	class:sEpoll
-epollDelEvent	sdk/sEpoll.cpp	/^bool sEpoll::epollDelEvent(int epollfd,int fd)$/;"	f	class:sEpoll
-epollInit	sdk/sEpoll.cpp	/^bool sEpoll::epollInit(int maxfdSize)$/;"	f	class:sEpoll
 error	sdk/sLogManager.cpp	/^void Logger::error(const char*fmt,...)$/;"	f	class:Logger
 exec_prefix	Gate/Makefile	/^exec_prefix = ${prefix}$/;"	m
 exec_prefix	Makefile	/^exec_prefix = ${prefix}$/;"	m
@@ -920,6 +1092,7 @@ f2	test/main1.cpp	/^void f2(int a,int b)$/;"	f
 fatal	sdk/sLogManager.cpp	/^void Logger::fatal(const char*fmt,...)$/;"	f	class:Logger
 fileList	sdk/Makefile	/^fileList = \\$/;"	m
 final	sdk/sTime.h	/^class Time final$/;"	c
+floatValue	sdk/VarList.h	/^			FLOAT       floatValue;$/;"	m	union:VarObj::NumValue
 freeMalloc	pool.cpp	/^void sPool::freeMalloc(void *ptr,int size)$/;"	f	class:sPool
 func_append	config.status	/^func_append ()\\$/;"	f
 func_append	configure	/^func_append ()\\$/;"	f
@@ -1012,10 +1185,8 @@ func_enable_tag	ltmain.sh	/^func_enable_tag ()$/;"	f
 func_error	ar-lib	/^func_error ()$/;"	f
 func_error	libtool	/^func_error ()$/;"	f
 func_error	ltmain.sh	/^func_error ()$/;"	f
-func_exec_program	Gate/Gate	/^func_exec_program ()$/;"	f
 func_exec_program	libtool	/^func_exec_program ()$/;"	f
 func_exec_program	ltmain.sh	/^func_exec_program ()$/;"	f
-func_exec_program_core	Gate/Gate	/^func_exec_program_core ()$/;"	f
 func_exec_program_core	libtool	/^func_exec_program_core ()$/;"	f
 func_exec_program_core	ltmain.sh	/^func_exec_program_core ()$/;"	f
 func_execute_cmds	libtool	/^func_execute_cmds ()$/;"	f
@@ -1024,7 +1195,6 @@ func_extract_an_archive	libtool	/^func_extract_an_archive ()$/;"	f
 func_extract_an_archive	ltmain.sh	/^func_extract_an_archive ()$/;"	f
 func_extract_archives	libtool	/^func_extract_archives ()$/;"	f
 func_extract_archives	ltmain.sh	/^func_extract_archives ()$/;"	f
-func_fallback_echo	Gate/Gate	/^func_fallback_echo ()$/;"	f
 func_fallback_echo	config.status	/^func_fallback_echo ()$/;"	f
 func_fallback_echo	configure	/^  func_fallback_echo ()$/;"	f
 func_fallback_echo	configure	/^func_fallback_echo ()$/;"	f
@@ -1061,7 +1231,6 @@ func_lo2o	config.status	/^func_lo2o ()\\$/;"	f
 func_lo2o	configure	/^func_lo2o ()\\$/;"	f
 func_lo2o	libtool	/^func_lo2o ()$/;"	f
 func_lo2o	ltmain.sh	/^func_lo2o ()$/;"	f
-func_lt_dump_args	Gate/Gate	/^func_lt_dump_args ()$/;"	f
 func_lt_dump_args	libtool	/^func_lt_dump_args ()$/;"	f
 func_lt_dump_args	ltmain.sh	/^func_lt_dump_args ()$/;"	f
 func_ltwrapper_executable_p	libtool	/^func_ltwrapper_executable_p ()$/;"	f
@@ -1094,7 +1263,6 @@ func_mode_uninstall	libtool	/^func_mode_uninstall ()$/;"	f
 func_mode_uninstall	ltmain.sh	/^func_mode_uninstall ()$/;"	f
 func_normal_abspath	libtool	/^func_normal_abspath ()$/;"	f
 func_normal_abspath	ltmain.sh	/^func_normal_abspath ()$/;"	f
-func_parse_lt_options	Gate/Gate	/^func_parse_lt_options ()$/;"	f
 func_parse_lt_options	libtool	/^func_parse_lt_options ()$/;"	f
 func_parse_lt_options	ltmain.sh	/^func_parse_lt_options ()$/;"	f
 func_quote_for_eval	libtool	/^func_quote_for_eval ()$/;"	f
@@ -1157,6 +1325,10 @@ getPhteadByIndex	sdk/sPthreadPool.cpp	/^sPthread* sPthreadPool::getPhteadByIndex
 getPthreadSize	sdk/sPthreadPool.h	/^	DWORD getPthreadSize(){return _poolIndex;};$/;"	f	class:sPthreadPool
 getSocket	sdk/UserTest.h	/^		DWORD getSocket(){return _dwSocket;};$/;"	f	class:UserTest
 give_advice	missing	/^give_advice ()$/;"	f
+has_dwid	test/test.pb.cc	/^bool pack::has_dwid() const {$/;"	f	class:muduo::pack
+has_dwid	test/test.pb.h	/^inline bool pack::has_dwid() const {$/;"	f	class:muduo::pack
+has_name	test/test.pb.cc	/^bool pack::has_name() const {$/;"	f	class:muduo::pack
+has_name	test/test.pb.h	/^inline bool pack::has_name() const {$/;"	f	class:muduo::pack
 host	Gate/Makefile	/^host = x86_64-unknown-linux-gnu$/;"	m
 host	Makefile	/^host = x86_64-unknown-linux-gnu$/;"	m
 host	sdk/Makefile	/^host = x86_64-unknown-linux-gnu$/;"	m
@@ -1199,7 +1371,6 @@ init	sdk/sLogManager.cpp	/^void Logger::init(const char* configureFile)$/;"	f	cl
 init	sdk/sPthread.h	/^		virtual bool init(){return true;};$/;"	f	class:sPthread
 init	sdk/sSctpPthread.cpp	/^bool sSctpPthread::init()$/;"	f	class:sSctpPthread
 initPool	sdk/sSctpPool.cpp	/^void sSctpPool::initPool(DWORD dwPthreadTimes)$/;"	f	class:sSctpPool
-initSocket	sdk/sSctpScoket.cpp	/^bool sSctpScoket::initSocket()$/;"	f	class:sSctpScoket
 install_sh	Gate/Makefile	/^install_sh = ${SHELL} \/home\/sauli\/server\/install-sh$/;"	m
 install_sh	Makefile	/^install_sh = ${SHELL} \/home\/sauli\/server\/install-sh$/;"	m
 install_sh	sdk/Makefile	/^install_sh = ${SHELL} \/home\/sauli\/server\/install-sh$/;"	m
@@ -1227,6 +1398,14 @@ isSameSec	sdk/sTime.h	/^		bool isSameSec(const Time &other)const$/;"	f	class:fin
 isSameSec	sdk/sTime.h	/^		bool isSameSec(const time_t &time)const$/;"	f	class:final
 isSameWeek	sdk/sTime.h	/^	static bool isSameWeek(time_t&src,time_t& other)$/;"	f	class:TimeHelp
 isSameYear	sdk/sTime.h	/^	static bool isSameYear(time_t&src,time_t&other)$/;"	f	class:TimeHelp
+kDwIDFieldNumber	proto/Gate.pb.cc	/^const int Info::kDwIDFieldNumber;$/;"	m	class:Gate::Info	file:
+kDwIDFieldNumber	proto/Gate.pb.h	/^  static const int kDwIDFieldNumber = 1;$/;"	m	class:Gate::Info
+kDwIDFieldNumber	test/test.pb.cc	/^const int pack::kDwIDFieldNumber;$/;"	m	class:muduo::pack	file:
+kDwIDFieldNumber	test/test.pb.h	/^  static const int kDwIDFieldNumber = 1;$/;"	m	class:muduo::pack
+kNameFieldNumber	test/test.pb.cc	/^const int pack::kNameFieldNumber;$/;"	m	class:muduo::pack	file:
+kNameFieldNumber	test/test.pb.h	/^  static const int kNameFieldNumber = 2;$/;"	m	class:muduo::pack
+kStrFieldNumber	proto/Gate.pb.cc	/^const int Info::kStrFieldNumber;$/;"	m	class:Gate::Info	file:
+kStrFieldNumber	proto/Gate.pb.h	/^  static const int kStrFieldNumber = 2;$/;"	m	class:Gate::Info
 lib_LTLIBRARIES	sdk/Makefile	/^lib_LTLIBRARIES = libsdk.la$/;"	m
 libdir	Gate/Makefile	/^libdir = ${exec_prefix}\/lib$/;"	m
 libdir	Makefile	/^libdir = ${exec_prefix}\/lib$/;"	m
@@ -1249,6 +1428,9 @@ localstatedir	sdk/Makefile	/^localstatedir = ${prefix}\/var$/;"	m
 localstatedir	test/Makefile	/^localstatedir = ${prefix}\/var$/;"	m
 lock	sdk/sMutex.cpp	/^void sMutex::lock()$/;"	f	class:sMutex
 logger	sdk/sLogManager.h	/^	static Logger logger;$/;"	m	namespace:base
+longValue	sdk/VarList.h	/^			LONG        longValue;$/;"	m	union:VarObj::NumValue
+luaFunc	sdk/LuaSystem.h	/^typedef int (*luaFunc)(luaState*lua);$/;"	t
+luaSate	sdk/LuaSystem.h	/^typedef lua_state luaSate;$/;"	t
 main	Gate/Gate.cpp	/^int main()$/;"	f
 main	config.guess	/^		main()$/;"	f
 main	config.guess	/^	main ()$/;"	f
@@ -1274,6 +1456,16 @@ mkinstalldirs	Gate/Makefile	/^mkinstalldirs = $(install_sh) -d$/;"	m
 mkinstalldirs	Makefile	/^mkinstalldirs = $(install_sh) -d$/;"	m
 mkinstalldirs	sdk/Makefile	/^mkinstalldirs = $(install_sh) -d$/;"	m
 mkinstalldirs	test/Makefile	/^mkinstalldirs = $(install_sh) -d$/;"	m
+muduo	test/test.pb.cc	/^namespace muduo {$/;"	n	file:
+muduo	test/test.pb.h	/^namespace muduo {$/;"	n
+mutable_name	test/test.pb.cc	/^ ::std::string* pack::mutable_name() {$/;"	f	class:muduo::pack
+mutable_name	test/test.pb.h	/^inline ::std::string* pack::mutable_name() {$/;"	f	class:muduo::pack
+mutable_str	proto/Gate.pb.cc	/^ ::std::string* Info::mutable_str() {$/;"	f	class:Gate::Info
+mutable_str	proto/Gate.pb.h	/^inline ::std::string* Info::mutable_str() {$/;"	f	class:Gate::Info
+mutable_unknown_fields	test/test.pb.h	/^  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {$/;"	f	class:muduo::pack
+name	test/test.pb.cc	/^ const ::std::string& pack::name() const {$/;"	f	class:muduo::pack
+name	test/test.pb.h	/^inline const ::std::string& pack::name() const {$/;"	f	class:muduo::pack
+name_	test/test.pb.h	/^  ::google::protobuf::internal::ArenaStringPtr name_;$/;"	m	class:muduo::pack
 next	pool.h	/^	Memory_List *next;$/;"	m	struct:Memory_List
 next	pool.h	/^	union Memory* next;$/;"	m	union:Memory	typeref:union:Memory::Memory
 oldincludedir	Gate/Makefile	/^oldincludedir = \/usr\/include$/;"	m
@@ -1288,12 +1480,20 @@ operator +	sdk/sTime.h	/^		Time& operator +(const Time&other)$/;"	f	class:final
 operator -	sdk/sTime.h	/^		Time& operator - (const Time&other)$/;"	f	class:final
 operator <	sdk/sTime.h	/^		bool operator < (const Time&other) const$/;"	f	class:final
 operator <<	sdk/VarList.h	/^		VarList& operator<<(T value)$/;"	f	class:VarList
+operator <<	sdk/VarList.h	/^		VarList& operator<<(VarList& other)$/;"	f	class:VarList
 operator <=	sdk/sTime.h	/^		bool operator <= (const Time&other) const$/;"	f	class:final
+operator =	proto/Gate.pb.h	/^  inline Info& operator=(const Info& from) {$/;"	f	class:Gate::Info
 operator =	sdk/sTask.h	/^	TaskContext& operator =  (TaskContext& other)$/;"	f	struct:TaskContext
 operator =	sdk/sTime.h	/^		Time& operator = (const Time&other)$/;"	f	class:final
+operator =	test/test.pb.h	/^  inline pack& operator=(const pack& from) {$/;"	f	class:muduo::pack
 operator ==	sdk/sTime.h	/^		bool operator == (const Time&other) const$/;"	f	class:final
 operator >	sdk/sTime.h	/^		bool operator > (const Time&other) const$/;"	f	class:final
 operator >=	sdk/sTime.h	/^		bool operator >= (const Time&other) const$/;"	f	class:final
+pack	test/test.pb.cc	/^pack::pack()$/;"	f	class:muduo::pack
+pack	test/test.pb.cc	/^pack::pack(const pack& from)$/;"	f	class:muduo::pack
+pack	test/test.pb.h	/^class pack : public ::google::protobuf::Message \/* @@protoc_insertion_point(class_definition:muduo.pack) *\/ {$/;"	c	namespace:muduo
+pack_descriptor_	test/test.pb.cc	/^const ::google::protobuf::Descriptor* pack_descriptor_ = NULL;$/;"	m	namespace:muduo::__anon2	file:
+pack_reflection_	test/test.pb.cc	/^  pack_reflection_ = NULL;$/;"	m	namespace:muduo::__anon2	file:
 pdfdir	Gate/Makefile	/^pdfdir = ${docdir}$/;"	m
 pdfdir	Makefile	/^pdfdir = ${docdir}$/;"	m
 pdfdir	sdk/Makefile	/^pdfdir = ${docdir}$/;"	m
@@ -1324,6 +1524,16 @@ program_transform_name	Gate/Makefile	/^program_transform_name = s,x,x,$/;"	m
 program_transform_name	Makefile	/^program_transform_name = s,x,x,$/;"	m
 program_transform_name	sdk/Makefile	/^program_transform_name = s,x,x,$/;"	m
 program_transform_name	test/Makefile	/^program_transform_name = s,x,x,$/;"	m
+protobuf_AddDesc_proto_2fGate_2eproto	proto/Gate.pb.cc	/^void protobuf_AddDesc_proto_2fGate_2eproto() {$/;"	f	namespace:Gate
+protobuf_AddDesc_test_2eproto	test/test.pb.cc	/^void protobuf_AddDesc_test_2eproto() {$/;"	f	namespace:muduo
+protobuf_AssignDesc_proto_2fGate_2eproto	proto/Gate.pb.cc	/^void protobuf_AssignDesc_proto_2fGate_2eproto() {$/;"	f	namespace:Gate
+protobuf_AssignDesc_test_2eproto	test/test.pb.cc	/^void protobuf_AssignDesc_test_2eproto() {$/;"	f	namespace:muduo
+protobuf_AssignDescriptorsOnce	proto/Gate.pb.cc	/^inline void protobuf_AssignDescriptorsOnce() {$/;"	f	namespace:Gate::__anon5
+protobuf_AssignDescriptorsOnce	test/test.pb.cc	/^inline void protobuf_AssignDescriptorsOnce() {$/;"	f	namespace:muduo::__anon3
+protobuf_RegisterTypes	proto/Gate.pb.cc	/^void protobuf_RegisterTypes(const ::std::string&) {$/;"	f	namespace:Gate::__anon5
+protobuf_RegisterTypes	test/test.pb.cc	/^void protobuf_RegisterTypes(const ::std::string&) {$/;"	f	namespace:muduo::__anon3
+protobuf_ShutdownFile_proto_2fGate_2eproto	proto/Gate.pb.cc	/^void protobuf_ShutdownFile_proto_2fGate_2eproto() {$/;"	f	namespace:Gate
+protobuf_ShutdownFile_test_2eproto	test/test.pb.cc	/^void protobuf_ShutdownFile_test_2eproto() {$/;"	f	namespace:muduo
 prototypes	configure	/^   function prototypes and stuff, but not '\\xHH' hex character constants.$/;"	f
 psdir	Gate/Makefile	/^psdir = ${docdir}$/;"	m
 psdir	Makefile	/^psdir = ${docdir}$/;"	m
@@ -1332,6 +1542,10 @@ psdir	test/Makefile	/^psdir = ${docdir}$/;"	m
 pthread_func	sdk/sPthread.h	/^typedef void* (*pthread_func)(void *arg);$/;"	t
 qValue	sdk/VarList.h	/^			QWORD		qValue;$/;"	m	union:VarObj::NumValue
 recvMessage	sdk/sProtobuf.h	/^		inline void recvMessage(void *buf){};$/;"	f	class:ProtobufManage
+release_name	test/test.pb.cc	/^ ::std::string* pack::release_name() {$/;"	f	class:muduo::pack
+release_name	test/test.pb.h	/^inline ::std::string* pack::release_name() {$/;"	f	class:muduo::pack
+release_str	proto/Gate.pb.cc	/^ ::std::string* Info::release_str() {$/;"	f	class:Gate::Info
+release_str	proto/Gate.pb.h	/^inline ::std::string* Info::release_str() {$/;"	f	class:Gate::Info
 run	sdk/sPthread.h	/^		virtual void run(){};$/;"	f	class:sPthread
 run	sdk/sSctpPthread.cpp	/^void sSctpPthread::run()$/;"	f	class:sSctpPthread
 run	sdk/sTask.cpp	/^void Task::run()$/;"	f	class:Task
@@ -1351,6 +1565,9 @@ sSctpPool	sdk/sSctpPool.h	/^class sSctpPool :public sSctpScoket$/;"	c
 sSctpPthread	sdk/sSctpPthread.h	/^		sSctpPthread(pthread_func pFunc):sPthread(pFunc){};$/;"	f	class:sSctpPthread
 sSctpPthread	sdk/sSctpPthread.h	/^class sSctpPthread :public  sPthread$/;"	c
 sSctpScoket	sdk/sSctpScoket.h	/^class sSctpScoket$/;"	c
+sSocket	sdk/sSocket.h	/^class sSocket$/;"	c
+saveToFile	sdk/XmlFile.cpp	/^bool XmlFile::saveToFile(const char*fileName,xmlDocPtr node,const char*encoding,int format)$/;"	f	class:XmlFile
+saveToString	sdk/XmlFile.cpp	/^int XmlFile::saveToString(xmlDocPtr node,std::string &out,const char*encoding,int format)$/;"	f	class:XmlFile
 sbindir	Gate/Makefile	/^sbindir = ${exec_prefix}\/sbin$/;"	m
 sbindir	Makefile	/^sbindir = ${exec_prefix}\/sbin$/;"	m
 sbindir	sdk/Makefile	/^sbindir = ${exec_prefix}\/sbin$/;"	m
@@ -1359,14 +1576,42 @@ sctpThreadFunc	sdk/sSctpPool.cpp	/^void *sctpThreadFunc ( void *arg)$/;"	f
 sendBuf	sdk/sProtobuf.h	/^		inline void sendBuf(void *buf){};$/;"	f	class:ProtobufManage
 sendCmd	sdk/UserTest.cpp	/^bool UserTest::sendCmd(DWORD dwSocket,char *buf)$/;"	f	class:UserTest
 sendCmd	sdk/sSctpPthread.cpp	/^void sSctpPthread::sendCmd(DWORD dwSocket,char *buf)$/;"	f	class:sSctpPthread
+sendMessage	sdk/sSocket.cpp	/^void sSocket::sendMessage(const MSG& message)$/;"	f	class:sSocket
 setLevel	sdk/sLogManager.cpp	/^void Logger::setLevel(const LogLevel& level)$/;"	f	class:Logger
 setSec	sdk/sTime.h	/^		void setSec(const time_t&sec)$/;"	f	class:final
+setValue	sdk/VarList.h	/^		void setValue(FLOAT value)$/;"	f	class:VarObj
+setValue	sdk/VarList.h	/^		void setValue(LONG value)$/;"	f	class:VarObj
 setValue	sdk/VarList.h	/^		void setValue(bool value)$/;"	f	class:VarObj
 setValue	sdk/VarList.h	/^		void setValue(char *value)$/;"	f	class:VarObj
 setValue	sdk/VarList.h	/^		void setValue(const char* value)$/;"	f	class:VarObj
+setValue	sdk/VarList.h	/^		void setValue(double value)$/;"	f	class:VarObj
 setValue	sdk/VarList.h	/^		void setValue(int value)$/;"	f	class:VarObj
+set_allocated_name	test/test.pb.cc	/^ void pack::set_allocated_name(::std::string* name) {$/;"	f	class:muduo::pack
+set_allocated_name	test/test.pb.h	/^inline void pack::set_allocated_name(::std::string* name) {$/;"	f	class:muduo::pack
+set_allocated_str	proto/Gate.pb.cc	/^ void Info::set_allocated_str(::std::string* str) {$/;"	f	class:Gate::Info
+set_allocated_str	proto/Gate.pb.h	/^inline void Info::set_allocated_str(::std::string* str) {$/;"	f	class:Gate::Info
 set_base_from	depcomp	/^set_base_from ()$/;"	f
 set_dir_from	depcomp	/^set_dir_from ()$/;"	f
+set_dwid	proto/Gate.pb.cc	/^ void Info::set_dwid(::google::protobuf::uint32 value) {$/;"	f	class:Gate::Info
+set_dwid	proto/Gate.pb.h	/^inline void Info::set_dwid(::google::protobuf::uint32 value) {$/;"	f	class:Gate::Info
+set_dwid	test/test.pb.cc	/^ void pack::set_dwid(::google::protobuf::int32 value) {$/;"	f	class:muduo::pack
+set_dwid	test/test.pb.h	/^inline void pack::set_dwid(::google::protobuf::int32 value) {$/;"	f	class:muduo::pack
+set_has_dwid	test/test.pb.cc	/^void pack::set_has_dwid() {$/;"	f	class:muduo::pack
+set_has_dwid	test/test.pb.h	/^inline void pack::set_has_dwid() {$/;"	f	class:muduo::pack
+set_has_name	test/test.pb.cc	/^void pack::set_has_name() {$/;"	f	class:muduo::pack
+set_has_name	test/test.pb.h	/^inline void pack::set_has_name() {$/;"	f	class:muduo::pack
+set_name	test/test.pb.cc	/^ void pack::set_name(const ::std::string& value) {$/;"	f	class:muduo::pack
+set_name	test/test.pb.cc	/^ void pack::set_name(const char* value) {$/;"	f	class:muduo::pack
+set_name	test/test.pb.cc	/^ void pack::set_name(const char* value, size_t size) {$/;"	f	class:muduo::pack
+set_name	test/test.pb.h	/^inline void pack::set_name(const ::std::string& value) {$/;"	f	class:muduo::pack
+set_name	test/test.pb.h	/^inline void pack::set_name(const char* value) {$/;"	f	class:muduo::pack
+set_name	test/test.pb.h	/^inline void pack::set_name(const char* value, size_t size) {$/;"	f	class:muduo::pack
+set_str	proto/Gate.pb.cc	/^ void Info::set_str(const ::std::string& value) {$/;"	f	class:Gate::Info
+set_str	proto/Gate.pb.cc	/^ void Info::set_str(const char* value) {$/;"	f	class:Gate::Info
+set_str	proto/Gate.pb.cc	/^ void Info::set_str(const void* value, size_t size) {$/;"	f	class:Gate::Info
+set_str	proto/Gate.pb.h	/^inline void Info::set_str(const ::std::string& value) {$/;"	f	class:Gate::Info
+set_str	proto/Gate.pb.h	/^inline void Info::set_str(const char* value) {$/;"	f	class:Gate::Info
+set_str	proto/Gate.pb.h	/^inline void Info::set_str(const void* value, size_t size) {$/;"	f	class:Gate::Info
 sharedstatedir	Gate/Makefile	/^sharedstatedir = ${prefix}\/com$/;"	m
 sharedstatedir	Makefile	/^sharedstatedir = ${prefix}\/com$/;"	m
 sharedstatedir	sdk/Makefile	/^sharedstatedir = ${prefix}\/com$/;"	m
@@ -1377,9 +1622,13 @@ srcdir	Makefile	/^srcdir = .$/;"	m
 srcdir	sdk/Makefile	/^srcdir = .$/;"	m
 srcdir	test/Makefile	/^srcdir = .$/;"	m
 ss	sdk/UserTest.cpp	/^UserTest* ss = NULL;$/;"	v
-stcpAccept	sdk/sSctpScoket.cpp	/^void sSctpScoket::stcpAccept()$/;"	f	class:sSctpScoket
+static_descriptor_initializer_proto_2fGate_2eproto_	proto/Gate.pb.cc	/^} static_descriptor_initializer_proto_2fGate_2eproto_;$/;"	m	namespace:Gate	typeref:struct:Gate::StaticDescriptorInitializer_proto_2fGate_2eproto	file:
+static_descriptor_initializer_test_2eproto_	test/test.pb.cc	/^} static_descriptor_initializer_test_2eproto_;$/;"	m	namespace:muduo	typeref:struct:muduo::StaticDescriptorInitializer_test_2eproto	file:
 stcpNewClient	sdk/sSctpPool.cpp	/^void sSctpPool::stcpNewClient(DWORD dwSocket)$/;"	f	class:sSctpPool
+str	proto/Gate.pb.cc	/^ const ::std::string& Info::str() const {$/;"	f	class:Gate::Info
+str	proto/Gate.pb.h	/^inline const ::std::string& Info::str() const {$/;"	f	class:Gate::Info
 strValue	sdk/VarList.h	/^			char*		strValue;	$/;"	m	union:VarObj::NumValue
+str_	proto/Gate.pb.h	/^  ::google::protobuf::internal::ArenaStringPtr str_;$/;"	m	class:Gate::Info
 subdir	Gate/Makefile	/^subdir = Gate$/;"	m
 subdir	Makefile	/^subdir = .$/;"	m
 subdir	sdk/Makefile	/^subdir = sdk$/;"	m
@@ -1416,9 +1665,12 @@ transform	Makefile	/^transform = $(program_transform_name)$/;"	m
 transform	sdk/Makefile	/^transform = $(program_transform_name)$/;"	m
 transform	test/Makefile	/^transform = $(program_transform_name)$/;"	m
 unLock	sdk/sMutex.cpp	/^void sMutex::unLock()$/;"	f	class:sMutex
+unknown_fields	test/test.pb.h	/^  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {$/;"	f	class:muduo::pack
 usage_error	test-driver	/^usage_error ()$/;"	f
 wValue	sdk/VarList.h	/^			WORD		wValue;$/;"	m	union:VarObj::NumValue
 warn	sdk/sLogManager.cpp	/^void Logger::warn(const char*fmt,...)$/;"	f	class:Logger
+~Info	proto/Gate.pb.cc	/^Info::~Info() {$/;"	f	class:Gate::Info
 ~Logger	sdk/sLogManager.h	/^			~Logger(){$/;"	f	class:base::Logger
 ~XmlFile	sdk/XmlFile.h	/^		~XmlFile(){$/;"	f	class:XmlFile
+~pack	test/test.pb.cc	/^pack::~pack() {$/;"	f	class:muduo::pack
 ~sMutex	sdk/sMutex.cpp	/^sMutex:: ~sMutex()$/;"	f	class:sMutex

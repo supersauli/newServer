@@ -312,7 +312,7 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AUTOMAKE_OPTIONS = foreign
 INCLUES = -I/sdk
-SUBDIRS = sdk  test Gate proto
+SUBDIRS = sdk  test Gate 
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
 
@@ -787,7 +787,7 @@ uninstall-am:
 	mostlyclean-libtool pdf pdf-am ps ps-am tags tags-am uninstall \
 	uninstall-am
 
-
+.PHONY: proto
 proto:
 	protoc  --cpp_out=./  ./proto/*.proto
 #bin_PROGRAMS=main

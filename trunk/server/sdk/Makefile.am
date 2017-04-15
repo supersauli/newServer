@@ -5,7 +5,6 @@ LIBS = -llog4cplus -lsctp -lpthread -lstdc++ -lxml2 -lprotobuf -static
 #文件列表
 fileList = \
 		sMutex.cpp \
-		sTime.cpp \
 		sSctpScoket.cpp \
 		sPthreadPool.cpp \
 		sEpoll.cpp \
