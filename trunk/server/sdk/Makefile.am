@@ -4,7 +4,6 @@ CXX := clang++
 LIBS = -llog4cplus -lsctp -lpthread -lstdc++ -lxml2 -lprotobuf -static
 #文件列表
 fileList = \
-		sMutex.cpp \
 		sSctpScoket.cpp \
 		sPthreadPool.cpp \
 		sEpoll.cpp \
@@ -13,7 +12,8 @@ fileList = \
 		sSctpPthread.cpp \
 		sLogManager.cpp \
 		XmlFile.cpp \
-		sTask.cpp 
+		sTask.cpp \
+		sServer.cpp
 
 
 #动态库

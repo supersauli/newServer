@@ -10,7 +10,7 @@ void * UserRun (void *)
 		char buf[10];
 		bzero(buf,sizeof(buf));
 		sprintf(buf,"send %d",i);
-	if(!(ss->sendCmd(dwSocket,buf)))
+	if(!(ss->SendCmd(dwSocket,buf)))
 	{
 		delete(ss);
 		break;
@@ -40,11 +40,11 @@ void UserTest::dealMsg(char *arg)
 	}
 }
 
-bool UserTest::sendCmd(DWORD dwSocket,char *buf)
+bool UserTest::SendCmd(DWORD dwSocket,char *buf)
 {
 	if(end)
 		return false;
-	_sctpPth->sendCmd(dwSocket,buf);
+	_sctpPth->SendCmd(dwSocket,buf);
 	return true;
 
 }

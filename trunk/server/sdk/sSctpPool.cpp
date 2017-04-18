@@ -2,37 +2,31 @@
 #include "sSctpPthread.h"
 void *sctpThreadFunc ( void *arg)
 {
-
-	((sPthread*)arg)->run();
-
-
-	return NULL;
+	((sPthread*)arg)->Run();
+	return nullptr;
 };
 
-void sSctpPool::initPool(DWORD dwPthreadTimes)
+void sSctpPool::InitPool()
 {
-	for(DWORD i=0;i<dwPthreadTimes;i++)
+	for(DWORD i=0;i<_pthreadMax;i++)
 	{
-		sSctpPthread *pth = _sctpPool.createNewPthread<sSctpPthread >(sctpThreadFunc);
-		if(pth == NULL)
-		{
+		sSctpPthread *pth = _sctpPool.CreateNewPthread<sSctpPthread>(sctpThreadFunc);
+		if(pth == nullptr){
 			printf("crateNewPthread error\n");	
 		}
-		_sctpPool.addPthreadToPool(pth);
+		_sctpPool.AddPthreadToPool(pth);
 		usleep(5000);
 	}
 
 }
 
 
-void sSctpPool::stcpNewClient(DWORD dwSocket)
+void sSctpPool::NewClient(DWORD dwSocket)
 {
-	_dwTimes = _dwTimes%_sctpPool.getPthreadSize();
-	
-	sSctpPthread *pthread = (sSctpPthread*)_sctpPool.getPhteadByIndex(_dwTimes);
-	if(pthread != NULL)
-	{
-		pthread->addClient(dwSocket);
+	_pthreadIndex =_pthreadIndex%_sctpPool.GetPthreadSize();
+	sSctpPthread *pthread = (sSctpPthread*)_sctpPool.GetPhteadByIndex(_pthreadIndex);
+	if(pthread != NULL){
+		pthread->AddClient(dwSocket);
 	}
-	_dwTimes++;
+	++_pthreadIndex;
 }

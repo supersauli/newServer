@@ -1,4 +1,5 @@
 #include "sSctpScoket.h"
+#include <arpa/inet.h>
 bool sSctpScoket::Init()
 {
 	if(!_epoll.Init()){
@@ -6,23 +7,23 @@ bool sSctpScoket::Init()
 	};
 
 	_epoll.SetNewClientCB(std::bind(&sSctpScoket::Accept,this,std::placeholders::_1));
-	_epoll.SetReadCB(std::bind(&sSctpScoket::Read,this,std::placeholders::_1));
+//	_epoll.SetReadCB(std::bind(&sSctpScoket::Read,this,std::placeholders::_1));
 	return true;
 }
-bool sSctpScoket::Bind(DWORD dwPort)
+bool sSctpScoket::Bind()
 {
 	int fd = socket(AF_INET,SOCK_STREAM,IPPROTO_SCTP);
 	if(fd == -1){
 		return false;
 	}
-
 	
 	_epoll.SetListenSocket(fd);
 	_epoll.AddEvent(fd,EPOLLIN|EPOLLET);
 	bzero((void *)&_servaddr,sizeof(_servaddr));
 	_servaddr.sin_family = AF_INET;
-	_servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
-	_servaddr.sin_port = htons(dwPort);
+	//_servaddr.sin_addr.s_addr = htonl(INADDR_ANY);// 所有ip
+	_servaddr.sin_addr.s_addr =inet_addr(_ipAddress.c_str());
+	_servaddr.sin_port = htons(_port);
 
 	int ret = ::bind(fd,(struct sockaddr*)&_servaddr,sizeof(_servaddr));
 	if(ret<0){
@@ -37,7 +38,6 @@ bool sSctpScoket::Bind(DWORD dwPort)
 //	ret = setsockopt( _connSock, IPPROTO_SCTP, SCTP_INITMSG, 
 //			&initmsg, sizeof(initmsg) );
 //
-//第二个参数不确定要填多大
 	listen(fd,_backlog);
 	printf("accetp new connection \n");
 	return true;
@@ -49,22 +49,16 @@ void sSctpScoket::SetNoBlock(int fd){
 
 void sSctpScoket::Accept(int fd)
 {
-//	struct epoll_event ev;
-//	ev.data.fd = _sSockListen; 
-//	ev.events = EPOLLIN ;
-//	int s = epoll_ctl(_efd,EPOLL_CTL_ADD,_sSockListen,&ev);   
-
 	int newfd = ::accept(fd, (struct sockaddr *)NULL, (socklen_t *)NULL);
 	if(newfd < 0){
 		printf("error");
 		return ;
 	}
-	SetNoBlock(newfd);
-	stcpNewClient(newfd);
-	_epoll.AddEvent(fd,EPOLLIN|EPOLLET);
 
+	if(_addClient != nullptr){
+		_addClient(newfd);
+	}
 }
-
 void sSctpScoket::Read(int fd)
 {
 

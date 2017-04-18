@@ -1,17 +1,5 @@
 #include "sPthreadPool.h"
-//#include "sSctpPthread.h"
-//void* func (void *arg)
-//{
-//     printf("phtead create++++++++++++++ %s \n",arg);
-//	 return NULL;
-//}
-//template <typename T>
-//T *sPthreadPool::createNewPthread(pthread_func  func)
-//{
-//	T *pth = new T(func);
-//	return pth;	
-//}
-bool sPthreadPool::addPthreadToPool(sPthread * pthread)
+bool sPthreadPool::AddPthreadToPool(sPthread * pthread)
 {
 	PTHREADIT it = _pthreadPool.find(_poolIndex);
 
@@ -23,7 +11,7 @@ bool sPthreadPool::addPthreadToPool(sPthread * pthread)
 
 	return true;
 }
-sPthread* sPthreadPool::getPhteadByIndex(DWORD dwIndex)
+sPthread* sPthreadPool::GetPhteadByIndex(DWORD dwIndex)
 {
 	PTHREADIT it = _pthreadPool.find(dwIndex);
 	if(it != _pthreadPool.end())

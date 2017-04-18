@@ -15,8 +15,8 @@ class sPthread{
 				}
 
 			}
-		virtual void run(){};
-		virtual bool init(){return true;};
+		virtual void Run(){};
+		virtual bool Init(){return true;};
 	protected:
 		 sMutex _mutex;
 	private:

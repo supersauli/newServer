@@ -13,7 +13,7 @@ class UserTest
 		};
 		void dealMsg(char *arg);
 		DWORD getSocket(){return _dwSocket;};
-		bool sendCmd(DWORD dwSocket,char *buf);
+		bool SendCmd(DWORD dwSocket,char *buf);
 		bool end;
 	private:
 		DWORD _dwSocket;

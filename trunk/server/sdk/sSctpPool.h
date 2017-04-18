@@ -2,18 +2,19 @@
 #define _SSCTPPOOL_H__
 #include "sSctpScoket.h"
 #include "sPthreadPool.h"
-class sSctpPool :public sSctpScoket
+class sSctpPool
 {
 	public:
 		sSctpPool(){
-			_dwTimes = 0;	
 		};
 
-	 virtual void stcpNewClient(DWORD dwSocket);
-	 void initPool(DWORD dwPthreadTimes);
+	 virtual void NewClient(DWORD dwSocket);
+	 void InitPool();
+	 void SetPthreadMax(int pthreadMax){_pthreadMax = pthreadMax;}
 	private:
 	 sPthreadPool _sctpPool;
-	 DWORD _dwTimes;
+	 DWORD _pthreadIndex{0};
+	 DWORD _pthreadMax{1};
 
 
 };

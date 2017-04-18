@@ -15,9 +15,9 @@ public:
 	 * @brief 创建一个线程
 	 */
 	template <typename T>
-	T*  createNewPthread(pthread_func func)
+	T*  CreateNewPthread(pthread_func func)
 	{
-		T *pth = new T(func);
+		T *pth = new(std::nothrow) T(func);
 		    return pth; 
 	}
 
@@ -26,7 +26,7 @@ public:
 	 *
 	 * @return 
 	 */
-	bool addPthreadToPool(sPthread* pthread);
+	bool AddPthreadToPool(sPthread* pthread);
 
 	/**
 	 * @brief 根据索引找到线程
@@ -35,9 +35,9 @@ public:
 	 *
 	 * @return 
 	 */
-	sPthread* getPhteadByIndex(DWORD dwIndex);
+	sPthread* GetPhteadByIndex(DWORD dwIndex);
 
-	DWORD getPthreadSize(){return _poolIndex;};
+	DWORD GetPthreadSize(){return _poolIndex;};
 private:
 	std::map<DWORD ,sPthread*> _pthreadPool;
 	typedef std::map<DWORD ,sPthread*>::iterator PTHREADIT;

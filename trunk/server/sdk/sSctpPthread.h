@@ -6,12 +6,13 @@ class sSctpPthread :public  sPthread
 {
 	public:
 		sSctpPthread(pthread_func pFunc):sPthread(pFunc){};
-		virtual void run();
-		virtual bool init();
-		void addClient(DWORD dwSocket);
-		void sendCmd(DWORD dwSocket,char *buf);
+		virtual void Run();
+		virtual bool Init();
+		void AddClient(DWORD dwSocket);
+		void SendCmd(DWORD dwSocket,char *buf);
+		
 	private:
-		 int _efd;
+		sEpoll _epoll;
 
 
 

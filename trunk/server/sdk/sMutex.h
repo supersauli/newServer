@@ -3,10 +3,10 @@
 #include <pthread.h>
 class sMutex{
 	public:
-		sMutex();
-		~sMutex();
-		void lock();
-		void unLock();
+		sMutex(){pthread_mutex_init(&_mutex,NULL);}
+		~sMutex(){pthread_mutex_destroy(&_mutex);}
+		void lock(){pthread_mutex_lock(&_mutex);}
+		void unLock(){pthread_mutex_unlock(&_mutex);}
 
 	private:
 

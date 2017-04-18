@@ -72,7 +72,8 @@ AWK	test/Makefile	/^AWK = gawk$/;"	m
 Accept	sdk/sSctpScoket.cpp	/^void sSctpScoket::Accept(int fd)$/;"	f	class:sSctpScoket
 AddACrontabTask	sdk/CornJob.cpp	/^void CornJob::AddACrontabTask(CornFunc,const char* strTime)$/;"	f	class:CornJob
 AddChild	sdk/XmlFile.cpp	/^xmlNodePtr XmlFile::AddChild(xmlNodePtr parent,xmlNodePtr cur)$/;"	f	class:XmlFile
-AddEvent	sdk/sEpoll.cpp	/^bool sEpoll::AddEvent(int event,int fd)$/;"	f	class:sEpoll
+AddClient	sdk/sSctpPthread.cpp	/^void sSctpPthread::AddClient(DWORD dwSocket)$/;"	f	class:sSctpPthread
+AddEvent	sdk/sEpoll.cpp	/^bool sEpoll::AddEvent(int fd,int event)$/;"	f	class:sEpoll
 AddNextSibling	sdk/XmlFile.cpp	/^xmlNodePtr XmlFile::AddNextSibling(xmlNodePtr cur,xmlNodePtr elem)$/;"	f	class:XmlFile
 AddPrevSibling	sdk/XmlFile.cpp	/^xmlNodePtr XmlFile::AddPrevSibling(xmlNodePtr cur,xmlNodePtr elem)$/;"	f	class:XmlFile
 AddSibling	sdk/XmlFile.cpp	/^xmlNodePtr AddSibling(xmlNodePtr cur,xmlNodePtr elem)$/;"	f
@@ -168,6 +169,7 @@ CornJob	sdk/CornJob.h	/^class CornJob$/;"	c
 CornSort	sdk/CornJob.h	/^struct CornSort$/;"	s
 Create	sdk/XmlFile.cpp	/^xmlDocPtr XmlFile::Create()$/;"	f	class:XmlFile
 CreateChild	sdk/XmlFile.cpp	/^xmlNodePtr XmlFile::CreateChild(xmlNodePtr node,const char*name,const char*content)$/;"	f	class:XmlFile
+CreateNewPthread	sdk/sPthreadPool.h	/^	T*  CreateNewPthread(pthread_func func)$/;"	f	class:sPthreadPool
 CreateNode	sdk/XmlFile.cpp	/^xmlNodePtr XmlFile::CreateNode(const char* name)$/;"	f	class:XmlFile
 CreateProcess	libtool	/^   CreateProcess().  We must quote the arguments since Win32 CreateProcess()$/;"	f
 CreateProcess	ltmain.sh	/^   CreateProcess().  We must quote the arguments since Win32 CreateProcess()$/;"	f
@@ -255,6 +257,7 @@ EXEEXT	Gate/Makefile	/^EXEEXT = $/;"	m
 EXEEXT	Makefile	/^EXEEXT = $/;"	m
 EXEEXT	sdk/Makefile	/^EXEEXT = $/;"	m
 EXEEXT	test/Makefile	/^EXEEXT = $/;"	m
+EventCB	sdk/sEpoll.h	/^typedef std::function<void(int)> EventCB;$/;"	t
 FGREP	Gate/Makefile	/^FGREP = \/usr\/bin\/grep -F$/;"	m
 FGREP	Makefile	/^FGREP = \/usr\/bin\/grep -F$/;"	m
 FGREP	sdk/Makefile	/^FGREP = \/usr\/bin\/grep -F$/;"	m
@@ -318,6 +321,7 @@ GetNodeValue	sdk/XmlFile.cpp	/^void XmlFile::GetNodeValue(const xmlNodePtr node,
 GetNodeValue	sdk/XmlFile.cpp	/^void XmlFile::GetNodeValue(const xmlNodePtr node,const char*name,float &value,float defaultValue)$/;"	f	class:XmlFile
 GetNodeValue	sdk/XmlFile.cpp	/^void XmlFile::GetNodeValue(const xmlNodePtr node,const char*name,int &value,DOUBLE defaultValue)$/;"	f	class:XmlFile
 GetNodeValue	sdk/XmlFile.cpp	/^void XmlFile::GetNodeValue(const xmlNodePtr node,const char*name,std::string&value,const char* defaultValue)$/;"	f	class:XmlFile
+GetPthreadSize	sdk/sPthreadPool.h	/^	DWORD GetPthreadSize(){return _poolIndex;};$/;"	f	class:sPthreadPool
 GetQWValue	sdk/VarList.h	/^		DWORD GetQWValue(DWORD i)$/;"	f	class:VarList
 GetQWValue	sdk/VarList.h	/^		QWORD GetQWValue(){$/;"	f	class:VarObj
 GetRootElement	sdk/XmlFile.cpp	/^xmlNodePtr XmlFile::GetRootElement()$/;"	f	class:XmlFile
@@ -376,10 +380,13 @@ Info_descriptor_	proto/Gate.pb.cc	/^const ::google::protobuf::Descriptor* Info_d
 Info_reflection_	proto/Gate.pb.cc	/^  Info_reflection_ = NULL;$/;"	m	namespace:Gate::__anon4	file:
 Init	sdk/LuaSystem.cpp	/^bool LuaSystem::Init()$/;"	f	class:LuaSystem
 Init	sdk/sEpoll.cpp	/^bool sEpoll::Init(int maxfdSize)$/;"	f	class:sEpoll
+Init	sdk/sPthread.h	/^		virtual bool Init(){return true;};$/;"	f	class:sPthread
 Init	sdk/sSctpScoket.cpp	/^bool sSctpScoket::Init()$/;"	f	class:sSctpScoket
+Init	sdk/sServer.cpp	/^bool sServer::Init()$/;"	f	class:sServer
 Init	sdk/sSocket.cpp	/^bool sSocket::Init(const std::string& ipPort)$/;"	f	class:sSocket
 InitAsDefaultInstance	proto/Gate.pb.cc	/^void Info::InitAsDefaultInstance() {$/;"	f	class:Gate::Info
 InitAsDefaultInstance	test/test.pb.cc	/^void pack::InitAsDefaultInstance() {$/;"	f	class:muduo::pack
+InitPool	sdk/sSctpPool.cpp	/^void sSctpPool::InitPool(DWORD dwPthreadTimes)$/;"	f	class:sSctpPool
 InitXml	sdk/XmlFile.cpp	/^bool XmlFile::InitXml(const char *fileName)$/;"	f	class:XmlFile
 InternalSerializeWithCachedSizesToArray	proto/Gate.pb.cc	/^::google::protobuf::uint8* Info::InternalSerializeWithCachedSizesToArray($/;"	f	class:Gate::Info
 InternalSerializeWithCachedSizesToArray	test/test.pb.cc	/^::google::protobuf::uint8* pack::InternalSerializeWithCachedSizesToArray($/;"	f	class:muduo::pack
@@ -439,11 +446,14 @@ LTLIBOBJS	sdk/Makefile	/^LTLIBOBJS = $/;"	m
 LTLIBOBJS	test/Makefile	/^LTLIBOBJS = $/;"	m
 LTLIBRARIES	sdk/Makefile	/^LTLIBRARIES = $(lib_LTLIBRARIES)$/;"	m
 LT_OBJDIR	config.h	42;"	d
+LoadConfig	sdk/sServer.cpp	/^bool sServer::LoadConfig(const char*  configName)$/;"	f	class:sServer
 LoadLuaFile	sdk/LuaSystem.cpp	/^bool LuaSystem::LoadLuaFile(const char* luaFile_)$/;"	f	class:LuaSystem
 LogLevel	sdk/sLogManager.h	/^	enum class LogLevel{$/;"	c	namespace:base
 Logger	sdk/sLogManager.h	/^			Logger()$/;"	f	class:base::Logger
 Logger	sdk/sLogManager.h	/^	class Logger{$/;"	c	namespace:base
 Loop	sdk/sEpoll.cpp	/^bool sEpoll::Loop()$/;"	f	class:sEpoll
+Loop	sdk/sSctpScoket.cpp	/^void sSctpScoket::Loop()$/;"	f	class:sSctpScoket
+Loop	sdk/sServer.cpp	/^bool sServer::Loop(){$/;"	f	class:sServer
 LuaSystem	sdk/LuaSystem.h	/^class LuaSystem$/;"	c
 MAKEINFO	Gate/Makefile	/^MAKEINFO = ${SHELL} \/home\/sauli\/server\/missing makeinfo$/;"	m
 MAKEINFO	Makefile	/^MAKEINFO = ${SHELL} \/home\/sauli\/server\/missing makeinfo$/;"	m
@@ -491,6 +501,7 @@ New	proto/Gate.pb.cc	/^Info* Info::New(::google::protobuf::Arena* arena) const {
 New	proto/Gate.pb.h	/^  inline Info* New() const { return New(NULL); }$/;"	f	class:Gate::Info
 New	test/test.pb.cc	/^pack* pack::New(::google::protobuf::Arena* arena) const {$/;"	f	class:muduo::pack
 New	test/test.pb.h	/^  inline pack* New() const { return New(NULL); }$/;"	f	class:muduo::pack
+NewClient	sdk/sSctpPool.cpp	/^void sSctpPool::NewClient(DWORD dwSocket)$/;"	f	class:sSctpPool
 NumValue	sdk/VarList.h	/^		union NumValue{$/;"	u	class:VarObj
 OBJDUMP	Gate/Makefile	/^OBJDUMP = objdump$/;"	m
 OBJDUMP	Makefile	/^OBJDUMP = objdump$/;"	m
@@ -588,11 +599,14 @@ RANLIB	sdk/Makefile	/^RANLIB = ranlib$/;"	m
 RANLIB	test/Makefile	/^RANLIB = ranlib$/;"	m
 RECURSIVE_CLEAN_TARGETS	Makefile	/^RECURSIVE_CLEAN_TARGETS = mostlyclean-recursive clean-recursive	\\$/;"	m
 RECURSIVE_TARGETS	Makefile	/^RECURSIVE_TARGETS = all-recursive check-recursive cscopelist-recursive \\$/;"	m
+Read	sdk/sSctpScoket.cpp	/^void sSctpScoket::Read(int fd)$/;"	f	class:sSctpScoket
 Refresh	sdk/sTime.h	/^		void Refresh(){$/;"	f	class:final
 RefreshTimer	sdk/sTime.h	/^	 void RefreshTimer()$/;"	f	class:ClockTime
 RegisterFunc	sdk/LuaSystem.cpp	/^void LuaSystem::RegisterFunc(const char* funcName_,luaFunc func_)$/;"	f	class:LuaSystem
 RequiredFieldsByteSizeFallback	test/test.pb.cc	/^int pack::RequiredFieldsByteSizeFallback() const {$/;"	f	class:muduo::pack
 Reset	sdk/sTime.h	/^		void Reset(const time_t &time)$/;"	f	class:CycleTime
+Run	sdk/sPthread.h	/^		virtual void Run(){};$/;"	f	class:sPthread
+Run	sdk/sSctpPthread.cpp	/^void sSctpPthread::Run()$/;"	f	class:sSctpPthread
 SAFE_DEL	sdk/sDefine.h	3;"	d
 SAFE_DEL_ARRAY	sdk/sDefine.h	4;"	d
 SDWORD	sdk/sDefine.h	/^typedef signed int SDWORD;$/;"	t
@@ -622,19 +636,29 @@ STRVALUE	sdk/VarList.h	/^			STRVALUE,	$/;"	m	class:VarObj::ValueType
 SUBDIRS	Makefile	/^SUBDIRS = sdk  test Gate $/;"	m
 SWORD	sdk/sDefine.h	/^typedef signed short SWORD;$/;"	t
 Sec	sdk/sTime.h	/^	 DWORD Sec()const$/;"	f	class:ClockTime
+SendCmd	sdk/sSctpPthread.cpp	/^void sSctpPthread::SendCmd(DWORD dwSocket,char *buf)$/;"	f	class:sSctpPthread
 SerializeWithCachedSizes	proto/Gate.pb.cc	/^void Info::SerializeWithCachedSizes($/;"	f	class:Gate::Info
 SerializeWithCachedSizes	test/test.pb.cc	/^void pack::SerializeWithCachedSizes($/;"	f	class:muduo::pack
 SerializeWithCachedSizesToArray	proto/Gate.pb.h	/^  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {$/;"	f	class:Gate::Info
 SerializeWithCachedSizesToArray	test/test.pb.h	/^  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {$/;"	f	class:muduo::pack
-SetBackLog	sdk/sSctpScoket.h	/^		void	SetBackLog(int backLog){$/;"	f	class:sSctpScoket
+SetAccetp	sdk/sSctpScoket.h	/^		void SetAccetp(CB cb){$/;"	f	class:sSctpScoket
+SetBackLog	sdk/sSctpScoket.h	/^		void	SetBackLog(int backlog){_backlog = backlog;}$/;"	f	class:sSctpScoket
 SetCachedSize	proto/Gate.pb.cc	/^void Info::SetCachedSize(int size) const {$/;"	f	class:Gate::Info
 SetCachedSize	test/test.pb.cc	/^void pack::SetCachedSize(int size) const {$/;"	f	class:muduo::pack
+SetCloseCB	sdk/sEpoll.h	/^		void SetCloseCB(EventCB& cb){$/;"	f	class:sEpoll
+SetCloseCB	sdk/sEpoll.h	/^		void SetCloseCB(EventCB&& cb){$/;"	f	class:sEpoll
+SetCloseCB	sdk/sSctpScoket.h	/^		void SetCloseCB(CB cb){$/;"	f	class:sSctpScoket
 SetListenSocket	sdk/sEpoll.h	/^		void SetListenSocket(int listenSocket){$/;"	f	class:sEpoll
 SetMaxEvents	sdk/sEpoll.h	/^		void  SetMaxEvents(int maxEvents){$/;"	f	class:sEpoll
 SetMsecCycle	sdk/sTime.h	/^		void SetMsecCycle(int msec){$/;"	f	class:CycleTime
+SetNewClientCB	sdk/sEpoll.h	/^		void SetNewClientCB(EventCB& cb ){$/;"	f	class:sEpoll
+SetNewClientCB	sdk/sEpoll.h	/^		void SetNewClientCB(EventCB&& cb ){$/;"	f	class:sEpoll
 SetNoBlock	sdk/sSctpScoket.cpp	/^void sSctpScoket::SetNoBlock(int fd){$/;"	f	class:sSctpScoket
 SetNodeContent	sdk/XmlFile.cpp	/^void XmlFile::SetNodeContent(xmlNodePtr node,const char* content,int len)$/;"	f	class:XmlFile
 SetOverTime	sdk/sSocket.h	/^	void SetOverTime(int time){$/;"	f	class:sSocket
+SetReadCB	sdk/sEpoll.h	/^		void SetReadCB(EventCB& cb){$/;"	f	class:sEpoll
+SetReadCB	sdk/sEpoll.h	/^		void SetReadCB(EventCB&& cb){$/;"	f	class:sEpoll
+SetReadCallBack	sdk/sSctpScoket.h	/^		void SetReadCallBack(CB cb){$/;"	f	class:sSctpScoket
 SetSec	sdk/sTime.h	/^		void SetSec(int sec){$/;"	f	class:CycleTime
 SetTimeOut	sdk/sEpoll.h	/^		void SetTimeOut(int timeOut){$/;"	f	class:sEpoll
 SharedCtor	proto/Gate.pb.cc	/^void Info::SharedCtor() {$/;"	f	class:Gate::Info
@@ -671,6 +695,7 @@ ValueType	sdk/VarList.h	/^		enum class ValueType$/;"	c	class:VarObj
 VarList	sdk/VarList.h	/^class VarList$/;"	c
 VarObj	sdk/VarList.h	/^class VarObj$/;"	c
 WORD	sdk/sDefine.h	/^typedef unsigned short WORD;$/;"	t
+Write	sdk/sSctpScoket.cpp	/^void sSctpScoket::Write(int fd)$/;"	f	class:sSctpScoket
 XmlFile	sdk/XmlFile.h	/^class XmlFile$/;"	c
 _DEFINE_H__	sdk/sDefine.h	2;"	d
 _FRIEND_FRIEND_MANAGE_H__	Logic/FriendManage.h	3;"	d
@@ -694,16 +719,16 @@ __LOG_MANAGER_H__	sdk/sLogManager.h	2;"	d
 __LUA_SYSTEM_H__	sdk/LuaSystem.h	2;"	d
 __PROTOBUF_LIST_H__	proto/ProtobufList.h	2;"	d
 __PROTOBUF_MANAGE_H__	sdk/sProtobuf.h	2;"	d
+__SSERVER_H__	sdk/sServer.h	2;"	d
 __S_SOCKET_H__	sdk/sSocket.h	2;"	d
 __TASK_H__	sdk/Task.h	2;"	d
 __TOOL_H__	sdk/Tool.h	2;"	d
 __VAR_LIST_H__	sdk/VarList.h	2;"	d
 __XML_FILE_H__	sdk/XmlFile.h	2;"	d
-_buf	sdk/sSctpScoket.h	/^		char _buf[1024];$/;"	m	class:sSctpScoket
 _cached_size_	proto/Gate.pb.h	/^  mutable int _cached_size_;$/;"	m	class:Gate::Info
 _cached_size_	test/test.pb.h	/^  mutable int _cached_size_;$/;"	m	class:muduo::pack
 _clockTime	sdk/sTime.h	/^	 	timespec		_clockTime;	$/;"	m	class:ClockTime
-_closeCB	sdk/sEpoll.h	/^		 std::function<void(int)>  _newClientCB,_readCB,_closeCB;$/;"	m	class:sEpoll
+_closeCB	sdk/sEpoll.h	/^		 EventCB _newClientCB,_readCB,_closeCB;$/;"	m	class:sEpoll
 _cornFunc	sdk/CornJob.h	/^	CornFunc _cornFunc; \/\/执行内容$/;"	m	struct:CornDetails
 _ctx	sdk/sSocket.h	/^	void *_ctx;$/;"	m	class:sSocket
 _cycleMsec	sdk/sTime.h	/^		int _cycleMsec ;$/;"	m	class:CycleTime
@@ -711,8 +736,7 @@ _delayTaskList	sdk/sTask.h	/^		std::list<DelayTaskContext> _delayTaskList;$/;"	m
 _delayTime	sdk/sTask.h	/^	int _delayTime;$/;"	m	struct:DelayTaskContext
 _dwID	sdk/sTask.h	/^	DWORD			_dwID;	$/;"	m	struct:TaskContext
 _dwSocket	sdk/UserTest.h	/^		DWORD _dwSocket;$/;"	m	class:UserTest
-_dwTimes	sdk/sSctpPool.h	/^	 DWORD _dwTimes;$/;"	m	class:sSctpPool
-_efd	sdk/sSctpPthread.h	/^		 int _efd;$/;"	m	class:sSctpPthread
+_epoll	sdk/sSctpPthread.h	/^		sEpoll _epoll;$/;"	m	class:sSctpPthread
 _epoll	sdk/sSctpScoket.h	/^		sEpoll _epoll;$/;"	m	class:sSctpScoket
 _epollfd	sdk/sEpoll.h	/^		 int _epollfd;\/\/epoll句柄$/;"	m	class:sEpoll
 _executeTime	sdk/CornJob.h	/^	Time _executeTime;      \/\/执行时间$/;"	m	struct:CornDetails
@@ -730,7 +754,7 @@ _maxfdSize	sdk/sEpoll.h	/^		 int _maxfdSize;$/;"	m	class:sEpoll
 _mutex	sdk/sMutex.h	/^		pthread_mutex_t _mutex;$/;"	m	class:sMutex
 _mutex	sdk/sPthread.h	/^		 sMutex _mutex;$/;"	m	class:sPthread
 _name	Logic/FriendManage.h	/^	std::string _name;	$/;"	m	struct:FriendInfo
-_newClientCB	sdk/sEpoll.h	/^		 std::function<void(int)>  _newClientCB,_readCB,_closeCB;$/;"	m	class:sEpoll
+_newClientCB	sdk/sEpoll.h	/^		 EventCB _newClientCB,_readCB,_closeCB;$/;"	m	class:sEpoll
 _nextMsec	sdk/sTime.h	/^		time_t _nextMsec;$/;"	m	class:CycleTime
 _ntid	sdk/sPthread.h	/^		pthread_t _ntid;$/;"	m	class:sPthread
 _numValue	sdk/VarList.h	/^			NumValue _numValue;$/;"	m	struct:VarObj::Value
@@ -738,13 +762,16 @@ _pLayout	sdk/sLogManager.h	/^			log4cplus::Layout *_pLayout;$/;"	m	class:base::L
 _pLuaState	sdk/LuaSystem.h	/^		lua_State* _pLuaState;$/;"	m	class:LuaSystem
 _pShareAppend	sdk/sLogManager.h	/^			log4cplus::helpers::SharedObjectPtr<log4cplus::Appender>  _pShareAppend;$/;"	m	class:base::Logger
 _pool	pool.h	/^		Memory_List * _pool[POOL_LIST_MAX_LENGTH];$/;"	m	class:sPool
+_pool	sdk/sServer.h	/^		sSctpPool _pool;$/;"	m	class:sServer
 _poolIndex	sdk/sPthreadPool.h	/^	DWORD _poolIndex;$/;"	m	class:sPthreadPool
 _protobufManage	sdk/sSocket.h	/^	ProtobufManage _protobufManage;$/;"	m	class:sSocket
+_pthreadIndex	sdk/sSctpPool.h	/^	 DWORD _pthreadIndex;$/;"	m	class:sSctpPool
 _pthreadPool	sdk/sPthreadPool.h	/^	std::map<DWORD ,sPthread*> _pthreadPool;$/;"	m	class:sPthreadPool
-_readCB	sdk/sEpoll.h	/^		 std::function<void(int)>  _newClientCB,_readCB,_closeCB;$/;"	m	class:sEpoll
+_readCB	sdk/sEpoll.h	/^		 EventCB _newClientCB,_readCB,_closeCB;$/;"	m	class:sEpoll
 _sctpPool	sdk/sSctpPool.h	/^	 sPthreadPool _sctpPool;$/;"	m	class:sSctpPool
 _sctpPth	sdk/UserTest.h	/^		sSctpPthread* _sctpPth;$/;"	m	class:UserTest
 _servaddr	sdk/sSctpScoket.h	/^		struct sockaddr_in _servaddr;$/;"	m	class:sSctpScoket	typeref:struct:sSctpScoket::sockaddr_in
+_socket	sdk/sServer.h	/^		sSctpScoket _socket;$/;"	m	class:sServer
 _socket	sdk/sSocket.h	/^	void *_socket;$/;"	m	class:sSocket
 _strValue	sdk/VarList.h	/^			std::string _strValue;$/;"	m	struct:VarObj::Value
 _tTime	sdk/sTime.h	/^		time_t _tTime;$/;"	m	class:final
@@ -797,7 +824,6 @@ ac_fn_cxx_check_header_mongrel	configure	/^ac_fn_cxx_check_header_mongrel ()$/;"
 ac_fn_cxx_try_compile	configure	/^ac_fn_cxx_try_compile ()$/;"	f
 ac_fn_cxx_try_cpp	configure	/^ac_fn_cxx_try_cpp ()$/;"	f
 ac_fn_cxx_try_link	configure	/^ac_fn_cxx_try_link ()$/;"	f
-addClient	sdk/sSctpPthread.cpp	/^void sSctpPthread::addClient(DWORD dwSocket)$/;"	f	class:sSctpPthread
 addDelaySec	sdk/sTime.h	/^		void addDelaySec(const time_t&sec)$/;"	f	class:final
 addDelayTask	sdk/sTask.cpp	/^bool Task::addDelayTask(Closure&task,int delayTime)$/;"	f	class:Task
 addPthreadToPool	sdk/sPthreadPool.cpp	/^bool sPthreadPool::addPthreadToPool(sPthread * pthread)$/;"	f	class:sPthreadPool
@@ -865,7 +891,7 @@ am__mv	test/Makefile	/^am__mv = mv -f$/;"	m
 am__nobase_list	sdk/Makefile	/^am__nobase_list = $(am__nobase_strip_setup); \\$/;"	m
 am__nobase_strip	sdk/Makefile	/^am__nobase_strip = \\$/;"	m
 am__nobase_strip_setup	sdk/Makefile	/^am__nobase_strip_setup = \\$/;"	m
-am__objects_1	sdk/Makefile	/^am__objects_1 = sMutex.lo sSctpScoket.lo sPthreadPool.lo sEpoll.lo \\$/;"	m
+am__objects_1	sdk/Makefile	/^am__objects_1 = sSctpScoket.lo sPthreadPool.lo sEpoll.lo sSctpPool.lo \\$/;"	m
 am__post_remove_distdir	Makefile	/^am__post_remove_distdir = $(am__remove_distdir)$/;"	m
 am__quote	Gate/Makefile	/^am__quote = $/;"	m
 am__quote	Makefile	/^am__quote = $/;"	m
@@ -1034,7 +1060,6 @@ clear_name	test/test.pb.h	/^inline void pack::clear_name() {$/;"	f	class:muduo::
 clear_str	proto/Gate.pb.cc	/^void Info::clear_str() {$/;"	f	class:Gate::Info
 clear_str	proto/Gate.pb.h	/^inline void Info::clear_str() {$/;"	f	class:Gate::Info
 createMessage	sdk/sProtobuf.h	/^		inline ProtoBuffMessage*  createMessage(const std::string& name){$/;"	f	class:ProtobufManage
-createNewPthread	sdk/sPthreadPool.h	/^	T*  createNewPthread(pthread_func func)$/;"	f	class:sPthreadPool
 data	pool.h	/^	Memory *data;	$/;"	m	struct:Memory_List
 data	pool.h	/^	char data[1];$/;"	m	union:Memory
 datadir	Gate/Makefile	/^datadir = ${datarootdir}$/;"	m
@@ -1322,7 +1347,6 @@ func_xform	libtool	/^func_xform ()$/;"	f
 func_xform	ltmain.sh	/^func_xform ()$/;"	f
 getMalloc	pool.cpp	/^void * sPool::getMalloc(int size)$/;"	f	class:sPool
 getPhteadByIndex	sdk/sPthreadPool.cpp	/^sPthread* sPthreadPool::getPhteadByIndex(DWORD dwIndex)$/;"	f	class:sPthreadPool
-getPthreadSize	sdk/sPthreadPool.h	/^	DWORD getPthreadSize(){return _poolIndex;};$/;"	f	class:sPthreadPool
 getSocket	sdk/UserTest.h	/^		DWORD getSocket(){return _dwSocket;};$/;"	f	class:UserTest
 give_advice	missing	/^give_advice ()$/;"	f
 has_dwid	test/test.pb.cc	/^bool pack::has_dwid() const {$/;"	f	class:muduo::pack
@@ -1368,9 +1392,6 @@ infodir	sdk/Makefile	/^infodir = ${datarootdir}\/info$/;"	m
 infodir	test/Makefile	/^infodir = ${datarootdir}\/info$/;"	m
 init	pool.cpp	/^ bool sPool::init()$/;"	f	class:sPool
 init	sdk/sLogManager.cpp	/^void Logger::init(const char* configureFile)$/;"	f	class:Logger
-init	sdk/sPthread.h	/^		virtual bool init(){return true;};$/;"	f	class:sPthread
-init	sdk/sSctpPthread.cpp	/^bool sSctpPthread::init()$/;"	f	class:sSctpPthread
-initPool	sdk/sSctpPool.cpp	/^void sSctpPool::initPool(DWORD dwPthreadTimes)$/;"	f	class:sSctpPool
 install_sh	Gate/Makefile	/^install_sh = ${SHELL} \/home\/sauli\/server\/install-sh$/;"	m
 install_sh	Makefile	/^install_sh = ${SHELL} \/home\/sauli\/server\/install-sh$/;"	m
 install_sh	sdk/Makefile	/^install_sh = ${SHELL} \/home\/sauli\/server\/install-sh$/;"	m
@@ -1426,7 +1447,7 @@ localstatedir	Gate/Makefile	/^localstatedir = ${prefix}\/var$/;"	m
 localstatedir	Makefile	/^localstatedir = ${prefix}\/var$/;"	m
 localstatedir	sdk/Makefile	/^localstatedir = ${prefix}\/var$/;"	m
 localstatedir	test/Makefile	/^localstatedir = ${prefix}\/var$/;"	m
-lock	sdk/sMutex.cpp	/^void sMutex::lock()$/;"	f	class:sMutex
+lock	sdk/sMutex.h	/^		void lock(){pthread_mutex_lock(&_mutex);}$/;"	f	class:sMutex
 logger	sdk/sLogManager.h	/^	static Logger logger;$/;"	m	namespace:base
 longValue	sdk/VarList.h	/^			LONG        longValue;$/;"	m	union:VarObj::NumValue
 luaFunc	sdk/LuaSystem.h	/^typedef int (*luaFunc)(luaState*lua);$/;"	t
@@ -1546,13 +1567,11 @@ release_name	test/test.pb.cc	/^ ::std::string* pack::release_name() {$/;"	f	clas
 release_name	test/test.pb.h	/^inline ::std::string* pack::release_name() {$/;"	f	class:muduo::pack
 release_str	proto/Gate.pb.cc	/^ ::std::string* Info::release_str() {$/;"	f	class:Gate::Info
 release_str	proto/Gate.pb.h	/^inline ::std::string* Info::release_str() {$/;"	f	class:Gate::Info
-run	sdk/sPthread.h	/^		virtual void run(){};$/;"	f	class:sPthread
-run	sdk/sSctpPthread.cpp	/^void sSctpPthread::run()$/;"	f	class:sSctpPthread
 run	sdk/sTask.cpp	/^void Task::run()$/;"	f	class:Task
 sEpoll	sdk/sEpoll.h	/^class sEpoll$/;"	c
 sMem	sdk/sMemPool.h	/^class sMem{$/;"	c
 sMemPool	sdk/sMemPool.h	/^class sMemPool{$/;"	c
-sMutex	sdk/sMutex.cpp	/^sMutex::sMutex()$/;"	f	class:sMutex
+sMutex	sdk/sMutex.h	/^		sMutex(){pthread_mutex_init(&_mutex,NULL);}$/;"	f	class:sMutex
 sMutex	sdk/sMutex.h	/^class sMutex{$/;"	c
 sPool	pool.h	/^class sPool{$/;"	c
 sPthread	sdk/sPthread.h	/^			sPthread(pthread_func pFunc)$/;"	f	class:sPthread
@@ -1561,10 +1580,11 @@ sPthreadFunc	sdk/sPthreadFunc.h	/^class sPthreadFunc{$/;"	c
 sPthreadPool	sdk/sPthreadPool.h	/^	sPthreadPool()$/;"	f	class:sPthreadPool
 sPthreadPool	sdk/sPthreadPool.h	/^class sPthreadPool{$/;"	c
 sSctpPool	sdk/sSctpPool.h	/^		sSctpPool(){$/;"	f	class:sSctpPool
-sSctpPool	sdk/sSctpPool.h	/^class sSctpPool :public sSctpScoket$/;"	c
+sSctpPool	sdk/sSctpPool.h	/^class sSctpPool$/;"	c
 sSctpPthread	sdk/sSctpPthread.h	/^		sSctpPthread(pthread_func pFunc):sPthread(pFunc){};$/;"	f	class:sSctpPthread
 sSctpPthread	sdk/sSctpPthread.h	/^class sSctpPthread :public  sPthread$/;"	c
 sSctpScoket	sdk/sSctpScoket.h	/^class sSctpScoket$/;"	c
+sServer	sdk/sServer.h	/^class sServer$/;"	c
 sSocket	sdk/sSocket.h	/^class sSocket$/;"	c
 saveToFile	sdk/XmlFile.cpp	/^bool XmlFile::saveToFile(const char*fileName,xmlDocPtr node,const char*encoding,int format)$/;"	f	class:XmlFile
 saveToString	sdk/XmlFile.cpp	/^int XmlFile::saveToString(xmlDocPtr node,std::string &out,const char*encoding,int format)$/;"	f	class:XmlFile
@@ -1575,7 +1595,6 @@ sbindir	test/Makefile	/^sbindir = ${exec_prefix}\/sbin$/;"	m
 sctpThreadFunc	sdk/sSctpPool.cpp	/^void *sctpThreadFunc ( void *arg)$/;"	f
 sendBuf	sdk/sProtobuf.h	/^		inline void sendBuf(void *buf){};$/;"	f	class:ProtobufManage
 sendCmd	sdk/UserTest.cpp	/^bool UserTest::sendCmd(DWORD dwSocket,char *buf)$/;"	f	class:UserTest
-sendCmd	sdk/sSctpPthread.cpp	/^void sSctpPthread::sendCmd(DWORD dwSocket,char *buf)$/;"	f	class:sSctpPthread
 sendMessage	sdk/sSocket.cpp	/^void sSocket::sendMessage(const MSG& message)$/;"	f	class:sSocket
 setLevel	sdk/sLogManager.cpp	/^void Logger::setLevel(const LogLevel& level)$/;"	f	class:Logger
 setSec	sdk/sTime.h	/^		void setSec(const time_t&sec)$/;"	f	class:final
@@ -1624,7 +1643,6 @@ srcdir	test/Makefile	/^srcdir = .$/;"	m
 ss	sdk/UserTest.cpp	/^UserTest* ss = NULL;$/;"	v
 static_descriptor_initializer_proto_2fGate_2eproto_	proto/Gate.pb.cc	/^} static_descriptor_initializer_proto_2fGate_2eproto_;$/;"	m	namespace:Gate	typeref:struct:Gate::StaticDescriptorInitializer_proto_2fGate_2eproto	file:
 static_descriptor_initializer_test_2eproto_	test/test.pb.cc	/^} static_descriptor_initializer_test_2eproto_;$/;"	m	namespace:muduo	typeref:struct:muduo::StaticDescriptorInitializer_test_2eproto	file:
-stcpNewClient	sdk/sSctpPool.cpp	/^void sSctpPool::stcpNewClient(DWORD dwSocket)$/;"	f	class:sSctpPool
 str	proto/Gate.pb.cc	/^ const ::std::string& Info::str() const {$/;"	f	class:Gate::Info
 str	proto/Gate.pb.h	/^inline const ::std::string& Info::str() const {$/;"	f	class:Gate::Info
 strValue	sdk/VarList.h	/^			char*		strValue;	$/;"	m	union:VarObj::NumValue
@@ -1664,7 +1682,7 @@ transform	Gate/Makefile	/^transform = $(program_transform_name)$/;"	m
 transform	Makefile	/^transform = $(program_transform_name)$/;"	m
 transform	sdk/Makefile	/^transform = $(program_transform_name)$/;"	m
 transform	test/Makefile	/^transform = $(program_transform_name)$/;"	m
-unLock	sdk/sMutex.cpp	/^void sMutex::unLock()$/;"	f	class:sMutex
+unLock	sdk/sMutex.h	/^		void unLock(){pthread_mutex_unlock(&_mutex);}$/;"	f	class:sMutex
 unknown_fields	test/test.pb.h	/^  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {$/;"	f	class:muduo::pack
 usage_error	test-driver	/^usage_error ()$/;"	f
 wValue	sdk/VarList.h	/^			WORD		wValue;$/;"	m	union:VarObj::NumValue
@@ -1673,4 +1691,4 @@ warn	sdk/sLogManager.cpp	/^void Logger::warn(const char*fmt,...)$/;"	f	class:Log
 ~Logger	sdk/sLogManager.h	/^			~Logger(){$/;"	f	class:base::Logger
 ~XmlFile	sdk/XmlFile.h	/^		~XmlFile(){$/;"	f	class:XmlFile
 ~pack	test/test.pb.cc	/^pack::~pack() {$/;"	f	class:muduo::pack
-~sMutex	sdk/sMutex.cpp	/^sMutex:: ~sMutex()$/;"	f	class:sMutex
+~sMutex	sdk/sMutex.h	/^		~sMutex(){pthread_mutex_destroy(&_mutex);}$/;"	f	class:sMutex

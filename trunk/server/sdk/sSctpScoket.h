@@ -16,9 +16,10 @@ static const int TimeOut = -1;
 #define DEFAULT_BACKLOG 24
 class sSctpScoket
 {
+	typedef std::function<void(DWORD fd)> CallBack;
 	public:
 		bool 	Init();
-		bool    Bind(DWORD dwPort);
+		bool    Bind();
 		virtual void    Accept(int fd);
 		virtual void	Read(int fd);
 		virtual void	Write(int fd);
@@ -30,24 +31,27 @@ class sSctpScoket
 		void SetReadCallBack(CB cb){
 			_epoll.SetReadCB(std::forward<CB>(cb));
 		}
+
 		template<typename CB>
 		void SetCloseCB(CB cb){
 			_epoll.SetCloseCB(std::forward<CB>(cb));
 		}
+
 		template<typename CB>
 		void SetAccetp(CB cb){
 			_epoll.SetNewClientCB(std::forward<CB>(cb));
 		}
 
-		virtual void stcpNewClient(DWORD dwSocket) = 0;
-
-		void	SetBackLog(int backlog){
-			_backlog = backlog;
-		}
-		
+		void	SetAddClient(CallBack cb){_addClient = cb;}
+		void	SetBackLog(int backlog){_backlog = backlog;}
+		void	SetIpAddress(const char* ipAddress){_ipAddress = ipAddress;}	
+		void    SetPort(DWORD port){_port = port;}
 	private:
+		std::string _ipAddress;
+		DWORD       _port;
 		struct sockaddr_in _servaddr;
 		int _backlog{DEFAULT_BACKLOG};
+		CallBack _addClient;
 		sEpoll _epoll;
 
 
