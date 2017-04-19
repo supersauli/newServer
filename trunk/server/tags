@@ -76,11 +76,12 @@ AddClient	sdk/sSctpPthread.cpp	/^void sSctpPthread::AddClient(DWORD dwSocket)$/;
 AddEvent	sdk/sEpoll.cpp	/^bool sEpoll::AddEvent(int fd,int event)$/;"	f	class:sEpoll
 AddNextSibling	sdk/XmlFile.cpp	/^xmlNodePtr XmlFile::AddNextSibling(xmlNodePtr cur,xmlNodePtr elem)$/;"	f	class:XmlFile
 AddPrevSibling	sdk/XmlFile.cpp	/^xmlNodePtr XmlFile::AddPrevSibling(xmlNodePtr cur,xmlNodePtr elem)$/;"	f	class:XmlFile
+AddPthreadToPool	sdk/sPthreadPool.cpp	/^bool sPthreadPool::AddPthreadToPool(sPthread * pthread)$/;"	f	class:sPthreadPool
 AddSibling	sdk/XmlFile.cpp	/^xmlNodePtr AddSibling(xmlNodePtr cur,xmlNodePtr elem)$/;"	f
 BOOLVALUE	sdk/VarList.h	/^			BOOLVALUE,$/;"	m	class:VarObj::ValueType
 BUFFER_SIZE	sdk/sSocket.cpp	2;"	d	file:
 BYTE	sdk/sDefine.h	/^typedef unsigned char BYTE;$/;"	t
-Bind	sdk/sSctpScoket.cpp	/^bool sSctpScoket::Bind(DWORD dwPort)$/;"	f	class:sSctpScoket
+Bind	sdk/sSctpScoket.cpp	/^bool sSctpScoket::Bind()$/;"	f	class:sSctpScoket
 ByteSize	proto/Gate.pb.cc	/^int Info::ByteSize() const {$/;"	f	class:Gate::Info
 ByteSize	test/test.pb.cc	/^int pack::ByteSize() const {$/;"	f	class:muduo::pack
 CC	Gate/Makefile	/^CC = gcc$/;"	m
@@ -154,6 +155,7 @@ CYGPATH_W	Gate/Makefile	/^CYGPATH_W = echo$/;"	m
 CYGPATH_W	Makefile	/^CYGPATH_W = echo$/;"	m
 CYGPATH_W	sdk/Makefile	/^CYGPATH_W = echo$/;"	m
 CYGPATH_W	test/Makefile	/^CYGPATH_W = echo$/;"	m
+CallBack	sdk/sSctpScoket.h	/^	typedef std::function<void(DWORD fd)> CallBack;$/;"	t	class:sSctpScoket
 Clear	proto/Gate.pb.cc	/^void Info::Clear() {$/;"	f	class:Gate::Info
 Clear	test/test.pb.cc	/^void pack::Clear() {$/;"	f	class:muduo::pack
 ClockTime	sdk/sTime.h	/^		ClockTime(){$/;"	f	class:ClockTime
@@ -321,12 +323,14 @@ GetNodeValue	sdk/XmlFile.cpp	/^void XmlFile::GetNodeValue(const xmlNodePtr node,
 GetNodeValue	sdk/XmlFile.cpp	/^void XmlFile::GetNodeValue(const xmlNodePtr node,const char*name,float &value,float defaultValue)$/;"	f	class:XmlFile
 GetNodeValue	sdk/XmlFile.cpp	/^void XmlFile::GetNodeValue(const xmlNodePtr node,const char*name,int &value,DOUBLE defaultValue)$/;"	f	class:XmlFile
 GetNodeValue	sdk/XmlFile.cpp	/^void XmlFile::GetNodeValue(const xmlNodePtr node,const char*name,std::string&value,const char* defaultValue)$/;"	f	class:XmlFile
+GetPhteadByIndex	sdk/sPthreadPool.cpp	/^sPthread* sPthreadPool::GetPhteadByIndex(DWORD dwIndex)$/;"	f	class:sPthreadPool
 GetPthreadSize	sdk/sPthreadPool.h	/^	DWORD GetPthreadSize(){return _poolIndex;};$/;"	f	class:sPthreadPool
 GetQWValue	sdk/VarList.h	/^		DWORD GetQWValue(DWORD i)$/;"	f	class:VarList
 GetQWValue	sdk/VarList.h	/^		QWORD GetQWValue(){$/;"	f	class:VarObj
 GetRootElement	sdk/XmlFile.cpp	/^xmlNodePtr XmlFile::GetRootElement()$/;"	f	class:XmlFile
 GetRootElement	sdk/XmlFile.cpp	/^xmlNodePtr XmlFile::GetRootElement(const char* name)$/;"	f	class:XmlFile
 GetSec	sdk/sTime.h	/^		DWORD GetSec()const$/;"	f	class:final
+GetServerName	sdk/sServer.h	/^		const char* GetServerName(){return _serverName.c_str();}$/;"	f	class:sServer
 GetStrValue	sdk/VarList.h	/^		std::string GetStrValue(){$/;"	f	class:VarObj
 GetStrValue	sdk/VarList.h	/^		std::string GetStrValue(DWORD i)$/;"	f	class:VarList
 GetWDay	sdk/sTime.h	/^		DWORD GetWDay()const$/;"	f	class:final
@@ -386,7 +390,7 @@ Init	sdk/sServer.cpp	/^bool sServer::Init()$/;"	f	class:sServer
 Init	sdk/sSocket.cpp	/^bool sSocket::Init(const std::string& ipPort)$/;"	f	class:sSocket
 InitAsDefaultInstance	proto/Gate.pb.cc	/^void Info::InitAsDefaultInstance() {$/;"	f	class:Gate::Info
 InitAsDefaultInstance	test/test.pb.cc	/^void pack::InitAsDefaultInstance() {$/;"	f	class:muduo::pack
-InitPool	sdk/sSctpPool.cpp	/^void sSctpPool::InitPool(DWORD dwPthreadTimes)$/;"	f	class:sSctpPool
+InitPool	sdk/sSctpPool.cpp	/^void sSctpPool::InitPool()$/;"	f	class:sSctpPool
 InitXml	sdk/XmlFile.cpp	/^bool XmlFile::InitXml(const char *fileName)$/;"	f	class:XmlFile
 InternalSerializeWithCachedSizesToArray	proto/Gate.pb.cc	/^::google::protobuf::uint8* Info::InternalSerializeWithCachedSizesToArray($/;"	f	class:Gate::Info
 InternalSerializeWithCachedSizesToArray	test/test.pb.cc	/^::google::protobuf::uint8* pack::InternalSerializeWithCachedSizesToArray($/;"	f	class:muduo::pack
@@ -636,18 +640,21 @@ STRVALUE	sdk/VarList.h	/^			STRVALUE,	$/;"	m	class:VarObj::ValueType
 SUBDIRS	Makefile	/^SUBDIRS = sdk  test Gate $/;"	m
 SWORD	sdk/sDefine.h	/^typedef signed short SWORD;$/;"	t
 Sec	sdk/sTime.h	/^	 DWORD Sec()const$/;"	f	class:ClockTime
+SendCmd	sdk/UserTest.cpp	/^bool UserTest::SendCmd(DWORD dwSocket,char *buf)$/;"	f	class:UserTest
 SendCmd	sdk/sSctpPthread.cpp	/^void sSctpPthread::SendCmd(DWORD dwSocket,char *buf)$/;"	f	class:sSctpPthread
 SerializeWithCachedSizes	proto/Gate.pb.cc	/^void Info::SerializeWithCachedSizes($/;"	f	class:Gate::Info
 SerializeWithCachedSizes	test/test.pb.cc	/^void pack::SerializeWithCachedSizes($/;"	f	class:muduo::pack
 SerializeWithCachedSizesToArray	proto/Gate.pb.h	/^  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {$/;"	f	class:Gate::Info
 SerializeWithCachedSizesToArray	test/test.pb.h	/^  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {$/;"	f	class:muduo::pack
 SetAccetp	sdk/sSctpScoket.h	/^		void SetAccetp(CB cb){$/;"	f	class:sSctpScoket
+SetAddClient	sdk/sSctpScoket.h	/^		void	SetAddClient(CallBack cb){_addClient = cb;}$/;"	f	class:sSctpScoket
 SetBackLog	sdk/sSctpScoket.h	/^		void	SetBackLog(int backlog){_backlog = backlog;}$/;"	f	class:sSctpScoket
 SetCachedSize	proto/Gate.pb.cc	/^void Info::SetCachedSize(int size) const {$/;"	f	class:Gate::Info
 SetCachedSize	test/test.pb.cc	/^void pack::SetCachedSize(int size) const {$/;"	f	class:muduo::pack
 SetCloseCB	sdk/sEpoll.h	/^		void SetCloseCB(EventCB& cb){$/;"	f	class:sEpoll
 SetCloseCB	sdk/sEpoll.h	/^		void SetCloseCB(EventCB&& cb){$/;"	f	class:sEpoll
 SetCloseCB	sdk/sSctpScoket.h	/^		void SetCloseCB(CB cb){$/;"	f	class:sSctpScoket
+SetIpAddress	sdk/sSctpScoket.h	/^		void	SetIpAddress(const char* ipAddress){_ipAddress = ipAddress;}	$/;"	f	class:sSctpScoket
 SetListenSocket	sdk/sEpoll.h	/^		void SetListenSocket(int listenSocket){$/;"	f	class:sEpoll
 SetMaxEvents	sdk/sEpoll.h	/^		void  SetMaxEvents(int maxEvents){$/;"	f	class:sEpoll
 SetMsecCycle	sdk/sTime.h	/^		void SetMsecCycle(int msec){$/;"	f	class:CycleTime
@@ -656,10 +663,13 @@ SetNewClientCB	sdk/sEpoll.h	/^		void SetNewClientCB(EventCB&& cb ){$/;"	f	class:
 SetNoBlock	sdk/sSctpScoket.cpp	/^void sSctpScoket::SetNoBlock(int fd){$/;"	f	class:sSctpScoket
 SetNodeContent	sdk/XmlFile.cpp	/^void XmlFile::SetNodeContent(xmlNodePtr node,const char* content,int len)$/;"	f	class:XmlFile
 SetOverTime	sdk/sSocket.h	/^	void SetOverTime(int time){$/;"	f	class:sSocket
+SetPort	sdk/sSctpScoket.h	/^		void    SetPort(DWORD port){_port = port;}$/;"	f	class:sSctpScoket
+SetPthreadMax	sdk/sSctpPool.h	/^	 void SetPthreadMax(int pthreadMax){_pthreadMax = pthreadMax;}$/;"	f	class:sSctpPool
 SetReadCB	sdk/sEpoll.h	/^		void SetReadCB(EventCB& cb){$/;"	f	class:sEpoll
 SetReadCB	sdk/sEpoll.h	/^		void SetReadCB(EventCB&& cb){$/;"	f	class:sEpoll
 SetReadCallBack	sdk/sSctpScoket.h	/^		void SetReadCallBack(CB cb){$/;"	f	class:sSctpScoket
 SetSec	sdk/sTime.h	/^		void SetSec(int sec){$/;"	f	class:CycleTime
+SetServerName	sdk/sServer.h	/^		void SetServerName(const char* serverName){$/;"	f	class:sServer
 SetTimeOut	sdk/sEpoll.h	/^		void SetTimeOut(int timeOut){$/;"	f	class:sEpoll
 SharedCtor	proto/Gate.pb.cc	/^void Info::SharedCtor() {$/;"	f	class:Gate::Info
 SharedCtor	test/test.pb.cc	/^void pack::SharedCtor() {$/;"	f	class:muduo::pack
@@ -725,6 +735,7 @@ __TASK_H__	sdk/Task.h	2;"	d
 __TOOL_H__	sdk/Tool.h	2;"	d
 __VAR_LIST_H__	sdk/VarList.h	2;"	d
 __XML_FILE_H__	sdk/XmlFile.h	2;"	d
+_addClient	sdk/sSctpScoket.h	/^		CallBack _addClient;$/;"	m	class:sSctpScoket
 _cached_size_	proto/Gate.pb.h	/^  mutable int _cached_size_;$/;"	m	class:Gate::Info
 _cached_size_	test/test.pb.h	/^  mutable int _cached_size_;$/;"	m	class:muduo::pack
 _clockTime	sdk/sTime.h	/^	 	timespec		_clockTime;	$/;"	m	class:ClockTime
@@ -746,6 +757,7 @@ _globaTime	sdk/sTime.h	/^static ClockTime _globaTime;$/;"	v
 _has_bits_	test/test.pb.h	/^  ::google::protobuf::uint32 _has_bits_[1];$/;"	m	class:muduo::pack
 _internal_metadata_	proto/Gate.pb.h	/^  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;$/;"	m	class:Gate::Info
 _internal_metadata_	test/test.pb.h	/^  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;$/;"	m	class:muduo::pack
+_ipAddress	sdk/sSctpScoket.h	/^		std::string _ipAddress;$/;"	m	class:sSctpScoket
 _ipPort	sdk/sSocket.h	/^	std::string _ipPort;$/;"	m	class:sSocket
 _is_default_instance_	proto/Gate.pb.h	/^  bool _is_default_instance_;$/;"	m	class:Gate::Info
 _keyValue	sdk/MapManage.h	/^		static std::map<K,V> _keyValue;$/;"	m	class:MapManage
@@ -764,13 +776,14 @@ _pShareAppend	sdk/sLogManager.h	/^			log4cplus::helpers::SharedObjectPtr<log4cpl
 _pool	pool.h	/^		Memory_List * _pool[POOL_LIST_MAX_LENGTH];$/;"	m	class:sPool
 _pool	sdk/sServer.h	/^		sSctpPool _pool;$/;"	m	class:sServer
 _poolIndex	sdk/sPthreadPool.h	/^	DWORD _poolIndex;$/;"	m	class:sPthreadPool
+_port	sdk/sSctpScoket.h	/^		DWORD       _port;$/;"	m	class:sSctpScoket
 _protobufManage	sdk/sSocket.h	/^	ProtobufManage _protobufManage;$/;"	m	class:sSocket
-_pthreadIndex	sdk/sSctpPool.h	/^	 DWORD _pthreadIndex;$/;"	m	class:sSctpPool
 _pthreadPool	sdk/sPthreadPool.h	/^	std::map<DWORD ,sPthread*> _pthreadPool;$/;"	m	class:sPthreadPool
 _readCB	sdk/sEpoll.h	/^		 EventCB _newClientCB,_readCB,_closeCB;$/;"	m	class:sEpoll
 _sctpPool	sdk/sSctpPool.h	/^	 sPthreadPool _sctpPool;$/;"	m	class:sSctpPool
 _sctpPth	sdk/UserTest.h	/^		sSctpPthread* _sctpPth;$/;"	m	class:UserTest
 _servaddr	sdk/sSctpScoket.h	/^		struct sockaddr_in _servaddr;$/;"	m	class:sSctpScoket	typeref:struct:sSctpScoket::sockaddr_in
+_serverName	sdk/sServer.h	/^		std::string _serverName;$/;"	m	class:sServer
 _socket	sdk/sServer.h	/^		sSctpScoket _socket;$/;"	m	class:sServer
 _socket	sdk/sSocket.h	/^	void *_socket;$/;"	m	class:sSocket
 _strValue	sdk/VarList.h	/^			std::string _strValue;$/;"	m	struct:VarObj::Value
@@ -826,7 +839,6 @@ ac_fn_cxx_try_cpp	configure	/^ac_fn_cxx_try_cpp ()$/;"	f
 ac_fn_cxx_try_link	configure	/^ac_fn_cxx_try_link ()$/;"	f
 addDelaySec	sdk/sTime.h	/^		void addDelaySec(const time_t&sec)$/;"	f	class:final
 addDelayTask	sdk/sTask.cpp	/^bool Task::addDelayTask(Closure&task,int delayTime)$/;"	f	class:Task
-addPthreadToPool	sdk/sPthreadPool.cpp	/^bool sPthreadPool::addPthreadToPool(sPthread * pthread)$/;"	f	class:sPthreadPool
 addTask	sdk/sTask.cpp	/^bool Task::addTask(Closure&task)$/;"	f	class:Task
 aix_post_process_depfile	depcomp	/^aix_post_process_depfile ()$/;"	f
 allotMalloc	pool.cpp	/^bool sPool::allotMalloc(int index)$/;"	f	class:sPool
@@ -1346,7 +1358,6 @@ func_xform	configure	/^func_xform ()\\$/;"	f
 func_xform	libtool	/^func_xform ()$/;"	f
 func_xform	ltmain.sh	/^func_xform ()$/;"	f
 getMalloc	pool.cpp	/^void * sPool::getMalloc(int size)$/;"	f	class:sPool
-getPhteadByIndex	sdk/sPthreadPool.cpp	/^sPthread* sPthreadPool::getPhteadByIndex(DWORD dwIndex)$/;"	f	class:sPthreadPool
 getSocket	sdk/UserTest.h	/^		DWORD getSocket(){return _dwSocket;};$/;"	f	class:UserTest
 give_advice	missing	/^give_advice ()$/;"	f
 has_dwid	test/test.pb.cc	/^bool pack::has_dwid() const {$/;"	f	class:muduo::pack
@@ -1594,7 +1605,6 @@ sbindir	sdk/Makefile	/^sbindir = ${exec_prefix}\/sbin$/;"	m
 sbindir	test/Makefile	/^sbindir = ${exec_prefix}\/sbin$/;"	m
 sctpThreadFunc	sdk/sSctpPool.cpp	/^void *sctpThreadFunc ( void *arg)$/;"	f
 sendBuf	sdk/sProtobuf.h	/^		inline void sendBuf(void *buf){};$/;"	f	class:ProtobufManage
-sendCmd	sdk/UserTest.cpp	/^bool UserTest::sendCmd(DWORD dwSocket,char *buf)$/;"	f	class:UserTest
 sendMessage	sdk/sSocket.cpp	/^void sSocket::sendMessage(const MSG& message)$/;"	f	class:sSocket
 setLevel	sdk/sLogManager.cpp	/^void Logger::setLevel(const LogLevel& level)$/;"	f	class:Logger
 setSec	sdk/sTime.h	/^		void setSec(const time_t&sec)$/;"	f	class:final

@@ -10,6 +10,7 @@ class sSctpPthread :public  sPthread
 		virtual bool Init();
 		void AddClient(DWORD dwSocket);
 		void SendCmd(DWORD dwSocket,char *buf);
+		void Read(int fd);
 		
 	private:
 		sEpoll _epoll;

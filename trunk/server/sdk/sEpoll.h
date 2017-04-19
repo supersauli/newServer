@@ -53,7 +53,7 @@ class sEpoll
 		 * @param event
 		 * @param connfd
 		 */
-		bool UpdateEvent(int event,int connfd);
+		bool UpdateEvent(int connfd,int event);
 
 		bool Loop();
 

@@ -2,6 +2,8 @@
 #include "sSctpPthread.h"
 void *sctpThreadFunc ( void *arg)
 {
+
+	((sPthread*)arg)->Init();
 	((sPthread*)arg)->Run();
 	return nullptr;
 };

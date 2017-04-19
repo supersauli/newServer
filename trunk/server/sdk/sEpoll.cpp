@@ -44,7 +44,7 @@ bool sEpoll::DelEvent(int fd)
 }
 
 
-bool  sEpoll::UpdateEvent(int event,int fd)
+bool  sEpoll::UpdateEvent(int fd,int event)
 {
 	struct epoll_event ev;
 	ev.data.fd = fd ;

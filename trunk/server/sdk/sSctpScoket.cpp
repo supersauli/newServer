@@ -58,6 +58,7 @@ void sSctpScoket::Accept(int fd)
 	if(_addClient != nullptr){
 		_addClient(newfd);
 	}
+	printf("new client \n");
 }
 void sSctpScoket::Read(int fd)
 {
