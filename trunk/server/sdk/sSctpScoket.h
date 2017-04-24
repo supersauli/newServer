@@ -22,7 +22,7 @@ class sSctpScoket
 		bool    Bind();
 		virtual void    Accept(int fd);
 		virtual void	Read(int fd);
-		virtual void	Write(int fd);
+		virtual void	Write(int fd,const char*msg);
 
 		void    SetNoBlock(int fd);
 		void	Loop();
@@ -41,18 +41,22 @@ class sSctpScoket
 		void SetAccetp(CB cb){
 			_epoll.SetNewClientCB(std::forward<CB>(cb));
 		}
+		bool	Connect();
 
 		void	SetAddClient(CallBack cb){_addClient = cb;}
 		void	SetBackLog(int backlog){_backlog = backlog;}
 		void	SetIpAddress(const char* ipAddress){_ipAddress = ipAddress;}	
 		void    SetPort(DWORD port){_port = port;}
+		int		GetSocket(){return _fd;}
+		void	Close(int fd);
 	private:
 		std::string _ipAddress;
-		DWORD       _port;
+		DWORD       _port{0};
 		struct sockaddr_in _servaddr;
 		int _backlog{DEFAULT_BACKLOG};
 		CallBack _addClient;
 		sEpoll _epoll;
+		int _fd{0};
 
 
 };

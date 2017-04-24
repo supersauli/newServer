@@ -5,27 +5,25 @@ bool sSctpScoket::Init()
 	if(!_epoll.Init()){
 		return false;
 	};
-
-	_epoll.SetNewClientCB(std::bind(&sSctpScoket::Accept,this,std::placeholders::_1));
 //	_epoll.SetReadCB(std::bind(&sSctpScoket::Read,this,std::placeholders::_1));
 	return true;
 }
 bool sSctpScoket::Bind()
 {
-	int fd = socket(AF_INET,SOCK_STREAM,IPPROTO_SCTP);
-	if(fd == -1){
+	 _fd = socket(AF_INET,SOCK_STREAM,IPPROTO_SCTP);
+	if(_fd == -1){
 		return false;
 	}
 	
-	_epoll.SetListenSocket(fd);
-	_epoll.AddEvent(fd,EPOLLIN|EPOLLET);
+	_epoll.SetListenSocket(_fd);
+	_epoll.AddEvent(_fd,EPOLLIN|EPOLLET);
 	bzero((void *)&_servaddr,sizeof(_servaddr));
 	_servaddr.sin_family = AF_INET;
 	//_servaddr.sin_addr.s_addr = htonl(INADDR_ANY);// 所有ip
 	_servaddr.sin_addr.s_addr =inet_addr(_ipAddress.c_str());
 	_servaddr.sin_port = htons(_port);
 
-	int ret = ::bind(fd,(struct sockaddr*)&_servaddr,sizeof(_servaddr));
+	int ret = ::bind(_fd,(struct sockaddr*)&_servaddr,sizeof(_servaddr));
 	if(ret<0){
 		return false;
 	}
@@ -38,7 +36,8 @@ bool sSctpScoket::Bind()
 //	ret = setsockopt( _connSock, IPPROTO_SCTP, SCTP_INITMSG, 
 //			&initmsg, sizeof(initmsg) );
 //
-	listen(fd,_backlog);
+	listen(_fd,_backlog);
+	_epoll.SetNewClientCB(std::bind(&sSctpScoket::Accept,this,std::placeholders::_1));
 	printf("accetp new connection \n");
 	return true;
 }
@@ -66,13 +65,36 @@ void sSctpScoket::Read(int fd)
 
 }
 
-void sSctpScoket::Write(int fd)
+void sSctpScoket::Write(int fd,const char*msg)
 {
-
+	sctp_send(fd,msg,strlen(msg),NULL,0);
 
 }
 
 void sSctpScoket::Loop()
 {
 	_epoll.Loop();
+}
+
+bool sSctpScoket::Connect()
+{
+	 _fd = socket(AF_INET,SOCK_STREAM,IPPROTO_SCTP);
+	if(_fd == -1){
+		return false;
+	}
+	bzero((void *)&_servaddr,sizeof(_servaddr));
+	_servaddr.sin_family = AF_INET;
+	_servaddr.sin_addr.s_addr =inet_addr(_ipAddress.c_str());
+	_servaddr.sin_port = htons(_port);
+
+	int rt = sctp_connectx(_fd, (struct sockaddr*)&_servaddr, 1,NULL);
+	if(rt<0){
+		return false;
+	}
+
+	return true;
+}
+void  sSctpScoket::Close(int fd)
+{
+	close(fd);
 }

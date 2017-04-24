@@ -51,10 +51,10 @@ int main()
 //	auto m2 = (muduo::pack*)m1;
 //	cout<<m2->dwid()<<endl;
 //
-//	sServer serve;
-//	serve.Init();
-//	serve.LoadConfig("");
-//	serve.Loop();
+	sServer serve;
+	serve.Init();
+	serve.LoadConfig("");
+	serve.Loop();
 
 
 

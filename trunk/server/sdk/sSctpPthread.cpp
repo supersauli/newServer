@@ -18,7 +18,7 @@ void sSctpPthread::Read(int fd)
 		_epoll.DelEvent(fd);
 		return;
 	}
-	_message.ecode(buf);
+	//_message.ecode(buf);
 	_epoll.UpdateEvent(fd,EPOLLIN | EPOLLET | EPOLLOUT);
 }
 

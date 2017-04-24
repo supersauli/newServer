@@ -8,6 +8,5 @@ main_SOURCES=main.cpp \
 			 head.h \
 			 test.pb.cc 
 
-#main_LDADD = ../sdk/libsdk.la  ../sdk/liblz4.a
 main_LDADD = ../sdk/libsdk.la 
 main_LDFLAGS = -no-install
