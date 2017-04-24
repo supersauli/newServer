@@ -2,6 +2,8 @@ AUTOMAKE_OPTIONS=foreign
 CXX := clang++
 #CXXFLAGS +=-llog4cplus -lsctp -lpthread
 LIBS = -llog4cplus -lsctp -lpthread -lstdc++ -lxml2 -lprotobuf -static
+
+LDADD = ./liblz4.a
 #文件列表
 fileList = \
 		sSctpScoket.cpp \
@@ -13,7 +15,9 @@ fileList = \
 		sLogManager.cpp \
 		XmlFile.cpp \
 		sTask.cpp \
-		sServer.cpp
+		net/sServer.cpp \
+		lz4.c \
+		sCompress.cpp
 
 
 #动态库

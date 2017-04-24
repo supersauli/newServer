@@ -2,6 +2,7 @@
 #define _SSCTPPTHREAD_H__
 #include "sPthread.h"
 #include "sSctpScoket.h"
+#include "sProtobuf.h"
 class sSctpPthread :public  sPthread
 {
 	public:
@@ -14,6 +15,7 @@ class sSctpPthread :public  sPthread
 		
 	private:
 		sEpoll _epoll;
+		ProtobufManage _message;
 
 
 

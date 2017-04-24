@@ -18,13 +18,10 @@ void sSctpPthread::Read(int fd)
 		_epoll.DelEvent(fd);
 		return;
 	}
-	else
-	{
-		printf("data = %s\n",buf);	
-	}
-	
+	_message.ecode(buf);
 	_epoll.UpdateEvent(fd,EPOLLIN | EPOLLET | EPOLLOUT);
 }
+
 void sSctpPthread::Run()
 {
 	_epoll.Loop();
@@ -32,6 +29,10 @@ void sSctpPthread::Run()
 
 void sSctpPthread::SendCmd(DWORD dwSocket,char *buf)
 {
+//	char buf[1024];
+	//_message.decode(buff,mproto)
+
+
 	if(sctp_sendmsg(dwSocket,buf,strlen(buf),0,0,0,0,0,0,0) <=0)
 	{
 		printf("send error \n"); 
