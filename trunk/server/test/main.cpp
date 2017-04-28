@@ -1,43 +1,105 @@
 #include "sdk/VarList.h"
 #include <stdio.h>
 #include <iostream>
+#include <assert.h>
 #include <string.h>
 #include "sdk/XmlFile.h"
 #include "test.pb.h"
 #include "sdk/sProtobuf.h"
 #include "sdk/sServer.h"
-using namespace std;
 #include "sdk/sCompress.h"
 #define BUFF_SIZE_MAX 1024
+#include "sdk/Third_part/Json/document.h"
+#include "sdk/Third_part/Json/writer.h"
+#include "sdk/Third_part/Json/stringbuffer.h"
+#include "sdk/Third_part/Json/filereadstream.h"
+//#define TEXT_JSON "./ServerCfg/ipcfg.json"
+#define TEXT_JSON "/home/sauli/server/Cfg/ServerCfg/ipcfg.json"
+
+using namespace std;
+void TestJson()
+{
+	FILE *fp = fopen(TEXT_JSON,"rb");
+	assert(fp != nullptr);
+	char json[1024]={0};
+	rapidjson::FileReadStream(fp,json,sizeof(json));
+
+	//const char* json = "{\"project\":\"rapidjson\",\"stars\":10}";
+	
+    rapidjson::Document d;
+	//d.open("../Cfg/ServerCfg/ipcfg.json");
+    d.Parse(json);
+
+    // 2. Modify it by DOM.
+    rapidjson::Value& s = d["Gate"];
+	if(s.IsObject())
+	{
+		//cout<<s.GetObject()<<endl;
+			auto &ip =s["ip"];
+			if(ip.IsString())
+			{
+				cout<<ip.GetString()<<endl;
+			}
+			auto &port = s["port"];
+			if(port.IsInt())
+			{
+				cout<<port.GetInt()<<endl;
+			}
+
+	}
+
+    // 3. Stringify the DOM
+//    rapidjson::StringBuffer buffer;
+//    rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+//    d.Accept(writer);
+//
+//    // Output {"project":"rapidjson","stars":11}
+//    std::cout << buffer.GetString() << std::endl;	
+}
+
 int main()
 {
-	sCompress com;
-	char src[BUFF_SIZE_MAX]="1234jfdosajflsdjflsa;fljdkls;afjdkls;afjdslkjfa;fjwfoewfjeofj;laskdjlsajf;lajfdlsa;jfdlks;afjeiwoafjeowfjo;fjqpojfofjsldfjks;afjeoiwfja;kdl;afjeofjihgghijfowjrfowfjdjflksjfdlfjldsjflsfjeiowuroeurourio3u58894759375893485028302ir204802840357908u9e20eipjdjljfldjsafldsfjlsdfjlsdjfeiowur9328u42040238402rowfjfjlsfjldjfljsjfeiruowruoeruowureowruoeuiowruoewrfjlfjlsjfeiruoewpruoeruopquroqprupoqrueowpqurejfljlsfjl;afjeowruoeruowpqruoiwrueporquipqruieoqwrupqrupqiwruowruqirupqrupoqriupqrjfjaslfjlasjfl;sfj;afj;djsfa;j3248203482084284820848402840842380238402e3ru9348rfu8ufjdsfjsdfslafjdlsfjlsdfjlasj567890123456909634223345565656767675654543434343454545";
 
-	int srcSize = strlen(src);
+	
+	TestJson();
 
-	printf("src = %s\n",src);
-	char dest[BUFF_SIZE_MAX];
-	int a1 = com.Compress(src,dest,BUFF_SIZE_MAX,BUFF_SIZE_MAX);
 
-	int length = strlen(dest);
-	string aaa( dest,a1);
-	int destSize = aaa.size();
-	float ratio =(float) destSize/srcSize;	
-	printf("srcSize = %d,destSize = %d,radio = %f\n",srcSize,destSize,ratio);
 
-	printf("dest = %s\n",dest);
-	char decode[BUFF_SIZE_MAX]={0};
-	com.Decompress(dest,decode,BUFF_SIZE_MAX,BUFF_SIZE_MAX);
 
-	printf("decode = %s \n",decode);
-	if(strcmp(src,decode) !=0)
-	{
-		printf("error \n");
-	}
-	string u = "123\n233";
-	printf("%s\n",u.data());
 
+
+
+
+
+
+
+//	sCompress com;
+//	char src[BUFF_SIZE_MAX]="1234jfdosajflsdjflsa;fljdkls;afjdkls;afjdslkjfa;fjwfoewfjeofj;laskdjlsajf;lajfdlsa;jfdlks;afjeiwoafjeowfjo;fjqpojfofjsldfjks;afjeoiwfja;kdl;afjeofjihgghijfowjrfowfjdjflksjfdlfjldsjflsfjeiowuroeurourio3u58894759375893485028302ir204802840357908u9e20eipjdjljfldjsafldsfjlsdfjlsdjfeiowur9328u42040238402rowfjfjlsfjldjfljsjfeiruowruoeruowureowruoeuiowruoewrfjlfjlsjfeiruoewpruoeruopquroqprupoqrueowpqurejfljlsfjl;afjeowruoeruowpqruoiwrueporquipqruieoqwrupqrupqiwruowruqirupqrupoqriupqrjfjaslfjlasjfl;sfj;afj;djsfa;j3248203482084284820848402840842380238402e3ru9348rfu8ufjdsfjsdfslafjdlsfjlsdfjlasj567890123456909634223345565656767675654543434343454545";
+//
+//	int srcSize = strlen(src);
+//
+//	printf("src = %s\n",src);
+//	char dest[BUFF_SIZE_MAX];
+//	int a1 = com.Compress(src,dest,BUFF_SIZE_MAX,BUFF_SIZE_MAX);
+//
+//	int length = strlen(dest);
+//	string aaa( dest,a1);
+//	int destSize = aaa.size();
+//	float ratio =(float) destSize/srcSize;	
+//	printf("srcSize = %d,destSize = %d,radio = %f\n",srcSize,destSize,ratio);
+//
+//	printf("dest = %s\n",dest);
+//	char decode[BUFF_SIZE_MAX]={0};
+//	com.Decompress(dest,decode,BUFF_SIZE_MAX,BUFF_SIZE_MAX);
+//
+//	printf("decode = %s \n",decode);
+//	if(strcmp(src,decode) !=0)
+//	{
+//		printf("error \n");
+//	}
+//	string u = "123\n233";
+//	printf("%s\n",u.data());
+//
 
 
 //	ProtobufManage msg;
@@ -182,4 +244,5 @@ int main()
 //
 	return 0;
 }
+
 
