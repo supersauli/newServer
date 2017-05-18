@@ -13,6 +13,7 @@
 #include "sdk/Third_part/Json/writer.h"
 #include "sdk/Third_part/Json/stringbuffer.h"
 #include "sdk/Third_part/Json/filereadstream.h"
+#include "sdk/sTime.h"
 //#define TEXT_JSON "./ServerCfg/ipcfg.json"
 #define TEXT_JSON "/home/sauli/server/Cfg/ServerCfg/ipcfg.json"
 
@@ -57,11 +58,41 @@ void TestJson()
 //    std::cout << buffer.GetString() << std::endl;	
 }
 
+
+void TimerTaskTextFunc()
+{
+	cout<<__FILE__<<endl;
+	cout<<ClockTime().GetMsec()<<endl;
+}
+
+typedef std::function<void()> Func;
+
+void TestTimerTask(){
+	TimerTaskManage task;
+	Func c = &TimerTaskTextFunc;
+	//task.AddCycleTask(1000,c,true);
+	task.AddCountCycleTask(1000,10,c,true);
+
+
+	while(true)
+	{
+		task.Update(ClockTime().GetMsec());	
+		usleep(1);
+	}
+
+};
+
+
+
 int main()
 {
+	TestTimerTask();
+	
+
+
 
 	
-	TestJson();
+//	TestJson();
 
 
 
