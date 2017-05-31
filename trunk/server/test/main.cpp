@@ -14,6 +14,7 @@
 #include "sdk/Third_part/Json/stringbuffer.h"
 #include "sdk/Third_part/Json/filereadstream.h"
 #include "sdk/sTime.h"
+#include "sdk/EventCallBack.h"
 //#define TEXT_JSON "./ServerCfg/ipcfg.json"
 #define TEXT_JSON "/home/sauli/server/Cfg/ServerCfg/ipcfg.json"
 
@@ -83,27 +84,58 @@ void TestTimerTask(){
 };
 
 
+void func1(int a,int b){
+	cout<<__FUNCTION__<<endl;
+	cout<<"a="<<a<<",b="<<b<<endl;
+};
+
+void func2(int a,int b){
+	cout<<__FUNCTION__<<endl;
+	cout<<"a="<<a<<"b="<<b<<endl;
+};
+
+void func3(int *a ){
+	cout<<__FUNCTION__<<endl;
+	cout<<*a<<endl;
+}
+void func4(int *a,int b){
+	cout<<__FUNCTION__<<endl;
+}
+
+enum {
+	EVENT_1,
+	EVENT_2,
+};
+
 
 int main()
 {
-	TestTimerTask();
+
+	EventCallBack<> eventManage;
+	eventManage.AddEventCallBackFunc(EVENT_1,std::bind(&func1,222,11111));
+	eventManage.AddEventCallBackFunc(EVENT_1,std::bind(&func2,10,122),1);
+
+	//eventManage.SendEvent(EVENT_1,10,100);
+	//eventManage.SendEvent(EVENT_1);
+	int m = 10;
+	int *a = &m;
+	EventCallBack<int*> eventManage1;
+
+	eventManage1.AddEventCallBackFunc(EVENT_1,std::bind(&func1,222,11111));
+	eventManage1.AddEventCallBackFunc(EVENT_1,std::bind(&func3,std::placeholders::_1),1);
+	eventManage1.AddEventCallBackFunc(EVENT_1,std::bind(&func4,std::placeholders::_1,100),1);
+
+	std::function<void(int,int)> ff = std::bind(&func1,std::placeholders::_1,std::placeholders::_2);
+	ff(1,2);
+
 	
+	eventManage1.SendEvent(EVENT_1,a);
 
 
 
-	
+//	AddEventCallBackFunc
+//	TestTimerTask();
 //	TestJson();
-
-
-
-
-
-
-
-
-
-
-
 //	sCompress com;
 //	char src[BUFF_SIZE_MAX]="1234jfdosajflsdjflsa;fljdkls;afjdkls;afjdslkjfa;fjwfoewfjeofj;laskdjlsajf;lajfdlsa;jfdlks;afjeiwoafjeowfjo;fjqpojfofjsldfjks;afjeoiwfja;kdl;afjeofjihgghijfowjrfowfjdjflksjfdlfjldsjflsfjeiowuroeurourio3u58894759375893485028302ir204802840357908u9e20eipjdjljfldjsafldsfjlsdfjlsdjfeiowur9328u42040238402rowfjfjlsfjldjfljsjfeiruowruoeruowureowruoeuiowruoewrfjlfjlsjfeiruoewpruoeruopquroqprupoqrueowpqurejfljlsfjl;afjeowruoeruowpqruoiwrueporquipqruieoqwrupqrupqiwruowruqirupqrupoqriupqrjfjaslfjlasjfl;sfj;afj;djsfa;j3248203482084284820848402840842380238402e3ru9348rfu8ufjdsfjsdfslafjdlsfjlsdfjlasj567890123456909634223345565656767675654543434343454545";
 //
@@ -144,10 +176,10 @@ int main()
 //	auto m2 = (muduo::pack*)m1;
 //	cout<<m2->dwid()<<endl;
 //
-	sServer serve;
-	serve.Init();
-	serve.LoadConfig("");
-	serve.Loop();
+//	sServer serve;
+//	serve.Init();
+//	serve.LoadConfig("");
+//	serve.Loop();
 
 
 

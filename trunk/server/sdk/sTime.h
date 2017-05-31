@@ -17,8 +17,7 @@ class ClockTime final{
 		/**
 		 * @brief 刷新时间
 		 */
-	 void RefreshTimer()
-	 {
+	 void RefreshTimer(){
 		clock_gettime(CLOCK_REALTIME,&_clockTime);
 	}
 
@@ -27,18 +26,16 @@ class ClockTime final{
 	 *
 	 * @return 
 	 */
-	 DWORD GetSec()const
-	 {
-		return _clockTime.tv_sec;
-	}
+	 DWORD GetSec()const{
+		 return _clockTime.tv_sec;
+	 }
 
 	/**
 	 * @brief 获得毫秒数
 	 *
 	 * @return 
 	 */
-	 QWORD GetMsec()const
-	{
+	 QWORD GetMsec()const{
 		return _clockTime.tv_sec *1000LL + _clockTime.tv_nsec/1000000LL;
 	}
 
@@ -605,6 +602,10 @@ class TimerTaskManage
 			bool operator < (const TimerTask &othrer){
 				return _nextRunMSec < othrer._nextRunMSec; 
 			}
+		};
+
+		void Update(){
+			Update(ClockTime().GetMsec());
 		};
 
 		void Update(QWORD nowMSec){
