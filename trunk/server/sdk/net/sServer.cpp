@@ -18,6 +18,7 @@ bool sServer::Loop(){
 	_pool.InitPool();
 	_socket.Bind();
 	_socket.Loop();
+	return true;
 }
 
 

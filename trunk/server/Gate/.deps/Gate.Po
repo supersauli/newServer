@@ -89,8 +89,8 @@ Gate.o: Gate.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/c++/4.8.2/bits/locale_facets.tcc \
  /usr/include/c++/4.8.2/bits/basic_ios.tcc \
  /usr/include/c++/4.8.2/bits/ostream.tcc /usr/include/c++/4.8.2/istream \
- /usr/include/c++/4.8.2/bits/istream.tcc /usr/include/string.h \
- ../sdk/sSctpPool.h ../sdk/sSctpScoket.h /usr/include/sys/socket.h \
+ /usr/include/c++/4.8.2/bits/istream.tcc /usr/include/string.h Gate.h \
+ ../sdk/net/sSctpSocket.h /usr/include/sys/socket.h \
  /usr/include/sys/uio.h /usr/include/bits/uio.h \
  /usr/include/bits/socket.h /usr/include/bits/socket_type.h \
  /usr/include/bits/sockaddr.h /usr/include/asm/socket.h \
@@ -105,20 +105,15 @@ Gate.o: Gate.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/asm-generic/bitsperlong.h /usr/include/linux/posix_types.h \
  /usr/include/linux/stddef.h /usr/include/asm/posix_types.h \
  /usr/include/asm/posix_types_64.h /usr/include/asm-generic/posix_types.h \
- ../sdk/sDefine.h /usr/include/sys/epoll.h /usr/include/bits/epoll.h \
- /usr/include/fcntl.h /usr/include/bits/fcntl.h \
- /usr/include/bits/fcntl-linux.h /usr/include/bits/stat.h ../sdk/sEpoll.h \
+ /usr/include/sys/epoll.h /usr/include/bits/epoll.h /usr/include/fcntl.h \
+ /usr/include/bits/fcntl.h /usr/include/bits/fcntl-linux.h \
+ /usr/include/bits/stat.h ../sdk/net/sEpoll.h \
  /usr/include/c++/4.8.2/functional /usr/include/c++/4.8.2/typeinfo \
  /usr/include/c++/4.8.2/tuple /usr/include/c++/4.8.2/utility \
  /usr/include/c++/4.8.2/bits/stl_relops.h /usr/include/c++/4.8.2/array \
  /usr/include/c++/4.8.2/stdexcept \
- /usr/include/c++/4.8.2/bits/uses_allocator.h ../sdk/sPthreadPool.h \
- ../sdk/sPthread.h ../sdk/sMutex.h /usr/include/c++/4.8.2/map \
- /usr/include/c++/4.8.2/bits/stl_tree.h \
- /usr/include/c++/4.8.2/bits/alloc_traits.h \
- /usr/include/c++/4.8.2/bits/ptr_traits.h \
- /usr/include/c++/4.8.2/bits/stl_map.h \
- /usr/include/c++/4.8.2/bits/stl_multimap.h ../sdk/sPthreadPool.h
+ /usr/include/c++/4.8.2/bits/uses_allocator.h \
+ ../sdk/net/../base/sDefine.h
 
 /usr/include/stdc-predef.h:
 
@@ -374,9 +369,9 @@ Gate.o: Gate.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
 
 /usr/include/string.h:
 
-../sdk/sSctpPool.h:
+Gate.h:
 
-../sdk/sSctpScoket.h:
+../sdk/net/sSctpSocket.h:
 
 /usr/include/sys/socket.h:
 
@@ -436,8 +431,6 @@ Gate.o: Gate.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
 
 /usr/include/asm-generic/posix_types.h:
 
-../sdk/sDefine.h:
-
 /usr/include/sys/epoll.h:
 
 /usr/include/bits/epoll.h:
@@ -450,7 +443,7 @@ Gate.o: Gate.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
 
 /usr/include/bits/stat.h:
 
-../sdk/sEpoll.h:
+../sdk/net/sEpoll.h:
 
 /usr/include/c++/4.8.2/functional:
 
@@ -468,22 +461,4 @@ Gate.o: Gate.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
 
 /usr/include/c++/4.8.2/bits/uses_allocator.h:
 
-../sdk/sPthreadPool.h:
-
-../sdk/sPthread.h:
-
-../sdk/sMutex.h:
-
-/usr/include/c++/4.8.2/map:
-
-/usr/include/c++/4.8.2/bits/stl_tree.h:
-
-/usr/include/c++/4.8.2/bits/alloc_traits.h:
-
-/usr/include/c++/4.8.2/bits/ptr_traits.h:
-
-/usr/include/c++/4.8.2/bits/stl_map.h:
-
-/usr/include/c++/4.8.2/bits/stl_multimap.h:
-
-../sdk/sPthreadPool.h:
+../sdk/net/../base/sDefine.h:

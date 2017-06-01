@@ -1,7 +1,7 @@
 #ifndef _SSCTPPOOL_H__
 #define _SSCTPPOOL_H__
-#include "sSctpScoket.h"
-#include "sPthreadPool.h"
+#include "sSctpSocket.h"
+#include "../base/sPthreadPool.h"
 class sSctpPool
 {
 	public:

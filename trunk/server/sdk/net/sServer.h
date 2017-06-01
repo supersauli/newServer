@@ -13,7 +13,7 @@ class sServer
 		const char* GetServerName(){return _serverName.c_str();}
 	private:
 		sSctpPool _pool;
-		sSctpScoket _socket;
+		sSctpSocket _socket;
 		std::string _serverName;
 
 };

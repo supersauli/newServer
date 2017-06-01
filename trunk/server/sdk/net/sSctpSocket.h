@@ -1,5 +1,5 @@
-#ifndef _SSTCPSCOKET_H__
-#define _SSTCPSCOKET_H__
+#ifndef _SSTCPSOCKET_H__
+#define _SSTCPSOCKET_H__
 #include <sys/socket.h>
 #include <stdio.h>
 #include <netinet/in.h>
@@ -7,14 +7,14 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <netinet/sctp.h>
-#include <iostream>
-#include "sDefine.h"
 #include <sys/epoll.h>
 #include <fcntl.h>
+
 #include "sEpoll.h"
+#include "../base/sDefine.h"
 static const int TimeOut = -1;
 #define DEFAULT_BACKLOG 24
-class sSctpScoket
+class sSctpSocket
 {
 	typedef std::function<void(DWORD fd)> CallBack;
 	public:

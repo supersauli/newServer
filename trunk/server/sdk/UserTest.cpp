@@ -1,5 +1,4 @@
 #include "UserTest.h"
-#include "sPthread.h"
 int dwSocket = 0;
 UserTest* ss = NULL;
 void * UserRun (void *)

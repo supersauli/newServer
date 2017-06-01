@@ -1,6 +1,6 @@
 #ifndef __VAR_LIST_H__
 #define __VAR_LIST_H__
-//#include <list>
+#include <list>
 #include<vector>
 #include <assert.h>
 #include <memory>

@@ -2,17 +2,13 @@
 #include <iostream>
 #include <iostream>
 #include <string.h>
-#include "../sdk/sSctpPool.h"
-#include "../sdk/sPthreadPool.h"
-
-
-
+#include "Gate.h"
 using namespace std;
 
 int main()
 {
 
-	sSctpScoket socket;
+	sSctpSocket socket;
 	socket.SetIpAddress("127.0.0.1");
 	socket.SetPort(4096);
 	if(!socket.Connect()){

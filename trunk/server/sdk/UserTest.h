@@ -2,8 +2,9 @@
 #define _USERTEXT_H__
 #include <string>
 #include <stdio.h>
-#include "sDefine.h"
-#include "sSctpPthread.h"
+#include "./base/sDefine.h"
+#include "./net/sSctpPthread.h"
+#include "./base/sPthread.h"
 class UserTest
 {
 	public:

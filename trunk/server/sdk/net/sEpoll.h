@@ -3,7 +3,8 @@
 #include <sys/epoll.h>
 #include <stdio.h>
 #include <functional>
-#include "sDefine.h"
+
+#include "../base/sDefine.h"
 
 #define DEFAULT_TIMEOUT_TIMES 1000
 #define DEFAULT_MAX_EVENTS 10

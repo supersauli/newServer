@@ -1,7 +1,8 @@
 #!/bin/sh
 #run autoscan
 libtoolize --force --copy --automake
-aclocal 
+#aclocal 
+aclocal -I /usr/share/aclocal/ 
 autoconf
 autoheader
 automake --add-missing

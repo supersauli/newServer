@@ -1,6 +1,6 @@
 #ifndef _SCOMPARESS_H__
 #define _SCOMPARESS_H__
-#include "lz4.h"
+#include "./third_part/zip/lz4.h"
 class sCompress
 {
 	public:

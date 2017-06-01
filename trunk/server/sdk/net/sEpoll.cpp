@@ -84,5 +84,6 @@ bool sEpoll::Loop()
 			}
 		}
 	}
+	return true;
 }
 

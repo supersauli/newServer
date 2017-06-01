@@ -1,7 +1,7 @@
 #ifndef _SSCTPPTHREAD_H__
 #define _SSCTPPTHREAD_H__
-#include "sPthread.h"
-#include "sSctpScoket.h"
+#include "../base/sPthread.h"
+#include "sSctpSocket.h"
 #include "sProtobuf.h"
 class sSctpPthread :public  sPthread
 {

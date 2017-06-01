@@ -1,20 +1,20 @@
-#include "sdk/VarList.h"
+#include "sdk/base/VarList.h"
 #include <stdio.h>
 #include <iostream>
 #include <assert.h>
 #include <string.h>
-#include "sdk/XmlFile.h"
+#include "sdk/base//XmlFile.h"
 #include "test.pb.h"
-#include "sdk/sProtobuf.h"
-#include "sdk/sServer.h"
-#include "sdk/sCompress.h"
+#include "sdk/net/sProtobuf.h"
+#include "sdk/net/sServer.h"
+#include "sdk/base/sCompress.h"
 #define BUFF_SIZE_MAX 1024
-#include "sdk/Third_part/Json/document.h"
-#include "sdk/Third_part/Json/writer.h"
-#include "sdk/Third_part/Json/stringbuffer.h"
-#include "sdk/Third_part/Json/filereadstream.h"
-#include "sdk/sTime.h"
-#include "sdk/EventCallBack.h"
+#include "sdk/third_part/json/document.h"
+#include "sdk/third_part/json/writer.h"
+#include "sdk/third_part/json/stringbuffer.h"
+#include "sdk/third_part/json/filereadstream.h"
+#include "sdk/base/sTime.h"
+#include "sdk/base/EventCallBack.h"
 //#define TEXT_JSON "./ServerCfg/ipcfg.json"
 #define TEXT_JSON "/home/sauli/server/Cfg/ServerCfg/ipcfg.json"
 

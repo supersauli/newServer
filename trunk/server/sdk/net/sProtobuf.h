@@ -8,9 +8,11 @@
 #include <google/protobuf/message.h>
 #include <functional>
 #include <string>
-#include "sDefine.h"
 #include <cstdlib>
 #include <string.h>
+
+#include "../base/sDefine.h"
+
 typedef google::protobuf::Message			ProtoBuffMessage;
 typedef google::protobuf::Descriptor		ProtoBuffDesc;
 typedef google::protobuf::DescriptorPool    ProtoBuffDescPool;
