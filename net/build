@@ -1,0 +1,2 @@
+#!/bin/sh
+g++ stcpclient.cpp -o client -g -lsctp 
