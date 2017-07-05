@@ -164,22 +164,26 @@ int main()
 //	printf("%s\n",u.data());
 //
 
+	ProtobufManage msg;
+	
+	muduo::pack mproto;
+	mproto.set_dwid(10);
+	mproto.set_name("fsdafd");
+	char buff[1024] = {0};
+	msg.decode(buff,mproto);	
+	while (true)
+	{
+	auto m1 = msg.ecode(buff);
+	cout<<m1->GetTypeName()<<endl;
 
-//	ProtobufManage msg;
-//	
-//	muduo::pack mproto;
-//	mproto.set_dwid(10);
-//	mproto.set_name("fsdafd");
-//	char buff[1024] = {0};
-//	msg.decode(buff,mproto);	
-//	auto m1 = msg.ecode(buff);
-//	auto m2 = (muduo::pack*)m1;
-//	cout<<m2->dwid()<<endl;
-//
-//	sServer serve;
-//	serve.Init();
-//	serve.LoadConfig("");
-//	serve.Loop();
+	auto m2 = (muduo::pack*)m1;
+	cout<<m2->dwid()<<endl;
+	}
+
+	sServer serve;
+	serve.Init();
+	serve.LoadConfig("");
+	serve.Loop();
 
 
 

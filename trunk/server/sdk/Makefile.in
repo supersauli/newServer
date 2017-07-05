@@ -131,8 +131,9 @@ libsdk_la_LIBADD =
 am__dirstamp = $(am__leading_dot)dirstamp
 am__objects_1 = ./net/sSctpSocket.lo ./net/sSctpPool.lo \
 	./net/sSctpPthread.lo ./net/sServer.lo ./net/sEpoll.lo \
-	./base/sPthreadPool.lo ./base/sLogManager.lo ./base/XmlFile.lo \
-	./base/sCompress.lo ./third_part/zip/lz4.lo UserTest.lo
+	./net/ServerSocket.lo ./base/sPthreadPool.lo \
+	./base/LogManager.lo ./base/XmlFile.lo ./base/sCompress.lo \
+	./third_part/zip/lz4.lo UserTest.lo
 am_libsdk_la_OBJECTS = $(am__objects_1)
 libsdk_la_OBJECTS = $(am_libsdk_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
@@ -232,8 +233,7 @@ CCDEPMODE = @CCDEPMODE@
 CFLAGS = @CFLAGS@
 CPP = @CPP@
 CPPFLAGS = @CPPFLAGS@
-#CXX := clang++
-CXX := g++
+CXX := clang++
 CXXCPP = @CXXCPP@
 CXXDEPMODE = @CXXDEPMODE@
 CXXFLAGS = @CXXFLAGS@
@@ -258,6 +258,7 @@ INSTALL_STRIP_PROGRAM = @INSTALL_STRIP_PROGRAM@
 LD = @LD@
 LDFLAGS = @LDFLAGS@
 LIBOBJS = @LIBOBJS@
+#CXX := g++
 #CXXFLAGS +=-llog4cplus -lsctp -lpthread
 LIBS = -llog4cplus -lsctp -lpthread -lstdc++ -lxml2 -lprotobuf -static
 LIBTOOL = @LIBTOOL@
@@ -341,7 +342,7 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AUTOMAKE_OPTIONS = foreign
-LDADD = ./liblz4.a
+
 #文件列表
 fileList = \
 		./net/sSctpSocket.cpp \
@@ -349,8 +350,9 @@ fileList = \
 		./net/sSctpPthread.cpp \
 		./net/sServer.cpp \
 		./net/sEpoll.cpp \
+		./net/ServerSocket.cpp \
 		./base/sPthreadPool.cpp \
-		./base/sLogManager.cpp \
+		./base/LogManager.cpp \
 		./base/XmlFile.cpp \
 		./base/sCompress.cpp \
 		./third_part/zip/lz4.c \
@@ -445,6 +447,8 @@ net/$(DEPDIR)/$(am__dirstamp):
 	net/$(DEPDIR)/$(am__dirstamp)
 ./net/sServer.lo: net/$(am__dirstamp) net/$(DEPDIR)/$(am__dirstamp)
 ./net/sEpoll.lo: net/$(am__dirstamp) net/$(DEPDIR)/$(am__dirstamp)
+./net/ServerSocket.lo: net/$(am__dirstamp) \
+	net/$(DEPDIR)/$(am__dirstamp)
 base/$(am__dirstamp):
 	@$(MKDIR_P) ./base
 	@: > base/$(am__dirstamp)
@@ -453,7 +457,7 @@ base/$(DEPDIR)/$(am__dirstamp):
 	@: > base/$(DEPDIR)/$(am__dirstamp)
 ./base/sPthreadPool.lo: base/$(am__dirstamp) \
 	base/$(DEPDIR)/$(am__dirstamp)
-./base/sLogManager.lo: base/$(am__dirstamp) \
+./base/LogManager.lo: base/$(am__dirstamp) \
 	base/$(DEPDIR)/$(am__dirstamp)
 ./base/XmlFile.lo: base/$(am__dirstamp) base/$(DEPDIR)/$(am__dirstamp)
 ./base/sCompress.lo: base/$(am__dirstamp) \
@@ -483,10 +487,11 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/UserTest.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./base/$(DEPDIR)/LogManager.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./base/$(DEPDIR)/XmlFile.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./base/$(DEPDIR)/sCompress.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./base/$(DEPDIR)/sLogManager.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./base/$(DEPDIR)/sPthreadPool.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./net/$(DEPDIR)/ServerSocket.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./net/$(DEPDIR)/sEpoll.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./net/$(DEPDIR)/sSctpPool.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./net/$(DEPDIR)/sSctpPthread.Plo@am__quote@

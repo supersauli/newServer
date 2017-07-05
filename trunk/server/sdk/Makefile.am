@@ -1,10 +1,9 @@
 AUTOMAKE_OPTIONS=foreign
-#CXX := clang++
-CXX := g++
+CXX := clang++
+#CXX := g++
 #CXXFLAGS +=-llog4cplus -lsctp -lpthread
 LIBS = -llog4cplus -lsctp -lpthread -lstdc++ -lxml2 -lprotobuf -static
 
-LDADD = ./liblz4.a
 #文件列表
 fileList = \
 		./net/sSctpSocket.cpp \
@@ -12,8 +11,9 @@ fileList = \
 		./net/sSctpPthread.cpp \
 		./net/sServer.cpp \
 		./net/sEpoll.cpp \
+		./net/ServerSocket.cpp \
 		./base/sPthreadPool.cpp \
-		./base/sLogManager.cpp \
+		./base/LogManager.cpp \
 		./base/XmlFile.cpp \
 		./base/sCompress.cpp \
 		./third_part/zip/lz4.c \

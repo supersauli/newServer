@@ -3,6 +3,6 @@ package Gate;
 message Info
 {
 	uint32 dwID = 1;
-	 bytes  str  = 2;
+	bytes  str  = 2;
 
 }

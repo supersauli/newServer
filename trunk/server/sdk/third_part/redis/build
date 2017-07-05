@@ -1,0 +1,2 @@
+#!/bin/sh
+g++ Redis.cpp main.cpp -o run libhiredis.so -g -std=gnu++11

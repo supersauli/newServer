@@ -1,3 +1,4 @@
+#if 0
 #include "head.h"
 #include <stdio.h>
 #include <iostream>
@@ -45,7 +46,7 @@ int main()
 
 
 
-#if 0
+//#if 0
 
 	XmlFile xml;
 	

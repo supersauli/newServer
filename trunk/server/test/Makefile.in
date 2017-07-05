@@ -204,12 +204,13 @@ CCDEPMODE = @CCDEPMODE@
 CFLAGS = @CFLAGS@
 CPP = @CPP@
 CPPFLAGS = @CPPFLAGS@
-#CXX := clang++
-CXX := g++
+CXX := clang++
 CXXCPP = @CXXCPP@
 CXXDEPMODE = @CXXDEPMODE@
+#CXX := g++
 #INCLUDES=-I ../sdk/
-CXXFLAGS = @CXXFLAGS@ -I ../sdk/ -lstdc++ -static
+CXXFLAGS = @CXXFLAGS@ -I ../sdk/ -lstdc++ -static -L/usr/local/lib/ \
+	-lprotobuf
 CYGPATH_W = @CYGPATH_W@
 DEFS = @DEFS@
 DEPDIR = @DEPDIR@

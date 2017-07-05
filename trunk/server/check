@@ -1,2 +1,2 @@
 #!/bin/sh
-cppcheck  --enable=all ./
+cppcheck  --enable=all ./ --check-config
