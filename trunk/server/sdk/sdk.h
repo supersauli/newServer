@@ -24,6 +24,7 @@
 #include "net/SctpSocket.h"
 #include "net/Server.h"
 #include "net/Socket.h"
+#include "net/ServerSocket.h"
 #include "third_part/json/writer.h"
 #include "third_part/json/document.h"
 #include "third_part/json/stringbuffer.h"

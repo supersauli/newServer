@@ -93,10 +93,10 @@ namespace sdk{
 		bool DifferentInt(const DWORD& num,const int& min,const int& max,std::set<int>&diffNum ){
 			int maxNum = std::max(min,max);
 			int minNum = std::min(min,max);
-			if(maxNum - minNum < num){
+			if(static_cast<DWORD>(maxNum - minNum) < num){
 				return false;
 			}
-			std::uniform_int_distribution<int>	 dis(min,max);
+			std::uniform_int_distribution<int>	 dis(maxNum,minNum);
 			static int maxRandom = 100000000;
 			int randomTimes = num;
 			do{

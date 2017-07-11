@@ -14,20 +14,20 @@ bool ServerSocket::Init(Json::Document& config){
 		return false;
 	}
 	_type = static_cast<const SocketType>(type.GetInt());
-	auto& proto = config["proto"];
-	if(proto.IsNull()){
+	auto& address = config["address"];
+	if(address.IsNull()){
 		return false;
 	}
 
-	if(!proto.IsString()){
+	if(!address.IsString()){
 		return false;
 	}
 
-	_address = proto.GetString();
-	auto& timeOut = config["proto"];
+	_address = address.GetString();
+	auto& timeOut = config["timeOut"];
 	if(!timeOut.IsNull()){
 		if(timeOut.IsInt()){
-		_timeOut = proto.GetInt();
+		_timeOut = timeOut.GetInt();
 		}
 	}
 
@@ -56,7 +56,13 @@ bool ServerSocket::Run()
 		if(recv_size <0){   
 			continue;
 		}
-		recv_size = zmq_send(_socket,buffer,recv_size,0);
+
+		auto message = ecode(buffer);	
+		if(message != nullptr)
+		{
+			MessageDel(message->GetTypeName().c_str());
+		}
+
 	}
 
 	return true;
