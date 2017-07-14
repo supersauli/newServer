@@ -27,9 +27,6 @@ namespace sdk{
 			 * @return 
 			 */
 			int Decompress (const char* source, char* dest, int compressedSize, int maxDecompressedSize);
-		private:
-
-			bool _using{true};
 
 
 

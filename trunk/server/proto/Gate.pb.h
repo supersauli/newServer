@@ -29,43 +29,43 @@
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 
-namespace Gate {
+namespace GateServer {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_proto_2fGate_2eproto();
 void protobuf_AssignDesc_proto_2fGate_2eproto();
 void protobuf_ShutdownFile_proto_2fGate_2eproto();
 
-class Info;
+class UserLogin;
 
 // ===================================================================
 
-class Info : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:Gate.Info) */ {
+class UserLogin : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:GateServer.UserLogin) */ {
  public:
-  Info();
-  virtual ~Info();
+  UserLogin();
+  virtual ~UserLogin();
 
-  Info(const Info& from);
+  UserLogin(const UserLogin& from);
 
-  inline Info& operator=(const Info& from) {
+  inline UserLogin& operator=(const UserLogin& from) {
     CopyFrom(from);
     return *this;
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Info& default_instance();
+  static const UserLogin& default_instance();
 
-  void Swap(Info* other);
+  void Swap(UserLogin* other);
 
   // implements Message ----------------------------------------------
 
-  inline Info* New() const { return New(NULL); }
+  inline UserLogin* New() const { return New(NULL); }
 
-  Info* New(::google::protobuf::Arena* arena) const;
+  UserLogin* New(::google::protobuf::Arena* arena) const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Info& from);
-  void MergeFrom(const Info& from);
+  void CopyFrom(const UserLogin& from);
+  void MergeFrom(const UserLogin& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -84,7 +84,7 @@ class Info : public ::google::protobuf::Message /* @@protoc_insertion_point(clas
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const;
-  void InternalSwap(Info* other);
+  void InternalSwap(UserLogin* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return _internal_metadata_.arena();
@@ -117,7 +117,7 @@ class Info : public ::google::protobuf::Message /* @@protoc_insertion_point(clas
   ::std::string* release_str();
   void set_allocated_str(::std::string* str);
 
-  // @@protoc_insertion_point(class_scope:Gate.Info)
+  // @@protoc_insertion_point(class_scope:GateServer.UserLogin)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -130,7 +130,7 @@ class Info : public ::google::protobuf::Message /* @@protoc_insertion_point(clas
   friend void protobuf_ShutdownFile_proto_2fGate_2eproto();
 
   void InitAsDefaultInstance();
-  static Info* default_instance_;
+  static UserLogin* default_instance_;
 };
 // ===================================================================
 
@@ -138,71 +138,71 @@ class Info : public ::google::protobuf::Message /* @@protoc_insertion_point(clas
 // ===================================================================
 
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
-// Info
+// UserLogin
 
 // optional uint32 dwID = 1;
-inline void Info::clear_dwid() {
+inline void UserLogin::clear_dwid() {
   dwid_ = 0u;
 }
-inline ::google::protobuf::uint32 Info::dwid() const {
-  // @@protoc_insertion_point(field_get:Gate.Info.dwID)
+inline ::google::protobuf::uint32 UserLogin::dwid() const {
+  // @@protoc_insertion_point(field_get:GateServer.UserLogin.dwID)
   return dwid_;
 }
-inline void Info::set_dwid(::google::protobuf::uint32 value) {
+inline void UserLogin::set_dwid(::google::protobuf::uint32 value) {
   
   dwid_ = value;
-  // @@protoc_insertion_point(field_set:Gate.Info.dwID)
+  // @@protoc_insertion_point(field_set:GateServer.UserLogin.dwID)
 }
 
 // optional bytes str = 2;
-inline void Info::clear_str() {
+inline void UserLogin::clear_str() {
   str_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& Info::str() const {
-  // @@protoc_insertion_point(field_get:Gate.Info.str)
+inline const ::std::string& UserLogin::str() const {
+  // @@protoc_insertion_point(field_get:GateServer.UserLogin.str)
   return str_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void Info::set_str(const ::std::string& value) {
+inline void UserLogin::set_str(const ::std::string& value) {
   
   str_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:Gate.Info.str)
+  // @@protoc_insertion_point(field_set:GateServer.UserLogin.str)
 }
-inline void Info::set_str(const char* value) {
+inline void UserLogin::set_str(const char* value) {
   
   str_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:Gate.Info.str)
+  // @@protoc_insertion_point(field_set_char:GateServer.UserLogin.str)
 }
-inline void Info::set_str(const void* value, size_t size) {
+inline void UserLogin::set_str(const void* value, size_t size) {
   
   str_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:Gate.Info.str)
+  // @@protoc_insertion_point(field_set_pointer:GateServer.UserLogin.str)
 }
-inline ::std::string* Info::mutable_str() {
+inline ::std::string* UserLogin::mutable_str() {
   
-  // @@protoc_insertion_point(field_mutable:Gate.Info.str)
+  // @@protoc_insertion_point(field_mutable:GateServer.UserLogin.str)
   return str_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* Info::release_str() {
-  // @@protoc_insertion_point(field_release:Gate.Info.str)
+inline ::std::string* UserLogin::release_str() {
+  // @@protoc_insertion_point(field_release:GateServer.UserLogin.str)
   
   return str_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void Info::set_allocated_str(::std::string* str) {
+inline void UserLogin::set_allocated_str(::std::string* str) {
   if (str != NULL) {
     
   } else {
     
   }
   str_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), str);
-  // @@protoc_insertion_point(field_set_allocated:Gate.Info.str)
+  // @@protoc_insertion_point(field_set_allocated:GateServer.UserLogin.str)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace Gate
+}  // namespace GateServer
 
 // @@protoc_insertion_point(global_scope)
 

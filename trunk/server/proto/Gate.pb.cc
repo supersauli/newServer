@@ -17,13 +17,13 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace Gate {
+namespace GateServer {
 
 namespace {
 
-const ::google::protobuf::Descriptor* Info_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* UserLogin_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Info_reflection_ = NULL;
+  UserLogin_reflection_ = NULL;
 
 }  // namespace
 
@@ -35,22 +35,22 @@ void protobuf_AssignDesc_proto_2fGate_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "proto/Gate.proto");
   GOOGLE_CHECK(file != NULL);
-  Info_descriptor_ = file->message_type(0);
-  static const int Info_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Info, dwid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Info, str_),
+  UserLogin_descriptor_ = file->message_type(0);
+  static const int UserLogin_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserLogin, dwid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserLogin, str_),
   };
-  Info_reflection_ =
+  UserLogin_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      Info_descriptor_,
-      Info::default_instance_,
-      Info_offsets_,
+      UserLogin_descriptor_,
+      UserLogin::default_instance_,
+      UserLogin_offsets_,
       -1,
       -1,
       -1,
-      sizeof(Info),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Info, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Info, _is_default_instance_));
+      sizeof(UserLogin),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserLogin, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserLogin, _is_default_instance_));
 }
 
 namespace {
@@ -65,14 +65,14 @@ void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      Info_descriptor_, &Info::default_instance());
+      UserLogin_descriptor_, &UserLogin::default_instance());
 }
 
 }  // namespace
 
 void protobuf_ShutdownFile_proto_2fGate_2eproto() {
-  delete Info::default_instance_;
-  delete Info_reflection_;
+  delete UserLogin::default_instance_;
+  delete UserLogin_reflection_;
 }
 
 void protobuf_AddDesc_proto_2fGate_2eproto() GOOGLE_ATTRIBUTE_COLD;
@@ -83,12 +83,12 @@ void protobuf_AddDesc_proto_2fGate_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\020proto/Gate.proto\022\004Gate\"!\n\004Info\022\014\n\004dwID"
-    "\030\001 \001(\r\022\013\n\003str\030\002 \001(\014b\006proto3", 67);
+    "\n\020proto/Gate.proto\022\nGateServer\"&\n\tUserLo"
+    "gin\022\014\n\004dwID\030\001 \001(\r\022\013\n\003str\030\002 \001(\014b\006proto3", 78);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "proto/Gate.proto", &protobuf_RegisterTypes);
-  Info::default_instance_ = new Info();
-  Info::default_instance_->InitAsDefaultInstance();
+  UserLogin::default_instance_ = new UserLogin();
+  UserLogin::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_proto_2fGate_2eproto);
 }
 
@@ -102,29 +102,29 @@ struct StaticDescriptorInitializer_proto_2fGate_2eproto {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int Info::kDwIDFieldNumber;
-const int Info::kStrFieldNumber;
+const int UserLogin::kDwIDFieldNumber;
+const int UserLogin::kStrFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-Info::Info()
+UserLogin::UserLogin()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:Gate.Info)
+  // @@protoc_insertion_point(constructor:GateServer.UserLogin)
 }
 
-void Info::InitAsDefaultInstance() {
+void UserLogin::InitAsDefaultInstance() {
   _is_default_instance_ = true;
 }
 
-Info::Info(const Info& from)
+UserLogin::UserLogin(const UserLogin& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:Gate.Info)
+  // @@protoc_insertion_point(copy_constructor:GateServer.UserLogin)
 }
 
-void Info::SharedCtor() {
+void UserLogin::SharedCtor() {
     _is_default_instance_ = false;
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
@@ -132,53 +132,53 @@ void Info::SharedCtor() {
   str_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
-Info::~Info() {
-  // @@protoc_insertion_point(destructor:Gate.Info)
+UserLogin::~UserLogin() {
+  // @@protoc_insertion_point(destructor:GateServer.UserLogin)
   SharedDtor();
 }
 
-void Info::SharedDtor() {
+void UserLogin::SharedDtor() {
   str_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
   }
 }
 
-void Info::SetCachedSize(int size) const {
+void UserLogin::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Info::descriptor() {
+const ::google::protobuf::Descriptor* UserLogin::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Info_descriptor_;
+  return UserLogin_descriptor_;
 }
 
-const Info& Info::default_instance() {
+const UserLogin& UserLogin::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_proto_2fGate_2eproto();
   return *default_instance_;
 }
 
-Info* Info::default_instance_ = NULL;
+UserLogin* UserLogin::default_instance_ = NULL;
 
-Info* Info::New(::google::protobuf::Arena* arena) const {
-  Info* n = new Info;
+UserLogin* UserLogin::New(::google::protobuf::Arena* arena) const {
+  UserLogin* n = new UserLogin;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void Info::Clear() {
-// @@protoc_insertion_point(message_clear_start:Gate.Info)
+void UserLogin::Clear() {
+// @@protoc_insertion_point(message_clear_start:GateServer.UserLogin)
   dwid_ = 0u;
   str_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
-bool Info::MergePartialFromCodedStream(
+bool UserLogin::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:Gate.Info)
+  // @@protoc_insertion_point(parse_start:GateServer.UserLogin)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -224,17 +224,17 @@ bool Info::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:Gate.Info)
+  // @@protoc_insertion_point(parse_success:GateServer.UserLogin)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:Gate.Info)
+  // @@protoc_insertion_point(parse_failure:GateServer.UserLogin)
   return false;
 #undef DO_
 }
 
-void Info::SerializeWithCachedSizes(
+void UserLogin::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:Gate.Info)
+  // @@protoc_insertion_point(serialize_start:GateServer.UserLogin)
   // optional uint32 dwID = 1;
   if (this->dwid() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->dwid(), output);
@@ -246,12 +246,12 @@ void Info::SerializeWithCachedSizes(
       2, this->str(), output);
   }
 
-  // @@protoc_insertion_point(serialize_end:Gate.Info)
+  // @@protoc_insertion_point(serialize_end:GateServer.UserLogin)
 }
 
-::google::protobuf::uint8* Info::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* UserLogin::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:Gate.Info)
+  // @@protoc_insertion_point(serialize_to_array_start:GateServer.UserLogin)
   // optional uint32 dwID = 1;
   if (this->dwid() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->dwid(), target);
@@ -264,12 +264,12 @@ void Info::SerializeWithCachedSizes(
         2, this->str(), target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:Gate.Info)
+  // @@protoc_insertion_point(serialize_to_array_end:GateServer.UserLogin)
   return target;
 }
 
-int Info::ByteSize() const {
-// @@protoc_insertion_point(message_byte_size_start:Gate.Info)
+int UserLogin::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:GateServer.UserLogin)
   int total_size = 0;
 
   // optional uint32 dwID = 1;
@@ -292,25 +292,25 @@ int Info::ByteSize() const {
   return total_size;
 }
 
-void Info::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:Gate.Info)
+void UserLogin::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:GateServer.UserLogin)
   if (GOOGLE_PREDICT_FALSE(&from == this)) {
     ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
-  const Info* source = 
-      ::google::protobuf::internal::DynamicCastToGenerated<const Info>(
+  const UserLogin* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const UserLogin>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:Gate.Info)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:GateServer.UserLogin)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:Gate.Info)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:GateServer.UserLogin)
     MergeFrom(*source);
   }
 }
 
-void Info::MergeFrom(const Info& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:Gate.Info)
+void UserLogin::MergeFrom(const UserLogin& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:GateServer.UserLogin)
   if (GOOGLE_PREDICT_FALSE(&from == this)) {
     ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
@@ -323,109 +323,109 @@ void Info::MergeFrom(const Info& from) {
   }
 }
 
-void Info::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:Gate.Info)
+void UserLogin::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:GateServer.UserLogin)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Info::CopyFrom(const Info& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:Gate.Info)
+void UserLogin::CopyFrom(const UserLogin& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:GateServer.UserLogin)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Info::IsInitialized() const {
+bool UserLogin::IsInitialized() const {
 
   return true;
 }
 
-void Info::Swap(Info* other) {
+void UserLogin::Swap(UserLogin* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void Info::InternalSwap(Info* other) {
+void UserLogin::InternalSwap(UserLogin* other) {
   std::swap(dwid_, other->dwid_);
   str_.Swap(&other->str_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata Info::GetMetadata() const {
+::google::protobuf::Metadata UserLogin::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Info_descriptor_;
-  metadata.reflection = Info_reflection_;
+  metadata.descriptor = UserLogin_descriptor_;
+  metadata.reflection = UserLogin_reflection_;
   return metadata;
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
-// Info
+// UserLogin
 
 // optional uint32 dwID = 1;
-void Info::clear_dwid() {
+void UserLogin::clear_dwid() {
   dwid_ = 0u;
 }
- ::google::protobuf::uint32 Info::dwid() const {
-  // @@protoc_insertion_point(field_get:Gate.Info.dwID)
+ ::google::protobuf::uint32 UserLogin::dwid() const {
+  // @@protoc_insertion_point(field_get:GateServer.UserLogin.dwID)
   return dwid_;
 }
- void Info::set_dwid(::google::protobuf::uint32 value) {
+ void UserLogin::set_dwid(::google::protobuf::uint32 value) {
   
   dwid_ = value;
-  // @@protoc_insertion_point(field_set:Gate.Info.dwID)
+  // @@protoc_insertion_point(field_set:GateServer.UserLogin.dwID)
 }
 
 // optional bytes str = 2;
-void Info::clear_str() {
+void UserLogin::clear_str() {
   str_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& Info::str() const {
-  // @@protoc_insertion_point(field_get:Gate.Info.str)
+ const ::std::string& UserLogin::str() const {
+  // @@protoc_insertion_point(field_get:GateServer.UserLogin.str)
   return str_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void Info::set_str(const ::std::string& value) {
+ void UserLogin::set_str(const ::std::string& value) {
   
   str_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:Gate.Info.str)
+  // @@protoc_insertion_point(field_set:GateServer.UserLogin.str)
 }
- void Info::set_str(const char* value) {
+ void UserLogin::set_str(const char* value) {
   
   str_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:Gate.Info.str)
+  // @@protoc_insertion_point(field_set_char:GateServer.UserLogin.str)
 }
- void Info::set_str(const void* value, size_t size) {
+ void UserLogin::set_str(const void* value, size_t size) {
   
   str_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:Gate.Info.str)
+  // @@protoc_insertion_point(field_set_pointer:GateServer.UserLogin.str)
 }
- ::std::string* Info::mutable_str() {
+ ::std::string* UserLogin::mutable_str() {
   
-  // @@protoc_insertion_point(field_mutable:Gate.Info.str)
+  // @@protoc_insertion_point(field_mutable:GateServer.UserLogin.str)
   return str_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* Info::release_str() {
-  // @@protoc_insertion_point(field_release:Gate.Info.str)
+ ::std::string* UserLogin::release_str() {
+  // @@protoc_insertion_point(field_release:GateServer.UserLogin.str)
   
   return str_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void Info::set_allocated_str(::std::string* str) {
+ void UserLogin::set_allocated_str(::std::string* str) {
   if (str != NULL) {
     
   } else {
     
   }
   str_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), str);
-  // @@protoc_insertion_point(field_set_allocated:Gate.Info.str)
+  // @@protoc_insertion_point(field_set_allocated:GateServer.UserLogin.str)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace Gate
+}  // namespace GateServer
 
 // @@protoc_insertion_point(global_scope)

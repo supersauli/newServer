@@ -39,7 +39,7 @@ namespace sdk{
 	class ServerSocket :public ProtobufManage
 	{
 		public:
-			bool Init(Json::Document& info);
+			bool Init(Json::Value& config);
 			bool Run();
 			void SendMessage(const ProtoBuffMessage& message);
 			SocketType GetSocketType();	
@@ -56,7 +56,7 @@ namespace sdk{
 			std::string _address;
 			int _timeOut{5000};
 			void *_socket;
-			sdk::LogManager _log;
+			//sdk::LogManager _log;
 			sdk::ProtobufManage _message;
 	};
 

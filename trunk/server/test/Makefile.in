@@ -209,8 +209,7 @@ CXXCPP = @CXXCPP@
 CXXDEPMODE = @CXXDEPMODE@
 #CXX := g++
 #INCLUDES=-I ../sdk/
-CXXFLAGS = @CXXFLAGS@ -I ../sdk/ -lstdc++ -static -L/usr/local/lib/ \
-	-lprotobuf
+CXXFLAGS = @CXXFLAGS@ -I ../sdk/ -lstdc++ -static -L/usr/local/lib/
 CYGPATH_W = @CYGPATH_W@
 DEFS = @DEFS@
 DEPDIR = @DEPDIR@

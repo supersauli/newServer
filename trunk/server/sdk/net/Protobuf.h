@@ -89,8 +89,8 @@ namespace sdk
 				int size = 0;
 				DWORD NameLen = *(ptr+size);	
 				size += sizeof(DWORD);
-				char typeName[12] = {0};
-				bcopy((ptr+size),typeName,NameLen);
+				char typeName[100] = {0};
+				bcopy(ptr+size,typeName,NameLen);
 				size+=NameLen;
 				int contentSize = *(ptr+size);
 				size+=sizeof(DWORD);
@@ -109,9 +109,10 @@ namespace sdk
 			}
 
 
-			inline void MessageDel(const char *buf){
+			inline void MessageDel(const char * buf){
 				auto message= ecode(buf);	
 				if(message == nullptr){
+				    printf("ecode error\n");
 					return ;	
 				}
 
@@ -133,8 +134,8 @@ namespace sdk
 					return ;
 				}
 				auto it =  _messageDeal.find(messageName);
-				if(it == _messageDeal.end()){
-					printf("message %s has regist ",messageName);
+				if(it != _messageDeal.end()){
+					printf("message %s has regist \n ",messageName);
 					return;
 				}
 				_messageDeal[messageName] = function;

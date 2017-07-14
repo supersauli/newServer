@@ -1,4 +1,5 @@
-#ifndef _SDK_H__
+#ifndef __SDK_H__
+#define __SDK_H__
 #include "ai/AICheckRuleAction.h"
 #include "ai/AIDefine.h"
 #include "ai/AIExecuteRuleAction.h"
@@ -6,6 +7,7 @@
 #include "ai/AISystem.h"
 #include "ai/CompareRule.h"
 #include "ai/Hero.h"
+#include "base/HelpFunction.h"
 #include "base/EventCallBack.h"
 #include "base/CompressManage.h"
 #include "base/Define.h"
@@ -24,6 +26,7 @@
 #include "net/SctpSocket.h"
 #include "net/Server.h"
 #include "net/Socket.h"
+#include "net/ServerSocket.h"
 #include "third_part/json/writer.h"
 #include "third_part/json/document.h"
 #include "third_part/json/stringbuffer.h"

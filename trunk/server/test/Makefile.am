@@ -2,7 +2,7 @@ AUTOMAKE_OPTIONS=foreign
 CXX := clang++
 #CXX := g++
 #INCLUDES=-I ../sdk/
-CXXFLAGS+=-I ../sdk/ -lstdc++ -static -L/usr/local/lib/ -lprotobuf
+CXXFLAGS+=-I ../sdk/ -lstdc++ -static -L/usr/local/lib/
 #CFLAGS=-I ../sdk/ -stdlib=libc++
 bin_PROGRAMS=main
 main_SOURCES=main.cpp \

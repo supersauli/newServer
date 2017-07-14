@@ -103,7 +103,7 @@ am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
 am_Gate_OBJECTS = Gate.$(OBJEXT)
 Gate_OBJECTS = $(am_Gate_OBJECTS)
-Gate_DEPENDENCIES = ../sdk/libsdk.la
+Gate_DEPENDENCIES = ../sdk/libsdk.la ../proto/libprotocol.la
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
@@ -180,11 +180,10 @@ AUTOMAKE = @AUTOMAKE@
 AWK = @AWK@
 CC = @CC@
 CCDEPMODE = @CCDEPMODE@
-CFLAGS = -I ../sdk/ 
+CFLAGS = @CFLAGS@
 CPP = @CPP@
-#INCLUDES=-I ../sdk/
-CPPFLAGS = -I ../sdk/
-CXX = @CXX@
+CPPFLAGS = -I ../sdk/ -I ../proto/
+CXX := clang++
 CXXCPP = @CXXCPP@
 CXXDEPMODE = @CXXDEPMODE@
 CXXFLAGS = @CXXFLAGS@
@@ -292,7 +291,7 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AUTOMAKE_OPTIONS = foreign
 Gate_SOURCES = Gate.cpp 
-Gate_LDADD = ../sdk/libsdk.la
+Gate_LDADD = ../sdk/libsdk.la ../proto/libprotocol.la
 all: all-am
 
 .SUFFIXES:

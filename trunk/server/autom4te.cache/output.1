@@ -15405,7 +15405,7 @@ ac_compiler_gnu=$ac_cv_cxx_compiler_gnu
 #CORE_LIBS = -Wl,-Bstatic -L/usr/local/apr/lib -Wl,-Bstatic -L/usr/local/log4cxx/lib -static-llog4cxx -lsctp
 #CXXFLAGS="-Wall -g3   -O0 -I/usr/local/apr/include  -I/usr/local/log4cxx/include -L/usr/local/apr/lib -llog4cxx -lsctp "
 #CXXFLAGS="-Wall -g3   -O0 -I/usr/local/apr/include  -L/usr/local/apr/lib  -lsctp -lpthread -std=c++11  -L/usr/lib64/ "
-CXXFLAGS="-Wall -g3 -O0	-std=gnu++11 -fPIC "
+CXXFLAGS="-Wall -g3 -O0	-std=gnu++11 -fPIC"
 LDFLAGS="-L/usr/lib64/ -L/usr/local/lib"
 
 # Checks for header files.
@@ -15438,7 +15438,7 @@ fi
 done
 
 
-ac_config_files="$ac_config_files Makefile sdk/Makefile Gate/Makefile test/Makefile"
+ac_config_files="$ac_config_files Makefile sdk/Makefile Gate/Makefile Logic/Makefile Login/Makefile proto/Makefile test/Makefile"
 
 cat >confcache <<\_ACEOF
 # This file is a shell script that caches the results of configure
@@ -16550,6 +16550,9 @@ do
     "Makefile") CONFIG_FILES="$CONFIG_FILES Makefile" ;;
     "sdk/Makefile") CONFIG_FILES="$CONFIG_FILES sdk/Makefile" ;;
     "Gate/Makefile") CONFIG_FILES="$CONFIG_FILES Gate/Makefile" ;;
+    "Logic/Makefile") CONFIG_FILES="$CONFIG_FILES Logic/Makefile" ;;
+    "Login/Makefile") CONFIG_FILES="$CONFIG_FILES Login/Makefile" ;;
+    "proto/Makefile") CONFIG_FILES="$CONFIG_FILES proto/Makefile" ;;
     "test/Makefile") CONFIG_FILES="$CONFIG_FILES test/Makefile" ;;
 
   *) as_fn_error $? "invalid argument: \`$ac_config_target'" "$LINENO" 5;;

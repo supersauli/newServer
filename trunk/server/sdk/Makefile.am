@@ -2,10 +2,11 @@ AUTOMAKE_OPTIONS=foreign
 CXX := clang++
 #CXX := g++
 #CXXFLAGS +=-llog4cplus -lsctp -lpthread
-LIBS = -llog4cplus -lsctp -lpthread -lstdc++ -lxml2 -lprotobuf -static
+LIBS = -llog4cplus -lsctp -lpthread -lstdc++ -lxml2 -lprotobuf -static -lzmq
 
 #文件列表
 fileList = \
+		./base/HelpFunction.cpp \
 		./net/SctpSocket.cpp \
 		./net/SctpPool.cpp \
 		./net/SctpPthread.cpp \
@@ -16,7 +17,9 @@ fileList = \
 		./base/LogManager.cpp \
 		./base/XmlFile.cpp \
 		./base/CompressManage.cpp \
+		./base/JsonManager.cpp \
 		./third_part/zip/lz4.c \
+		./net/ServerSocket.cpp \
 		 UserTest.cpp 
 
 #动态库

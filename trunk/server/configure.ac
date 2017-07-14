@@ -24,7 +24,7 @@ AC_PROG_LIBTOOL
 #CORE_LIBS = -Wl,-Bstatic -L/usr/local/apr/lib -Wl,-Bstatic -L/usr/local/log4cxx/lib -static-llog4cxx -lsctp
 #CXXFLAGS="-Wall -g3   -O0 -I/usr/local/apr/include  -I/usr/local/log4cxx/include -L/usr/local/apr/lib -llog4cxx -lsctp "
 #CXXFLAGS="-Wall -g3   -O0 -I/usr/local/apr/include  -L/usr/local/apr/lib  -lsctp -lpthread -std=c++11  -L/usr/lib64/ "
-CXXFLAGS="-Wall -g3 -O0	-std=gnu++11 -fPIC "
+CXXFLAGS="-Wall -g3 -O0	-std=gnu++11 -fPIC"
 LDFLAGS="-L/usr/lib64/ -L/usr/local/lib"
 AC_SUBST(CXXFLAGS)
 # Checks for header files.
@@ -37,6 +37,9 @@ AC_CHECK_FUNCS([gettimeofday])
 AC_CONFIG_FILES([Makefile
                  sdk/Makefile
 				 Gate/Makefile
+				 Logic/Makefile
+				 Login/Makefile
+				 proto/Makefile
                  test/Makefile
 				 ])
 AC_OUTPUT

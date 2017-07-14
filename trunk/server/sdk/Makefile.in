@@ -129,11 +129,12 @@ am__installdirs = "$(DESTDIR)$(libdir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
 libsdk_la_LIBADD =
 am__dirstamp = $(am__leading_dot)dirstamp
-am__objects_1 = ./net/SctpSocket.lo ./net/SctpPool.lo \
-	./net/SctpPthread.lo ./net/Server.lo ./net/Epoll.lo \
-	./net/ServerSocket.lo ./base/PthreadPool.lo \
+am__objects_1 = ./base/HelpFunction.lo ./net/SctpSocket.lo \
+	./net/SctpPool.lo ./net/SctpPthread.lo ./net/Server.lo \
+	./net/Epoll.lo ./net/ServerSocket.lo ./base/PthreadPool.lo \
 	./base/LogManager.lo ./base/XmlFile.lo \
-	./base/CompressManage.lo ./third_part/zip/lz4.lo UserTest.lo
+	./base/CompressManage.lo ./base/JsonManager.lo \
+	./third_part/zip/lz4.lo ./net/ServerSocket.lo UserTest.lo
 am_libsdk_la_OBJECTS = $(am__objects_1)
 libsdk_la_OBJECTS = $(am_libsdk_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
@@ -260,7 +261,7 @@ LDFLAGS = @LDFLAGS@
 LIBOBJS = @LIBOBJS@
 #CXX := g++
 #CXXFLAGS +=-llog4cplus -lsctp -lpthread
-LIBS = -llog4cplus -lsctp -lpthread -lstdc++ -lxml2 -lprotobuf -static
+LIBS = -llog4cplus -lsctp -lpthread -lstdc++ -lxml2 -lprotobuf -static -lzmq
 LIBTOOL = @LIBTOOL@
 LIPO = @LIPO@
 LN_S = @LN_S@
@@ -345,6 +346,7 @@ AUTOMAKE_OPTIONS = foreign
 
 #文件列表
 fileList = \
+		./base/HelpFunction.cpp \
 		./net/SctpSocket.cpp \
 		./net/SctpPool.cpp \
 		./net/SctpPthread.cpp \
@@ -355,7 +357,9 @@ fileList = \
 		./base/LogManager.cpp \
 		./base/XmlFile.cpp \
 		./base/CompressManage.cpp \
+		./base/JsonManager.cpp \
 		./third_part/zip/lz4.c \
+		./net/ServerSocket.cpp \
 		 UserTest.cpp 
 
 
@@ -434,6 +438,14 @@ clean-libLTLIBRARIES:
 	  echo rm -f $${locs}; \
 	  rm -f $${locs}; \
 	}
+base/$(am__dirstamp):
+	@$(MKDIR_P) ./base
+	@: > base/$(am__dirstamp)
+base/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) ./base/$(DEPDIR)
+	@: > base/$(DEPDIR)/$(am__dirstamp)
+./base/HelpFunction.lo: base/$(am__dirstamp) \
+	base/$(DEPDIR)/$(am__dirstamp)
 net/$(am__dirstamp):
 	@$(MKDIR_P) ./net
 	@: > net/$(am__dirstamp)
@@ -448,18 +460,14 @@ net/$(DEPDIR)/$(am__dirstamp):
 ./net/Epoll.lo: net/$(am__dirstamp) net/$(DEPDIR)/$(am__dirstamp)
 ./net/ServerSocket.lo: net/$(am__dirstamp) \
 	net/$(DEPDIR)/$(am__dirstamp)
-base/$(am__dirstamp):
-	@$(MKDIR_P) ./base
-	@: > base/$(am__dirstamp)
-base/$(DEPDIR)/$(am__dirstamp):
-	@$(MKDIR_P) ./base/$(DEPDIR)
-	@: > base/$(DEPDIR)/$(am__dirstamp)
 ./base/PthreadPool.lo: base/$(am__dirstamp) \
 	base/$(DEPDIR)/$(am__dirstamp)
 ./base/LogManager.lo: base/$(am__dirstamp) \
 	base/$(DEPDIR)/$(am__dirstamp)
 ./base/XmlFile.lo: base/$(am__dirstamp) base/$(DEPDIR)/$(am__dirstamp)
 ./base/CompressManage.lo: base/$(am__dirstamp) \
+	base/$(DEPDIR)/$(am__dirstamp)
+./base/JsonManager.lo: base/$(am__dirstamp) \
 	base/$(DEPDIR)/$(am__dirstamp)
 third_part/zip/$(am__dirstamp):
 	@$(MKDIR_P) ./third_part/zip
@@ -487,6 +495,8 @@ distclean-compile:
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/UserTest.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./base/$(DEPDIR)/CompressManage.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./base/$(DEPDIR)/HelpFunction.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./base/$(DEPDIR)/JsonManager.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./base/$(DEPDIR)/LogManager.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./base/$(DEPDIR)/PthreadPool.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./base/$(DEPDIR)/XmlFile.Plo@am__quote@

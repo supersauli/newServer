@@ -9,39 +9,11 @@
 
 namespace sdk
 {
-   #define Json rapidjson
-
-	bool OpenFile(const char* fileName,Json::Document& doc)
-	{
-		if(HF::CharIsNull(fileName)){
-			return false;
-		}
-
-		FILE *fp = fopen(fileName,"rb");
-		if(fp == nullptr){
-			return false;
-		}
-		char jsonBuf[10*1024]={0};
-		Json::FileReadStream(fp,jsonBuf,sizeof(jsonBuf));
-		doc.Clear();
-		doc.Parse(jsonBuf);
-		return true;
-
+	#define Json rapidjson
+	class JsonManager{
+public:
+	 static bool OpenFile(const char* fileName,Json::Document& doc);
 	};
-
-	
-
-
-
-
-
-
-
-
-
-
-
-
 };
 
 

@@ -1,6 +1,6 @@
 #include <functional>
 #include <map>
-#include <hash_map>
+#include <unordered_map>
 template<class ...M>
 class EventCallBack{
 	typedef std::function<void(M...arg)> EventFunc;
@@ -37,7 +37,7 @@ class EventCallBack{
 			}
 		};
 
-		__gnu_cxx::hash_map<int,std::list<EventSort> > _eventGroup;
+		std::unordered_map<int,std::list<EventSort> > _eventGroup;
 };
 
 

@@ -1,11 +1,13 @@
 #include "ServerSocket.h"
 #include "Protobuf.h"
 using namespace sdk;
-#define SOCKET_BUFFER_SIZE 1024*100
-bool ServerSocket::Init(Json::Document& config){
-	if(!config.IsObject()){
+#define SOCKET_BUFFER_SIZE 1024
+bool ServerSocket::Init(Json::Value& value){
+	if(!value.IsObject()){
 		return false;
 	}
+	auto& config = value;
+
 	auto& type = config["type"];
 	if(type.IsNull()){
 		return false;
@@ -14,20 +16,14 @@ bool ServerSocket::Init(Json::Document& config){
 		return false;
 	}
 	_type = static_cast<const SocketType>(type.GetInt());
-	auto& proto = config["proto"];
-	if(proto.IsNull()){
-		return false;
-	}
 
-	if(!proto.IsString()){
-		return false;
-	}
-
-	_address = proto.GetString();
-	auto& timeOut = config["proto"];
-	if(!timeOut.IsNull()){
-		if(timeOut.IsInt()){
-		_timeOut = proto.GetInt();
+	if(config.HasMember("timeout"))
+	{
+		auto& timeOut = config["timeout"];
+		if(!timeOut.IsNull()){
+			if(timeOut.IsInt()){
+				_timeOut = timeOut.GetInt();
+			}
 		}
 	}
 
@@ -35,15 +31,33 @@ bool ServerSocket::Init(Json::Document& config){
 	assert(ctx);
 	int zmqSocketType = SwitchSocketType(_type);
 	_socket = zmq_socket(ctx,zmqSocketType);
-	if(_socket == nullptr){
-		return false;
-	}
-
-	int rc  = zmq_bind(_socket,_address.c_str());
-	if(rc == 0){
-		return false;
-	}; 
+	assert(_socket != nullptr);
 	zmq_setsockopt(_socket,ZMQ_RCVTIMEO,&_timeOut,sizeof(_timeOut));
+	if(config.HasMember("bind_addr"))
+	{
+		auto& bind_addr = config["bind_addr"];
+		if(bind_addr.IsNull()){
+			return false;
+		}
+		if(!bind_addr.IsString()){
+			return false;
+		}
+		_address = bind_addr.GetString();
+		int rc  = zmq_bind(_socket,_address.c_str());
+		assert(rc == 0);
+	}
+	else
+	{
+		auto& connect_addr = config["connect_addr"];
+		if(connect_addr.IsNull()){
+			return false;
+		}
+		if(!connect_addr.IsString()){
+			return false;
+		}
+		int rt = zmq_connect(_socket,connect_addr.GetString());
+		assert(rt == 0);
+	}
 	return true;
 }
 
@@ -52,11 +66,12 @@ bool ServerSocket::Run()
 	char buffer[SOCKET_BUFFER_SIZE];
 	while(true)
 	{
-		int recv_size = zmq_recv(_socket,buffer,sizeof(buffer),0);   
+		int recv_size = zmq_recv(_socket,buffer,SOCKET_BUFFER_SIZE,0);   
 		if(recv_size <0){   
 			continue;
 		}
-		recv_size = zmq_send(_socket,buffer,recv_size,0);
+		MessageDel(buffer);
+	//	recv_size = zmq_send(_socket,buffer,recv_size,0);
 	}
 
 	return true;
@@ -92,5 +107,6 @@ SocketType ServerSocket::GetSocketType(){
 void ServerSocket::SendMessage(const ProtoBuffMessage& message){
 	char buffer[SOCKET_BUFFER_SIZE ];
 	auto size = decode(buffer,message);
-	zmq_send(_socket,buffer,size,0);
+	int sendsize = zmq_send(_socket,buffer,size,0);
+//	printf("send size %d\n",sendsize);
 }

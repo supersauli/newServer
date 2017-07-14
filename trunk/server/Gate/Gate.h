@@ -4,7 +4,6 @@
 class Gate{
 	public:
 
-
 };
 
 #endif

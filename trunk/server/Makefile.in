@@ -323,7 +323,7 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AUTOMAKE_OPTIONS = foreign
 INCLUES = -I/sdk
-SUBDIRS = sdk  test Gate 
+SUBDIRS = sdk  test Gate Login proto
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
 
@@ -809,11 +809,6 @@ uninstall-am:
 .PHONY: proto
 proto:
 	protoc  --cpp_out=./  ./proto/*.proto
-#bin_PROGRAMS=main
-#main_SOURCES= \
-#			main 
-
-#main_LDADD
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

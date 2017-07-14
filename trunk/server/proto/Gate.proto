@@ -1,6 +1,6 @@
 syntax = "proto3" ;
-package Gate;
-message Info
+package GateServer;
+message UserLogin
 {
 	uint32 dwID = 1;
 	bytes  str  = 2;
