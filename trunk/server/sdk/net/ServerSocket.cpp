@@ -71,7 +71,6 @@ bool ServerSocket::Run()
 			continue;
 		}
 		MessageDel(buffer);
-	//	recv_size = zmq_send(_socket,buffer,recv_size,0);
 	}
 
 	return true;
@@ -107,6 +106,7 @@ SocketType ServerSocket::GetSocketType(){
 void ServerSocket::SendMessage(const ProtoBuffMessage& message){
 	char buffer[SOCKET_BUFFER_SIZE ];
 	auto size = decode(buffer,message);
-	int sendsize = zmq_send(_socket,buffer,size,0);
+	//int sendsize = zmq_send(_socket,buffer,size,0);
+	 zmq_send(_socket,buffer,size,0);
 //	printf("send size %d\n",sendsize);
 }
