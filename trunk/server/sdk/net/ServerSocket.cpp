@@ -2,19 +2,31 @@
 #include "Protobuf.h"
 using namespace sdk;
 #define SOCKET_BUFFER_SIZE 1024
+ServerSocket::~ServerSocket()
+{
+	if(_socket!=nullptr){
+		zmq_close(_socket);
+	}
+	if(_ctx != nullptr){
+		zmq_ctx_term(_ctx);
+	}
+
+}
 bool ServerSocket::Init(Json::Value& value){
 	if(!value.IsObject()){
 		return false;
 	}
-	auto& config = value;
 
+	auto& config = value;
 	auto& type = config["type"];
 	if(type.IsNull()){
 		return false;
 	}
+
 	if(!type.IsInt()){
 		return false;
 	}
+
 	_type = static_cast<const SocketType>(type.GetInt());
 
 	if(config.HasMember("timeout"))
@@ -27,10 +39,10 @@ bool ServerSocket::Init(Json::Value& value){
 		}
 	}
 
-	void *ctx = zmq_ctx_new();
-	assert(ctx);
+	_ctx = zmq_ctx_new();
+	assert(_ctx);
 	int zmqSocketType = SwitchSocketType(_type);
-	_socket = zmq_socket(ctx,zmqSocketType);
+	_socket = zmq_socket(_ctx,zmqSocketType);
 	assert(_socket != nullptr);
 	zmq_setsockopt(_socket,ZMQ_RCVTIMEO,&_timeOut,sizeof(_timeOut));
 	if(config.HasMember("bind_addr"))

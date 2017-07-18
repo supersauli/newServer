@@ -43,6 +43,7 @@ namespace sdk{
 			bool Run();
 			void SendMessage(const ProtoBuffMessage& message);
 			SocketType GetSocketType();	
+			~ServerSocket();
 		private:
 			/**
 			 * @brief 转换成zmq的类型
@@ -55,7 +56,8 @@ namespace sdk{
 			SocketType _type{SocketType::SOCKET_TYPE_NONE};
 			std::string _address;
 			int _timeOut{5000};
-			void *_socket;
+			void *_socket{nullptr};
+			void *_ctx{nullptr};
 			//sdk::LogManager _log;
 			sdk::ProtobufManage _message;
 	};

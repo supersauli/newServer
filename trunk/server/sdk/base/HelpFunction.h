@@ -83,6 +83,17 @@ namespace sdk{
 			 */
 			static	bool CharIsNull(const char* str);
 
+			/**
+			 * @brief 得到crc 
+			 *
+			 * @param buf
+			 * @param nLength
+			 *
+			 * @return 
+			 */
+			static DWORD GetCRC(BYTE * buf,int nLength);
+
+
 	};
 };
 

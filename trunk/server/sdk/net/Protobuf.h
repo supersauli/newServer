@@ -87,13 +87,15 @@ namespace sdk
 			{
 				const char*ptr = buf;
 				int size = 0;
-				DWORD NameLen = *(ptr+size);	
+				DWORD nameLen =0;
+				memcpy(&nameLen,ptr,sizeof(int));	
 				size += sizeof(DWORD);
 				char typeName[100] = {0};
-				bcopy(ptr+size,typeName,NameLen);
-				size+=NameLen;
-				int contentSize = *(ptr+size);
-				size+=sizeof(DWORD);
+				memcpy(typeName,ptr+size,nameLen);
+				size+=nameLen;
+				int contentSize = 0;
+				memcpy(&contentSize,ptr+size,sizeof(int));	
+				size += sizeof(DWORD);
 				ProtoBuffMessage* message;
 				message = createMessage(typeName);
 				if(message)
