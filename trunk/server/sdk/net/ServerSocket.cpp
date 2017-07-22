@@ -116,9 +116,7 @@ SocketType ServerSocket::GetSocketType(){
 }
 
 void ServerSocket::SendMessage(const ProtoBuffMessage& message){
-	char buffer[SOCKET_BUFFER_SIZE ];
+	std::string buffer;
 	auto size = decode(buffer,message);
-	//int sendsize = zmq_send(_socket,buffer,size,0);
-	 zmq_send(_socket,buffer,size,0);
-//	printf("send size %d\n",sendsize);
+	zmq_send(_socket,buffer.c_str(),size,0);
 }

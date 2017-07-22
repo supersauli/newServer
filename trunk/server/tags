@@ -954,6 +954,7 @@ GetBool	sdk/third_part/json/document.h	/^    bool GetBool() const { RAPIDJSON_AS
 GetBoolValue	sdk/base/VarList.h	/^		bool GetBoolValue(){$/;"	f	class:VarObj
 GetBoolValue	sdk/base/VarList.h	/^		bool GetBoolValue(DWORD i)$/;"	f	class:VarList
 GetBuffer	sdk/third_part/json/memorybuffer.h	/^    const Ch* GetBuffer() const {$/;"	f	struct:GenericMemoryBuffer
+GetCRC	sdk/base/HelpFunction.cpp	/^static DWORD GetCRC(BYTE * buf,int nLength)$/;"	f	file:
 GetCachedPower	sdk/third_part/json/internal/diyfp.h	/^inline DiyFp GetCachedPower(int e, int* K) {$/;"	f	namespace:internal
 GetCachedPower10	sdk/third_part/json/internal/diyfp.h	/^inline DiyFp GetCachedPower10(int exp, int *outExp) {$/;"	f	namespace:internal
 GetCachedPowerByIndex	sdk/third_part/json/internal/diyfp.h	/^inline DiyFp GetCachedPowerByIndex(size_t index) {$/;"	f	namespace:internal
@@ -3317,7 +3318,6 @@ _servaddr	sdk/net/SctpSocket.h	/^		struct sockaddr_in _servaddr;$/;"	m	class:sdk
 _serverName	Login/Login.h	/^		std::string _serverName;$/;"	m	class:LoginServer
 _serverName	sdk/net/Server.h	/^			std::string _serverName;$/;"	m	class:sdk::Server
 _socket	sdk/net/Server.h	/^			SctpSocket _socket;$/;"	m	class:sdk::Server
-_socket	sdk/net/ServerSocket.h	/^			void *_socket;$/;"	m	class:sdk::ServerSocket
 _socket	sdk/net/Socket.h	/^			void *_socket;$/;"	m	class:sdk::Socket
 _stateMachineMap	sdk/ai/AISystem.h	/^		std::map<int,AINode*> _stateMachineMap;$/;"	m	class:AISystem
 _strValue	sdk/base/VarList.h	/^			std::string _strValue;$/;"	m	struct:VarObj::Value
@@ -4306,6 +4306,7 @@ htmldir	Makefile	/^htmldir = ${docdir}$/;"	m
 htmldir	proto/Makefile	/^htmldir = ${docdir}$/;"	m
 htmldir	sdk/Makefile	/^htmldir = ${docdir}$/;"	m
 htmldir	test/Makefile	/^htmldir = ${docdir}$/;"	m
+i	Gate/Gate.cpp	/^int i = 0;$/;"	v
 i	sdk/third_part/json/document.h	/^            int i;$/;"	m	struct:GenericValue::Number::I
 i	sdk/third_part/json/document.h	/^        }i;$/;"	m	union:GenericValue::Number	typeref:struct:GenericValue::Number::I
 i	sdk/third_part/json/schema.h	/^            int64_t i;$/;"	m	union:internal::Hasher::Number::U
@@ -4702,6 +4703,7 @@ obj	sdk/third_part/redis/hiredis.h	/^    void *obj; \/* holds user-generated val
 objectPatternValidatorType	sdk/third_part/json/schema.h	/^    PatternValidatorType objectPatternValidatorType;$/;"	m	struct:internal::SchemaValidationContext
 obuf	sdk/third_part/redis/hiredis.h	/^    char *obuf; \/* Write buffer *\/$/;"	m	struct:redisContext
 offset_	sdk/third_part/json/error/error.h	/^    size_t offset_;$/;"	m	struct:ParseResult
+old	Login/Login.cpp	/^int old = -1;$/;"	v
 oldincludedir	Gate/Makefile	/^oldincludedir = \/usr\/include$/;"	m
 oldincludedir	Logic/Makefile	/^oldincludedir = \/usr\/include$/;"	m
 oldincludedir	Login/Makefile	/^oldincludedir = \/usr\/include$/;"	m
@@ -5127,6 +5129,7 @@ sysconfdir	Makefile	/^sysconfdir = ${prefix}\/etc$/;"	m
 sysconfdir	proto/Makefile	/^sysconfdir = ${prefix}\/etc$/;"	m
 sysconfdir	sdk/Makefile	/^sysconfdir = ${prefix}\/etc$/;"	m
 sysconfdir	test/Makefile	/^sysconfdir = ${prefix}\/etc$/;"	m
+table	sdk/base/HelpFunction.cpp	/^const DWORD table[] = {   $/;"	v
 table	sdk/third_part/zip/lz4.h	/^    unsigned long long table[LZ4_STREAMDECODESIZE_U64];$/;"	m	union:LZ4_streamDecode_u
 table	sdk/third_part/zip/lz4.h	/^    unsigned long long table[LZ4_STREAMSIZE_U64];$/;"	m	union:LZ4_stream_u
 tableType_t	sdk/third_part/zip/lz4.c	/^typedef enum { byPtr, byU32, byU16 } tableType_t;$/;"	t	typeref:enum:__anon22	file:
@@ -5268,6 +5271,7 @@ withPrefix64k	sdk/third_part/zip/lz4.c	/^typedef enum { noDict = 0, withPrefix64
 ~SchemaArray	sdk/third_part/json/schema.h	/^        ~SchemaArray() { AllocatorType::Free(schemas); }$/;"	f	struct:internal::Schema::SchemaArray
 ~SchemaEntry	sdk/third_part/json/schema.h	/^        ~SchemaEntry() {$/;"	f	struct:GenericSchemaDocument::SchemaEntry
 ~SchemaValidationContext	sdk/third_part/json/schema.h	/^    ~SchemaValidationContext() {$/;"	f	struct:internal::SchemaValidationContext
+~ServerSocket	sdk/net/ServerSocket.cpp	/^ServerSocket::~ServerSocket()$/;"	f	class:ServerSocket
 ~Stack	sdk/third_part/json/internal/stack.h	/^    ~Stack() {$/;"	f	class:internal::Stack
 ~StreamLocalCopy	sdk/third_part/json/reader.h	/^    ~StreamLocalCopy() { original_ = s; }$/;"	f	class:internal::StreamLocalCopy
 ~UserLogin	proto/Gate.pb.cc	/^UserLogin::~UserLogin() {$/;"	f	class:GateServer::UserLogin

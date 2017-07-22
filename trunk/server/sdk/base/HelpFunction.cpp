@@ -152,9 +152,8 @@ const DWORD table[] = {
     0xb3667a2e, 0xc4614ab8, 0x5d681b02, 0x2a6f2b94, 0xb40bbe37, 0xc30c8ea1, 0x5a05df1b, 0x2d02ef8d,   
 };
 
-static DWORD GetCRC(BYTE * buf,int nLength)
+DWORD HF::GetCRC(const BYTE * buf,int nLength)
 {
-
 	if (nLength < 1)
 		return 0xffffffff;
 
@@ -168,8 +167,6 @@ static DWORD GetCRC(BYTE * buf,int nLength)
 	crc = crc ^ 0xffffffff;
 
 	return crc;  
-
-
 }
 
 

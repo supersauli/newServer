@@ -91,7 +91,7 @@ namespace sdk{
 			 *
 			 * @return 
 			 */
-			static DWORD GetCRC(BYTE * buf,int nLength);
+			static DWORD GetCRC(const BYTE * buf,int nLength);
 
 
 	};

@@ -10,7 +10,7 @@
 #include <cstdlib>
 #include <string.h>
 #include <map>
-
+#include <iostream>
 #include "../base/Define.h"
 #include "../base/HelpFunction.h"
 typedef google::protobuf::Message			ProtoBuffMessage;
@@ -57,25 +57,25 @@ namespace sdk
 			 * @param buf
 			 * @param message
 			 */
-			inline DWORD decode( char*buf,const ProtoBuffMessage& message)
+
+			inline DWORD decode( std::string &buffer,const ProtoBuffMessage& message)
 			{
 				int sendSize = 0;
-				char *ptr =buf;
 				const std::string& typeName = message.GetTypeName();
-				DWORD nameLen = static_cast<DWORD>(typeName.size()+1);
-				PushData(ptr,nameLen);
-				sendSize += sizeof(DWORD);
-				PushData(ptr,typeName.c_str(),nameLen);
-				sendSize += nameLen;
+				DWORD nameLen = static_cast<DWORD>(typeName.size());
+				buffer.append(reinterpret_cast<char*>(&nameLen),sizeof(DWORD));
+				buffer.append(typeName);
 				DWORD byteSize = message.ByteSize();
-				sendSize += sizeof(DWORD);
-				PushData(ptr,byteSize);
-				PushData(ptr,message.SerializeAsString().c_str(),byteSize);	
+				buffer.append(reinterpret_cast<char*>(&byteSize),sizeof(DWORD));
+				bool result = message.AppendToString(&buffer);	
+				if(!result)
+				{
+					buffer.clear();	
+				}
 				sendSize += byteSize;
-				return sendSize;
+				return buffer.size();
 
 			};
-
 
 
 			/**
