@@ -1,14 +1,14 @@
-#include "sSctpPthread.h"
+#include "SctpPthread.h"
 #include "UserTest.h"
-
-bool sSctpPthread::Init()
+using namespace sdk;
+bool SctpPthread::Init()
 {
 	_epoll.Init();	
-	_epoll.SetReadCB(std::bind(&sSctpPthread::Read,this,std::placeholders::_1));
+	_epoll.SetReadCB(std::bind(&SctpPthread::Read,this,std::placeholders::_1));
 	return true;
 }
 
-void sSctpPthread::Read(int fd)
+void SctpPthread::Read(int fd)
 {
 	char buf[1024]={};
 	int ret = sctp_recvmsg(fd,buf,sizeof(buf),(struct sockaddr *)NULL,0,(struct sctp_sndrcvinfo *)NULL,(int *)NULL);
@@ -22,12 +22,12 @@ void sSctpPthread::Read(int fd)
 	_epoll.UpdateEvent(fd,EPOLLIN | EPOLLET | EPOLLOUT);
 }
 
-void sSctpPthread::Run()
+void SctpPthread::Run()
 {
 	_epoll.Loop();
 }
 
-void sSctpPthread::SendCmd(DWORD dwSocket,char *buf)
+void SctpPthread::SendCmd(DWORD dwSocket,char *buf)
 {
 //	char buf[1024];
 	//_message.decode(buff,mproto)
@@ -40,7 +40,7 @@ void sSctpPthread::SendCmd(DWORD dwSocket,char *buf)
 }
 
 
-void sSctpPthread::AddClient(DWORD dwSocket)
+void SctpPthread::AddClient(DWORD dwSocket)
 {
 	fcntl(dwSocket,F_SETFL,O_NONBLOCK);
 	_epoll.AddEvent(dwSocket,EPOLLIN | EPOLLET | EPOLLOUT);

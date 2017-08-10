@@ -6,16 +6,16 @@ LIBS = -llog4cplus -lsctp -lpthread -lstdc++ -lxml2 -lprotobuf -static
 
 #文件列表
 fileList = \
-		./net/sSctpSocket.cpp \
-		./net/sSctpPool.cpp \
-		./net/sSctpPthread.cpp \
-		./net/sServer.cpp \
-		./net/sEpoll.cpp \
+		./net/SctpSocket.cpp \
+		./net/SctpPool.cpp \
+		./net/SctpPthread.cpp \
+		./net/Server.cpp \
+		./net/Epoll.cpp \
 		./net/ServerSocket.cpp \
-		./base/sPthreadPool.cpp \
+		./base/PthreadPool.cpp \
 		./base/LogManager.cpp \
 		./base/XmlFile.cpp \
-		./base/sCompress.cpp \
+		./base/CompressManage.cpp \
 		./third_part/zip/lz4.c \
 		 UserTest.cpp 
 

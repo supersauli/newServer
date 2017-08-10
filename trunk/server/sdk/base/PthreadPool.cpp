@@ -1,5 +1,5 @@
-#include "sPthreadPool.h"
-bool sPthreadPool::AddPthreadToPool(sPthread * pthread)
+#include "PthreadPool.h"
+bool PthreadPool::AddPthreadToPool(Pthread * pthread)
 {
 	PTHREADIT it = _pthreadPool.find(_poolIndex);
 
@@ -11,7 +11,7 @@ bool sPthreadPool::AddPthreadToPool(sPthread * pthread)
 
 	return true;
 }
-sPthread* sPthreadPool::GetPhteadByIndex(DWORD dwIndex)
+Pthread* PthreadPool::GetPhteadByIndex(DWORD dwIndex)
 {
 	PTHREADIT it = _pthreadPool.find(dwIndex);
 	if(it != _pthreadPool.end())

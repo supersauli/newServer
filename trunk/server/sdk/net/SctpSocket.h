@@ -10,14 +10,15 @@
 #include <sys/epoll.h>
 #include <fcntl.h>
 
-#include "sEpoll.h"
-#include "../base/sDefine.h"
+#include "Epoll.h"
+#include "../base/Define.h"
 static const int TimeOut = -1;
 #define DEFAULT_BACKLOG 24
-class sSctpSocket
-{
-	typedef std::function<void(DWORD fd)> CallBack;
-	public:
+namespace sdk{
+	class SctpSocket
+	{
+		typedef std::function<void(DWORD fd)> CallBack;
+		public:
 		bool 	Init();
 		bool    Bind();
 		virtual void    Accept(int fd);
@@ -26,21 +27,21 @@ class sSctpSocket
 
 		void    SetNoBlock(int fd);
 		void	Loop();
-		
-		template<typename CB>
-		void SetReadCallBack(CB cb){
-			_epoll.SetReadCB(std::forward<CB>(cb));
-		}
 
 		template<typename CB>
-		void SetCloseCB(CB cb){
-			_epoll.SetCloseCB(std::forward<CB>(cb));
-		}
+			void SetReadCallBack(CB cb){
+				_epoll.SetReadCB(std::forward<CB>(cb));
+			}
 
 		template<typename CB>
-		void SetAccetp(CB cb){
-			_epoll.SetNewClientCB(std::forward<CB>(cb));
-		}
+			void SetCloseCB(CB cb){
+				_epoll.SetCloseCB(std::forward<CB>(cb));
+			}
+
+		template<typename CB>
+			void SetAccetp(CB cb){
+				_epoll.SetNewClientCB(std::forward<CB>(cb));
+			}
 		bool	Connect();
 
 		void	SetAddClient(CallBack cb){_addClient = cb;}
@@ -49,18 +50,18 @@ class sSctpSocket
 		void    SetPort(DWORD port){_port = port;}
 		int		GetSocket(){return _fd;}
 		void	Close(int fd);
-	private:
+		private:
 		std::string _ipAddress;
 		DWORD       _port{0};
 		struct sockaddr_in _servaddr;
 		int _backlog{DEFAULT_BACKLOG};
 		CallBack _addClient;
-		sEpoll _epoll;
+		Epoll _epoll;
 		int _fd{0};
 
 
-};
-
+	};
+}
 
 
 #endif

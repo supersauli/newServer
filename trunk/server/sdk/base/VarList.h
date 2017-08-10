@@ -4,7 +4,7 @@
 #include<vector>
 #include <assert.h>
 #include <memory>
-#include "sDefine.h"
+#include "Define.h"
 
 
 class VarObj

@@ -1,6 +1,6 @@
 #ifndef __XML_FILE_H__
 #define __XML_FILE_H__
-#include "sDefine.h"
+#include "Define.h"
 #include <libxml/tree.h>
 #include <libxml/parser.h>
 #include <string>

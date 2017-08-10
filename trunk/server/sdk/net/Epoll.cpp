@@ -1,6 +1,6 @@
-#include "sEpoll.h"
-
-bool sEpoll::Init(int maxfdSize)
+#include "Epoll.h"
+using namespace sdk;
+bool Epoll::Init(int maxfdSize)
 {
 	_epollfd = epoll_create(maxfdSize);
 	if(_epollfd == -1)
@@ -17,7 +17,7 @@ bool sEpoll::Init(int maxfdSize)
  *
  * @return 
  */
-bool sEpoll::AddEvent(int fd,int event)
+bool Epoll::AddEvent(int fd,int event)
 {
 	struct epoll_event ev;
 	ev.data.fd = fd ;
@@ -35,7 +35,7 @@ bool sEpoll::AddEvent(int fd,int event)
  *
  * @return 
  */
-bool sEpoll::DelEvent(int fd)
+bool Epoll::DelEvent(int fd)
 {
 	struct epoll_event ev;
 	ev.data.fd = fd;
@@ -44,7 +44,7 @@ bool sEpoll::DelEvent(int fd)
 }
 
 
-bool  sEpoll::UpdateEvent(int fd,int event)
+bool  Epoll::UpdateEvent(int fd,int event)
 {
 	struct epoll_event ev;
 	ev.data.fd = fd ;
@@ -52,7 +52,7 @@ bool  sEpoll::UpdateEvent(int fd,int event)
     ev.events = event ;
 	return  epoll_ctl(_epollfd,EPOLL_CTL_MOD,fd,&ev);   
 }
-bool sEpoll::Loop()
+bool Epoll::Loop()
 {
 	struct epoll_event* events = new epoll_event[_maxEvents];
 	

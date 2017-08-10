@@ -2,13 +2,15 @@
 #define _USERTEXT_H__
 #include <string>
 #include <stdio.h>
-#include "./base/sDefine.h"
-#include "./net/sSctpPthread.h"
-#include "./base/sPthread.h"
+#include "./base/Define.h"
+#include "./net/SctpPthread.h"
+#include "./base/Pthread.h"
+using namespace sdk;
+namespace sdk{
 class UserTest
 {
 	public:
-		UserTest(DWORD dwSocket,sSctpPthread* pth){
+		UserTest(DWORD dwSocket,SctpPthread* pth){
 			_dwSocket = dwSocket;
 			_sctpPth = pth;
 		};
@@ -18,7 +20,7 @@ class UserTest
 		bool end;
 	private:
 		DWORD _dwSocket;
-		sSctpPthread* _sctpPth;
+		SctpPthread* _sctpPth;
 	
 
 
@@ -27,4 +29,5 @@ class UserTest
 
 
 };
+}
 #endif

@@ -11,9 +11,8 @@
 #include <string.h>
 #include <map>
 
-#include "../base/sDefine.h"
-#include "../base/StringHelp.h"
-
+#include "../base/Define.h"
+#include "../base/HelpFunction.h"
 typedef google::protobuf::Message			ProtoBuffMessage;
 typedef google::protobuf::Descriptor		ProtoBuffDesc;
 typedef google::protobuf::DescriptorPool    ProtoBuffDescPool;
@@ -22,12 +21,7 @@ namespace sdk
 {
 	class ProtobufManage//: std::noncopyable
 	{
-		public:
-
-			inline void recvMessage(void *buf){};
-
-			inline void sendBuf(void *buf){};
-
+		private:
 			inline ProtoBuffMessage*  createMessage(const std::string& name){
 				const ProtoBuffDesc *desc = ProtoBuffDescPool::generated_pool()->FindMessageTypeByName(name); 
 				if(desc != nullptr )
@@ -113,8 +107,8 @@ namespace sdk
 				if(message == nullptr){
 					return ;	
 				}
-				const std::string& messageName =	message->GetTypeName();
 
+				const std::string& messageName =	message->GetTypeName();
 				auto it = _messageDeal.find(messageName.c_str());
 				if( it != _messageDeal.end())
 				{
@@ -125,14 +119,13 @@ namespace sdk
 					printf("not found message %s \n",messageName.c_str());	
 				}
 				delete (message);
-
 			};
-
+	public:
 			void AddMessageCallBack(const char* messageName,std::function<void(void*)> function ){
-				if(StringHelp::CharIsNull(messageName)){
+				if(HF::CharIsNull(messageName)){
 					return ;
 				}
-				auto it =  _messageDeal.find(messagName);
+				auto it =  _messageDeal.find(messageName);
 				if(it == _messageDeal.end()){
 					printf("message %s has regist ",messageName);
 					return;

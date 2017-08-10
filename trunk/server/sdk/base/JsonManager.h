@@ -5,7 +5,7 @@
 #include "sdk/third_part/json/stringbuffer.h"
 #include "sdk/third_part/json/filereadstream.h"
 
-#include "sdk/base/StringHelp.h"
+#include "sdk/base/HelpFunction.h"
 
 namespace sdk
 {
@@ -13,7 +13,7 @@ namespace sdk
 
 	bool OpenFile(const char* fileName,Json::Document& doc)
 	{
-		if(StringHelp::CharIsNull(fileName)){
+		if(HF::CharIsNull(fileName)){
 			return false;
 		}
 

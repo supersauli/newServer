@@ -1,13 +1,13 @@
 #ifndef _SPTHREADPOOL_H__
 #define _SPTHREADPOOL_H__
-#include "sPthread.h"
-#include "sDefine.h"
+#include "Pthread.h"
+#include "Define.h"
 #include <map>
 
-class sPthreadPool{
+class PthreadPool{
 
 public:
-	sPthreadPool()
+	PthreadPool()
 	{
 		_poolIndex = 0;	
 	}
@@ -26,7 +26,7 @@ public:
 	 *
 	 * @return 
 	 */
-	bool AddPthreadToPool(sPthread* pthread);
+	bool AddPthreadToPool(Pthread* pthread);
 
 	/**
 	 * @brief 根据索引找到线程
@@ -35,12 +35,12 @@ public:
 	 *
 	 * @return 
 	 */
-	sPthread* GetPhteadByIndex(DWORD dwIndex);
+	Pthread* GetPhteadByIndex(DWORD dwIndex);
 
 	DWORD GetPthreadSize(){return _poolIndex;};
 private:
-	std::map<DWORD ,sPthread*> _pthreadPool;
-	typedef std::map<DWORD ,sPthread*>::iterator PTHREADIT;
+	std::map<DWORD ,Pthread*> _pthreadPool;
+	typedef std::map<DWORD ,Pthread*>::iterator PTHREADIT;
 	DWORD _poolIndex;
 };
 #endif

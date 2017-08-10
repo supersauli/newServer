@@ -31,7 +31,7 @@ void UserTest::dealMsg(char *arg)
 {
 	printf("UserTest get Msg = %s \n",(char*)arg);
 	dwSocket = _dwSocket;
-	sPthread *pth = new sPthread(UserRun);
+	Pthread *pth = new Pthread(UserRun);
 	ss = this;
 	if(pth ==NULL)
 	{

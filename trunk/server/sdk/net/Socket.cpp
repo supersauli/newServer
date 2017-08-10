@@ -1,5 +1,6 @@
 #include "sSocket.h"
 #define BUFFER_SIZE 1024
+using namespace sdk;
 bool sSocket::Init(const std::string& ipPort)
 {
 	_ctx = zmq_ctx_new();

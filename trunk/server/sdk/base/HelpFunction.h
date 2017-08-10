@@ -5,11 +5,12 @@
 #include <time.h>
 #include <set>
 
-#include "sDefine.h"
+#include "Define.h"
 
 namespace sdk{
 	namespace HF{
 	
+	static std::default_random_engine random(time(NULL));	
 		/**
 		 * @brief 范围[numberic_limits<int>::min(),numberic_limits<int>::max()]
 		 *
@@ -28,7 +29,7 @@ namespace sdk{
 		 */
 		inline int RandomInt(const int& max){
 			std::uniform_int_distribution<int>	 dis(0,max);
-			return dis();
+			return dis(random);
 		}
 
 		/**
@@ -41,7 +42,7 @@ namespace sdk{
 		 */
 		int RandomInt(const int& min,const int& max){
 			std::uniform_int_distribution<int> dis(min,max);
-			return dis();
+			return dis(random);
 		}
 
 		/**
@@ -51,7 +52,7 @@ namespace sdk{
 		 */
 		float RandomFloat(){
 			std::uniform_real_distribution<float> dis;
-			return dis();
+			return dis(random);
 		}
 
 		/**
@@ -63,7 +64,7 @@ namespace sdk{
 		 */
 		float RandomFloat(const float max){
 			std::uniform_real_distribution<float> dis(0.0,max);
-			return dis();
+			return dis(random);
 		}
 	
 		/**
@@ -76,7 +77,7 @@ namespace sdk{
 		 */
 		float RandomFloat(const float& min,const float& max){
 			std::uniform_real_distribution<float> dis(min,max);
-			return dis();
+			return dis(random);
 		}
 	
 		/**
@@ -99,7 +100,7 @@ namespace sdk{
 			static int maxRandom = 100000000;
 			int randomTimes = num;
 			do{
-			 int result = dis();
+			 int result = dis(random);
 				auto it = diffNum.find(result);
 				if(it == diffNum.end()){
 					diffNum.insert(result);
@@ -111,34 +112,26 @@ namespace sdk{
 
 			}while(--maxRandom);
 
-			
-
+		 return true;
 		}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	static std::default_random_engine random(time(NULL));	
-	
+
+		/**
+		 * @brief  字符串是否为空
+		 *
+		 * @param str
+		 *
+		 * @return 
+		 */
+		bool CharIsNull(const char* str){
+			if(str == nullptr || str[0] == '\0'){
+				return false;
+			}
+			return true;	
+		}
+
+
+
 	};
-
-
-
-
-
-
-
-
-
-
-
 
 
 

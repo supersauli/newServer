@@ -129,11 +129,11 @@ am__installdirs = "$(DESTDIR)$(libdir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
 libsdk_la_LIBADD =
 am__dirstamp = $(am__leading_dot)dirstamp
-am__objects_1 = ./net/sSctpSocket.lo ./net/sSctpPool.lo \
-	./net/sSctpPthread.lo ./net/sServer.lo ./net/sEpoll.lo \
-	./net/ServerSocket.lo ./base/sPthreadPool.lo \
-	./base/LogManager.lo ./base/XmlFile.lo ./base/sCompress.lo \
-	./third_part/zip/lz4.lo UserTest.lo
+am__objects_1 = ./net/SctpSocket.lo ./net/SctpPool.lo \
+	./net/SctpPthread.lo ./net/Server.lo ./net/Epoll.lo \
+	./net/ServerSocket.lo ./base/PthreadPool.lo \
+	./base/LogManager.lo ./base/XmlFile.lo \
+	./base/CompressManage.lo ./third_part/zip/lz4.lo UserTest.lo
 am_libsdk_la_OBJECTS = $(am__objects_1)
 libsdk_la_OBJECTS = $(am_libsdk_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
@@ -345,16 +345,16 @@ AUTOMAKE_OPTIONS = foreign
 
 #文件列表
 fileList = \
-		./net/sSctpSocket.cpp \
-		./net/sSctpPool.cpp \
-		./net/sSctpPthread.cpp \
-		./net/sServer.cpp \
-		./net/sEpoll.cpp \
+		./net/SctpSocket.cpp \
+		./net/SctpPool.cpp \
+		./net/SctpPthread.cpp \
+		./net/Server.cpp \
+		./net/Epoll.cpp \
 		./net/ServerSocket.cpp \
-		./base/sPthreadPool.cpp \
+		./base/PthreadPool.cpp \
 		./base/LogManager.cpp \
 		./base/XmlFile.cpp \
-		./base/sCompress.cpp \
+		./base/CompressManage.cpp \
 		./third_part/zip/lz4.c \
 		 UserTest.cpp 
 
@@ -440,13 +440,12 @@ net/$(am__dirstamp):
 net/$(DEPDIR)/$(am__dirstamp):
 	@$(MKDIR_P) ./net/$(DEPDIR)
 	@: > net/$(DEPDIR)/$(am__dirstamp)
-./net/sSctpSocket.lo: net/$(am__dirstamp) \
+./net/SctpSocket.lo: net/$(am__dirstamp) net/$(DEPDIR)/$(am__dirstamp)
+./net/SctpPool.lo: net/$(am__dirstamp) net/$(DEPDIR)/$(am__dirstamp)
+./net/SctpPthread.lo: net/$(am__dirstamp) \
 	net/$(DEPDIR)/$(am__dirstamp)
-./net/sSctpPool.lo: net/$(am__dirstamp) net/$(DEPDIR)/$(am__dirstamp)
-./net/sSctpPthread.lo: net/$(am__dirstamp) \
-	net/$(DEPDIR)/$(am__dirstamp)
-./net/sServer.lo: net/$(am__dirstamp) net/$(DEPDIR)/$(am__dirstamp)
-./net/sEpoll.lo: net/$(am__dirstamp) net/$(DEPDIR)/$(am__dirstamp)
+./net/Server.lo: net/$(am__dirstamp) net/$(DEPDIR)/$(am__dirstamp)
+./net/Epoll.lo: net/$(am__dirstamp) net/$(DEPDIR)/$(am__dirstamp)
 ./net/ServerSocket.lo: net/$(am__dirstamp) \
 	net/$(DEPDIR)/$(am__dirstamp)
 base/$(am__dirstamp):
@@ -455,12 +454,12 @@ base/$(am__dirstamp):
 base/$(DEPDIR)/$(am__dirstamp):
 	@$(MKDIR_P) ./base/$(DEPDIR)
 	@: > base/$(DEPDIR)/$(am__dirstamp)
-./base/sPthreadPool.lo: base/$(am__dirstamp) \
+./base/PthreadPool.lo: base/$(am__dirstamp) \
 	base/$(DEPDIR)/$(am__dirstamp)
 ./base/LogManager.lo: base/$(am__dirstamp) \
 	base/$(DEPDIR)/$(am__dirstamp)
 ./base/XmlFile.lo: base/$(am__dirstamp) base/$(DEPDIR)/$(am__dirstamp)
-./base/sCompress.lo: base/$(am__dirstamp) \
+./base/CompressManage.lo: base/$(am__dirstamp) \
 	base/$(DEPDIR)/$(am__dirstamp)
 third_part/zip/$(am__dirstamp):
 	@$(MKDIR_P) ./third_part/zip
@@ -487,16 +486,16 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/UserTest.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./base/$(DEPDIR)/CompressManage.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./base/$(DEPDIR)/LogManager.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./base/$(DEPDIR)/PthreadPool.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./base/$(DEPDIR)/XmlFile.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./base/$(DEPDIR)/sCompress.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./base/$(DEPDIR)/sPthreadPool.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./net/$(DEPDIR)/Epoll.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./net/$(DEPDIR)/SctpPool.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./net/$(DEPDIR)/SctpPthread.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./net/$(DEPDIR)/SctpSocket.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./net/$(DEPDIR)/Server.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./net/$(DEPDIR)/ServerSocket.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./net/$(DEPDIR)/sEpoll.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./net/$(DEPDIR)/sSctpPool.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./net/$(DEPDIR)/sSctpPthread.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./net/$(DEPDIR)/sSctpSocket.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./net/$(DEPDIR)/sServer.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./third_part/zip/$(DEPDIR)/lz4.Plo@am__quote@
 
 .c.o:

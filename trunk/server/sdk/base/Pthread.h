@@ -2,11 +2,11 @@
 #define _SPTHREAD_H__
 #include <pthread.h>
 #include <stdio.h>
-#include "sMutex.h"
+#include "Mutex.h"
 typedef void* (*pthread_func)(void *arg);
-class sPthread{
+class Pthread{
 	public:
-			sPthread(pthread_func pFunc)
+			Pthread(pthread_func pFunc)
 			{
 				int error = pthread_create(&_ntid,NULL,pFunc,this);
 				if(error != 0)
@@ -18,7 +18,7 @@ class sPthread{
 		virtual void Run(){};
 		virtual bool Init(){return true;};
 	protected:
-		 sMutex _mutex;
+		 Mutex _mutex;
 	private:
 		pthread_t _ntid;
 

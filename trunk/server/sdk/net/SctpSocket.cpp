@@ -1,14 +1,15 @@
-#include "sSctpSocket.h"
+#include "SctpSocket.h"
 #include <arpa/inet.h>
-bool sSctpSocket::Init()
+using namespace sdk;
+bool SctpSocket::Init()
 {
 	if(!_epoll.Init()){
 		return false;
 	};
-//	_epoll.SetReadCB(std::bind(&sSctpSocket::Read,this,std::placeholders::_1));
+//	_epoll.SetReadCB(std::bind(&SctpSocket::Read,this,std::placeholders::_1));
 	return true;
 }
-bool sSctpSocket::Bind()
+bool SctpSocket::Bind()
 {
 	 _fd = socket(AF_INET,SOCK_STREAM,IPPROTO_SCTP);
 	if(_fd == -1){
@@ -37,16 +38,16 @@ bool sSctpSocket::Bind()
 //			&initmsg, sizeof(initmsg) );
 //
 	listen(_fd,_backlog);
-	_epoll.SetNewClientCB(std::bind(&sSctpSocket::Accept,this,std::placeholders::_1));
+	_epoll.SetNewClientCB(std::bind(&SctpSocket::Accept,this,std::placeholders::_1));
 	printf("accetp new connection \n");
 	return true;
 }
 
-void sSctpSocket::SetNoBlock(int fd){
+void SctpSocket::SetNoBlock(int fd){
 	fcntl(fd,F_SETFL,O_NONBLOCK);
 }
 
-void sSctpSocket::Accept(int fd)
+void SctpSocket::Accept(int fd)
 {
 	int newfd = ::accept(fd, (struct sockaddr *)NULL, (socklen_t *)NULL);
 	if(newfd < 0){
@@ -59,24 +60,24 @@ void sSctpSocket::Accept(int fd)
 	}
 	printf("new client \n");
 }
-void sSctpSocket::Read(int fd)
+void SctpSocket::Read(int fd)
 {
 
 
 }
 
-void sSctpSocket::Write(int fd,const char*msg)
+void SctpSocket::Write(int fd,const char*msg)
 {
 	sctp_send(fd,msg,strlen(msg),NULL,0);
 
 }
 
-void sSctpSocket::Loop()
+void SctpSocket::Loop()
 {
 	_epoll.Loop();
 }
 
-bool sSctpSocket::Connect()
+bool SctpSocket::Connect()
 {
 	 _fd = socket(AF_INET,SOCK_STREAM,IPPROTO_SCTP);
 	if(_fd == -1){
@@ -94,7 +95,7 @@ bool sSctpSocket::Connect()
 
 	return true;
 }
-void  sSctpSocket::Close(int fd)
+void  SctpSocket::Close(int fd)
 {
 	close(fd);
 }

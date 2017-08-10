@@ -1,9 +1,9 @@
 #include "LogManager.h"
-#include "StringHelp.h"
+#include "HelpFunction.h"
 using namespace sdk;
 void LogManager::Init(const char* configureFile,const char* nodeName)
 {
-	if(StringHelp::CharIsNull(configureFile))
+	if(HF::CharIsNull(configureFile))
 	{
 		log4cplus::initialize();
 		log4cplus::helpers::SharedObjectPtr<log4cplus::Appender> pShareAppend;
@@ -18,7 +18,7 @@ void LogManager::Init(const char* configureFile,const char* nodeName)
 	{
 		log4cplus::initialize();
 		log4cplus::PropertyConfigurator::doConfigure(LOG4CPLUS_TEXT(configureFile));
-		if(StringHelp::CharIsNull(nodeName))
+		if(HF::CharIsNull(nodeName))
 		{
 			_logger = log4cplus::Logger::getRoot(); 
 		}
