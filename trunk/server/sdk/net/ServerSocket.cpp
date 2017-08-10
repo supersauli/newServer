@@ -14,8 +14,6 @@ bool ServerSocket::Init(Json::Document& config){
 		return false;
 	}
 	_type = static_cast<const SocketType>(type.GetInt());
-	
-
 	auto& proto = config["proto"];
 	if(proto.IsNull()){
 		return false;
@@ -26,15 +24,12 @@ bool ServerSocket::Init(Json::Document& config){
 	}
 
 	_address = proto.GetString();
-
 	auto& timeOut = config["proto"];
 	if(!timeOut.IsNull()){
 		if(timeOut.IsInt()){
 		_timeOut = proto.GetInt();
 		}
 	}
-	
-
 
 	void *ctx = zmq_ctx_new();
 	assert(ctx);
@@ -48,9 +43,7 @@ bool ServerSocket::Init(Json::Document& config){
 	if(rc == 0){
 		return false;
 	}; 
-
 	zmq_setsockopt(_socket,ZMQ_RCVTIMEO,&_timeOut,sizeof(_timeOut));
-
 	return true;
 }
 
@@ -73,6 +66,8 @@ int ServerSocket::SwitchSocketType(const SocketType &type)
 {
 	switch(type)
 	{
+		case SocketType::SOCKET_TYPE_NONE:
+			return -1;
 		case SocketType::SOCKET_TYPE_REQ:
 			return ZMQ_REQ;
 		case SocketType::SOCKET_TYPE_REP:
@@ -95,6 +90,7 @@ SocketType ServerSocket::GetSocketType(){
 }
 
 void ServerSocket::SendMessage(const ProtoBuffMessage& message){
-
-
+	char buffer[SOCKET_BUFFER_SIZE ];
+	auto size = decode(buffer,message);
+	zmq_send(_socket,buffer,size,0);
 }

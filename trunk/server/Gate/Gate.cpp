@@ -4,11 +4,11 @@
 #include <string.h>
 #include "Gate.h"
 using namespace std;
-
+using namespace sdk;
 int main()
 {
 
-	sSctpSocket socket;
+	SctpSocket socket;
 	socket.SetIpAddress("127.0.0.1");
 	socket.SetPort(4096);
 	if(!socket.Connect()){

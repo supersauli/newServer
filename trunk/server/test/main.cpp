@@ -3,22 +3,14 @@
 #include <iostream>
 #include <assert.h>
 #include <string.h>
-#include "sdk/base//XmlFile.h"
-#include "test.pb.h"
-#include "sdk/net/sProtobuf.h"
-#include "sdk/net/sServer.h"
-#include "sdk/base/sCompress.h"
 #define BUFF_SIZE_MAX 1024
-#include "sdk/third_part/json/document.h"
-#include "sdk/third_part/json/writer.h"
-#include "sdk/third_part/json/stringbuffer.h"
-#include "sdk/third_part/json/filereadstream.h"
-#include "sdk/base/sTime.h"
-#include "sdk/base/EventCallBack.h"
+#include "sdk/sdk.h"
 //#define TEXT_JSON "./ServerCfg/ipcfg.json"
 #define TEXT_JSON "/home/sauli/server/Cfg/ServerCfg/ipcfg.json"
+#include "../proto/ProtobufList.h"
 
 using namespace std;
+using namespace sdk;
 void TestJson()
 {
 	FILE *fp = fopen(TEXT_JSON,"rb");
@@ -164,26 +156,26 @@ int main()
 //	printf("%s\n",u.data());
 //
 
-	ProtobufManage msg;
-	
-	muduo::pack mproto;
-	mproto.set_dwid(10);
-	mproto.set_name("fsdafd");
-	char buff[1024] = {0};
-	msg.decode(buff,mproto);	
-	while (true)
-	{
-	auto m1 = msg.ecode(buff);
-	cout<<m1->GetTypeName()<<endl;
+//	sdk::ProtobufManage msg;
+//	
+//	muduo::pack mproto;
+//	mproto.set_dwid(10);
+//	mproto.set_name("fsdafd");
+//	char buff[1024] = {0};
+//	msg.decode(buff,mproto);	
+//	while (true)
+//	{
+//	auto m1 = msg.ecode(buff);
+//	cout<<m1->GetTypeName()<<endl;
+//
+//	auto m2 = (muduo::pack*)m1;
+//	cout<<m2->dwid()<<endl;
+//	}
 
-	auto m2 = (muduo::pack*)m1;
-	cout<<m2->dwid()<<endl;
-	}
-
-	sServer serve;
-	serve.Init();
-	serve.LoadConfig("");
-	serve.Loop();
+//	Server serve;
+//	serve.Init();
+//	serve.LoadConfig("");
+//	serve.Loop();
 
 
 

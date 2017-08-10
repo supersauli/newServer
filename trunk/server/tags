@@ -6,6 +6,9 @@
 !_TAG_PROGRAM_VERSION	5.8	//
 A	sdk/ai/main.cpp	/^	explicit A(const Create_Help&){};$/;"	f	class:A
 A	sdk/ai/main.cpp	/^class A$/;"	c	file:
+AA	sdk/third_part/redis/main.cpp	/^void AA(T t)$/;"	f
+AB	sdk/third_part/redis/main.cpp	/^	static int AB(T m)$/;"	f	struct:Text
+AB	sdk/third_part/redis/main.cpp	/^	static long long AB(U a)$/;"	f	struct:Text
 ACCELERATION_DEFAULT	sdk/third_part/zip/lz4.c	52;"	d	file:
 ACLOCAL	Gate/Makefile	/^ACLOCAL = ${SHELL} \/home\/sauli\/server\/missing aclocal-1.15$/;"	m
 ACLOCAL	Makefile	/^ACLOCAL = ${SHELL} \/home\/sauli\/server\/missing aclocal-1.15$/;"	m
@@ -80,17 +83,17 @@ AWK	Gate/Makefile	/^AWK = gawk$/;"	m
 AWK	Makefile	/^AWK = gawk$/;"	m
 AWK	sdk/Makefile	/^AWK = gawk$/;"	m
 AWK	test/Makefile	/^AWK = gawk$/;"	m
-Accept	sdk/net/sSctpSocket.cpp	/^void sSctpSocket::Accept(int fd)$/;"	f	class:sSctpSocket
+Accept	sdk/net/SctpSocket.cpp	/^void SctpSocket::Accept(int fd)$/;"	f	class:SctpSocket
 Accept	sdk/third_part/json/document.h	/^    bool Accept(Handler& handler) const {$/;"	f	class:GenericValue
 AddChild	sdk/ai/XmlFile.cpp	/^xmlNodePtr XmlFile::AddChild(xmlNodePtr parent,xmlNodePtr cur)$/;"	f	class:XmlFile
 AddChild	sdk/base/XmlFile.cpp	/^xmlNodePtr XmlFile::AddChild(xmlNodePtr parent,xmlNodePtr cur)$/;"	f	class:XmlFile
 AddChunk	sdk/third_part/json/allocators.h	/^    bool AddChunk(size_t capacity) {$/;"	f	class:MemoryPoolAllocator
-AddClient	sdk/net/sSctpPthread.cpp	/^void sSctpPthread::AddClient(DWORD dwSocket)$/;"	f	class:sSctpPthread
+AddClient	sdk/net/SctpPthread.cpp	/^void SctpPthread::AddClient(DWORD dwSocket)$/;"	f	class:SctpPthread
 AddConst	sdk/third_part/json/internal/meta.h	/^template <typename T> struct AddConst { typedef const T Type; };$/;"	s	namespace:internal
-AddCountCycleTask	sdk/base/sTime.h	/^		void AddCountCycleTask(int cycleTime,int cycleCounts,TimerTaskFunc& func,bool runNow =false){$/;"	f	class:TimerTaskManage
-AddCycleTask	sdk/base/sTime.h	/^		void AddCycleTask(int cycleTime,TimerTaskFunc&func,bool runNow =false){$/;"	f	class:TimerTaskManage
-AddDelaySec	sdk/base/sTime.h	/^		void AddDelaySec(const time_t&sec)$/;"	f	class:final
-AddEvent	sdk/net/sEpoll.cpp	/^bool sEpoll::AddEvent(int fd,int event)$/;"	f	class:sEpoll
+AddCountCycleTask	sdk/base/Time.h	/^			void AddCountCycleTask(int cycleTime,int cycleCounts,TimerTaskFunc& func,bool runNow =false){$/;"	f	class:sdk::TimerTaskManage
+AddCycleTask	sdk/base/Time.h	/^			void AddCycleTask(int cycleTime,TimerTaskFunc&func,bool runNow =false){$/;"	f	class:sdk::TimerTaskManage
+AddDelaySec	sdk/base/Time.h	/^			void AddDelaySec(const time_t&sec)$/;"	f	class:sdk::final
+AddEvent	sdk/net/Epoll.cpp	/^bool Epoll::AddEvent(int fd,int event)$/;"	f	class:Epoll
 AddEventCallBackFunc	sdk/base/EventCallBack.h	/^		void AddEventCallBackFunc(int eventID, EventFunc func,int priority=0){$/;"	f	class:EventCallBack
 AddMember	sdk/third_part/json/document.h	/^    AddMember(GenericValue& name, T value, Allocator& allocator) {$/;"	f	class:GenericValue
 AddMember	sdk/third_part/json/document.h	/^    AddMember(StringRefType name, T value, Allocator& allocator) {$/;"	f	class:GenericValue
@@ -114,11 +117,12 @@ AddMember	sdk/third_part/json/document.h	/^    GenericValue& AddMember(StringRef
 AddMember	sdk/third_part/json/document.h	/^    GenericValue& AddMember(StringRefType name, StringRefType value, Allocator& allocator) {$/;"	f	class:GenericValue
 AddMember	sdk/third_part/json/document.h	/^    template <typename T> RAPIDJSON_DISABLEIF_RETURN((internal::OrExpr<internal::IsPointer<T>, internal::IsGenericValue<T> >), (GenericObject)) AddMember(StringRefType name, T value, AllocatorType& allocator) const { value_.AddMember(name, value, allocator); return *this; }$/;"	f	class:GenericObject
 AddMember	sdk/third_part/json/document.h	/^    template <typename T> RAPIDJSON_DISABLEIF_RETURN((internal::OrExpr<internal::IsPointer<T>, internal::IsGenericValue<T> >), (ValueType&)) AddMember(ValueType& name, T value, AllocatorType& allocator) const { value_.AddMember(name, value, allocator); return *this; }$/;"	f	class:GenericObject
+AddMessageCallBack	sdk/net/Protobuf.h	/^			void AddMessageCallBack(const char* messageName,std::function<void(void*)> function ){$/;"	f	class:sdk::ProtobufManage
 AddNextSibling	sdk/ai/XmlFile.cpp	/^xmlNodePtr XmlFile::AddNextSibling(xmlNodePtr cur,xmlNodePtr elem)$/;"	f	class:XmlFile
 AddNextSibling	sdk/base/XmlFile.cpp	/^xmlNodePtr XmlFile::AddNextSibling(xmlNodePtr cur,xmlNodePtr elem)$/;"	f	class:XmlFile
 AddPrevSibling	sdk/ai/XmlFile.cpp	/^xmlNodePtr XmlFile::AddPrevSibling(xmlNodePtr cur,xmlNodePtr elem)$/;"	f	class:XmlFile
 AddPrevSibling	sdk/base/XmlFile.cpp	/^xmlNodePtr XmlFile::AddPrevSibling(xmlNodePtr cur,xmlNodePtr elem)$/;"	f	class:XmlFile
-AddPthreadToPool	sdk/base/sPthreadPool.cpp	/^bool sPthreadPool::AddPthreadToPool(sPthread * pthread)$/;"	f	class:sPthreadPool
+AddPthreadToPool	sdk/base/PthreadPool.cpp	/^bool PthreadPool::AddPthreadToPool(Pthread * pthread)$/;"	f	class:PthreadPool
 AddSibling	sdk/ai/XmlFile.cpp	/^xmlNodePtr AddSibling(xmlNodePtr cur,xmlNodePtr elem)$/;"	f
 AddSibling	sdk/base/XmlFile.cpp	/^xmlNodePtr AddSibling(xmlNodePtr cur,xmlNodePtr elem)$/;"	f
 AddState	sdk/third_part/json/internal/regex.h	/^    bool AddState(Stack<Allocator>& l, SizeType index) {$/;"	f	class:internal::GenericRegexSearch
@@ -160,11 +164,10 @@ AutoUTFInputStream	sdk/third_part/json/encodedstream.h	/^class AutoUTFInputStrea
 AutoUTFOutputStream	sdk/third_part/json/encodedstream.h	/^    AutoUTFOutputStream(OutputByteStream& os, UTFType type, bool putBOM) : os_(&os), type_(type) {$/;"	f	class:AutoUTFOutputStream
 AutoUTFOutputStream	sdk/third_part/json/encodedstream.h	/^class AutoUTFOutputStream {$/;"	c
 BOOLVALUE	sdk/base/VarList.h	/^			BOOLVALUE,$/;"	m	class:VarObj::ValueType
-BUFFER_SIZE	sdk/net/ServerSocket.cpp	4;"	d	file:
-BUFFER_SIZE	sdk/net/sSocket.cpp	2;"	d	file:
-BUFF_SIZE_MAX	test/main.cpp	11;"	d	file:
+BUFFER_SIZE	sdk/net/Socket.cpp	2;"	d	file:
+BUFF_SIZE_MAX	test/main.cpp	6;"	d	file:
 BYTE	sdk/ai/sDefine.h	/^typedef unsigned char BYTE;$/;"	t
-BYTE	sdk/base/sDefine.h	/^typedef unsigned char BYTE;$/;"	t
+BYTE	sdk/base/Define.h	/^typedef unsigned char BYTE;$/;"	t
 BYTE	sdk/third_part/zip/lz4.c	/^  typedef  uint8_t BYTE;$/;"	t	file:
 BYTE	sdk/third_part/zip/lz4.c	/^  typedef unsigned char       BYTE;$/;"	t	file:
 Base	sdk/third_part/json/prettywriter.h	/^    typedef Writer<OutputStream, SourceEncoding, TargetEncoding, StackAllocator, writeFlags> Base;$/;"	t	class:PrettyWriter
@@ -185,7 +188,7 @@ BigInteger	sdk/third_part/json/internal/biginteger.h	/^    BigInteger(const BigI
 BigInteger	sdk/third_part/json/internal/biginteger.h	/^    BigInteger(const char* decimals, size_t length) : count_(1) {$/;"	f	class:internal::BigInteger
 BigInteger	sdk/third_part/json/internal/biginteger.h	/^    explicit BigInteger(uint64_t u) : count_(1) {$/;"	f	class:internal::BigInteger
 BigInteger	sdk/third_part/json/internal/biginteger.h	/^class BigInteger {$/;"	c	namespace:internal
-Bind	sdk/net/sSctpSocket.cpp	/^bool sSctpSocket::Bind()$/;"	f	class:sSctpSocket
+Bind	sdk/net/SctpSocket.cpp	/^bool SctpSocket::Bind()$/;"	f	class:SctpSocket
 Bool	sdk/third_part/json/document.h	/^    bool Bool(bool b) { new (stack_.template Push<ValueType>()) ValueType(b); return true; }$/;"	f	class:GenericDocument
 Bool	sdk/third_part/json/prettywriter.h	/^    bool Bool(bool b)           { PrettyPrefix(b ? kTrueType : kFalseType); return Base::WriteBool(b); }$/;"	f	class:PrettyWriter
 Bool	sdk/third_part/json/reader.h	/^    bool Bool(bool) { return static_cast<Override&>(*this).Default(); }$/;"	f	struct:BaseReaderHandler
@@ -218,9 +221,9 @@ CFLAGS	Makefile	/^CFLAGS = -g -O2$/;"	m
 CFLAGS	sdk/Makefile	/^CFLAGS = -g -O2$/;"	m
 CFLAGS	test/Makefile	/^CFLAGS = -g -O2$/;"	m
 CHAR	sdk/ai/sDefine.h	/^typedef char CHAR;$/;"	t
-CHAR	sdk/base/sDefine.h	/^typedef char CHAR;$/;"	t
+CHAR	sdk/base/Define.h	/^typedef char CHAR;$/;"	t
 CHECK_NULL_RETURN	sdk/ai/sDefine.h	5;"	d
-CHECK_NULL_RETURN	sdk/base/sDefine.h	5;"	d
+CHECK_NULL_RETURN	sdk/base/Define.h	5;"	d
 CHUNK_SIZE	pool.cpp	3;"	d	file:
 COMPILE	sdk/Makefile	/^COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \\$/;"	m
 COMPILE	test/Makefile	/^COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \\$/;"	m
@@ -271,7 +274,7 @@ CXXDEPMODE	test/Makefile	/^CXXDEPMODE = depmode=gcc3$/;"	m
 CXXFLAGS	Gate/Makefile	/^CXXFLAGS = -Wall -g3 -O0	-std=gnu++11 -fPIC $/;"	m
 CXXFLAGS	Makefile	/^CXXFLAGS = -Wall -g3 -O0	-std=gnu++11 -fPIC $/;"	m
 CXXFLAGS	sdk/Makefile	/^CXXFLAGS = -Wall -g3 -O0	-std=gnu++11 -fPIC $/;"	m
-CXXFLAGS	test/Makefile	/^CXXFLAGS = -Wall -g3 -O0	-std=gnu++11 -fPIC  -I ..\/sdk\/ -lstdc++ -static$/;"	m
+CXXFLAGS	test/Makefile	/^CXXFLAGS = -Wall -g3 -O0	-std=gnu++11 -fPIC  -I ..\/sdk\/ -lstdc++ -static -L\/usr\/local\/lib\/ \\$/;"	m
 CXXLD	Gate/Makefile	/^CXXLD = $(CXX)$/;"	m
 CXXLD	sdk/Makefile	/^CXXLD = $(CXX)$/;"	m
 CXXLD	test/Makefile	/^CXXLD = $(CXX)$/;"	m
@@ -282,7 +285,7 @@ CYGPATH_W	Gate/Makefile	/^CYGPATH_W = echo$/;"	m
 CYGPATH_W	Makefile	/^CYGPATH_W = echo$/;"	m
 CYGPATH_W	sdk/Makefile	/^CYGPATH_W = echo$/;"	m
 CYGPATH_W	test/Makefile	/^CYGPATH_W = echo$/;"	m
-CallBack	sdk/net/sSctpSocket.h	/^	typedef std::function<void(DWORD fd)> CallBack;$/;"	t	class:sSctpSocket
+CallBack	sdk/net/SctpSocket.h	/^		typedef std::function<void(DWORD fd)> CallBack;$/;"	t	class:sdk::SctpSocket
 Capacity	sdk/third_part/json/allocators.h	/^    size_t Capacity() const {$/;"	f	class:MemoryPoolAllocator
 Capacity	sdk/third_part/json/document.h	/^    SizeType Capacity() const { RAPIDJSON_ASSERT(IsArray()); return data_.a.capacity; }$/;"	f	class:GenericValue
 Capacity	sdk/third_part/json/document.h	/^    SizeType Capacity() const { return value_.Capacity(); }$/;"	f	class:GenericArray
@@ -326,7 +329,7 @@ Ch	sdk/third_part/json/stream.h	/^    typedef typename Encoding::Ch Ch;$/;"	t	st
 Ch	sdk/third_part/json/stream.h	/^    typedef typename Encoding::Ch Ch;$/;"	t	struct:GenericStringStream
 Ch	sdk/third_part/json/stringbuffer.h	/^    typedef typename Encoding::Ch Ch;$/;"	t	class:GenericStringBuffer
 Ch	sdk/third_part/json/writer.h	/^    typedef typename SourceEncoding::Ch Ch;$/;"	t	class:Writer
-CharIsNull	sdk/base/StringHelp.h	/^	bool CharIsNull(const char* str){$/;"	f	namespace:StringHelp
+CharIsNull	sdk/base/HelpFunction.h	/^		bool CharIsNull(const char* str){$/;"	f	namespace:sdk::HF
 CharType	sdk/third_part/json/document.h	/^    GenericStringRef(CharType (&str)[N]) \/* = delete *\/;$/;"	m	struct:GenericStringRef
 CharacterEscape	sdk/third_part/json/internal/regex.h	/^    bool CharacterEscape(DecodedStream<InputStream, Encoding>& ds, unsigned* escapedCodepoint) {$/;"	f	class:internal::GenericRegex
 Check	sdk/ai/AISystem.cpp	/^bool JudgeAction::Check(Obj *obj)$/;"	f	class:JudgeAction
@@ -337,6 +340,8 @@ CheckHp	sdk/ai/AICheckRuleAction.h	/^class CheckHp:public CheckRuleAction$/;"	c
 CheckInt	sdk/third_part/json/schema.h	/^    bool CheckInt(Context& context, int64_t i) const {$/;"	f	class:internal::Schema
 CheckMp	sdk/ai/AICheckRuleAction.h	/^class CheckMp:public CheckRuleAction$/;"	c
 CheckRuleAction	sdk/ai/AICheckRuleAction.h	/^class CheckRuleAction:public AINodeBase$/;"	c
+CheckString	sdk/third_part/redis/Redis.h	/^	void CheckString(T v)$/;"	f	class:Redis
+CheckString	sdk/third_part/redis/Redis.h	/^	void CheckString(T v,ValueList ...list){$/;"	f	class:Redis
 CheckUint	sdk/third_part/json/schema.h	/^    bool CheckUint(Context& context, uint64_t i) const {$/;"	f	class:internal::Schema
 CheckWithinHalfULP	sdk/third_part/json/internal/strtod.h	/^inline int CheckWithinHalfULP(double b, const BigInteger& d, int dExp) {$/;"	f	namespace:internal
 ChunkHeader	sdk/third_part/json/allocators.h	/^    struct ChunkHeader {$/;"	s	class:MemoryPoolAllocator
@@ -355,18 +360,21 @@ ClearStackOnExit	sdk/third_part/json/document.h	/^        explicit ClearStackOnE
 ClearStackOnExit	sdk/third_part/json/document.h	/^    struct ClearStackOnExit {$/;"	s	class:GenericDocument
 ClearStackOnExit	sdk/third_part/json/reader.h	/^        explicit ClearStackOnExit(GenericReader& r) : r_(r) {}$/;"	f	struct:GenericReader::ClearStackOnExit
 ClearStackOnExit	sdk/third_part/json/reader.h	/^    struct ClearStackOnExit {$/;"	s	class:GenericReader
-ClockTime	sdk/base/sTime.h	/^		ClockTime(){$/;"	f	class:final
+ClockTime	sdk/base/Time.h	/^			ClockTime(){$/;"	f	class:sdk::final
 CloneTopOperand	sdk/third_part/json/internal/regex.h	/^    void CloneTopOperand(Stack<Allocator>& operandStack) {$/;"	f	class:internal::GenericRegex
-Close	sdk/net/sSctpSocket.cpp	/^void  sSctpSocket::Close(int fd)$/;"	f	class:sSctpSocket
+Close	sdk/net/SctpSocket.cpp	/^void  SctpSocket::Close(int fd)$/;"	f	class:SctpSocket
 Code	sdk/third_part/json/error/error.h	/^    ParseErrorCode Code() const { return code_; }$/;"	f	struct:ParseResult
 ColonToken	sdk/third_part/json/reader.h	/^        ColonToken,$/;"	e	enum:GenericReader::Token
 CommaToken	sdk/third_part/json/reader.h	/^        CommaToken,$/;"	e	enum:GenericReader::Token
+Command	sdk/third_part/redis/Redis.h	/^	redisReply*Command(const char* cmd,T ... value)$/;"	f	class:Redis
 Compare	sdk/ai/CompareRule.h	/^		bool Compare(const std::string& ruleName,T t1,T t2){$/;"	f	class:CompareRule
 Compare	sdk/third_part/json/internal/biginteger.h	/^    int Compare(const BigInteger& rhs) const {$/;"	f	class:internal::BigInteger
 CompareRule	sdk/ai/CompareRule.h	/^class CompareRule$/;"	c
 CompareRuleFunc	sdk/ai/CompareRule.h	/^		typedef bool (*CompareRuleFunc)(T t1,T t2);$/;"	t	class:CompareRule
-Compress	sdk/base/sCompress.cpp	/^int sCompress::Compress(const char* source, char* dest, int sourceSize, int maxDestSize)$/;"	f	class:sCompress
-Connect	sdk/net/sSctpSocket.cpp	/^bool sSctpSocket::Connect()$/;"	f	class:sSctpSocket
+Compress	sdk/base/CompressManage.cpp	/^int CompressManage::Compress(const char* source, char* dest, int sourceSize, int maxDestSize)$/;"	f	class:CompressManage
+CompressManage	sdk/base/CompressManage.h	/^	class CompressManage$/;"	c	namespace:sdk
+Connect	sdk/net/SctpSocket.cpp	/^bool SctpSocket::Connect()$/;"	f	class:SctpSocket
+Connect	sdk/third_part/redis/Redis.cpp	/^bool Redis::Connect(const char* host,int port)$/;"	f	class:Redis
 ConstArray	sdk/third_part/json/document.h	/^    typedef GenericArray<true, ValueT> ConstArray;$/;"	t	class:GenericArray
 ConstArray	sdk/third_part/json/document.h	/^    typedef GenericArray<true, ValueType> ConstArray;$/;"	t	class:GenericValue
 ConstIterator	sdk/third_part/json/document.h	/^    typedef GenericMemberIterator<true,Encoding,Allocator>  ConstIterator;$/;"	t	class:GenericMemberIterator
@@ -394,7 +402,7 @@ Create	sdk/third_part/json/pointer.h	/^    ValueType& Create(ValueType& root, ty
 CreateChild	sdk/ai/XmlFile.cpp	/^xmlNodePtr XmlFile::CreateChild(xmlNodePtr node,const char*name,const char*content)$/;"	f	class:XmlFile
 CreateChild	sdk/base/XmlFile.cpp	/^xmlNodePtr XmlFile::CreateChild(xmlNodePtr node,const char*name,const char*content)$/;"	f	class:XmlFile
 CreateHasher	sdk/third_part/json/schema.h	/^    virtual void* CreateHasher() {$/;"	f	class:GenericSchemaValidator
-CreateNewPthread	sdk/base/sPthreadPool.h	/^	T*  CreateNewPthread(pthread_func func)$/;"	f	class:sPthreadPool
+CreateNewPthread	sdk/base/PthreadPool.h	/^	T*  CreateNewPthread(pthread_func func)$/;"	f	class:PthreadPool
 CreateNode	sdk/ai/XmlFile.cpp	/^xmlNodePtr XmlFile::CreateNode(const char* name)$/;"	f	class:XmlFile
 CreateNode	sdk/base/XmlFile.cpp	/^xmlNodePtr XmlFile::CreateNode(const char* name)$/;"	f	class:XmlFile
 CreateNullHandler	sdk/third_part/json/schema.h	/^    OutputHandler& CreateNullHandler() {$/;"	f	class:GenericSchemaValidator
@@ -416,15 +424,15 @@ CrtAllocator	sdk/third_part/json/allocators.h	/^class CrtAllocator {$/;"	c
 CurrentContext	sdk/third_part/json/schema.h	/^    Context& CurrentContext() { return *schemaStack_.template Top<Context>(); }$/;"	f	class:GenericSchemaValidator
 CurrentContext	sdk/third_part/json/schema.h	/^    const Context& CurrentContext() const { return *schemaStack_.template Top<Context>(); }$/;"	f	class:GenericSchemaValidator
 CurrentSchema	sdk/third_part/json/schema.h	/^    const SchemaType& CurrentSchema() const { return *schemaStack_.template Top<Context>()->schema; }$/;"	f	class:GenericSchemaValidator
-CycleTime	sdk/base/sTime.h	/^		CycleTime(const int& cycleMsec,const Time& time):_cycleMsec(cycleMsec){$/;"	f	class:CycleTime
-CycleTime	sdk/base/sTime.h	/^		CycleTime(const int& cycleMsec,const time_t&  msec = ClockTime().GetMsec()):_cycleMsec(cycleMsec){$/;"	f	class:CycleTime
-CycleTime	sdk/base/sTime.h	/^class CycleTime$/;"	c
-DEFAULT_BACKLOG	sdk/net/sSctpSocket.h	16;"	d
+CycleTime	sdk/base/Time.h	/^			CycleTime(const int& cycleMsec,const Time& time):_cycleMsec(cycleMsec){$/;"	f	class:sdk::CycleTime
+CycleTime	sdk/base/Time.h	/^			CycleTime(const int& cycleMsec,const time_t&  msec = ClockTime().GetMsec()):_cycleMsec(cycleMsec){$/;"	f	class:sdk::CycleTime
+CycleTime	sdk/base/Time.h	/^	class CycleTime$/;"	c	namespace:sdk
+DEFAULT_BACKLOG	sdk/net/SctpSocket.h	16;"	d
 DEFAULT_INCLUDES	Gate/Makefile	/^DEFAULT_INCLUDES = -I. -I$(top_builddir)$/;"	m
 DEFAULT_INCLUDES	sdk/Makefile	/^DEFAULT_INCLUDES = -I. -I$(top_builddir)$/;"	m
 DEFAULT_INCLUDES	test/Makefile	/^DEFAULT_INCLUDES = -I. -I$(top_builddir)$/;"	m
-DEFAULT_MAX_EVENTS	sdk/net/sEpoll.h	10;"	d
-DEFAULT_TIMEOUT_TIMES	sdk/net/sEpoll.h	9;"	d
+DEFAULT_MAX_EVENTS	sdk/net/Epoll.h	10;"	d
+DEFAULT_TIMEOUT_TIMES	sdk/net/Epoll.h	9;"	d
 DEFS	Gate/Makefile	/^DEFS = -DHAVE_CONFIG_H$/;"	m
 DEFS	Makefile	/^DEFS = -DHAVE_CONFIG_H$/;"	m
 DEFS	sdk/Makefile	/^DEFS = -DHAVE_CONFIG_H$/;"	m
@@ -454,7 +462,7 @@ DLLTOOL	Makefile	/^DLLTOOL = false$/;"	m
 DLLTOOL	sdk/Makefile	/^DLLTOOL = false$/;"	m
 DLLTOOL	test/Makefile	/^DLLTOOL = false$/;"	m
 DOUBLE	sdk/ai/sDefine.h	/^typedef double DOUBLE;$/;"	t
-DOUBLE	sdk/base/sDefine.h	/^typedef double DOUBLE;$/;"	t
+DOUBLE	sdk/base/Define.h	/^typedef double DOUBLE;$/;"	t
 DOUBLEVALUE	sdk/base/VarList.h	/^			DOUBLEVALUE,$/;"	m	class:VarObj::ValueType
 DO_	proto/Gate.pb.cc	179;"	d	file:
 DO_	proto/Gate.pb.cc	232;"	d	file:
@@ -469,7 +477,7 @@ DUMPBIN	Makefile	/^DUMPBIN = $/;"	m
 DUMPBIN	sdk/Makefile	/^DUMPBIN = $/;"	m
 DUMPBIN	test/Makefile	/^DUMPBIN = $/;"	m
 DWORD	sdk/ai/sDefine.h	/^typedef unsigned int DWORD;$/;"	t
-DWORD	sdk/base/sDefine.h	/^typedef unsigned int DWORD;$/;"	t
+DWORD	sdk/base/Define.h	/^typedef unsigned int DWORD;$/;"	t
 DWORDVALUE	sdk/base/VarList.h	/^			DWORDVALUE,$/;"	m	class:VarObj::ValueType
 Data	sdk/third_part/json/document.h	/^    union Data {$/;"	u	class:GenericValue
 Debug	sdk/base/LogManager.cpp	/^void LogManager::Debug(const char *fmt,...)$/;"	f	class:LogManager
@@ -481,9 +489,10 @@ Decode	sdk/third_part/json/encodings.h	/^    static bool Decode(InputStream& is,
 Decode	sdk/third_part/json/internal/regex.h	/^    void Decode() {$/;"	f	class:internal::DecodedStream
 DecodedStream	sdk/third_part/json/internal/regex.h	/^    DecodedStream(SourceStream& ss) : ss_(ss), codepoint_() { Decode(); }$/;"	f	class:internal::DecodedStream
 DecodedStream	sdk/third_part/json/internal/regex.h	/^class DecodedStream {$/;"	c	namespace:internal
-Decompress	sdk/base/sCompress.cpp	/^int sCompress::Decompress (const char* source, char* dest, int compressedSize, int maxDecompressedSize)$/;"	f	class:sCompress
+Decompress	sdk/base/CompressManage.cpp	/^int CompressManage::Decompress (const char* source, char* dest, int compressedSize, int maxDecompressedSize)$/;"	f	class:CompressManage
 Default	sdk/third_part/json/reader.h	/^    bool Default() { return true; }$/;"	f	struct:BaseReaderHandler
-DelEvent	sdk/net/sEpoll.cpp	/^bool sEpoll::DelEvent(int fd)$/;"	f	class:sEpoll
+Del	sdk/third_part/redis/Redis.h	/^	int Del(T ... keyList)$/;"	f	class:Redis
+DelEvent	sdk/net/Epoll.cpp	/^bool Epoll::DelEvent(int fd)$/;"	f	class:Epoll
 DestroryHasher	sdk/third_part/json/schema.h	/^    virtual void DestroryHasher(void* hasher) {$/;"	f	class:GenericSchemaValidator
 Destroy	sdk/third_part/json/document.h	/^    void Destroy() {$/;"	f	class:GenericDocument
 Destroy	sdk/third_part/json/internal/stack.h	/^    void Destroy() {$/;"	f	class:internal::Stack
@@ -491,6 +500,7 @@ DestroySchemaValidator	sdk/third_part/json/schema.h	/^    virtual void DestroySc
 DetectType	sdk/third_part/json/encodedstream.h	/^    void DetectType() {$/;"	f	class:AutoUTFInputStream
 Difference	sdk/third_part/json/internal/biginteger.h	/^    bool Difference(const BigInteger& rhs, BigInteger* out) const {$/;"	f	class:internal::BigInteger
 DifferenceType	sdk/third_part/json/document.h	/^    typedef typename BaseType::difference_type DifferenceType;$/;"	t	class:GenericMemberIterator
+DifferentInt	sdk/base/HelpFunction.h	/^		bool DifferentInt(const DWORD& num,const int& min,const int& max,std::set<int>&diffNum ){$/;"	f	namespace:sdk::HF
 DigitGen	sdk/third_part/json/internal/dtoa.h	/^inline void DigitGen(const DiyFp& W, const DiyFp& Mp, uint64_t delta, char* buffer, int* len, int* K) {$/;"	f	namespace:internal
 DisableIf	sdk/third_part/json/internal/meta.h	/^struct DisableIf : DisableIfCond<Condition::Value, T> {};$/;"	s	namespace:internal
 DisableIfCond	sdk/third_part/json/internal/meta.h	/^template <bool Condition, typename T = void> struct DisableIfCond { typedef T Type; };$/;"	s	namespace:internal
@@ -528,16 +538,16 @@ EGREP	Gate/Makefile	/^EGREP = \/usr\/bin\/grep -E$/;"	m
 EGREP	Makefile	/^EGREP = \/usr\/bin\/grep -E$/;"	m
 EGREP	sdk/Makefile	/^EGREP = \/usr\/bin\/grep -E$/;"	m
 EGREP	test/Makefile	/^EGREP = \/usr\/bin\/grep -E$/;"	m
-EPOLL_NEWCLIENT	sdk/net/sEpoll.h	/^			EPOLL_NEWCLIENT,\/\/新连接	$/;"	e	enum:sEpoll::__anon26
-EPOLL_NONE	sdk/net/sEpoll.h	/^			EPOLL_NONE   , \/\/不处理$/;"	e	enum:sEpoll::__anon26
-EPOLL_RECV	sdk/net/sEpoll.h	/^			EPOLL_RECV,\/\/收到数据$/;"	e	enum:sEpoll::__anon26
-EPOLL_SEND	sdk/net/sEpoll.h	/^			EPOLL_SEND,\/\/有数据发送$/;"	e	enum:sEpoll::__anon26
+EPOLL_NEWCLIENT	sdk/net/Epoll.h	/^				EPOLL_NEWCLIENT,\/\/新连接	$/;"	e	enum:sdk::Epoll::__anon27
+EPOLL_NONE	sdk/net/Epoll.h	/^				EPOLL_NONE   , \/\/不处理$/;"	e	enum:sdk::Epoll::__anon27
+EPOLL_RECV	sdk/net/Epoll.h	/^				EPOLL_RECV,\/\/收到数据$/;"	e	enum:sdk::Epoll::__anon27
+EPOLL_SEND	sdk/net/Epoll.h	/^				EPOLL_SEND,\/\/有数据发送$/;"	e	enum:sdk::Epoll::__anon27
 ETAGS	Gate/Makefile	/^ETAGS = etags$/;"	m
 ETAGS	Makefile	/^ETAGS = etags$/;"	m
 ETAGS	sdk/Makefile	/^ETAGS = etags$/;"	m
 ETAGS	test/Makefile	/^ETAGS = etags$/;"	m
-EVENT_1	test/main.cpp	/^	EVENT_1,$/;"	e	enum:__anon29	file:
-EVENT_2	test/main.cpp	/^	EVENT_2,$/;"	e	enum:__anon29	file:
+EVENT_1	test/main.cpp	/^	EVENT_1,$/;"	e	enum:__anon30	file:
+EVENT_2	test/main.cpp	/^	EVENT_2,$/;"	e	enum:__anon30	file:
 EXEEXT	Gate/Makefile	/^EXEEXT = $/;"	m
 EXEEXT	Makefile	/^EXEEXT = $/;"	m
 EXEEXT	sdk/Makefile	/^EXEEXT = $/;"	m
@@ -546,6 +556,7 @@ EffectiveSignificandSize	sdk/third_part/json/internal/ieee754.h	/^    static int
 Empty	sdk/third_part/json/document.h	/^    bool Empty() const { RAPIDJSON_ASSERT(IsArray()); return data_.a.size == 0; }$/;"	f	class:GenericValue
 Empty	sdk/third_part/json/document.h	/^    bool Empty() const { return value_.Empty(); }$/;"	f	class:GenericArray
 Empty	sdk/third_part/json/internal/stack.h	/^    bool Empty() const { return stackTop_ == stack_; }$/;"	f	class:internal::Stack
+EmptyValue	sdk/third_part/redis/HelpTemplate.h	/^struct EmptyValue{$/;"	s
 EnableIf	sdk/third_part/json/internal/meta.h	/^struct EnableIf : EnableIfCond<Condition::Value, T> {};$/;"	s	namespace:internal
 EnableIfCond	sdk/third_part/json/internal/meta.h	/^template <bool Condition, typename T = void> struct EnableIfCond  { typedef T Type; };$/;"	s	namespace:internal
 EnableIfCond	sdk/third_part/json/internal/meta.h	/^template <typename T> struct EnableIfCond<false, T> { \/* empty *\/ };$/;"	s	namespace:internal
@@ -595,6 +606,7 @@ EndObject	sdk/third_part/json/writer.h	/^    bool EndObject(SizeType memberCount
 EndValue	sdk/third_part/json/schema.h	/^    RAPIDJSON_FORCEINLINE bool EndValue(Context& context) const {$/;"	f	class:internal::Schema
 EndValue	sdk/third_part/json/schema.h	/^    bool EndValue() {$/;"	f	class:GenericSchemaValidator
 EndValue	sdk/third_part/json/writer.h	/^    bool EndValue(bool ret) {$/;"	f	class:Writer
+Epoll	sdk/net/Epoll.h	/^	class Epoll$/;"	c	namespace:sdk
 Equal	sdk/ai/CompareRule.h	/^		static bool Equal(T t1,T t2){return t1 == t2;}$/;"	f	class:CompareRule
 Erase	sdk/third_part/json/document.h	/^    ValueIterator Erase(ConstValueIterator first, ConstValueIterator last) const { return value_.Erase(first, last); }$/;"	f	class:GenericArray
 Erase	sdk/third_part/json/document.h	/^    ValueIterator Erase(ConstValueIterator first, ConstValueIterator last) {$/;"	f	class:GenericValue
@@ -616,7 +628,7 @@ EraseValueByPointer	sdk/third_part/json/pointer.h	/^bool EraseValueByPointer(T& 
 Error	sdk/base/LogManager.cpp	/^void LogManager::Error(const char*fmt,...)$/;"	f	class:LogManager
 Eval	sdk/third_part/json/internal/regex.h	/^    bool Eval(Stack<Allocator>& operandStack, Operator op) {$/;"	f	class:internal::GenericRegex
 EvalQuantifier	sdk/third_part/json/internal/regex.h	/^    bool EvalQuantifier(Stack<Allocator>& operandStack, unsigned n, unsigned m) {$/;"	f	class:internal::GenericRegex
-EventCB	sdk/net/sEpoll.h	/^typedef std::function<void(int)> EventCB;$/;"	t
+EventCB	sdk/net/Epoll.h	/^typedef std::function<void(int)> EventCB;$/;"	t
 EventCallBack	sdk/base/EventCallBack.h	/^class EventCallBack{$/;"	c
 EventFunc	sdk/base/EventCallBack.h	/^	typedef std::function<void(M...arg)> EventFunc;$/;"	t	class:EventCallBack
 EventSort	sdk/base/EventCallBack.h	/^		struct EventSort{$/;"	s	class:EventCallBack
@@ -631,7 +643,7 @@ FGREP	Makefile	/^FGREP = \/usr\/bin\/grep -F$/;"	m
 FGREP	sdk/Makefile	/^FGREP = \/usr\/bin\/grep -F$/;"	m
 FGREP	test/Makefile	/^FGREP = \/usr\/bin\/grep -F$/;"	m
 FLOAT	sdk/ai/sDefine.h	/^typedef float FLOAT;$/;"	t
-FLOAT	sdk/base/sDefine.h	/^typedef float FLOAT;$/;"	t
+FLOAT	sdk/base/Define.h	/^typedef float FLOAT;$/;"	t
 FLOATVALUE	sdk/base/VarList.h	/^			FLOATVALUE,$/;"	m	class:VarObj::ValueType
 FORCE_INLINE	sdk/third_part/zip/lz4.c	105;"	d	file:
 FORCE_INLINE	sdk/third_part/zip/lz4.c	107;"	d	file:
@@ -678,6 +690,7 @@ Free	sdk/ai/XmlFile.cpp	/^void XmlFile::Free(xmlDocPtr node)$/;"	f	class:XmlFile
 Free	sdk/base/XmlFile.cpp	/^void XmlFile::Free(xmlDocPtr node)$/;"	f	class:XmlFile
 Free	sdk/third_part/json/allocators.h	/^    static void Free(void *ptr) { (void)ptr; } \/\/ Do nothing$/;"	f	class:MemoryPoolAllocator
 Free	sdk/third_part/json/allocators.h	/^    static void Free(void *ptr) { std::free(ptr); }$/;"	f	class:CrtAllocator
+FreeReply	sdk/third_part/redis/Redis.h	/^	void FreeReply(redisReply*reply)$/;"	f	class:Redis
 FreeState	sdk/third_part/json/schema.h	/^    virtual void FreeState(void* p) {$/;"	f	class:GenericSchemaValidator
 FriendInfo	Logic/FriendManage.h	/^struct FriendInfo$/;"	s
 Func	test/main.cpp	/^typedef std::function<void()> Func;$/;"	t	file:
@@ -685,10 +698,10 @@ GB	sdk/third_part/zip/lz4.c	271;"	d	file:
 GET_INDEX	pool.cpp	/^static  int GET_INDEX(int x)$/;"	f	file:
 GOOGLE_ATTRIBUTE_COLD	proto/Gate.pb.cc	/^void protobuf_AddDesc_proto_2fGate_2eproto() GOOGLE_ATTRIBUTE_COLD;$/;"	m	namespace:Gate	file:
 GOOGLE_ATTRIBUTE_COLD	proto/Gate.pb.cc	/^void protobuf_AssignDesc_proto_2fGate_2eproto() GOOGLE_ATTRIBUTE_COLD;$/;"	m	namespace:Gate	file:
-GOOGLE_ATTRIBUTE_COLD	proto/Gate.pb.cc	/^void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;$/;"	m	namespace:Gate::__anon31	file:
+GOOGLE_ATTRIBUTE_COLD	proto/Gate.pb.cc	/^void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;$/;"	m	namespace:Gate::__anon32	file:
 GOOGLE_ATTRIBUTE_COLD	test/test.pb.cc	/^void protobuf_AddDesc_test_2eproto() GOOGLE_ATTRIBUTE_COLD;$/;"	m	namespace:muduo	file:
 GOOGLE_ATTRIBUTE_COLD	test/test.pb.cc	/^void protobuf_AssignDesc_test_2eproto() GOOGLE_ATTRIBUTE_COLD;$/;"	m	namespace:muduo	file:
-GOOGLE_ATTRIBUTE_COLD	test/test.pb.cc	/^void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;$/;"	m	namespace:muduo::__anon28	file:
+GOOGLE_ATTRIBUTE_COLD	test/test.pb.cc	/^void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;$/;"	m	namespace:muduo::__anon29	file:
 GREP	Gate/Makefile	/^GREP = \/usr\/bin\/grep$/;"	m
 GREP	Makefile	/^GREP = \/usr\/bin\/grep$/;"	m
 GREP	sdk/Makefile	/^GREP = \/usr\/bin\/grep$/;"	m
@@ -770,6 +783,7 @@ Get	sdk/third_part/json/document.h	/^    static uint64_t Get(const ValueType& v)
 Get	sdk/third_part/json/document.h	/^    static unsigned Get(const ValueType& v) { return v.GetUint(); }$/;"	f	struct:internal::TypeHelper
 Get	sdk/third_part/json/pointer.h	/^    ValueType* Get(ValueType& root, size_t* unresolvedTokenIndex = 0) const {$/;"	f	class:GenericPointer
 Get	sdk/third_part/json/pointer.h	/^    const ValueType* Get(const ValueType& root, size_t* unresolvedTokenIndex = 0) const { $/;"	f	class:GenericPointer
+Get	sdk/third_part/redis/Redis.cpp	/^std::string Redis::Get(const char* key)$/;"	f	class:Redis
 GetAllocator	sdk/third_part/json/document.h	/^    Allocator& GetAllocator() {$/;"	f	class:GenericDocument
 GetAllocator	sdk/third_part/json/internal/stack.h	/^    Allocator& GetAllocator() {$/;"	f	class:internal::Stack
 GetAllocator	sdk/third_part/json/pointer.h	/^    Allocator& GetAllocator() { return *allocator_; }$/;"	f	class:GenericPointer
@@ -792,26 +806,33 @@ GetChildNode	sdk/ai/XmlFile.cpp	/^xmlNodePtr XmlFile::GetChildNode(const xmlNode
 GetChildNode	sdk/base/XmlFile.cpp	/^xmlNodePtr XmlFile::GetChildNode(const xmlNodePtr node)$/;"	f	class:XmlFile
 GetChildNode	sdk/base/XmlFile.cpp	/^xmlNodePtr XmlFile::GetChildNode(const xmlNodePtr node,const char* name)$/;"	f	class:XmlFile
 GetCompareRuleFunc	sdk/ai/CompareRule.h	/^		static CompareRuleFunc GetCompareRuleFunc(std::string ruleName){$/;"	f	class:CompareRule
+GetConnectError	sdk/third_part/redis/Redis.h	/^	const char* GetConnectError()$/;"	f	class:Redis
 GetCount	sdk/third_part/json/internal/biginteger.h	/^    size_t GetCount() const { return count_; }$/;"	f	class:internal::BigInteger
 GetDWValue	sdk/base/VarList.h	/^		DWORD GetDWValue(){$/;"	f	class:VarObj
 GetDWValue	sdk/base/VarList.h	/^		DWORD GetDWValue(DWORD i)$/;"	f	class:VarList
-GetData	sdk/base/Tool.h	/^void GetData(char*&ptr,T&data)$/;"	f	namespace:Tool
-GetData	sdk/base/Tool.h	/^void GetData(char*&ptr,std::string&value)$/;"	f	namespace:Tool
+GetData	sdk/base/Tool.h	/^		void GetData(char*&ptr,T&data)$/;"	f	namespace:sdk
+GetData	sdk/base/Tool.h	/^		void GetData(char*&ptr,std::string&value)$/;"	f	namespace:sdk
 GetDigit	sdk/third_part/json/internal/biginteger.h	/^    Type GetDigit(size_t index) const { RAPIDJSON_ASSERT(index < count_); return digits_[index]; }$/;"	f	class:internal::BigInteger
 GetDigitsLut	sdk/third_part/json/internal/itoa.h	/^inline const char* GetDigitsLut() {$/;"	f	namespace:internal
 GetDouble	sdk/third_part/json/document.h	/^    double GetDouble() const {$/;"	f	class:GenericValue
 GetDoubleValue	sdk/base/VarList.h	/^		double GetDoubleValue(){$/;"	f	class:VarObj
 GetDoubleValue	sdk/base/VarList.h	/^		double GetDoubleValue(DWORD i)$/;"	f	class:VarList
-GetElapseSec	sdk/base/sTime.h	/^		DWORD GetElapseSec()$/;"	f	class:final
+GetElapseSec	sdk/base/Time.h	/^			DWORD GetElapseSec()$/;"	f	class:sdk::final
 GetElementsPointer	sdk/third_part/json/document.h	/^    RAPIDJSON_FORCEINLINE GenericValue* GetElementsPointer() const { return RAPIDJSON_GETPOINTER(GenericValue, data_.a.elements); }$/;"	f	class:GenericValue
 GetErrorOffset	sdk/third_part/json/document.h	/^    size_t GetErrorOffset() const { return parseResult_.Offset(); }$/;"	f	class:GenericDocument
 GetErrorOffset	sdk/third_part/json/reader.h	/^    size_t GetErrorOffset() const { return parseResult_.Offset(); }$/;"	f	class:GenericReader
 GetFloat	sdk/third_part/json/document.h	/^    float GetFloat() const {$/;"	f	class:GenericValue
 GetFloatValue	sdk/base/VarList.h	/^		FLOAT GetFloatValue(){$/;"	f	class:VarObj
 GetFloatValue	sdk/base/VarList.h	/^		FLOAT GetFloatValue(DWORD i)$/;"	f	class:VarList
+GetFormatCmdStr	sdk/third_part/redis/Redis.h	/^	const char* GetFormatCmdStr(const char* cmd,T... keyList)$/;"	f	class:Redis
+GetFormatSymbol	sdk/third_part/redis/Redis.h	/^	const char* GetFormatSymbol(T value)$/;"	f	class:Redis
+GetFormatSymbol	sdk/third_part/redis/Redis.h	/^	const char* GetFormatSymbol(const char*)$/;"	f	class:Redis
+GetFormatSymbol	sdk/third_part/redis/Redis.h	/^	const char* GetFormatSymbol(float)$/;"	f	class:Redis
+GetFormatSymbol	sdk/third_part/redis/Redis.h	/^	const char* GetFormatSymbol(int)$/;"	f	class:Redis
+GetFormatSymbol	sdk/third_part/redis/Redis.h	/^    const char* GetFormatSymbol(Type value,TypeList... typeList)$/;"	f	class:Redis
 GetHashCode	sdk/third_part/json/schema.h	/^    uint64_t GetHashCode() const {$/;"	f	class:internal::Hasher
 GetHashCode	sdk/third_part/json/schema.h	/^    virtual uint64_t GetHashCode(void* hasher) {$/;"	f	class:GenericSchemaValidator
-GetHour	sdk/base/sTime.h	/^		DWORD GetHour()const$/;"	f	class:final
+GetHour	sdk/base/Time.h	/^			DWORD GetHour()const$/;"	f	class:sdk::final
 GetHp	sdk/ai/Hero.h	/^		int GetHp(){return _hp;}$/;"	f	class:Hero
 GetInt	sdk/third_part/json/document.h	/^    int GetInt() const          { RAPIDJSON_ASSERT(data_.f.flags & kIntFlag);   return data_.n.i.i;   }$/;"	f	class:GenericValue
 GetInt64	sdk/third_part/json/document.h	/^    int64_t GetInt64() const    { RAPIDJSON_ASSERT(data_.f.flags & kInt64Flag); return data_.n.i64; }$/;"	f	class:GenericValue
@@ -827,19 +848,19 @@ GetLength	sdk/third_part/json/document.h	/^        inline SizeType GetLength() c
 GetLength	sdk/third_part/json/stringbuffer.h	/^    size_t GetLength() const { return stack_.GetSize() \/ sizeof(Ch); }$/;"	f	class:GenericStringBuffer
 GetLongValue	sdk/base/VarList.h	/^		LONG GetLongValue(){$/;"	f	class:VarObj
 GetLongValue	sdk/base/VarList.h	/^		LONG GetLongValue(DWORD i)$/;"	f	class:VarList
-GetMDay	sdk/base/sTime.h	/^		DWORD GetMDay()const$/;"	f	class:final
+GetMDay	sdk/base/Time.h	/^			DWORD GetMDay()const$/;"	f	class:sdk::final
 GetMaxDecimalPlaces	sdk/third_part/json/writer.h	/^    int GetMaxDecimalPlaces() const {$/;"	f	class:Writer
 GetMember	sdk/third_part/json/schema.h	/^    static const ValueType* GetMember(const ValueType& value, const ValueType& name) {$/;"	f	class:internal::Schema
 GetMembersPointer	sdk/third_part/json/document.h	/^    RAPIDJSON_FORCEINLINE Member* GetMembersPointer() const { return RAPIDJSON_GETPOINTER(Member, data_.o.members); }$/;"	f	class:GenericValue
 GetMetadata	proto/Gate.pb.cc	/^::google::protobuf::Metadata Info::GetMetadata() const {$/;"	f	class:Gate::Info
 GetMetadata	test/test.pb.cc	/^::google::protobuf::Metadata pack::GetMetadata() const {$/;"	f	class:muduo::pack
-GetMinute	sdk/base/sTime.h	/^		DWORD GetMinute()const$/;"	f	class:final
-GetMonth	sdk/base/sTime.h	/^		DWORD GetMonth()const$/;"	f	class:final
+GetMinute	sdk/base/Time.h	/^			DWORD GetMinute()const$/;"	f	class:sdk::final
+GetMonth	sdk/base/Time.h	/^			DWORD GetMonth()const$/;"	f	class:sdk::final
 GetMp	sdk/ai/Hero.h	/^		int GetMp(){return _mp;}$/;"	f	class:Hero
-GetMsec	sdk/base/sTime.h	/^	 QWORD GetMsec()const{$/;"	f	class:final
+GetMsec	sdk/base/Time.h	/^			QWORD GetMsec()const{$/;"	f	class:sdk::final
 GetNext	sdk/ai/XmlFile.cpp	/^xmlNodePtr XmlFile::GetNext(xmlNodePtr node)$/;"	f	class:XmlFile
 GetNext	sdk/base/XmlFile.cpp	/^xmlNodePtr XmlFile::GetNext(xmlNodePtr node)$/;"	f	class:XmlFile
-GetNextHourSec	sdk/base/sTime.h	/^	static DWORD GetNextHourSec(){$/;"	f	class:TimeHelp
+GetNextHourSec	sdk/base/Time.h	/^			static DWORD GetNextHourSec(){$/;"	f	class:sdk::TimeHelp
 GetNode	sdk/ai/XmlFile.cpp	/^xmlNodePtr XmlFile::GetNode(const xmlNodePtr node,const char*name)$/;"	f	class:XmlFile
 GetNode	sdk/base/XmlFile.cpp	/^xmlNodePtr XmlFile::GetNode(const xmlNodePtr node,const char*name)$/;"	f	class:XmlFile
 GetNodeAttrStr	sdk/ai/XmlFile.cpp	/^const char* XmlFile::GetNodeAttrStr(const xmlNodePtr node,const char*attrName)$/;"	f	class:XmlFile
@@ -867,9 +888,9 @@ GetParseErrorFunc	sdk/third_part/json/error/error.h	/^typedef const RAPIDJSON_ER
 GetParseErrorOffset	sdk/third_part/json/pointer.h	/^    size_t GetParseErrorOffset() const { return parseErrorOffset_; }$/;"	f	class:GenericPointer
 GetParseError_En	sdk/third_part/json/error/en.h	/^inline const RAPIDJSON_ERROR_CHARTYPE* GetParseError_En(ParseErrorCode parseErrorCode) {$/;"	f
 GetParseResult	sdk/third_part/json/schema.h	/^    const ParseResult& GetParseResult() const { return parseResult_; }$/;"	f	class:SchemaValidatingReader
-GetPhteadByIndex	sdk/base/sPthreadPool.cpp	/^sPthread* sPthreadPool::GetPhteadByIndex(DWORD dwIndex)$/;"	f	class:sPthreadPool
+GetPhteadByIndex	sdk/base/PthreadPool.cpp	/^Pthread* PthreadPool::GetPhteadByIndex(DWORD dwIndex)$/;"	f	class:PthreadPool
 GetPointer	sdk/third_part/json/schema.h	/^    PointerType GetPointer(const SchemaType* schema) const {$/;"	f	class:GenericSchemaDocument
-GetPthreadSize	sdk/base/sPthreadPool.h	/^	DWORD GetPthreadSize(){return _poolIndex;};$/;"	f	class:sPthreadPool
+GetPthreadSize	sdk/base/PthreadPool.h	/^	DWORD GetPthreadSize(){return _poolIndex;};$/;"	f	class:PthreadPool
 GetQWValue	sdk/base/VarList.h	/^		DWORD GetQWValue(DWORD i)$/;"	f	class:VarList
 GetQWValue	sdk/base/VarList.h	/^		QWORD GetQWValue(){$/;"	f	class:VarObj
 GetRange	sdk/third_part/json/encodings.h	/^    static unsigned char GetRange(unsigned char c) {$/;"	f	struct:UTF8
@@ -881,19 +902,20 @@ GetRootElement	sdk/ai/XmlFile.cpp	/^xmlNodePtr XmlFile::GetRootElement(const cha
 GetRootElement	sdk/base/XmlFile.cpp	/^xmlNodePtr XmlFile::GetRootElement()$/;"	f	class:XmlFile
 GetRootElement	sdk/base/XmlFile.cpp	/^xmlNodePtr XmlFile::GetRootElement(const char* name)$/;"	f	class:XmlFile
 GetSchema	sdk/third_part/json/schema.h	/^    const SchemaType* GetSchema(const PointerType& pointer) const {$/;"	f	class:GenericSchemaDocument
-GetSec	sdk/base/sTime.h	/^		DWORD GetSec()const$/;"	f	class:final
-GetSec	sdk/base/sTime.h	/^	 DWORD GetSec()const{$/;"	f	class:final
-GetServerName	sdk/net/sServer.h	/^		const char* GetServerName(){return _serverName.c_str();}$/;"	f	class:sServer
+GetSec	sdk/base/Time.h	/^			DWORD GetSec()const$/;"	f	class:sdk::final
+GetSec	sdk/base/Time.h	/^			DWORD GetSec()const{$/;"	f	class:sdk::final
+GetServerName	sdk/net/Server.h	/^			const char* GetServerName(){return _serverName.c_str();}$/;"	f	class:sdk::Server
 GetSize	sdk/third_part/json/internal/stack.h	/^    size_t GetSize() const { return static_cast<size_t>(stackTop_ - stack_); }$/;"	f	class:internal::Stack
 GetSize	sdk/third_part/json/memorybuffer.h	/^    size_t GetSize() const { return stack_.GetSize(); }$/;"	f	struct:GenericMemoryBuffer
 GetSize	sdk/third_part/json/stringbuffer.h	/^    size_t GetSize() const { return stack_.GetSize(); }$/;"	f	class:GenericStringBuffer
-GetSocket	sdk/net/sSctpSocket.h	/^		int		GetSocket(){return _fd;}$/;"	f	class:sSctpSocket
+GetSocket	sdk/net/SctpSocket.h	/^		int		GetSocket(){return _fd;}$/;"	f	class:sdk::SctpSocket
+GetSocketType	sdk/net/ServerSocket.cpp	/^SocketType ServerSocket::GetSocketType(){$/;"	f	class:ServerSocket
 GetStackCapacity	sdk/third_part/json/document.h	/^    size_t GetStackCapacity() const { return stack_.GetCapacity(); }$/;"	f	class:GenericDocument
 GetState	sdk/third_part/json/internal/regex.h	/^    State& GetState(SizeType index) {$/;"	f	class:internal::GenericRegex
 GetState	sdk/third_part/json/internal/regex.h	/^    const State& GetState(SizeType index) const {$/;"	f	class:internal::GenericRegex
 GetStateAllocator	sdk/third_part/json/schema.h	/^    StateAllocator& GetStateAllocator() {$/;"	f	class:GenericSchemaValidator
 GetStateSetSize	sdk/third_part/json/internal/regex.h	/^    size_t GetStateSetSize() const {$/;"	f	class:internal::GenericRegexSearch
-GetStrUid	sdk/base/sUid.h	/^void GetStrUid(UuidStr* uidStr )$/;"	f
+GetStrUid	sdk/base/Uid.h	/^void GetStrUid(UuidStr* uidStr )$/;"	f
 GetStrValue	sdk/base/VarList.h	/^		std::string GetStrValue(){$/;"	f	class:VarObj
 GetStrValue	sdk/base/VarList.h	/^		std::string GetStrValue(DWORD i)$/;"	f	class:VarList
 GetString	sdk/third_part/json/document.h	/^    const Ch* GetString() const { RAPIDJSON_ASSERT(IsString()); return (data_.f.flags & kInlineStrFlag) ? data_.ss.str : GetStringPointer(); }$/;"	f	class:GenericValue
@@ -908,7 +930,7 @@ GetType	sdk/third_part/json/encodedstream.h	/^    UTFType GetType() const { retu
 GetTypeless	sdk/third_part/json/schema.h	/^    const SchemaType* GetTypeless() const { return typeless_; }$/;"	f	class:GenericSchemaDocument
 GetUint	sdk/third_part/json/document.h	/^    unsigned GetUint() const    { RAPIDJSON_ASSERT(data_.f.flags & kUintFlag);  return data_.n.u.u;   }$/;"	f	class:GenericValue
 GetUint64	sdk/third_part/json/document.h	/^    uint64_t GetUint64() const  { RAPIDJSON_ASSERT(data_.f.flags & kUint64Flag); return data_.n.u64; }$/;"	f	class:GenericValue
-GetUtcSec	sdk/base/sTime.h	/^		DWORD GetUtcSec(){$/;"	f	class:final
+GetUtcSec	sdk/base/Time.h	/^			DWORD GetUtcSec(){$/;"	f	class:sdk::final
 GetValueByPointer	sdk/third_part/json/pointer.h	/^const typename T::ValueType* GetValueByPointer(const T& root, const CharType(&source)[N], size_t* unresolvedTokenIndex = 0) {$/;"	f
 GetValueByPointer	sdk/third_part/json/pointer.h	/^const typename T::ValueType* GetValueByPointer(const T& root, const GenericPointer<typename T::ValueType>& pointer, size_t* unresolvedTokenIndex = 0) {$/;"	f
 GetValueByPointer	sdk/third_part/json/pointer.h	/^typename T::ValueType* GetValueByPointer(T& root, const CharType (&source)[N], size_t* unresolvedTokenIndex = 0) {$/;"	f
@@ -929,7 +951,7 @@ GetValueByPointerWithDefault	sdk/third_part/json/pointer.h	/^typename T::ValueTy
 GetValueByPointerWithDefault	sdk/third_part/json/pointer.h	/^typename T::ValueType& GetValueByPointerWithDefault(T& root, const GenericPointer<typename T::ValueType>& pointer, const std::basic_string<typename T::Ch>& defaultValue, typename T::AllocatorType& a) {$/;"	f
 GetValueByPointerWithDefault	sdk/third_part/json/pointer.h	/^typename T::ValueType& GetValueByPointerWithDefault(T& root, const GenericPointer<typename T::ValueType>& pointer, const typename T::Ch* defaultValue, typename T::AllocatorType& a) {$/;"	f
 GetValueByPointerWithDefault	sdk/third_part/json/pointer.h	/^typename T::ValueType& GetValueByPointerWithDefault(T& root, const GenericPointer<typename T::ValueType>& pointer, const typename T::ValueType& defaultValue, typename T::AllocatorType& a) {$/;"	f
-GetWDay	sdk/base/sTime.h	/^		DWORD GetWDay()const$/;"	f	class:final
+GetWDay	sdk/base/Time.h	/^			DWORD GetWDay()const$/;"	f	class:sdk::final
 GetWithDefault	sdk/third_part/json/pointer.h	/^    GetWithDefault(GenericDocument<EncodingType, typename ValueType::AllocatorType, stackAllocator>& document, T defaultValue) const {$/;"	f	class:GenericPointer
 GetWithDefault	sdk/third_part/json/pointer.h	/^    GetWithDefault(ValueType& root, T defaultValue, typename ValueType::AllocatorType& allocator) const {$/;"	f	class:GenericPointer
 GetWithDefault	sdk/third_part/json/pointer.h	/^    ValueType& GetWithDefault(GenericDocument<EncodingType, typename ValueType::AllocatorType, stackAllocator>& document, const Ch* defaultValue) const {$/;"	f	class:GenericPointer
@@ -938,8 +960,8 @@ GetWithDefault	sdk/third_part/json/pointer.h	/^    ValueType& GetWithDefault(Gen
 GetWithDefault	sdk/third_part/json/pointer.h	/^    ValueType& GetWithDefault(ValueType& root, const Ch* defaultValue, typename ValueType::AllocatorType& allocator) const {$/;"	f	class:GenericPointer
 GetWithDefault	sdk/third_part/json/pointer.h	/^    ValueType& GetWithDefault(ValueType& root, const ValueType& defaultValue, typename ValueType::AllocatorType& allocator) const {$/;"	f	class:GenericPointer
 GetWithDefault	sdk/third_part/json/pointer.h	/^    ValueType& GetWithDefault(ValueType& root, const std::basic_string<Ch>& defaultValue, typename ValueType::AllocatorType& allocator) const {$/;"	f	class:GenericPointer
-GetYDay	sdk/base/sTime.h	/^		DWORD GetYDay()const$/;"	f	class:final
-GetYear	sdk/base/sTime.h	/^		DWORD GetYear()const$/;"	f	class:final
+GetYDay	sdk/base/Time.h	/^			DWORD GetYDay()const$/;"	f	class:sdk::final
+GetYear	sdk/base/Time.h	/^			DWORD GetYear()const$/;"	f	class:sdk::final
 Grisu2	sdk/third_part/json/internal/dtoa.h	/^inline void Grisu2(double value, char* buffer, int* length, int* K) {$/;"	f	namespace:internal
 GrisuRound	sdk/third_part/json/internal/dtoa.h	/^inline void GrisuRound(char* buffer, int len, uint64_t delta, uint64_t rest, uint64_t ten_kappa, uint64_t wp_w) {$/;"	f	namespace:internal
 HASH_UNIT	sdk/third_part/zip/lz4.c	934;"	d	file:
@@ -956,6 +978,11 @@ HAVE_SYS_TIME_H	config.h	32;"	d
 HAVE_SYS_TYPES_H	config.h	35;"	d
 HAVE_UNISTD_H	config.h	38;"	d
 HEAPMODE	sdk/third_part/zip/lz4.c	45;"	d	file:
+HF	sdk/base/HelpFunction.h	/^	namespace HF{$/;"	n	namespace:sdk
+HIREDIS_MAJOR	sdk/third_part/redis/hiredis.h	38;"	d
+HIREDIS_MINOR	sdk/third_part/redis/hiredis.h	39;"	d
+HIREDIS_PATCH	sdk/third_part/redis/hiredis.h	40;"	d
+HOST	sdk/third_part/redis/main.cpp	9;"	d	file:
 HandleError	sdk/third_part/json/reader.h	/^    void HandleError(IterativeParsingState src, InputStream& is) {$/;"	f	class:GenericReader
 HandleRefSchema	sdk/third_part/json/schema.h	/^    bool HandleRefSchema(const PointerType& source, const SchemaType** schema, const ValueType& v, const ValueType& document) {$/;"	f	class:GenericSchemaDocument
 HasAllocator	sdk/third_part/json/internal/stack.h	/^    bool HasAllocator() const {$/;"	f	class:internal::Stack
@@ -1013,7 +1040,7 @@ INT32_C	sdk/third_part/json/msinttypes/stdint.h	67;"	d
 INT32_MAX	sdk/third_part/json/msinttypes/stdint.h	183;"	d
 INT32_MIN	sdk/third_part/json/msinttypes/stdint.h	182;"	d
 INT64	sdk/ai/sDefine.h	/^typedef long INT64;$/;"	t
-INT64	sdk/base/sDefine.h	/^typedef long INT64;$/;"	t
+INT64	sdk/base/Define.h	/^typedef long INT64;$/;"	t
 INT64_C	sdk/third_part/json/msinttypes/stdint.h	279;"	d
 INT64_C	sdk/third_part/json/msinttypes/stdint.h	57;"	d
 INT64_C	sdk/third_part/json/msinttypes/stdint.h	68;"	d
@@ -1062,22 +1089,21 @@ Info	proto/Gate.pb.cc	/^Info::Info()$/;"	f	class:Gate::Info
 Info	proto/Gate.pb.cc	/^Info::Info(const Info& from)$/;"	f	class:Gate::Info
 Info	proto/Gate.pb.h	/^class Info : public ::google::protobuf::Message \/* @@protoc_insertion_point(class_definition:Gate.Info) *\/ {$/;"	c	namespace:Gate
 Info	sdk/base/LogManager.cpp	/^void LogManager::Info(const char*fmt,...)$/;"	f	class:LogManager
-Info_descriptor_	proto/Gate.pb.cc	/^const ::google::protobuf::Descriptor* Info_descriptor_ = NULL;$/;"	m	namespace:Gate::__anon30	file:
-Info_reflection_	proto/Gate.pb.cc	/^  Info_reflection_ = NULL;$/;"	m	namespace:Gate::__anon30	file:
+Info_descriptor_	proto/Gate.pb.cc	/^const ::google::protobuf::Descriptor* Info_descriptor_ = NULL;$/;"	m	namespace:Gate::__anon31	file:
+Info_reflection_	proto/Gate.pb.cc	/^  Info_reflection_ = NULL;$/;"	m	namespace:Gate::__anon31	file:
 Init	sdk/ai/AISystem.cpp	/^bool AISystem::Init()$/;"	f	class:AISystem
 Init	sdk/base/LogManager.cpp	/^void LogManager::Init(const char* configureFile,const char* nodeName)$/;"	f	class:LogManager
 Init	sdk/base/LuaSystem.cpp	/^bool LuaSystem::Init()$/;"	f	class:LuaSystem
-Init	sdk/base/sCompress.cpp	/^bool sCompress::Init()$/;"	f	class:sCompress
-Init	sdk/base/sPthread.h	/^		virtual bool Init(){return true;};$/;"	f	class:sPthread
+Init	sdk/base/Pthread.h	/^		virtual bool Init(){return true;};$/;"	f	class:Pthread
+Init	sdk/net/Epoll.cpp	/^bool Epoll::Init(int maxfdSize)$/;"	f	class:Epoll
+Init	sdk/net/SctpPthread.cpp	/^bool SctpPthread::Init()$/;"	f	class:SctpPthread
+Init	sdk/net/SctpSocket.cpp	/^bool SctpSocket::Init()$/;"	f	class:SctpSocket
+Init	sdk/net/Server.cpp	/^bool Server::Init()$/;"	f	class:Server
 Init	sdk/net/ServerSocket.cpp	/^bool ServerSocket::Init(Json::Document& config){$/;"	f	class:ServerSocket
-Init	sdk/net/sEpoll.cpp	/^bool sEpoll::Init(int maxfdSize)$/;"	f	class:sEpoll
-Init	sdk/net/sSctpPthread.cpp	/^bool sSctpPthread::Init()$/;"	f	class:sSctpPthread
-Init	sdk/net/sSctpSocket.cpp	/^bool sSctpSocket::Init()$/;"	f	class:sSctpSocket
-Init	sdk/net/sServer.cpp	/^bool sServer::Init()$/;"	f	class:sServer
-Init	sdk/net/sSocket.cpp	/^bool sSocket::Init(const std::string& ipPort)$/;"	f	class:sSocket
+Init	sdk/net/Socket.cpp	/^bool sSocket::Init(const std::string& ipPort)$/;"	f	class:sSocket
 InitAsDefaultInstance	proto/Gate.pb.cc	/^void Info::InitAsDefaultInstance() {$/;"	f	class:Gate::Info
 InitAsDefaultInstance	test/test.pb.cc	/^void pack::InitAsDefaultInstance() {$/;"	f	class:muduo::pack
-InitPool	sdk/net/sSctpPool.cpp	/^void sSctpPool::InitPool()$/;"	f	class:sSctpPool
+InitPool	sdk/net/SctpPool.cpp	/^void SctpPool::InitPool()$/;"	f	class:SctpPool
 InitXml	sdk/ai/XmlFile.cpp	/^bool XmlFile::InitXml(const char *fileName)$/;"	f	class:XmlFile
 InitXml	sdk/base/XmlFile.cpp	/^bool XmlFile::InitXml(const char *fileName)$/;"	f	class:XmlFile
 InsituStringStream	sdk/third_part/json/fwd.h	/^typedef GenericInsituStringStream<UTF8<char> > InsituStringStream;$/;"	t
@@ -1151,19 +1177,19 @@ IsPointer	sdk/third_part/json/internal/meta.h	/^template <typename T> struct IsP
 IsPointer	sdk/third_part/json/internal/meta.h	/^template <typename T> struct IsPointer<T*> : TrueType {};$/;"	s	namespace:internal
 IsSame	sdk/third_part/json/internal/meta.h	/^template <typename T, typename U> struct IsSame : FalseType {};$/;"	s	namespace:internal
 IsSame	sdk/third_part/json/internal/meta.h	/^template <typename T> struct IsSame<T, T> : TrueType {};$/;"	s	namespace:internal
-IsSameDay	sdk/base/sTime.h	/^	static bool IsSameDay(time_t&src,time_t&other)$/;"	f	class:TimeHelp
-IsSameHour	sdk/base/sTime.h	/^		bool IsSameHour()const$/;"	f	class:final
-IsSameHour	sdk/base/sTime.h	/^		bool IsSameHour(const Time &other)const$/;"	f	class:final
-IsSameHour	sdk/base/sTime.h	/^		bool IsSameHour(const time_t &time)const$/;"	f	class:final
-IsSameMinute	sdk/base/sTime.h	/^		bool IsSameMinute()const$/;"	f	class:final
-IsSameMinute	sdk/base/sTime.h	/^		bool IsSameMinute(const Time &other)const$/;"	f	class:final
-IsSameMinute	sdk/base/sTime.h	/^		bool IsSameMinute(const time_t &time)const$/;"	f	class:final
-IsSameMonth	sdk/base/sTime.h	/^	static bool IsSameMonth(time_t&src,time_t&other){$/;"	f	class:TimeHelp
-IsSameSec	sdk/base/sTime.h	/^		bool IsSameSec()const$/;"	f	class:final
-IsSameSec	sdk/base/sTime.h	/^		bool IsSameSec(const Time &other)const$/;"	f	class:final
-IsSameSec	sdk/base/sTime.h	/^		bool IsSameSec(const time_t &time)const$/;"	f	class:final
-IsSameWeek	sdk/base/sTime.h	/^	static bool IsSameWeek(time_t&src,time_t& other)$/;"	f	class:TimeHelp
-IsSameYear	sdk/base/sTime.h	/^	static bool IsSameYear(time_t&src,time_t&other){$/;"	f	class:TimeHelp
+IsSameDay	sdk/base/Time.h	/^			static bool IsSameDay(time_t&src,time_t&other)$/;"	f	class:sdk::TimeHelp
+IsSameHour	sdk/base/Time.h	/^			bool IsSameHour()const$/;"	f	class:sdk::final
+IsSameHour	sdk/base/Time.h	/^			bool IsSameHour(const Time &other)const$/;"	f	class:sdk::final
+IsSameHour	sdk/base/Time.h	/^			bool IsSameHour(const time_t &time)const$/;"	f	class:sdk::final
+IsSameMinute	sdk/base/Time.h	/^			bool IsSameMinute()const$/;"	f	class:sdk::final
+IsSameMinute	sdk/base/Time.h	/^			bool IsSameMinute(const Time &other)const$/;"	f	class:sdk::final
+IsSameMinute	sdk/base/Time.h	/^			bool IsSameMinute(const time_t &time)const$/;"	f	class:sdk::final
+IsSameMonth	sdk/base/Time.h	/^			static bool IsSameMonth(time_t&src,time_t&other){$/;"	f	class:sdk::TimeHelp
+IsSameSec	sdk/base/Time.h	/^			bool IsSameSec()const$/;"	f	class:sdk::final
+IsSameSec	sdk/base/Time.h	/^			bool IsSameSec(const Time &other)const$/;"	f	class:sdk::final
+IsSameSec	sdk/base/Time.h	/^			bool IsSameSec(const time_t &time)const$/;"	f	class:sdk::final
+IsSameWeek	sdk/base/Time.h	/^			static bool IsSameWeek(time_t&src,time_t& other)$/;"	f	class:sdk::TimeHelp
+IsSameYear	sdk/base/Time.h	/^			static bool IsSameYear(time_t&src,time_t&other){$/;"	f	class:sdk::TimeHelp
 IsSpecial	sdk/ai/AISystem.cpp	/^bool AISystem::IsSpecial(const char*nodeName)$/;"	f	class:AISystem
 IsString	sdk/third_part/json/document.h	/^    bool IsString() const { return (data_.f.flags & kStringFlag) != 0; }$/;"	f	class:GenericValue
 IsTrue	sdk/third_part/json/document.h	/^    bool IsTrue()   const { return data_.f.flags == kTrueFlag; }$/;"	f	class:GenericValue
@@ -1217,10 +1243,10 @@ LD	Gate/Makefile	/^LD = \/usr\/bin\/ld -m elf_x86_64$/;"	m
 LD	Makefile	/^LD = \/usr\/bin\/ld -m elf_x86_64$/;"	m
 LD	sdk/Makefile	/^LD = \/usr\/bin\/ld -m elf_x86_64$/;"	m
 LD	test/Makefile	/^LD = \/usr\/bin\/ld -m elf_x86_64$/;"	m
-LDFLAGS	Gate/Makefile	/^LDFLAGS = -L\/usr\/lib64\/$/;"	m
-LDFLAGS	Makefile	/^LDFLAGS = -L\/usr\/lib64\/$/;"	m
-LDFLAGS	sdk/Makefile	/^LDFLAGS = -L\/usr\/lib64\/$/;"	m
-LDFLAGS	test/Makefile	/^LDFLAGS = -L\/usr\/lib64\/$/;"	m
+LDFLAGS	Gate/Makefile	/^LDFLAGS = -L\/usr\/lib64\/ -L\/usr\/local\/lib$/;"	m
+LDFLAGS	Makefile	/^LDFLAGS = -L\/usr\/lib64\/ -L\/usr\/local\/lib$/;"	m
+LDFLAGS	sdk/Makefile	/^LDFLAGS = -L\/usr\/lib64\/ -L\/usr\/local\/lib$/;"	m
+LDFLAGS	test/Makefile	/^LDFLAGS = -L\/usr\/lib64\/ -L\/usr\/local\/lib$/;"	m
 LIBOBJS	Gate/Makefile	/^LIBOBJS = $/;"	m
 LIBOBJS	Makefile	/^LIBOBJS = $/;"	m
 LIBOBJS	sdk/Makefile	/^LIBOBJS = $/;"	m
@@ -1253,9 +1279,9 @@ LOG_LEVE_OFF	sdk/base/LogManager.h	/^		LOG_LEVE_OFF	= log4cplus::OFF_LOG_LEVEL,$
 LOG_LEVE_TRACE	sdk/base/LogManager.h	/^		LOG_LEVE_TRACE	= log4cplus::TRACE_LOG_LEVEL,$/;"	m	class:sdk::LogLevel
 LOG_LEVE_WARN	sdk/base/LogManager.h	/^		LOG_LEVE_WARN   = log4cplus::WARN_LOG_LEVEL,$/;"	m	class:sdk::LogLevel
 LONG	sdk/ai/sDefine.h	/^typedef long LONG;$/;"	t
-LONG	sdk/base/sDefine.h	/^typedef long LONG;$/;"	t
+LONG	sdk/base/Define.h	/^typedef long LONG;$/;"	t
 LONGLONG	sdk/ai/sDefine.h	/^typedef long long LONGLONG;$/;"	t
-LONGLONG	sdk/base/sDefine.h	/^typedef long long LONGLONG;$/;"	t
+LONGLONG	sdk/base/Define.h	/^typedef long long LONGLONG;$/;"	t
 LONGVALUE	sdk/base/VarList.h	/^			LONGVALUE,$/;"	m	class:VarObj::ValueType
 LTCOMPILE	sdk/Makefile	/^LTCOMPILE = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \\$/;"	m
 LTCOMPILE	test/Makefile	/^LTCOMPILE = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \\$/;"	m
@@ -1405,8 +1431,7 @@ Load	sdk/ai/AICheckRuleAction.h	/^		void Load(xmlNodePtr node){$/;"	f	class:Chec
 Load	sdk/ai/AIExecuteRuleAction.h	/^		 void Load(xmlNodePtr node){$/;"	f	class:ExecuteEcho
 Load	sdk/ai/AIExecuteRuleAction.h	/^		void Load(xmlNodePtr node)$/;"	f	class:ExecuteHit
 Load	sdk/ai/AINode.h	/^	virtual void  Load(xmlNodePtr node){};$/;"	f	class:AINodeBase
-LoadConfig	sdk/base/sCompress.cpp	/^bool sCompress::LoadConfig()$/;"	f	class:sCompress
-LoadConfig	sdk/net/sServer.cpp	/^bool sServer::LoadConfig(const char*  configName)$/;"	f	class:sServer
+LoadConfig	sdk/net/Server.cpp	/^bool Server::LoadConfig(const char*  configName)$/;"	f	class:Server
 LoadLuaFile	sdk/base/LuaSystem.cpp	/^bool LuaSystem::LoadLuaFile(const char* luaFile_)$/;"	f	class:LuaSystem
 LoadRes	sdk/ai/AISystem.cpp	/^bool AISystem::LoadRes()$/;"	f	class:AISystem
 LogLevel	sdk/base/LogManager.h	/^	enum class LogLevel{$/;"	c	namespace:sdk
@@ -1414,9 +1439,9 @@ LogManager	sdk/base/LogManager.h	/^			LogManager(){$/;"	f	class:sdk::LogManager
 LogManager	sdk/base/LogManager.h	/^	class LogManager{$/;"	c	namespace:sdk
 LoginServer	Login/LoginServer.h	/^	LoginServer(const char* name):_serverName(name){}$/;"	f	class:LoginServer
 LoginServer	Login/LoginServer.h	/^class LoginServer$/;"	c
-Loop	sdk/net/sEpoll.cpp	/^bool sEpoll::Loop()$/;"	f	class:sEpoll
-Loop	sdk/net/sSctpSocket.cpp	/^void sSctpSocket::Loop()$/;"	f	class:sSctpSocket
-Loop	sdk/net/sServer.cpp	/^bool sServer::Loop(){$/;"	f	class:sServer
+Loop	sdk/net/Epoll.cpp	/^bool Epoll::Loop()$/;"	f	class:Epoll
+Loop	sdk/net/SctpSocket.cpp	/^void SctpSocket::Loop()$/;"	f	class:SctpSocket
+Loop	sdk/net/Server.cpp	/^bool Server::Loop(){$/;"	f	class:Server
 LuaSystem	sdk/base/LuaSystem.h	/^class LuaSystem$/;"	c
 MAKEINFO	Gate/Makefile	/^MAKEINFO = ${SHELL} \/home\/sauli\/server\/missing makeinfo$/;"	m
 MAKEINFO	Makefile	/^MAKEINFO = ${SHELL} \/home\/sauli\/server\/missing makeinfo$/;"	m
@@ -1438,12 +1463,10 @@ MKDIR_P	sdk/Makefile	/^MKDIR_P = \/usr\/bin\/mkdir -p$/;"	m
 MKDIR_P	test/Makefile	/^MKDIR_P = \/usr\/bin\/mkdir -p$/;"	m
 ML_BITS	sdk/third_part/zip/lz4.c	276;"	d	file:
 ML_MASK	sdk/third_part/zip/lz4.c	277;"	d	file:
-MSG	sdk/net/sSocket.h	10;"	d
+MSG	sdk/net/Socket.h	10;"	d
 Malloc	sdk/third_part/json/allocators.h	/^    void* Malloc(size_t size) { $/;"	f	class:CrtAllocator
 Malloc	sdk/third_part/json/allocators.h	/^    void* Malloc(size_t size) {$/;"	f	class:MemoryPoolAllocator
 MallocState	sdk/third_part/json/schema.h	/^    virtual void* MallocState(size_t size) {$/;"	f	class:GenericSchemaValidator
-MapManage	sdk/base/MapManage.h	/^		MapManage(K& key,V& value){ $/;"	f	class:MapManage
-MapManage	sdk/base/MapManage.h	/^class MapManage$/;"	c
 Match	sdk/third_part/json/internal/regex.h	/^    bool Match(InputStream& is) {$/;"	f	class:internal::GenericRegexSearch
 Match	sdk/third_part/json/internal/regex.h	/^    bool Match(const Ch* s) {$/;"	f	class:internal::GenericRegexSearch
 MatchRange	sdk/third_part/json/internal/regex.h	/^    bool MatchRange(SizeType rangeIndex, unsigned codepoint) const {$/;"	f	class:internal::GenericRegexSearch
@@ -1478,13 +1501,15 @@ MergeFrom	test/test.pb.cc	/^void pack::MergeFrom(const ::google::protobuf::Messa
 MergeFrom	test/test.pb.cc	/^void pack::MergeFrom(const pack& from) {$/;"	f	class:muduo::pack
 MergePartialFromCodedStream	proto/Gate.pb.cc	/^bool Info::MergePartialFromCodedStream($/;"	f	class:Gate::Info
 MergePartialFromCodedStream	test/test.pb.cc	/^bool pack::MergePartialFromCodedStream($/;"	f	class:muduo::pack
-MessageDel	sdk/net/sProtobuf.h	/^		inline void MessageDel(const char *buf){$/;"	f	class:ProtobufManage
+MessageDel	sdk/net/Protobuf.h	/^			inline void MessageDel(const char *buf){$/;"	f	class:sdk::ProtobufManage
 Min	sdk/third_part/json/internal/regex.h	/^    static SizeType Min(SizeType a, SizeType b) { return a < b ? a : b; }$/;"	f	class:internal::GenericRegex
 Min3	sdk/third_part/json/internal/strtod.h	/^inline T Min3(T a, T b, T c) {$/;"	f	namespace:internal
 More	sdk/ai/CompareRule.h	/^		static bool More(T t1,T t2){return t1 > t2;}$/;"	f	class:CompareRule
 MoreEqule	sdk/ai/CompareRule.h	/^		static bool MoreEqule(T t1,T t2){return t1 >= t2;}$/;"	f	class:CompareRule
 MulAdd64	sdk/third_part/json/internal/biginteger.h	/^    static uint64_t MulAdd64(uint64_t a, uint64_t b, uint64_t k, uint64_t* outHigh) {$/;"	f	class:internal::BigInteger
 MultiplyPow5	sdk/third_part/json/internal/biginteger.h	/^    BigInteger& MultiplyPow5(unsigned exp) {$/;"	f	class:internal::BigInteger
+Mutex	sdk/base/Mutex.h	/^		Mutex(){pthread_mutex_init(&_mutex,NULL);}$/;"	f	class:Mutex
+Mutex	sdk/base/Mutex.h	/^class Mutex{$/;"	c
 N	sdk/third_part/json/reader.h	1791;"	d
 N	sdk/third_part/json/reader.h	1805;"	d
 N16	sdk/third_part/json/reader.h	1792;"	d
@@ -1510,7 +1535,7 @@ New	proto/Gate.pb.cc	/^Info* Info::New(::google::protobuf::Arena* arena) const {
 New	proto/Gate.pb.h	/^  inline Info* New() const { return New(NULL); }$/;"	f	class:Gate::Info
 New	test/test.pb.cc	/^pack* pack::New(::google::protobuf::Arena* arena) const {$/;"	f	class:muduo::pack
 New	test/test.pb.h	/^  inline pack* New() const { return New(NULL); }$/;"	f	class:muduo::pack
-NewClient	sdk/net/sSctpPool.cpp	/^void sSctpPool::NewClient(DWORD dwSocket)$/;"	f	class:sSctpPool
+NewClient	sdk/net/SctpPool.cpp	/^void SctpPool::NewClient(DWORD dwSocket)$/;"	f	class:SctpPool
 NewRange	sdk/third_part/json/internal/regex.h	/^    SizeType NewRange(unsigned codepoint) {$/;"	f	class:internal::GenericRegex
 NewState	sdk/third_part/json/internal/regex.h	/^    SizeType NewState(SizeType out, SizeType out1, unsigned codepoint) {$/;"	f	class:internal::GenericRegex
 NextPositiveDouble	sdk/third_part/json/internal/ieee754.h	/^    double NextPositiveDouble() const {$/;"	f	class:internal::Double
@@ -1613,6 +1638,7 @@ PATH_SEPARATOR	sdk/Makefile	/^PATH_SEPARATOR = :$/;"	m
 PATH_SEPARATOR	test/Makefile	/^PATH_SEPARATOR = :$/;"	m
 POOL_LIST_MAX_LENGTH	pool.h	6;"	d
 POOL_MANAGE_MAX_SIZE	pool.h	8;"	d
+PORT	sdk/third_part/redis/main.cpp	10;"	d	file:
 POST_INSTALL	Gate/Makefile	/^POST_INSTALL = :$/;"	m
 POST_INSTALL	Makefile	/^POST_INSTALL = :$/;"	m
 POST_INSTALL	sdk/Makefile	/^POST_INSTALL = :$/;"	m
@@ -1717,7 +1743,7 @@ PROGRAMS	Gate/Makefile	/^PROGRAMS = $(bin_PROGRAMS)$/;"	m
 PROGRAMS	test/Makefile	/^PROGRAMS = $(bin_PROGRAMS)$/;"	m
 PROTOBUF_proto_2fGate_2eproto__INCLUDED	proto/Gate.pb.h	5;"	d
 PROTOBUF_test_2eproto__INCLUDED	test/test.pb.h	5;"	d
-PTHREADIT	sdk/base/sPthreadPool.h	/^	typedef std::map<DWORD ,sPthread*>::iterator PTHREADIT;$/;"	t	class:sPthreadPool
+PTHREADIT	sdk/base/PthreadPool.h	/^	typedef std::map<DWORD ,Pthread*>::iterator PTHREADIT;$/;"	t	class:PthreadPool
 PTRDIFF_MAX	sdk/third_part/json/msinttypes/stdint.h	239;"	d
 PTRDIFF_MAX	sdk/third_part/json/msinttypes/stdint.h	242;"	d
 PTRDIFF_MIN	sdk/third_part/json/msinttypes/stdint.h	238;"	d
@@ -1821,11 +1847,15 @@ PrintValidatorPointers	sdk/third_part/json/schema.h	/^inline void PrintValidator
 PrintValidatorPointers	sdk/third_part/json/schema.h	/^inline void PrintValidatorPointers(unsigned depth, const wchar_t* s, const wchar_t* d) {$/;"	f	namespace:internal
 Property	sdk/third_part/json/schema.h	/^        Property() : schema(), dependenciesSchema(), dependenciesValidatorIndex(), dependencies(), required(false) {}$/;"	f	struct:internal::Schema::Property
 Property	sdk/third_part/json/schema.h	/^    struct Property {$/;"	s	class:internal::Schema
-ProtoBuffDesc	sdk/net/sProtobuf.h	/^typedef google::protobuf::Descriptor		ProtoBuffDesc;$/;"	t
-ProtoBuffDescPool	sdk/net/sProtobuf.h	/^typedef google::protobuf::DescriptorPool    ProtoBuffDescPool;$/;"	t
-ProtoBuffMessage	sdk/net/sProtobuf.h	/^typedef google::protobuf::Message			ProtoBuffMessage;$/;"	t
-ProtoBuffMessageFactory	sdk/net/sProtobuf.h	/^typedef google::protobuf::MessageFactory    ProtoBuffMessageFactory;$/;"	t
-ProtobufManage	sdk/net/sProtobuf.h	/^class ProtobufManage\/\/: std::noncopyable$/;"	c
+ProtoBuffDesc	sdk/net/Protobuf.h	/^typedef google::protobuf::Descriptor		ProtoBuffDesc;$/;"	t
+ProtoBuffDescPool	sdk/net/Protobuf.h	/^typedef google::protobuf::DescriptorPool    ProtoBuffDescPool;$/;"	t
+ProtoBuffMessage	sdk/net/Protobuf.h	/^typedef google::protobuf::Message			ProtoBuffMessage;$/;"	t
+ProtoBuffMessageFactory	sdk/net/Protobuf.h	/^typedef google::protobuf::MessageFactory    ProtoBuffMessageFactory;$/;"	t
+ProtobufManage	sdk/net/Protobuf.h	/^	class ProtobufManage\/\/: std::noncopyable$/;"	c	namespace:sdk
+Pthread	sdk/base/Pthread.h	/^			Pthread(pthread_func pFunc)$/;"	f	class:Pthread
+Pthread	sdk/base/Pthread.h	/^class Pthread{$/;"	c
+PthreadPool	sdk/base/PthreadPool.h	/^	PthreadPool()$/;"	f	class:PthreadPool
+PthreadPool	sdk/base/PthreadPool.h	/^class PthreadPool{$/;"	c
 Push	sdk/third_part/json/internal/stack.h	/^    RAPIDJSON_FORCEINLINE T* Push(size_t count = 1) {$/;"	f	class:internal::Stack
 Push	sdk/third_part/json/memorybuffer.h	/^    Ch* Push(size_t count) { return stack_.template Push<Ch>(count); }$/;"	f	struct:GenericMemoryBuffer
 Push	sdk/third_part/json/reader.h	/^		  RAPIDJSON_FORCEINLINE void Push(char) {}$/;"	f	class:GenericReader::NumberStream
@@ -1842,10 +1872,10 @@ PushBack	sdk/third_part/json/document.h	/^    GenericValue& PushBack(StringRefTy
 PushBack	sdk/third_part/json/document.h	/^    PushBack(T value, Allocator& allocator) {$/;"	f	class:GenericValue
 PushBack	sdk/third_part/json/document.h	/^    template <typename T> RAPIDJSON_DISABLEIF_RETURN((internal::OrExpr<internal::IsPointer<T>, internal::IsGenericValue<T> >), (const GenericArray&)) PushBack(T value, AllocatorType& allocator) const { value_.PushBack(value, allocator); return *this; }$/;"	f	class:GenericArray
 PushBack	sdk/third_part/json/internal/biginteger.h	/^    void PushBack(Type digit) {$/;"	f	class:internal::BigInteger
-PushData	sdk/base/Tool.h	/^void PushData(char*&ptr, std::string&value)$/;"	f	namespace:Tool
-PushData	sdk/base/Tool.h	/^void PushData(char*&ptr,T& data)$/;"	f	namespace:Tool
-PushData	sdk/net/sProtobuf.h	/^		void PushData(char*&buf,const DATA &data)$/;"	f	class:ProtobufManage
-PushData	sdk/net/sProtobuf.h	/^		void PushData(char*&buf,const DATA &data,int size)$/;"	f	class:ProtobufManage
+PushData	sdk/base/Tool.h	/^		void PushData(char*&ptr, std::string&value)$/;"	f	namespace:sdk
+PushData	sdk/base/Tool.h	/^		void PushData(char*&ptr,T& data)$/;"	f	namespace:sdk
+PushData	sdk/net/Protobuf.h	/^				void PushData(char*&buf,const DATA &data)$/;"	f	class:sdk::ProtobufManage
+PushData	sdk/net/Protobuf.h	/^				void PushData(char*&buf,const DATA &data,int size)$/;"	f	class:sdk::ProtobufManage
 PushOperand	sdk/third_part/json/internal/regex.h	/^    void PushOperand(Stack<Allocator>& operandStack, unsigned codepoint) {$/;"	f	class:internal::GenericRegex
 PushSchema	sdk/third_part/json/schema.h	/^    RAPIDJSON_FORCEINLINE void PushSchema(const SchemaType& schema) { new (schemaStack_.template Push<Context>()) Context(*this, &schema); }$/;"	f	class:GenericSchemaValidator
 PushUnsafe	sdk/third_part/json/internal/stack.h	/^    RAPIDJSON_FORCEINLINE T* PushUnsafe(size_t count = 1) {$/;"	f	class:internal::Stack
@@ -1915,7 +1945,7 @@ PutUnsafe	sdk/third_part/json/stream.h	/^inline void PutUnsafe(Stream& stream, t
 PutUnsafe	sdk/third_part/json/stringbuffer.h	/^    void PutUnsafe(Ch c) { *stack_.template PushUnsafe<Ch>() = c; }$/;"	f	class:GenericStringBuffer
 PutUnsafe	sdk/third_part/json/stringbuffer.h	/^inline void PutUnsafe(GenericStringBuffer<Encoding, Allocator>& stream, typename Encoding::Ch c) {$/;"	f
 QWORD	sdk/ai/sDefine.h	/^typedef unsigned long QWORD;$/;"	t
-QWORD	sdk/base/sDefine.h	/^typedef unsigned long QWORD;$/;"	t
+QWORD	sdk/base/Define.h	/^typedef unsigned long QWORD;$/;"	t
 QWORDVALUE	sdk/base/VarList.h	/^			QWORDVALUE,$/;"	m	class:VarObj::ValueType
 RANLIB	Gate/Makefile	/^RANLIB = ranlib$/;"	m
 RANLIB	Makefile	/^RANLIB = ranlib$/;"	m
@@ -2062,8 +2092,37 @@ RAPIDJSON_WRITER_H_	sdk/third_part/json/writer.h	16;"	d
 RAPIDJSON_WRITE_DEFAULT_FLAGS	sdk/third_part/json/writer.h	63;"	d
 RECURSIVE_CLEAN_TARGETS	Makefile	/^RECURSIVE_CLEAN_TARGETS = mostlyclean-recursive clean-recursive	\\$/;"	m
 RECURSIVE_TARGETS	Makefile	/^RECURSIVE_TARGETS = all-recursive check-recursive cscopelist-recursive \\$/;"	m
+REDIS_BLOCK	sdk/third_part/redis/hiredis.h	57;"	d
+REDIS_CONNECTED	sdk/third_part/redis/hiredis.h	61;"	d
+REDIS_DISCONNECTING	sdk/third_part/redis/hiredis.h	67;"	d
+REDIS_ERR	sdk/third_part/redis/hiredis.h	42;"	d
+REDIS_ERR_EOF	sdk/third_part/redis/hiredis.h	50;"	d
+REDIS_ERR_IO	sdk/third_part/redis/hiredis.h	49;"	d
+REDIS_ERR_OOM	sdk/third_part/redis/hiredis.h	52;"	d
+REDIS_ERR_OTHER	sdk/third_part/redis/hiredis.h	53;"	d
+REDIS_ERR_PROTOCOL	sdk/third_part/redis/hiredis.h	51;"	d
+REDIS_FREEING	sdk/third_part/redis/hiredis.h	71;"	d
+REDIS_IN_CALLBACK	sdk/third_part/redis/hiredis.h	74;"	d
+REDIS_KEEPALIVE_INTERVAL	sdk/third_part/redis/hiredis.h	91;"	d
+REDIS_MONITORING	sdk/third_part/redis/hiredis.h	80;"	d
+REDIS_OK	sdk/third_part/redis/hiredis.h	43;"	d
+REDIS_READER_MAX_BUF	sdk/third_part/redis/hiredis.h	89;"	d
+REDIS_REPLY_ARRAY	sdk/third_part/redis/hiredis.h	83;"	d
+REDIS_REPLY_ERROR	sdk/third_part/redis/hiredis.h	87;"	d
+REDIS_REPLY_INTEGER	sdk/third_part/redis/hiredis.h	84;"	d
+REDIS_REPLY_NIL	sdk/third_part/redis/hiredis.h	85;"	d
+REDIS_REPLY_STATUS	sdk/third_part/redis/hiredis.h	86;"	d
+REDIS_REPLY_STRING	sdk/third_part/redis/hiredis.h	82;"	d
+REDIS_REPLY_TRUE	sdk/third_part/redis/Redis.h	13;"	d
+REDIS_SUBSCRIBED	sdk/third_part/redis/hiredis.h	77;"	d
 RUN_BITS	sdk/third_part/zip/lz4.c	278;"	d	file:
 RUN_MASK	sdk/third_part/zip/lz4.c	279;"	d	file:
+RandomFloat	sdk/base/HelpFunction.h	/^		float RandomFloat(){$/;"	f	namespace:sdk::HF
+RandomFloat	sdk/base/HelpFunction.h	/^		float RandomFloat(const float max){$/;"	f	namespace:sdk::HF
+RandomFloat	sdk/base/HelpFunction.h	/^		float RandomFloat(const float& min,const float& max){$/;"	f	namespace:sdk::HF
+RandomInt	sdk/base/HelpFunction.h	/^		inline int RandomInt(const int& max){$/;"	f	namespace:sdk::HF
+RandomInt	sdk/base/HelpFunction.h	/^		int RandomInt(const int& min,const int& max){$/;"	f	namespace:sdk::HF
+RandomInt	sdk/base/HelpFunction.h	/^	   inline int RandomInt(){$/;"	f	namespace:sdk::HF
 Range	sdk/third_part/json/internal/regex.h	/^    struct Range {$/;"	s	class:internal::GenericRegex
 Range	sdk/third_part/json/internal/regex.h	/^    typedef typename RegexType::Range Range;$/;"	t	class:internal::GenericRegexSearch
 RawNumber	sdk/third_part/json/document.h	/^    bool RawNumber(const Ch* str, SizeType length, bool copy) { $/;"	f	class:GenericDocument
@@ -2074,16 +2133,18 @@ RawNumber	sdk/third_part/json/schema.h	/^    bool RawNumber(const Ch* str, SizeT
 RawNumber	sdk/third_part/json/writer.h	/^    bool RawNumber(const Ch* str, SizeType length, bool copy = false) {$/;"	f	class:Writer
 RawValue	sdk/third_part/json/prettywriter.h	/^    bool RawValue(const Ch* json, size_t length, Type type) {$/;"	f	class:PrettyWriter
 RawValue	sdk/third_part/json/writer.h	/^    bool RawValue(const Ch* json, size_t length, Type type) {$/;"	f	class:Writer
-Read	sdk/net/sSctpPthread.cpp	/^void sSctpPthread::Read(int fd)$/;"	f	class:sSctpPthread
-Read	sdk/net/sSctpSocket.cpp	/^void sSctpSocket::Read(int fd)$/;"	f	class:sSctpSocket
+Read	sdk/net/SctpPthread.cpp	/^void SctpPthread::Read(int fd)$/;"	f	class:SctpPthread
+Read	sdk/net/SctpSocket.cpp	/^void SctpSocket::Read(int fd)$/;"	f	class:SctpSocket
 Read	sdk/third_part/json/filereadstream.h	/^    void Read() {$/;"	f	class:FileReadStream
 Reader	sdk/third_part/json/fwd.h	/^typedef GenericReader<UTF8<char>, UTF8<char>, CrtAllocator> Reader;$/;"	t
 Reader	sdk/third_part/json/reader.h	/^typedef GenericReader<UTF8<>, UTF8<> > Reader;$/;"	t
 Realloc	sdk/third_part/json/allocators.h	/^    void* Realloc(void* originalPtr, size_t originalSize, size_t newSize) {$/;"	f	class:CrtAllocator
 Realloc	sdk/third_part/json/allocators.h	/^    void* Realloc(void* originalPtr, size_t originalSize, size_t newSize) {$/;"	f	class:MemoryPoolAllocator
+Redis	sdk/third_part/redis/Redis.h	/^	Redis()	$/;"	f	class:Redis
+Redis	sdk/third_part/redis/Redis.h	/^class Redis$/;"	c
 Reference	sdk/third_part/json/document.h	/^    typedef typename BaseType::reference       Reference;$/;"	t	class:GenericMemberIterator
-Refresh	sdk/base/sTime.h	/^		void Refresh(){$/;"	f	class:final
-RefreshTimer	sdk/base/sTime.h	/^	 void RefreshTimer(){$/;"	f	class:final
+Refresh	sdk/base/Time.h	/^			void Refresh(){$/;"	f	class:sdk::final
+RefreshTimer	sdk/base/Time.h	/^			void RefreshTimer(){$/;"	f	class:sdk::final
 Regex	sdk/third_part/json/internal/regex.h	/^typedef GenericRegex<UTF8<> > Regex;$/;"	t	namespace:internal
 RegexSearch	sdk/third_part/json/internal/regex.h	/^typedef GenericRegexSearch<Regex> RegexSearch;$/;"	t	namespace:internal
 RegexType	sdk/third_part/json/schema.h	/^        typedef char RegexType;$/;"	t	class:internal::Schema
@@ -2108,22 +2169,22 @@ Reserve	sdk/third_part/json/document.h	/^    GenericArray Reserve(SizeType newCa
 Reserve	sdk/third_part/json/document.h	/^    GenericValue& Reserve(SizeType newCapacity, Allocator &allocator) {$/;"	f	class:GenericValue
 Reserve	sdk/third_part/json/internal/stack.h	/^    RAPIDJSON_FORCEINLINE void Reserve(size_t count = 1) {$/;"	f	class:internal::Stack
 Reserve	sdk/third_part/json/stringbuffer.h	/^    void Reserve(size_t count) { stack_.template Reserve<Ch>(count); }$/;"	f	class:GenericStringBuffer
-Reset	sdk/base/sTime.h	/^		void Reset(const time_t &time){$/;"	f	class:CycleTime
+Reset	sdk/base/Time.h	/^			void Reset(const time_t &time){$/;"	f	class:sdk::CycleTime
 Reset	sdk/third_part/json/schema.h	/^    void Reset() {$/;"	f	class:GenericSchemaValidator
 Reset	sdk/third_part/json/writer.h	/^    void Reset(OutputStream& os) {$/;"	f	class:Writer
 Resize	sdk/third_part/json/internal/stack.h	/^    void Resize(size_t newCapacity) {$/;"	f	class:internal::Stack
 RightBracketToken	sdk/third_part/json/reader.h	/^        RightBracketToken,$/;"	e	enum:GenericReader::Token
 RightCurlyBracketToken	sdk/third_part/json/reader.h	/^        RightCurlyBracketToken,$/;"	e	enum:GenericReader::Token
 Run	sdk/ai/AISystem.cpp	/^bool StateMachine::Run(Obj *obj)$/;"	f	class:StateMachine
-Run	sdk/base/sPthread.h	/^		virtual void Run(){};$/;"	f	class:sPthread
+Run	sdk/base/Pthread.h	/^		virtual void Run(){};$/;"	f	class:Pthread
+Run	sdk/net/SctpPthread.cpp	/^void SctpPthread::Run()$/;"	f	class:SctpPthread
 Run	sdk/net/ServerSocket.cpp	/^bool ServerSocket::Run()$/;"	f	class:ServerSocket
-Run	sdk/net/sSctpPthread.cpp	/^void sSctpPthread::Run()$/;"	f	class:sSctpPthread
 S32	sdk/third_part/zip/lz4.c	/^  typedef   signed int        S32;$/;"	t	file:
 S32	sdk/third_part/zip/lz4.c	/^  typedef  int32_t S32;$/;"	t	file:
 SAFE_DEL	sdk/ai/sDefine.h	3;"	d
-SAFE_DEL	sdk/base/sDefine.h	3;"	d
+SAFE_DEL	sdk/base/Define.h	3;"	d
 SAFE_DEL_ARRAY	sdk/ai/sDefine.h	4;"	d
-SAFE_DEL_ARRAY	sdk/base/sDefine.h	4;"	d
+SAFE_DEL_ARRAY	sdk/base/Define.h	4;"	d
 SCNX16	sdk/third_part/json/msinttypes/inttypes.h	221;"	d
 SCNX32	sdk/third_part/json/msinttypes/inttypes.h	234;"	d
 SCNX64	sdk/third_part/json/msinttypes/inttypes.h	247;"	d
@@ -2215,7 +2276,7 @@ SCNxMAX	sdk/third_part/json/msinttypes/inttypes.h	259;"	d
 SCNxPTR	sdk/third_part/json/msinttypes/inttypes.h	265;"	d
 SCNxPTR	sdk/third_part/json/msinttypes/inttypes.h	270;"	d
 SDWORD	sdk/ai/sDefine.h	/^typedef signed int SDWORD;$/;"	t
-SDWORD	sdk/base/sDefine.h	/^typedef signed int SDWORD;$/;"	t
+SDWORD	sdk/base/Define.h	/^typedef signed int SDWORD;$/;"	t
 SED	Gate/Makefile	/^SED = \/usr\/bin\/sed$/;"	m
 SED	Makefile	/^SED = \/usr\/bin\/sed$/;"	m
 SED	sdk/Makefile	/^SED = \/usr\/bin\/sed$/;"	m
@@ -2229,19 +2290,25 @@ SHELL	Makefile	/^SHELL = \/bin\/sh$/;"	m
 SHELL	sdk/Makefile	/^SHELL = \/bin\/sh$/;"	m
 SHELL	test/Makefile	/^SHELL = \/bin\/sh$/;"	m
 SHORT	sdk/ai/sDefine.h	/^typedef short SHORT;$/;"	t
-SHORT	sdk/base/sDefine.h	/^typedef short SHORT;$/;"	t
+SHORT	sdk/base/Define.h	/^typedef short SHORT;$/;"	t
 SIG_ATOMIC_MAX	sdk/third_part/json/msinttypes/stdint.h	246;"	d
 SIG_ATOMIC_MIN	sdk/third_part/json/msinttypes/stdint.h	245;"	d
 SIZE_MAX	sdk/third_part/json/msinttypes/stdint.h	250;"	d
 SIZE_MAX	sdk/third_part/json/msinttypes/stdint.h	252;"	d
+SOCKET_BUFFER_SIZE	sdk/net/ServerSocket.cpp	4;"	d	file:
+SOCKET_TYPE_DEALER	sdk/net/ServerSocket.h	/^		SOCKET_TYPE_DEALER,$/;"	m	class:sdk::SocketType
 SOCKET_TYPE_NONE	sdk/net/ServerSocket.h	/^		SOCKET_TYPE_NONE=-1,$/;"	m	class:sdk::SocketType
-SOCKET_TYPE_ROUTE	sdk/net/ServerSocket.h	/^		SOCKET_TYPE_ROUTE,$/;"	m	class:sdk::SocketType
+SOCKET_TYPE_PUB	sdk/net/ServerSocket.h	/^		SOCKET_TYPE_PUB,$/;"	m	class:sdk::SocketType
+SOCKET_TYPE_REP	sdk/net/ServerSocket.h	/^		SOCKET_TYPE_REP,$/;"	m	class:sdk::SocketType
+SOCKET_TYPE_REQ	sdk/net/ServerSocket.h	/^		SOCKET_TYPE_REQ,$/;"	m	class:sdk::SocketType
+SOCKET_TYPE_ROUTER	sdk/net/ServerSocket.h	/^		SOCKET_TYPE_ROUTER,$/;"	m	class:sdk::SocketType
+SOCKET_TYPE_SUB	sdk/net/ServerSocket.h	/^		SOCKET_TYPE_SUB,$/;"	m	class:sdk::SocketType
 SOURCES	Gate/Makefile	/^SOURCES = $(Gate_SOURCES)$/;"	m
 SOURCES	Makefile	/^SOURCES =$/;"	m
 SOURCES	sdk/Makefile	/^SOURCES = $(libsdk_la_SOURCES)$/;"	m
 SOURCES	test/Makefile	/^SOURCES = $(main_SOURCES)$/;"	m
 SQWORD	sdk/ai/sDefine.h	/^typedef signed long SQWORD;$/;"	t
-SQWORD	sdk/base/sDefine.h	/^typedef signed long SQWORD;$/;"	t
+SQWORD	sdk/base/Define.h	/^typedef signed long SQWORD;$/;"	t
 STATIC_ASSERTION_FAILURE	sdk/third_part/json/rapidjson.h	/^template <> struct STATIC_ASSERTION_FAILURE<true> { enum { value = 1 }; };$/;"	s
 STEPSIZE	sdk/third_part/zip/lz4.c	349;"	d	file:
 STRIP	Gate/Makefile	/^STRIP = strip$/;"	m
@@ -2252,7 +2319,7 @@ STRVALUE	sdk/base/VarList.h	/^			STRVALUE,	$/;"	m	class:VarObj::ValueType
 SUBDIRS	Makefile	/^SUBDIRS = sdk  test Gate $/;"	m
 SValue	sdk/third_part/json/schema.h	/^    typedef GenericValue<EncodingType, AllocatorType> SValue;$/;"	t	class:internal::Schema
 SWORD	sdk/ai/sDefine.h	/^typedef signed short SWORD;$/;"	t
-SWORD	sdk/base/sDefine.h	/^typedef signed short SWORD;$/;"	t
+SWORD	sdk/base/Define.h	/^typedef signed short SWORD;$/;"	t
 ScanCopyUnescapedString	sdk/third_part/json/reader.h	/^    static RAPIDJSON_FORCEINLINE void ScanCopyUnescapedString(InputStream&, OutputStream&) {$/;"	f	class:GenericReader
 ScanCopyUnescapedString	sdk/third_part/json/reader.h	/^    static RAPIDJSON_FORCEINLINE void ScanCopyUnescapedString(InsituStringStream& is, InsituStringStream& os) {$/;"	f	class:GenericReader
 ScanCopyUnescapedString	sdk/third_part/json/reader.h	/^    static RAPIDJSON_FORCEINLINE void ScanCopyUnescapedString(StringStream& is, StackStream<char>& os) {$/;"	f	class:GenericReader
@@ -2280,6 +2347,12 @@ SchemaValidator	sdk/third_part/json/fwd.h	/^typedef GenericSchemaValidator<Schem
 SchemaValidator	sdk/third_part/json/schema.h	/^typedef GenericSchemaValidator<SchemaDocument> SchemaValidator;$/;"	t
 SchemaValidatorFactoryType	sdk/third_part/json/schema.h	/^    typedef ISchemaStateFactory<SchemaType> SchemaValidatorFactoryType;$/;"	t	struct:internal::SchemaValidationContext
 SchemaValueType	sdk/third_part/json/schema.h	/^    enum SchemaValueType {$/;"	g	class:internal::Schema
+SctpPool	sdk/net/SctpPool.h	/^			SctpPool(){$/;"	f	class:sdk::SctpPool
+SctpPool	sdk/net/SctpPool.h	/^	class SctpPool$/;"	c	namespace:sdk
+SctpPthread	sdk/net/SctpPthread.h	/^			SctpPthread(pthread_func pFunc):Pthread(pFunc){};$/;"	f	class:sdk::SctpPthread
+SctpPthread	sdk/net/SctpPthread.h	/^	class SctpPthread :public  Pthread$/;"	c	namespace:sdk
+SctpSocket	sdk/net/SctpSocket.h	/^	class SctpSocket$/;"	c	namespace:sdk
+SctpThreadFunc	sdk/net/SctpPool.cpp	/^void *SctpThreadFunc ( void *arg)$/;"	f
 Search	sdk/third_part/json/internal/regex.h	/^    bool Search(InputStream& is) {$/;"	f	class:internal::GenericRegexSearch
 Search	sdk/third_part/json/internal/regex.h	/^    bool Search(const Ch* s) {$/;"	f	class:internal::GenericRegexSearch
 SearchWithAnchoring	sdk/third_part/json/internal/regex.h	/^    bool SearchWithAnchoring(InputStream& is, bool anchorBegin, bool anchorEnd) {$/;"	f	class:internal::GenericRegexSearch
@@ -2289,14 +2362,16 @@ SelectIfImpl	sdk/third_part/json/internal/meta.h	/^template <> struct SelectIfIm
 SelectIfImpl	sdk/third_part/json/internal/meta.h	/^template <bool C> struct SelectIfImpl { template <typename T1, typename T2> struct Apply { typedef T1 Type; }; };$/;"	s	namespace:internal
 SelectorNode	sdk/ai/AINode.h	/^class SelectorNode:public AINode$/;"	c
 SendCmd	sdk/UserTest.cpp	/^bool UserTest::SendCmd(DWORD dwSocket,char *buf)$/;"	f	class:UserTest
-SendCmd	sdk/net/sSctpPthread.cpp	/^void sSctpPthread::SendCmd(DWORD dwSocket,char *buf)$/;"	f	class:sSctpPthread
+SendCmd	sdk/net/SctpPthread.cpp	/^void SctpPthread::SendCmd(DWORD dwSocket,char *buf)$/;"	f	class:SctpPthread
 SendEvent	sdk/base/EventCallBack.h	/^			void SendEvent(int eventID,T ...arg){$/;"	f	class:EventCallBack
+SendMessage	sdk/net/ServerSocket.cpp	/^void ServerSocket::SendMessage(const ProtoBuffMessage& message){$/;"	f	class:ServerSocket
 SequenceNode	sdk/ai/AINode.h	/^class SequenceNode:public AINode$/;"	c
 SerializeWithCachedSizes	proto/Gate.pb.cc	/^void Info::SerializeWithCachedSizes($/;"	f	class:Gate::Info
 SerializeWithCachedSizes	test/test.pb.cc	/^void pack::SerializeWithCachedSizes($/;"	f	class:muduo::pack
 SerializeWithCachedSizesToArray	proto/Gate.pb.h	/^  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {$/;"	f	class:Gate::Info
 SerializeWithCachedSizesToArray	test/test.pb.h	/^  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {$/;"	f	class:muduo::pack
-ServerSocket	sdk/net/ServerSocket.h	/^	class ServerSocket$/;"	c	namespace:sdk
+Server	sdk/net/Server.h	/^	class Server$/;"	c	namespace:sdk
+ServerSocket	sdk/net/ServerSocket.h	/^	class ServerSocket :public ProtobufManage$/;"	c	namespace:sdk
 Set	sdk/third_part/json/document.h	/^    ValueType& Set(const T& data) { return internal::TypeHelper<ValueType, T>::Set(*this, data); }$/;"	f	class:GenericValue
 Set	sdk/third_part/json/document.h	/^    ValueType& Set(const T& data, AllocatorType& allocator) { return internal::TypeHelper<ValueType, T>::Set(*this, data, allocator); }$/;"	f	class:GenericValue
 Set	sdk/third_part/json/document.h	/^    static ValueType& Set(ValueType& v, ArrayType data) { return v = data; }$/;"	f	struct:internal::TypeHelper
@@ -2331,17 +2406,18 @@ Set	sdk/third_part/json/pointer.h	/^    ValueType& Set(ValueType& root, ValueTyp
 Set	sdk/third_part/json/pointer.h	/^    ValueType& Set(ValueType& root, const Ch* value, typename ValueType::AllocatorType& allocator) const {$/;"	f	class:GenericPointer
 Set	sdk/third_part/json/pointer.h	/^    ValueType& Set(ValueType& root, const ValueType& value, typename ValueType::AllocatorType& allocator) const {$/;"	f	class:GenericPointer
 Set	sdk/third_part/json/pointer.h	/^    ValueType& Set(ValueType& root, const std::basic_string<Ch>& value, typename ValueType::AllocatorType& allocator) const {$/;"	f	class:GenericPointer
-SetAccetp	sdk/net/sSctpSocket.h	/^		void SetAccetp(CB cb){$/;"	f	class:sSctpSocket
-SetAddClient	sdk/net/sSctpSocket.h	/^		void	SetAddClient(CallBack cb){_addClient = cb;}$/;"	f	class:sSctpSocket
+Set	sdk/third_part/redis/Redis.cpp	/^bool Redis::Set(const char* key,const char* value)$/;"	f	class:Redis
+SetAccetp	sdk/net/SctpSocket.h	/^			void SetAccetp(CB cb){$/;"	f	class:sdk::SctpSocket
+SetAddClient	sdk/net/SctpSocket.h	/^		void	SetAddClient(CallBack cb){_addClient = cb;}$/;"	f	class:sdk::SctpSocket
 SetArray	sdk/third_part/json/document.h	/^    GenericValue& SetArray() { this->~GenericValue(); new (this) GenericValue(kArrayType); return *this; }$/;"	f	class:GenericValue
 SetArrayRaw	sdk/third_part/json/document.h	/^    void SetArrayRaw(GenericValue* values, SizeType count, Allocator& allocator) {$/;"	f	class:GenericValue
-SetBackLog	sdk/net/sSctpSocket.h	/^		void	SetBackLog(int backlog){_backlog = backlog;}$/;"	f	class:sSctpSocket
+SetBackLog	sdk/net/SctpSocket.h	/^		void	SetBackLog(int backlog){_backlog = backlog;}$/;"	f	class:sdk::SctpSocket
 SetBool	sdk/third_part/json/document.h	/^    GenericValue& SetBool(bool b) { this->~GenericValue(); new (this) GenericValue(b); return *this; }$/;"	f	class:GenericValue
 SetCachedSize	proto/Gate.pb.cc	/^void Info::SetCachedSize(int size) const {$/;"	f	class:Gate::Info
 SetCachedSize	test/test.pb.cc	/^void pack::SetCachedSize(int size) const {$/;"	f	class:muduo::pack
-SetCloseCB	sdk/net/sEpoll.h	/^		void SetCloseCB(EventCB& cb){$/;"	f	class:sEpoll
-SetCloseCB	sdk/net/sEpoll.h	/^		void SetCloseCB(EventCB&& cb){$/;"	f	class:sEpoll
-SetCloseCB	sdk/net/sSctpSocket.h	/^		void SetCloseCB(CB cb){$/;"	f	class:sSctpSocket
+SetCloseCB	sdk/net/Epoll.h	/^			void SetCloseCB(EventCB& cb){$/;"	f	class:sdk::Epoll
+SetCloseCB	sdk/net/Epoll.h	/^			void SetCloseCB(EventCB&& cb){$/;"	f	class:sdk::Epoll
+SetCloseCB	sdk/net/SctpSocket.h	/^			void SetCloseCB(CB cb){$/;"	f	class:sdk::SctpSocket
 SetDouble	sdk/third_part/json/document.h	/^    GenericValue& SetDouble(double d)       { this->~GenericValue(); new (this) GenericValue(d);    return *this; }$/;"	f	class:GenericValue
 SetElementsPointer	sdk/third_part/json/document.h	/^    RAPIDJSON_FORCEINLINE GenericValue* SetElementsPointer(GenericValue* elements) { return RAPIDJSON_SETPOINTER(GenericValue, data_.a.elements, elements); }$/;"	f	class:GenericValue
 SetFloat	sdk/third_part/json/document.h	/^    GenericValue& SetFloat(float f)         { this->~GenericValue(); new (this) GenericValue(static_cast<double>(f)); return *this; }$/;"	f	class:GenericValue
@@ -2350,33 +2426,33 @@ SetHp	sdk/ai/Hero.h	/^		void SetHp(int hp){_hp=hp;std::cout<<"hpNow"<<_hp<<std::
 SetIndent	sdk/third_part/json/prettywriter.h	/^    PrettyWriter& SetIndent(Ch indentChar, unsigned indentCharCount) {$/;"	f	class:PrettyWriter
 SetInt	sdk/third_part/json/document.h	/^    GenericValue& SetInt(int i)             { this->~GenericValue(); new (this) GenericValue(i);    return *this; }$/;"	f	class:GenericValue
 SetInt64	sdk/third_part/json/document.h	/^    GenericValue& SetInt64(int64_t i64)     { this->~GenericValue(); new (this) GenericValue(i64);  return *this; }$/;"	f	class:GenericValue
-SetIpAddress	sdk/net/sSctpSocket.h	/^		void	SetIpAddress(const char* ipAddress){_ipAddress = ipAddress;}	$/;"	f	class:sSctpSocket
+SetIpAddress	sdk/net/SctpSocket.h	/^		void	SetIpAddress(const char* ipAddress){_ipAddress = ipAddress;}	$/;"	f	class:sdk::SctpSocket
 SetLength	sdk/third_part/json/document.h	/^        inline void     SetLength(SizeType len) { str[LenPos] = static_cast<Ch>(MaxSize -  len); }$/;"	f	struct:GenericValue::ShortString
 SetLevel	sdk/base/LogManager.cpp	/^void LogManager::SetLevel(const LogLevel& level)$/;"	f	class:LogManager
-SetListenSocket	sdk/net/sEpoll.h	/^		void SetListenSocket(int listenSocket){$/;"	f	class:sEpoll
+SetListenSocket	sdk/net/Epoll.h	/^			void SetListenSocket(int listenSocket){$/;"	f	class:sdk::Epoll
 SetMaxDecimalPlaces	sdk/third_part/json/writer.h	/^    void SetMaxDecimalPlaces(int maxDecimalPlaces) {$/;"	f	class:Writer
-SetMaxEvents	sdk/net/sEpoll.h	/^		void  SetMaxEvents(int maxEvents){$/;"	f	class:sEpoll
+SetMaxEvents	sdk/net/Epoll.h	/^			void  SetMaxEvents(int maxEvents){$/;"	f	class:sdk::Epoll
 SetMembersPointer	sdk/third_part/json/document.h	/^    RAPIDJSON_FORCEINLINE Member* SetMembersPointer(Member* members) { return RAPIDJSON_SETPOINTER(Member, data_.o.members, members); }$/;"	f	class:GenericValue
 SetMp	sdk/ai/Hero.h	/^		void SetMp(int mp){_mp=mp;}$/;"	f	class:Hero
-SetMsecCycle	sdk/base/sTime.h	/^		void SetMsecCycle(int msec){$/;"	f	class:CycleTime
-SetNewClientCB	sdk/net/sEpoll.h	/^		void SetNewClientCB(EventCB& cb ){$/;"	f	class:sEpoll
-SetNewClientCB	sdk/net/sEpoll.h	/^		void SetNewClientCB(EventCB&& cb ){$/;"	f	class:sEpoll
-SetNoBlock	sdk/net/sSctpSocket.cpp	/^void sSctpSocket::SetNoBlock(int fd){$/;"	f	class:sSctpSocket
+SetMsecCycle	sdk/base/Time.h	/^			void SetMsecCycle(int msec){$/;"	f	class:sdk::CycleTime
+SetNewClientCB	sdk/net/Epoll.h	/^			void SetNewClientCB(EventCB& cb ){$/;"	f	class:sdk::Epoll
+SetNewClientCB	sdk/net/Epoll.h	/^			void SetNewClientCB(EventCB&& cb ){$/;"	f	class:sdk::Epoll
+SetNoBlock	sdk/net/SctpSocket.cpp	/^void SctpSocket::SetNoBlock(int fd){$/;"	f	class:SctpSocket
 SetNodeContent	sdk/ai/XmlFile.cpp	/^void XmlFile::SetNodeContent(xmlNodePtr node,const char* content,int len)$/;"	f	class:XmlFile
 SetNodeContent	sdk/base/XmlFile.cpp	/^void XmlFile::SetNodeContent(xmlNodePtr node,const char* content,int len)$/;"	f	class:XmlFile
 SetNull	sdk/third_part/json/document.h	/^    GenericValue& SetNull() { this->~GenericValue(); new (this) GenericValue(); return *this; }$/;"	f	class:GenericValue
 SetObject	sdk/third_part/json/document.h	/^    GenericValue& SetObject() { this->~GenericValue(); new (this) GenericValue(kObjectType); return *this; }$/;"	f	class:GenericValue
 SetObjectRaw	sdk/third_part/json/document.h	/^    void SetObjectRaw(Member* members, SizeType count, Allocator& allocator) {$/;"	f	class:GenericValue
-SetOverTime	sdk/net/sSocket.h	/^	void SetOverTime(int time){$/;"	f	class:sSocket
+SetOverTime	sdk/net/Socket.h	/^			void SetOverTime(int time){$/;"	f	class:sdk::Socket
 SetParseError	sdk/third_part/json/reader.h	/^    void SetParseError(ParseErrorCode code, size_t offset) { parseResult_.Set(code, offset); }$/;"	f	class:GenericReader
-SetPort	sdk/net/sSctpSocket.h	/^		void    SetPort(DWORD port){_port = port;}$/;"	f	class:sSctpSocket
-SetPthreadMax	sdk/net/sSctpPool.h	/^	 void SetPthreadMax(int pthreadMax){_pthreadMax = pthreadMax;}$/;"	f	class:sSctpPool
-SetReadCB	sdk/net/sEpoll.h	/^		void SetReadCB(EventCB& cb){$/;"	f	class:sEpoll
-SetReadCB	sdk/net/sEpoll.h	/^		void SetReadCB(EventCB&& cb){$/;"	f	class:sEpoll
-SetReadCallBack	sdk/net/sSctpSocket.h	/^		void SetReadCallBack(CB cb){$/;"	f	class:sSctpSocket
-SetSec	sdk/base/sTime.h	/^		void SetSec(const time_t&sec)$/;"	f	class:final
-SetSecCycle	sdk/base/sTime.h	/^		void SetSecCycle(int sec){$/;"	f	class:CycleTime
-SetServerName	sdk/net/sServer.h	/^		void SetServerName(const char* serverName){$/;"	f	class:sServer
+SetPort	sdk/net/SctpSocket.h	/^		void    SetPort(DWORD port){_port = port;}$/;"	f	class:sdk::SctpSocket
+SetPthreadMax	sdk/net/SctpPool.h	/^			void SetPthreadMax(int pthreadMax){_pthreadMax = pthreadMax;}$/;"	f	class:sdk::SctpPool
+SetReadCB	sdk/net/Epoll.h	/^			void SetReadCB(EventCB& cb){$/;"	f	class:sdk::Epoll
+SetReadCB	sdk/net/Epoll.h	/^			void SetReadCB(EventCB&& cb){$/;"	f	class:sdk::Epoll
+SetReadCallBack	sdk/net/SctpSocket.h	/^			void SetReadCallBack(CB cb){$/;"	f	class:sdk::SctpSocket
+SetSec	sdk/base/Time.h	/^			void SetSec(const time_t&sec)$/;"	f	class:sdk::final
+SetSecCycle	sdk/base/Time.h	/^			void SetSecCycle(int sec){$/;"	f	class:sdk::CycleTime
+SetServerName	sdk/net/Server.h	/^			void SetServerName(const char* serverName){$/;"	f	class:sdk::Server
 SetString	sdk/third_part/json/document.h	/^    GenericValue& SetString(StringRefType s) { this->~GenericValue(); SetStringRaw(s); return *this; }$/;"	f	class:GenericValue
 SetString	sdk/third_part/json/document.h	/^    GenericValue& SetString(const Ch* s, Allocator& allocator) { return SetString(s, internal::StrLen(s), allocator); }$/;"	f	class:GenericValue
 SetString	sdk/third_part/json/document.h	/^    GenericValue& SetString(const Ch* s, SizeType length) { return SetString(StringRef(s, length)); }$/;"	f	class:GenericValue
@@ -2384,7 +2460,7 @@ SetString	sdk/third_part/json/document.h	/^    GenericValue& SetString(const Ch*
 SetString	sdk/third_part/json/document.h	/^    GenericValue& SetString(const std::basic_string<Ch>& s, Allocator& allocator) { return SetString(s.data(), SizeType(s.size()), allocator); }$/;"	f	class:GenericValue
 SetStringPointer	sdk/third_part/json/document.h	/^    RAPIDJSON_FORCEINLINE const Ch* SetStringPointer(const Ch* str) { return RAPIDJSON_SETPOINTER(Ch, data_.s.str, str); }$/;"	f	class:GenericValue
 SetStringRaw	sdk/third_part/json/document.h	/^    void SetStringRaw(StringRefType s, Allocator& allocator) {$/;"	f	class:GenericValue
-SetTimeOut	sdk/net/sEpoll.h	/^		void SetTimeOut(int timeOut){$/;"	f	class:sEpoll
+SetTimeOut	sdk/net/Epoll.h	/^			void SetTimeOut(int timeOut){$/;"	f	class:sdk::Epoll
 SetUint	sdk/third_part/json/document.h	/^    GenericValue& SetUint(unsigned u)       { this->~GenericValue(); new (this) GenericValue(u);    return *this; }$/;"	f	class:GenericValue
 SetUint64	sdk/third_part/json/document.h	/^    GenericValue& SetUint64(uint64_t u64)   { this->~GenericValue(); new (this) GenericValue(u64);  return *this; }$/;"	f	class:GenericValue
 SetValueByPointer	sdk/third_part/json/pointer.h	/^SetValueByPointer(DocumentType& document, const CharType(&source)[N], T2 value) {$/;"	f
@@ -2432,6 +2508,7 @@ SkipWhitespace	sdk/third_part/json/reader.h	/^void SkipWhitespace(InputStream& i
 SkipWhitespaceAndComments	sdk/third_part/json/reader.h	/^    void SkipWhitespaceAndComments(InputStream& is) {$/;"	f	class:GenericReader
 SkipWhitespace_SIMD	sdk/third_part/json/reader.h	/^inline const char *SkipWhitespace_SIMD(const char* p) {$/;"	f
 SkipWhitespace_SIMD	sdk/third_part/json/reader.h	/^inline const char *SkipWhitespace_SIMD(const char* p, const char* end) {$/;"	f
+Socket	sdk/net/Socket.h	/^	class Socket$/;"	c	namespace:sdk
 SocketType	sdk/net/ServerSocket.h	/^	enum class SocketType$/;"	c	namespace:sdk
 Stack	sdk/third_part/json/internal/stack.h	/^    Stack(Allocator* allocator, size_t stackCapacity) : allocator_(allocator), ownAllocator_(0), stack_(0), stackTop_(0), stackEnd_(0), initialCapacity_(stackCapacity) {$/;"	f	class:internal::Stack
 Stack	sdk/third_part/json/internal/stack.h	/^    Stack(Stack&& rhs)$/;"	f	class:internal::Stack
@@ -2485,7 +2562,6 @@ String	sdk/third_part/json/writer.h	/^    bool String(const std::basic_string<Ch
 StringBuffer	sdk/third_part/json/fwd.h	/^typedef GenericStringBuffer<UTF8<char>, CrtAllocator> StringBuffer;$/;"	t
 StringBuffer	sdk/third_part/json/stringbuffer.h	/^typedef GenericStringBuffer<UTF8<> > StringBuffer;$/;"	t
 StringEqual	sdk/third_part/json/document.h	/^    bool StringEqual(const GenericValue<Encoding, SourceAllocator>& rhs) const {$/;"	f	class:GenericValue
-StringHelp	sdk/base/StringHelp.h	/^namespace StringHelp{$/;"	n
 StringRef	sdk/third_part/json/document.h	/^inline GenericStringRef<CharType> StringRef(const CharType* str) {$/;"	f
 StringRef	sdk/third_part/json/document.h	/^inline GenericStringRef<CharType> StringRef(const CharType* str, size_t length) {$/;"	f
 StringRef	sdk/third_part/json/document.h	/^inline GenericStringRef<CharType> StringRef(const std::basic_string<CharType>& str) {$/;"	f
@@ -2512,15 +2588,18 @@ SwapValueByPointer	sdk/third_part/json/pointer.h	/^typename DocumentType::ValueT
 SwapValueByPointer	sdk/third_part/json/pointer.h	/^typename DocumentType::ValueType& SwapValueByPointer(DocumentType& document, const GenericPointer<typename DocumentType::ValueType>& pointer, typename DocumentType::ValueType& value) {$/;"	f
 SwapValueByPointer	sdk/third_part/json/pointer.h	/^typename T::ValueType& SwapValueByPointer(T& root, const CharType(&source)[N], typename T::ValueType& value, typename T::AllocatorType& a) {$/;"	f
 SwapValueByPointer	sdk/third_part/json/pointer.h	/^typename T::ValueType& SwapValueByPointer(T& root, const GenericPointer<typename T::ValueType>& pointer, typename T::ValueType& value, typename T::AllocatorType& a) {$/;"	f
+SwitchSocketType	sdk/net/ServerSocket.cpp	/^int ServerSocket::SwitchSocketType(const SocketType &type)$/;"	f	class:ServerSocket
 TAIL	sdk/third_part/json/encodings.h	149;"	d
 TAIL	sdk/third_part/json/encodings.h	175;"	d
 TAIL	sdk/third_part/json/encodings.h	182;"	d
 TAIL	sdk/third_part/json/encodings.h	201;"	d
-TEXT_JSON	test/main.cpp	19;"	d	file:
+TEXT_CHECK_TYPE	sdk/third_part/redis/main.cpp	44;"	d	file:
+TEXT_JSON	test/main.cpp	9;"	d	file:
 TRANS	sdk/third_part/json/encodings.h	148;"	d
 TRANS	sdk/third_part/json/encodings.h	174;"	d
 TRANS	sdk/third_part/json/encodings.h	181;"	d
 TRANS	sdk/third_part/json/encodings.h	200;"	d
+TYPE	sdk/third_part/redis/main.cpp	/^typedef int TYPE[2];$/;"	t	file:
 Take	sdk/third_part/json/encodedstream.h	/^    Ch Take() { Ch c = current_; current_ = Encoding::Take(is_); return c; }$/;"	f	class:EncodedInputStream
 Take	sdk/third_part/json/encodedstream.h	/^    Ch Take() { Ch c = current_; current_ = takeFunc_(*is_); return c; }$/;"	f	class:AutoUTFInputStream
 Take	sdk/third_part/json/encodedstream.h	/^    Ch Take() { RAPIDJSON_ASSERT(false); return 0;}$/;"	f	class:AutoUTFOutputStream
@@ -2567,15 +2646,16 @@ Tell	sdk/third_part/json/stream.h	/^    size_t Tell() const { return static_cast
 Tell	sdk/third_part/json/stream.h	/^    size_t Tell() { return static_cast<size_t>(src_ - head_); }$/;"	f	struct:GenericInsituStringStream
 TestJson	test/main.cpp	/^void TestJson()$/;"	f
 TestTimerTask	test/main.cpp	/^void TestTimerTask(){$/;"	f
-Time	sdk/base/sTime.h	/^		Time(){$/;"	f	class:final
-Time	sdk/base/sTime.h	/^		Time(time_t dwTime):_tTime(dwTime){$/;"	f	class:final
-TimeHelp	sdk/base/sTime.h	/^class TimeHelp$/;"	c
-TimeOut	sdk/net/sSctpSocket.h	/^static const int TimeOut = -1;$/;"	v
+Text	sdk/third_part/redis/main.cpp	/^struct Text$/;"	s	file:
+Time	sdk/base/Time.h	/^			Time(){$/;"	f	class:sdk::final
+Time	sdk/base/Time.h	/^			Time(time_t dwTime):_tTime(dwTime){$/;"	f	class:sdk::final
+TimeHelp	sdk/base/Time.h	/^	class TimeHelp$/;"	c	namespace:sdk
+TimeOut	sdk/net/SctpSocket.h	/^static const int TimeOut = -1;$/;"	v
 TimerTask	sdk/ai/TimerTask.h	/^	TimerTask()$/;"	f	class:TimerTask
 TimerTask	sdk/ai/TimerTask.h	/^class TimerTask{$/;"	c
-TimerTask	sdk/base/sTime.h	/^		struct TimerTask{$/;"	s	class:TimerTaskManage
-TimerTaskFunc	sdk/base/sTime.h	/^typedef std::function<void()> TimerTaskFunc;$/;"	t
-TimerTaskManage	sdk/base/sTime.h	/^class TimerTaskManage$/;"	c
+TimerTask	sdk/base/Time.h	/^			struct TimerTask{$/;"	s	class:sdk::TimerTaskManage
+TimerTaskFunc	sdk/base/Time.h	/^	typedef std::function<void()> TimerTaskFunc;$/;"	t	namespace:sdk
+TimerTaskManage	sdk/base/Time.h	/^	class TimerTaskManage$/;"	c	namespace:sdk
 TimerTaskTextFunc	test/main.cpp	/^void TimerTaskTextFunc()$/;"	f
 ToBias	sdk/third_part/json/internal/ieee754.h	/^    uint64_t ToBias() const { return (u_ & kSignMask) ? ~u_ + 1 : u_ | kSignMask; }$/;"	f	class:internal::Double
 ToDouble	sdk/third_part/json/internal/diyfp.h	/^    double ToDouble() const {$/;"	f	struct:internal::DiyFp
@@ -2584,7 +2664,6 @@ Token	sdk/third_part/json/reader.h	/^    enum Token {$/;"	g	class:GenericReader
 TokenHelper	sdk/third_part/json/schema.h	/^struct TokenHelper {$/;"	s	namespace:internal
 TokenHelper	sdk/third_part/json/schema.h	/^struct TokenHelper<Stack, char> {$/;"	s	namespace:internal
 Tokenize	sdk/third_part/json/reader.h	/^    RAPIDJSON_FORCEINLINE Token Tokenize(Ch c) {$/;"	f	class:GenericReader
-Tool	sdk/base/Tool.h	/^namespace Tool$/;"	n
 Top	sdk/third_part/json/internal/stack.h	/^    T* Top() { $/;"	f	class:internal::Stack
 Top	sdk/third_part/json/internal/stack.h	/^    const T* Top() const {$/;"	f	class:internal::Stack
 Trace	sdk/base/LogManager.cpp	/^void LogManager::Trace(const char*fmt,...)$/;"	f	class:LogManager
@@ -2694,14 +2773,14 @@ Update	sdk/ai/AINode.cpp	/^bool ParallelHybirdNode::Update(Obj *obj)$/;"	f	class
 Update	sdk/ai/AINode.cpp	/^bool SelectorNode::Update(Obj *obj)$/;"	f	class:SelectorNode
 Update	sdk/ai/AISystem.cpp	/^void AISystem::Update(Hero*hero)$/;"	f	class:AISystem
 Update	sdk/ai/AISystem.cpp	/^void Update(int id,Obj*obj)$/;"	f
-Update	sdk/base/sTime.h	/^		void Update(){$/;"	f	class:TimerTaskManage
-Update	sdk/base/sTime.h	/^		void Update(QWORD nowMSec){$/;"	f	class:TimerTaskManage
-UpdateEvent	sdk/net/sEpoll.cpp	/^bool  sEpoll::UpdateEvent(int fd,int event)$/;"	f	class:sEpoll
+Update	sdk/base/Time.h	/^			void Update(){$/;"	f	class:sdk::TimerTaskManage
+Update	sdk/base/Time.h	/^			void Update(QWORD nowMSec){$/;"	f	class:sdk::TimerTaskManage
+UpdateEvent	sdk/net/Epoll.cpp	/^bool  Epoll::UpdateEvent(int fd,int event)$/;"	f	class:Epoll
 Usable	sdk/third_part/json/document.h	/^        inline static bool Usable(SizeType len) { return                       (MaxSize >= len); }$/;"	f	struct:GenericValue::ShortString
 UserRun	sdk/UserTest.cpp	/^void * UserRun (void *)$/;"	f
-UserTest	sdk/UserTest.h	/^		UserTest(DWORD dwSocket,sSctpPthread* pth){$/;"	f	class:UserTest
-UserTest	sdk/UserTest.h	/^class UserTest$/;"	c
-UuidStr	sdk/base/sUid.h	/^typedef char[36] UuidStr;$/;"	t
+UserTest	sdk/UserTest.h	/^		UserTest(DWORD dwSocket,SctpPthread* pth){$/;"	f	class:sdk::UserTest
+UserTest	sdk/UserTest.h	/^class UserTest$/;"	c	namespace:sdk
+UuidStr	sdk/base/Uid.h	/^typedef char[36] UuidStr;$/;"	t
 VERSION	Gate/Makefile	/^VERSION = VERSION$/;"	m
 VERSION	Makefile	/^VERSION = VERSION$/;"	m
 VERSION	config.h	69;"	d
@@ -2740,10 +2819,10 @@ WINT_MAX	sdk/third_part/json/msinttypes/stdint.h	265;"	d
 WINT_MIN	sdk/third_part/json/msinttypes/stdint.h	264;"	d
 WIStreamWrapper	sdk/third_part/json/istreamwrapper.h	/^typedef BasicIStreamWrapper<std::wistream> WIStreamWrapper;$/;"	t
 WORD	sdk/ai/sDefine.h	/^typedef unsigned short WORD;$/;"	t
-WORD	sdk/base/sDefine.h	/^typedef unsigned short WORD;$/;"	t
+WORD	sdk/base/Define.h	/^typedef unsigned short WORD;$/;"	t
 WOStreamWrapper	sdk/third_part/json/ostreamwrapper.h	/^typedef BasicOStreamWrapper<std::wostream> WOStreamWrapper;$/;"	t
 Warn	sdk/base/LogManager.cpp	/^void LogManager::Warn(const char*fmt,...)$/;"	f	class:LogManager
-Write	sdk/net/sSctpSocket.cpp	/^void sSctpSocket::Write(int fd,const char*msg)$/;"	f	class:sSctpSocket
+Write	sdk/net/SctpSocket.cpp	/^void SctpSocket::Write(int fd,const char*msg)$/;"	f	class:SctpSocket
 WriteBool	sdk/third_part/json/writer.h	/^    bool WriteBool(bool b)  {$/;"	f	class:Writer
 WriteBuffer	sdk/third_part/json/schema.h	/^    bool WriteBuffer(Type type, const void* data, size_t len) {$/;"	f	class:internal::Hasher
 WriteDouble	sdk/third_part/json/writer.h	/^    bool WriteDouble(double d) {$/;"	f	class:Writer
@@ -2785,25 +2864,23 @@ _AI_CHECK_RULE_ACTION_H__	sdk/ai/AICheckRuleAction.h	2;"	d
 _AI_EXECUTE_RULE_ACTION_H__	sdk/ai/AIExecuteRuleAction.h	2;"	d
 _COMPARE_RULE_H__	sdk/ai/CompareRule.h	2;"	d
 _DEFINE_H__	sdk/ai/sDefine.h	2;"	d
-_DEFINE_H__	sdk/base/sDefine.h	2;"	d
+_DEFINE_H__	sdk/base/Define.h	2;"	d
 _FRIEND_FRIEND_MANAGE_H__	Logic/FriendManage.h	3;"	d
 _HERO_H__	sdk/ai/Hero.h	2;"	d
-_MAPMANAGE_H__	sdk/base/MapManage.h	2;"	d
 _MSC_INTTYPES_H_	sdk/third_part/json/msinttypes/inttypes.h	42;"	d
 _MSC_STDINT_H_	sdk/third_part/json/msinttypes/stdint.h	42;"	d
 _POOL_H__	pool.h	2;"	d
-_SCOMPARESS_H__	sdk/base/sCompress.h	2;"	d
-_SEPOLL_H__	sdk/net/sEpoll.h	2;"	d
+_SCOMPARESS_H__	sdk/base/CompressManage.h	2;"	d
+_SEPOLL_H__	sdk/net/Epoll.h	2;"	d
 _SKILL_SYSTEM_H__	sdk/ai/SkillSystem.h	2;"	d
-_SMUTEX_H_	sdk/base/sMutex.h	2;"	d
-_SPTHREADFUNC_H__	sdk/base/sPthreadFunc.h	2;"	d
-_SPTHREADPOOL_H__	sdk/base/sPthreadPool.h	2;"	d
-_SPTHREAD_H__	sdk/base/sPthread.h	2;"	d
-_SSCTPCLIENT_H__	sdk/net/sSctpClient.h	2;"	d
-_SSCTPPOOL_H__	sdk/net/sSctpPool.h	2;"	d
-_SSCTPPTHREAD_H__	sdk/net/sSctpPthread.h	2;"	d
-_SSTCPSOCKET_H__	sdk/net/sSctpSocket.h	2;"	d
-_STIME_H__	sdk/base/sTime.h	2;"	d
+_SMUTEX_H_	sdk/base/Mutex.h	2;"	d
+_SPTHREADPOOL_H__	sdk/base/PthreadPool.h	2;"	d
+_SPTHREAD_H__	sdk/base/Pthread.h	2;"	d
+_SSCTPCLIENT_H__	sdk/net/SctpClient.h	2;"	d
+_SSCTPPOOL_H__	sdk/net/SctpPool.h	2;"	d
+_SSCTPPTHREAD_H__	sdk/net/SctpPthread.h	2;"	d
+_SSTCPSOCKET_H__	sdk/net/SctpSocket.h	2;"	d
+_STIME_H__	sdk/base/Time.h	2;"	d
 _TIMER_TASK_H__	sdk/ai/TimerTask.h	2;"	d
 _USERTEXT_H__	sdk/UserTest.h	2;"	d
 _W64	sdk/third_part/json/msinttypes/stdint.h	106;"	d
@@ -2812,92 +2889,97 @@ __AI_BASE_DEFINE_H__	sdk/ai/AIDefine.h	2;"	d
 __AI_NODE_H__	sdk/ai/AINode.h	2;"	d
 __AI_SYSTEM_H__	sdk/ai/AISystem.h	2;"	d
 __GATE_H__	Gate/Gate.h	2;"	d
+__HELP_FUNCTION_H__	sdk/base/HelpFunction.h	2;"	d
+__HELP_TEMPLATE_H__	sdk/third_part/redis/HelpTemplate.h	2;"	d
+__HIREDIS_H	sdk/third_part/redis/hiredis.h	33;"	d
 __JSON_MANAGER__H__	sdk/base/JsonManager.h	2;"	d
 __LOGIN_SERVER_H__	Login/LoginServer.h	2;"	d
 __LOG_MANAGER_H__	sdk/base/LogManager.h	2;"	d
 __LUA_SYSTEM_H__	sdk/base/LuaSystem.h	2;"	d
 __PROTOBUF_LIST_H__	proto/ProtobufList.h	2;"	d
-__PROTOBUF_MANAGE_H__	sdk/net/sProtobuf.h	2;"	d
+__PROTOBUF_MANAGE_H__	sdk/net/Protobuf.h	2;"	d
+__REDIS_H__	sdk/third_part/redis/Redis.h	2;"	d
 __SERVER_SOCKET_H__	sdk/net/ServerSocket.h	2;"	d
-__SSERVER_H__	sdk/net/sServer.h	2;"	d
-__STRING_HELP__H__	sdk/base/StringHelp.h	2;"	d
-__SUID__H__	sdk/base/sUid.h	2;"	d
-__S_SOCKET_H__	sdk/net/sSocket.h	2;"	d
+__SSERVER_H__	sdk/net/Server.h	2;"	d
+__SUID__H__	sdk/base/Uid.h	2;"	d
+__S_SOCKET_H__	sdk/net/Socket.h	2;"	d
 __TOOL_H__	sdk/base/Tool.h	2;"	d
 __VAR_LIST_H__	sdk/base/VarList.h	2;"	d
 __XML_FILE_H__	sdk/ai/XmlFile.h	2;"	d
 __XML_FILE_H__	sdk/base/XmlFile.h	2;"	d
-_addClient	sdk/net/sSctpSocket.h	/^		CallBack _addClient;$/;"	m	class:sSctpSocket
+_addClient	sdk/net/SctpSocket.h	/^		CallBack _addClient;$/;"	m	class:sdk::SctpSocket
 _address	sdk/net/ServerSocket.h	/^			std::string _address;$/;"	m	class:sdk::ServerSocket
 _cached_size_	proto/Gate.pb.h	/^  mutable int _cached_size_;$/;"	m	class:Gate::Info
 _cached_size_	test/test.pb.h	/^  mutable int _cached_size_;$/;"	m	class:muduo::pack
 _checkRuleAction	sdk/ai/AISystem.h	/^		std::vector<CheckRuleAction*> _checkRuleAction;$/;"	m	class:JudgeAction
-_clockTime	sdk/base/sTime.h	/^	 	timespec		_clockTime;	$/;"	m	class:final
-_closeCB	sdk/net/sEpoll.h	/^		 EventCB _newClientCB,_readCB,_closeCB;$/;"	m	class:sEpoll
-_ctx	sdk/net/sSocket.h	/^	void *_ctx;$/;"	m	class:sSocket
-_cycleMsec	sdk/base/sTime.h	/^		int _cycleMsec ;$/;"	m	class:CycleTime
-_dwSocket	sdk/UserTest.h	/^		DWORD _dwSocket;$/;"	m	class:UserTest
-_epoll	sdk/net/sSctpPthread.h	/^		sEpoll _epoll;$/;"	m	class:sSctpPthread
-_epoll	sdk/net/sSctpSocket.h	/^		sEpoll _epoll;$/;"	m	class:sSctpSocket
-_epollfd	sdk/net/sEpoll.h	/^		 int _epollfd;\/\/epoll句柄$/;"	m	class:sEpoll
+_clockTime	sdk/base/Time.h	/^			timespec		_clockTime;	$/;"	m	class:sdk::final
+_closeCB	sdk/net/Epoll.h	/^			EventCB _newClientCB,_readCB,_closeCB;$/;"	m	class:sdk::Epoll
+_ctx	sdk/net/Socket.h	/^			void *_ctx;$/;"	m	class:sdk::Socket
+_cycleMsec	sdk/base/Time.h	/^			int _cycleMsec ;$/;"	m	class:sdk::CycleTime
+_dwSocket	sdk/UserTest.h	/^		DWORD _dwSocket;$/;"	m	class:sdk::UserTest
+_epoll	sdk/net/SctpPthread.h	/^			Epoll _epoll;$/;"	m	class:sdk::SctpPthread
+_epoll	sdk/net/SctpSocket.h	/^		Epoll _epoll;$/;"	m	class:sdk::SctpSocket
+_epollfd	sdk/net/Epoll.h	/^			int _epollfd;\/\/epoll句柄$/;"	m	class:sdk::Epoll
 _eventGroup	sdk/base/EventCallBack.h	/^		__gnu_cxx::hash_map<int,std::list<EventSort> > _eventGroup;$/;"	m	class:EventCallBack
 _executeRuleAction	sdk/ai/AISystem.h	/^		std::vector<ExecuteRuleAction*> _executeRuleAction;$/;"	m	class:JudgeAction
+_formatSymbol	sdk/third_part/redis/Redis.h	/^		std::string _formatSymbol;$/;"	m	class:Redis
 _func	sdk/base/EventCallBack.h	/^			EventFunc _func;$/;"	m	struct:EventCallBack::EventSort
-_func	sdk/base/sTime.h	/^			TimerTaskFunc _func;$/;"	m	struct:TimerTaskManage::TimerTask
-_globaTime	sdk/base/sTime.h	/^static ClockTime _globaTime;$/;"	v
+_func	sdk/base/Time.h	/^				TimerTaskFunc _func;$/;"	m	struct:sdk::TimerTaskManage::TimerTask
+_globaTime	sdk/base/Time.h	/^	static ClockTime _globaTime;$/;"	m	namespace:sdk
 _has_bits_	test/test.pb.h	/^  ::google::protobuf::uint32 _has_bits_[1];$/;"	m	class:muduo::pack
 _info	sdk/ai/AIExecuteRuleAction.h	/^		std::string _info;$/;"	m	class:ExecuteEcho
 _internal_metadata_	proto/Gate.pb.h	/^  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;$/;"	m	class:Gate::Info
 _internal_metadata_	test/test.pb.h	/^  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;$/;"	m	class:muduo::pack
-_ipAddress	sdk/net/sSctpSocket.h	/^		std::string _ipAddress;$/;"	m	class:sSctpSocket
-_ipPort	sdk/net/sSocket.h	/^	std::string _ipPort;$/;"	m	class:sSocket
+_ipAddress	sdk/net/SctpSocket.h	/^		std::string _ipAddress;$/;"	m	class:sdk::SctpSocket
+_ipPort	sdk/net/Socket.h	/^			std::string _ipPort;$/;"	m	class:sdk::Socket
 _is_default_instance_	proto/Gate.pb.h	/^  bool _is_default_instance_;$/;"	m	class:Gate::Info
 _judgeAction	sdk/ai/AISystem.h	/^		std::vector<JudgeAction*>  _judgeAction;$/;"	m	class:StateMachine
-_keyValue	sdk/base/MapManage.h	/^		static std::map<K,V> _keyValue;$/;"	m	class:MapManage
-_log	sdk/net/ServerSocket.h	/^	static sdk::LogManager _log;$/;"	m	namespace:sdk
+_log	sdk/net/ServerSocket.h	/^			sdk::LogManager _log;$/;"	m	class:sdk::ServerSocket
 _logger	sdk/base/LogManager.h	/^			log4cplus::Logger _logger;$/;"	m	class:sdk::LogManager
-_maxfdSize	sdk/net/sEpoll.h	/^		 int _maxfdSize;$/;"	m	class:sEpoll
-_message	sdk/net/sSctpPthread.h	/^		ProtobufManage _message;$/;"	m	class:sSctpPthread
-_messageDeal	sdk/net/sProtobuf.h	/^		std::map<std::string ,std::function<void(void*)>> _messageDeal;$/;"	m	class:ProtobufManage
-_mutex	sdk/base/sMutex.h	/^		pthread_mutex_t _mutex;$/;"	m	class:sMutex
-_mutex	sdk/base/sPthread.h	/^		 sMutex _mutex;$/;"	m	class:sPthread
+_maxfdSize	sdk/net/Epoll.h	/^			int _maxfdSize;$/;"	m	class:sdk::Epoll
+_message	sdk/net/SctpPthread.h	/^			ProtobufManage _message;$/;"	m	class:sdk::SctpPthread
+_message	sdk/net/ServerSocket.h	/^			sdk::ProtobufManage _message;$/;"	m	class:sdk::ServerSocket
+_messageDeal	sdk/net/Protobuf.h	/^			std::map<std::string ,std::function<void(void*)>> _messageDeal;$/;"	m	class:sdk::ProtobufManage
+_mutex	sdk/base/Mutex.h	/^		pthread_mutex_t _mutex;$/;"	m	class:Mutex
+_mutex	sdk/base/Pthread.h	/^		 Mutex _mutex;$/;"	m	class:Pthread
 _name	Logic/FriendManage.h	/^	std::string _name;	$/;"	m	struct:FriendInfo
 _needReturnFlag	sdk/ai/AINode.h	/^	bool _needReturnFlag;$/;"	m	class:ParallelHybirdNode
 _needReturnFlagNum	sdk/ai/AINode.h	/^	int  _needReturnFlagNum;$/;"	m	class:ParallelHybirdNode
-_newClientCB	sdk/net/sEpoll.h	/^		 EventCB _newClientCB,_readCB,_closeCB;$/;"	m	class:sEpoll
-_nextMsec	sdk/base/sTime.h	/^		time_t _nextMsec;$/;"	m	class:CycleTime
+_newClientCB	sdk/net/Epoll.h	/^			EventCB _newClientCB,_readCB,_closeCB;$/;"	m	class:sdk::Epoll
+_nextMsec	sdk/base/Time.h	/^			time_t _nextMsec;$/;"	m	class:sdk::CycleTime
 _nodeGroupAction	sdk/ai/AINode.h	/^	AINodeGroup _nodeGroupAction;$/;"	m	class:AINode
-_ntid	sdk/base/sPthread.h	/^		pthread_t _ntid;$/;"	m	class:sPthread
+_ntid	sdk/base/Pthread.h	/^		pthread_t _ntid;$/;"	m	class:Pthread
 _numValue	sdk/base/VarList.h	/^			NumValue _numValue;$/;"	m	struct:VarObj::Value
 _objValue	sdk/ai/AICheckRuleAction.h	/^		int _objValue;$/;"	m	class:CheckHp
 _objValue	sdk/ai/AICheckRuleAction.h	/^		int _objValue;$/;"	m	class:CheckMp
 _pLuaState	sdk/base/LuaSystem.h	/^		lua_State* _pLuaState;$/;"	m	class:LuaSystem
 _parallelGroup	sdk/ai/AINode.h	/^	AINodeGroup _parallelGroup;$/;"	m	class:ParallelHybirdNode
 _pool	pool.h	/^		Memory_List * _pool[POOL_LIST_MAX_LENGTH];$/;"	m	class:sPool
-_pool	sdk/net/sServer.h	/^		sSctpPool _pool;$/;"	m	class:sServer
-_poolIndex	sdk/base/sPthreadPool.h	/^	DWORD _poolIndex;$/;"	m	class:sPthreadPool
+_pool	sdk/net/Server.h	/^			SctpPool _pool;$/;"	m	class:sdk::Server
+_poolIndex	sdk/base/PthreadPool.h	/^	DWORD _poolIndex;$/;"	m	class:PthreadPool
 _priority	sdk/base/EventCallBack.h	/^			int _priority;$/;"	m	struct:EventCallBack::EventSort
-_protobufManage	sdk/net/sSocket.h	/^	ProtobufManage _protobufManage;$/;"	m	class:sSocket
-_pthreadPool	sdk/base/sPthreadPool.h	/^	std::map<DWORD ,sPthread*> _pthreadPool;$/;"	m	class:sPthreadPool
-_readCB	sdk/net/sEpoll.h	/^		 EventCB _newClientCB,_readCB,_closeCB;$/;"	m	class:sEpoll
-_sctpPool	sdk/net/sSctpPool.h	/^	 sPthreadPool _sctpPool;$/;"	m	class:sSctpPool
-_sctpPth	sdk/UserTest.h	/^		sSctpPthread* _sctpPth;$/;"	m	class:UserTest
-_servaddr	sdk/net/sSctpSocket.h	/^		struct sockaddr_in _servaddr;$/;"	m	class:sSctpSocket	typeref:struct:sSctpSocket::sockaddr_in
+_protobufManage	sdk/net/Socket.h	/^			ProtobufManage _protobufManage;$/;"	m	class:sdk::Socket
+_pthreadPool	sdk/base/PthreadPool.h	/^	std::map<DWORD ,Pthread*> _pthreadPool;$/;"	m	class:PthreadPool
+_readCB	sdk/net/Epoll.h	/^			EventCB _newClientCB,_readCB,_closeCB;$/;"	m	class:sdk::Epoll
+_sctpPth	sdk/UserTest.h	/^		SctpPthread* _sctpPth;$/;"	m	class:sdk::UserTest
+_sctpPthreadPool	sdk/net/SctpPool.h	/^			PthreadPool _sctpPthreadPool;$/;"	m	class:sdk::SctpPool
+_servaddr	sdk/net/SctpSocket.h	/^		struct sockaddr_in _servaddr;$/;"	m	class:sdk::SctpSocket	typeref:struct:sdk::SctpSocket::sockaddr_in
 _serverName	Login/LoginServer.h	/^		std::string _serverName;$/;"	m	class:LoginServer
-_serverName	sdk/net/sServer.h	/^		std::string _serverName;$/;"	m	class:sServer
+_serverName	sdk/net/Server.h	/^			std::string _serverName;$/;"	m	class:sdk::Server
+_socket	sdk/net/Server.h	/^			SctpSocket _socket;$/;"	m	class:sdk::Server
 _socket	sdk/net/ServerSocket.h	/^			void *_socket;$/;"	m	class:sdk::ServerSocket
-_socket	sdk/net/sServer.h	/^		sSctpSocket _socket;$/;"	m	class:sServer
-_socket	sdk/net/sSocket.h	/^	void *_socket;$/;"	m	class:sSocket
+_socket	sdk/net/Socket.h	/^			void *_socket;$/;"	m	class:sdk::Socket
 _stateMachineMap	sdk/ai/AISystem.h	/^		std::map<int,AINode*> _stateMachineMap;$/;"	m	class:AISystem
 _strValue	sdk/base/VarList.h	/^			std::string _strValue;$/;"	m	struct:VarObj::Value
-_tTime	sdk/base/sTime.h	/^		time_t _tTime;$/;"	m	class:final
-_taskList	sdk/base/sTime.h	/^		std::list<TimerTask> _taskList;$/;"	m	class:TimerTaskManage
-_tmTime	sdk/base/sTime.h	/^		struct tm _tmTime;$/;"	m	class:final	typeref:struct:final::tm
+_tTime	sdk/base/Time.h	/^			time_t _tTime;$/;"	m	class:sdk::final
+_taskList	sdk/base/Time.h	/^			std::list<TimerTask> _taskList;$/;"	m	class:sdk::TimerTaskManage
+_tmTime	sdk/base/Time.h	/^			struct tm _tmTime;$/;"	m	class:sdk::final	typeref:struct:sdk::final::tm
 _value	sdk/base/VarList.h	/^	Value _value;$/;"	m	class:VarObj
 _valueType	sdk/base/VarList.h	/^			ValueType _valueType;$/;"	m	struct:VarObj::Value
 _varList	sdk/base/VarList.h	/^		std::vector<VarObj> _varList;$/;"	m	class:VarList
 _xmlFile	sdk/ai/AISystem.h	/^		XmlFile _xmlFile;$/;"	m	class:AISystem
 a	sdk/third_part/json/document.h	/^        ArrayData a;$/;"	m	union:GenericValue::Data
+a	sdk/third_part/redis/main.cpp	/^	const M a;$/;"	m	struct:Text	file:
 abs_builddir	Gate/Makefile	/^abs_builddir = \/home\/sauli\/server\/Gate$/;"	m
 abs_builddir	Makefile	/^abs_builddir = \/home\/sauli\/server$/;"	m
 abs_builddir	sdk/Makefile	/^abs_builddir = \/home\/sauli\/server\/sdk$/;"	m
@@ -2941,8 +3023,8 @@ ac_fn_cxx_check_header_mongrel	configure	/^ac_fn_cxx_check_header_mongrel ()$/;"
 ac_fn_cxx_try_compile	configure	/^ac_fn_cxx_try_compile ()$/;"	f
 ac_fn_cxx_try_cpp	configure	/^ac_fn_cxx_try_cpp ()$/;"	f
 ac_fn_cxx_try_link	configure	/^ac_fn_cxx_try_link ()$/;"	f
-addDelayTask	sdk/base/sTask.cpp	/^bool Task::addDelayTask(Closure&task,int delayTime)$/;"	f	class:Task
-addTask	sdk/base/sTask.cpp	/^bool Task::addTask(Closure&task)$/;"	f	class:Task
+addDelayTask	sdk/base/Task.cpp	/^bool Task::addDelayTask(Closure&task,int delayTime)$/;"	f	class:Task
+addTask	sdk/base/Task.cpp	/^bool Task::addTask(Closure&task)$/;"	f	class:Task
 additionalItemsSchema_	sdk/third_part/json/schema.h	/^    const SchemaType* additionalItemsSchema_;$/;"	m	class:internal::Schema
 additionalItems_	sdk/third_part/json/schema.h	/^    bool additionalItems_;$/;"	m	class:internal::Schema
 additionalPropertiesSchema_	sdk/third_part/json/schema.h	/^    const SchemaType* additionalPropertiesSchema_;$/;"	m	class:internal::Schema
@@ -3022,7 +3104,7 @@ am__mv	test/Makefile	/^am__mv = mv -f$/;"	m
 am__nobase_list	sdk/Makefile	/^am__nobase_list = $(am__nobase_strip_setup); \\$/;"	m
 am__nobase_strip	sdk/Makefile	/^am__nobase_strip = \\$/;"	m
 am__nobase_strip_setup	sdk/Makefile	/^am__nobase_strip_setup = \\$/;"	m
-am__objects_1	sdk/Makefile	/^am__objects_1 = .\/net\/sSctpSocket.lo .\/net\/sSctpPool.lo \\$/;"	m
+am__objects_1	sdk/Makefile	/^am__objects_1 = .\/net\/SctpSocket.lo .\/net\/SctpPool.lo \\$/;"	m
 am__post_remove_distdir	Makefile	/^am__post_remove_distdir = $(am__remove_distdir)$/;"	m
 am__quote	Gate/Makefile	/^am__quote = $/;"	m
 am__quote	Makefile	/^am__quote = $/;"	m
@@ -3166,6 +3248,7 @@ bindir	Makefile	/^bindir = ${exec_prefix}\/bin$/;"	m
 bindir	sdk/Makefile	/^bindir = ${exec_prefix}\/bin$/;"	m
 bindir	test/Makefile	/^bindir = ${exec_prefix}\/bin$/;"	m
 boolValue	sdk/base/VarList.h	/^			bool		boolValue;$/;"	m	union:VarObj::NumValue
+buf	sdk/third_part/redis/hiredis.h	/^    char *buf; \/* Read buffer *\/$/;"	m	struct:redisReader
 bufferEnd_	sdk/third_part/json/filewritestream.h	/^    char *bufferEnd_;$/;"	m	class:FileWriteStream
 bufferLast_	sdk/third_part/json/filereadstream.h	/^    Ch *bufferLast_;$/;"	m	class:FileReadStream
 bufferSize_	sdk/third_part/json/filereadstream.h	/^    size_t bufferSize_;$/;"	m	class:FileReadStream
@@ -3222,6 +3305,7 @@ clear_name	test/test.pb.cc	/^void pack::clear_name() {$/;"	f	class:muduo::pack
 clear_name	test/test.pb.h	/^inline void pack::clear_name() {$/;"	f	class:muduo::pack
 clear_str	proto/Gate.pb.cc	/^void Info::clear_str() {$/;"	f	class:Gate::Info
 clear_str	proto/Gate.pb.h	/^inline void Info::clear_str() {$/;"	f	class:Gate::Info
+cmd	sdk/third_part/redis/Makefile	/^ cmd=g++ -o run libhiredis.so -std=c++11 -g$/;"	m
 code_	sdk/third_part/json/error/error.h	/^    ParseErrorCode code_;$/;"	m	struct:ParseResult
 codepoint	sdk/third_part/json/internal/regex.h	/^        unsigned codepoint;$/;"	m	struct:internal::GenericRegex::State
 codepoint_	sdk/third_part/json/internal/regex.h	/^    unsigned codepoint_;$/;"	m	class:internal::DecodedStream
@@ -3234,7 +3318,11 @@ count_	sdk/third_part/json/internal/biginteger.h	/^    size_t count_;$/;"	m	clas
 count_	sdk/third_part/json/istreamwrapper.h	/^    size_t count_;  \/\/!< Number of characters read. Note:$/;"	m	class:BasicIStreamWrapper
 crate	sdk/ai/main.cpp	/^	static shared_ptr<A> crate()$/;"	f	class:A
 createAINode	sdk/ai/AISystem.h	/^		typedef AINodeBase *(createAINode)() ;$/;"	t	class:AISystem
-createMessage	sdk/net/sProtobuf.h	/^		inline ProtoBuffMessage*  createMessage(const std::string& name){$/;"	f	class:ProtobufManage
+createArray	sdk/third_part/redis/hiredis.h	/^    void *(*createArray)(const redisReadTask*, int);$/;"	m	struct:redisReplyObjectFunctions
+createInteger	sdk/third_part/redis/hiredis.h	/^    void *(*createInteger)(const redisReadTask*, long long);$/;"	m	struct:redisReplyObjectFunctions
+createMessage	sdk/net/Protobuf.h	/^			inline ProtoBuffMessage*  createMessage(const std::string& name){$/;"	f	class:sdk::ProtobufManage
+createNil	sdk/third_part/redis/hiredis.h	/^    void *(*createNil)(const redisReadTask*);$/;"	m	struct:redisReplyObjectFunctions
+createString	sdk/third_part/redis/hiredis.h	/^    void *(*createString)(const redisReadTask*, char*, size_t);$/;"	m	struct:redisReplyObjectFunctions
 currentOffset	sdk/third_part/zip/lz4.h	/^    uint32_t currentOffset;$/;"	m	struct:__anon22
 currentOffset	sdk/third_part/zip/lz4.h	/^    unsigned int currentOffset;$/;"	m	struct:__anon24
 current_	sdk/third_part/json/encodedstream.h	/^    Ch current_;$/;"	m	class:AutoUTFInputStream
@@ -3271,7 +3359,7 @@ datarootdir	Makefile	/^datarootdir = ${prefix}\/share$/;"	m
 datarootdir	sdk/Makefile	/^datarootdir = ${prefix}\/share$/;"	m
 datarootdir	test/Makefile	/^datarootdir = ${prefix}\/share$/;"	m
 dealMsg	sdk/UserTest.cpp	/^void UserTest::dealMsg(char *arg)$/;"	f	class:UserTest
-decode	sdk/net/sProtobuf.h	/^		inline void decode( char*buf,const ProtoBuffMessage& message)$/;"	f	class:ProtobufManage
+decode	sdk/net/Protobuf.h	/^			inline void decode( char*buf,const ProtoBuffMessage& message)$/;"	f	class:sdk::ProtobufManage
 default_instance	proto/Gate.pb.cc	/^const Info& Info::default_instance() {$/;"	f	class:Gate::Info
 default_instance	test/test.pb.cc	/^const pack& pack::default_instance() {$/;"	f	class:muduo::pack
 default_instance_	proto/Gate.pb.cc	/^Info* Info::default_instance_ = NULL;$/;"	m	class:Gate::Info	file:
@@ -3320,9 +3408,12 @@ dwid_	proto/Gate.pb.h	/^  ::google::protobuf::uint32 dwid_;$/;"	m	class:Gate::In
 dwid_	test/test.pb.h	/^  ::google::protobuf::int32 dwid_;$/;"	m	class:muduo::pack
 e	sdk/third_part/json/internal/diyfp.h	/^    int e;$/;"	m	struct:internal::DiyFp
 earlyEnd_directive	sdk/third_part/zip/lz4.c	/^typedef enum { full = 0, partial = 1 } earlyEnd_directive;$/;"	t	typeref:enum:__anon21	file:
-ecode	sdk/net/sProtobuf.h	/^		inline  ProtoBuffMessage* ecode(const char* buf)$/;"	f	class:ProtobufManage
+ecode	sdk/net/Protobuf.h	/^			inline  ProtoBuffMessage* ecode(const char* buf)$/;"	f	class:sdk::ProtobufManage
+element	sdk/third_part/redis/hiredis.h	/^    struct redisReply **element; \/* elements vector for REDIS_REPLY_ARRAY *\/$/;"	m	struct:redisReply	typeref:struct:redisReply::redisReply
 elements	sdk/third_part/json/document.h	/^        GenericValue* elements;$/;"	m	struct:GenericValue::ArrayData
-end	sdk/UserTest.h	/^		bool end;$/;"	m	class:UserTest
+elements	sdk/third_part/redis/hiredis.h	/^    int elements; \/* number of elements in multibulk container *\/$/;"	m	struct:redisReadTask
+elements	sdk/third_part/redis/hiredis.h	/^    size_t elements; \/* number of elements, for REDIS_REPLY_ARRAY *\/$/;"	m	struct:redisReply
+end	sdk/UserTest.h	/^		bool end;$/;"	m	class:sdk::UserTest
 end	sdk/third_part/json/document.h	/^    MemberIterator end() const { return value_.MemberEnd(); }$/;"	f	class:GenericObject
 end	sdk/third_part/json/document.h	/^    ValueIterator end() const { return value_.End(); }$/;"	f	class:GenericArray
 end	sdk/third_part/json/internal/regex.h	/^        unsigned end;$/;"	m	struct:internal::GenericRegex::Range
@@ -3335,6 +3426,11 @@ enumCount_	sdk/third_part/json/schema.h	/^    SizeType enumCount_;$/;"	m	class:i
 enum_	sdk/third_part/json/schema.h	/^    uint64_t* enum_;$/;"	m	class:internal::Schema
 eof_	sdk/third_part/json/filereadstream.h	/^    bool eof_;$/;"	m	class:FileReadStream
 epollfd	sdk/ai/TimerTask.h	/^	int epollfd;$/;"	m	class:TimerTask
+err	sdk/third_part/redis/hiredis.h	/^    int err; \/* Error flags, 0 when there is no error *\/$/;"	m	struct:redisContext
+err	sdk/third_part/redis/hiredis.h	/^    int err; \/* Error flags, 0 when there is no error *\/$/;"	m	struct:redisReader
+error	sdk/third_part/redis/HelpTemplate.h	/^struct error{$/;"	s
+errstr	sdk/third_part/redis/hiredis.h	/^    char errstr[128]; \/* String representation of error when applicable *\/$/;"	m	struct:redisContext
+errstr	sdk/third_part/redis/hiredis.h	/^    char errstr[128]; \/* String representation of error when applicable *\/$/;"	m	struct:redisReader
 exclusiveMaximum_	sdk/third_part/json/schema.h	/^    bool exclusiveMaximum_;$/;"	m	class:internal::Schema
 exclusiveMinimum_	sdk/third_part/json/schema.h	/^    bool exclusiveMinimum_;$/;"	m	class:internal::Schema
 exec_prefix	Gate/Makefile	/^exec_prefix = ${prefix}$/;"	m
@@ -3350,15 +3446,19 @@ externalDict	sdk/third_part/zip/lz4.h	/^    const unsigned char* externalDict;$/
 f	sdk/third_part/json/document.h	/^        Flag f;$/;"	m	union:GenericValue::Data
 f	sdk/third_part/json/internal/diyfp.h	/^    uint64_t f;$/;"	m	struct:internal::DiyFp
 factory	sdk/third_part/json/schema.h	/^    SchemaValidatorFactoryType& factory;$/;"	m	struct:internal::SchemaValidationContext
+fd	sdk/third_part/redis/hiredis.h	/^    int fd;$/;"	m	struct:redisContext
 fileList	sdk/Makefile	/^fileList = \\$/;"	m
-final	sdk/base/sTime.h	/^class ClockTime final{$/;"	c
-final	sdk/base/sTime.h	/^class Time final$/;"	c
+final	sdk/base/Time.h	/^	class ClockTime final{$/;"	c	namespace:sdk
+final	sdk/base/Time.h	/^	class Time final$/;"	c	namespace:sdk
 flags	sdk/third_part/json/document.h	/^        uint16_t flags;$/;"	m	struct:GenericValue::Flag
+flags	sdk/third_part/redis/hiredis.h	/^    int flags;$/;"	m	struct:redisContext
 floatValue	sdk/base/VarList.h	/^			FLOAT       floatValue;$/;"	m	union:VarObj::NumValue
+fn	sdk/third_part/redis/hiredis.h	/^    redisReplyObjectFunctions *fn;$/;"	m	struct:redisReader
 formatOptions_	sdk/third_part/json/prettywriter.h	/^    PrettyFormatOptions formatOptions_;$/;"	m	class:PrettyWriter
 fp_	sdk/third_part/json/filereadstream.h	/^    std::FILE* fp_;$/;"	m	class:FileReadStream
 fp_	sdk/third_part/json/filewritestream.h	/^    std::FILE* fp_;$/;"	m	class:FileWriteStream
 freeMalloc	pool.cpp	/^void sPool::freeMalloc(void *ptr,int size)$/;"	f	class:sPool
+freeObject	sdk/third_part/redis/hiredis.h	/^    void (*freeObject)(void*);$/;"	m	struct:redisReplyObjectFunctions
 full	sdk/third_part/zip/lz4.c	/^typedef enum { full = 0, partial = 1 } earlyEnd_directive;$/;"	e	enum:__anon21	file:
 func1	test/main.cpp	/^void func1(int a,int b){$/;"	f
 func2	test/main.cpp	/^void func2(int a,int b){$/;"	f
@@ -3595,7 +3695,7 @@ func_xform	configure	/^func_xform ()\\$/;"	f
 func_xform	libtool	/^func_xform ()$/;"	f
 func_xform	ltmain.sh	/^func_xform ()$/;"	f
 getMalloc	pool.cpp	/^void * sPool::getMalloc(int size)$/;"	f	class:sPool
-getSocket	sdk/UserTest.h	/^		DWORD getSocket(){return _dwSocket;};$/;"	f	class:UserTest
+getSocket	sdk/UserTest.h	/^		DWORD getSocket(){return _dwSocket;};$/;"	f	class:sdk::UserTest
 give_advice	missing	/^give_advice ()$/;"	f
 hasBOM_	sdk/third_part/json/encodedstream.h	/^    bool hasBOM_;$/;"	m	class:AutoUTFInputStream
 hasDependencies_	sdk/third_part/json/schema.h	/^    bool hasDependencies_;$/;"	m	class:internal::Schema
@@ -3647,6 +3747,7 @@ i	sdk/third_part/json/schema.h	/^            int64_t i;$/;"	m	union:internal::Ha
 i32toa	sdk/third_part/json/internal/itoa.h	/^inline char* i32toa(int32_t value, char* buffer) {$/;"	f	namespace:internal
 i64	sdk/third_part/json/document.h	/^        int64_t i64;$/;"	m	union:GenericValue::Number
 i64toa	sdk/third_part/json/internal/itoa.h	/^inline char* i64toa(int64_t value, char* buffer) {$/;"	f	namespace:internal
+idx	sdk/third_part/redis/hiredis.h	/^    int idx; \/* index in parent (array) object *\/$/;"	m	struct:redisReadTask
 imaxabs	sdk/third_part/json/msinttypes/inttypes.h	279;"	d
 imaxdiv	sdk/third_part/json/msinttypes/inttypes.h	/^imaxdiv_t __cdecl imaxdiv(intmax_t numer, intmax_t denom)$/;"	f
 imaxdiv_t	sdk/third_part/json/msinttypes/inttypes.h	/^} imaxdiv_t;$/;"	t	typeref:struct:__anon14
@@ -3699,6 +3800,7 @@ int_least16_t	sdk/third_part/json/msinttypes/stdint.h	/^typedef int16_t   int_le
 int_least32_t	sdk/third_part/json/msinttypes/stdint.h	/^typedef int32_t   int_least32_t;$/;"	t
 int_least64_t	sdk/third_part/json/msinttypes/stdint.h	/^typedef int64_t   int_least64_t;$/;"	t
 int_least8_t	sdk/third_part/json/msinttypes/stdint.h	/^typedef int8_t    int_least8_t;$/;"	t
+integer	sdk/third_part/redis/hiredis.h	/^    long long integer; \/* The integer when type is REDIS_REPLY_INTEGER *\/$/;"	m	struct:redisReply
 internal	sdk/third_part/json/document.h	/^namespace internal {$/;"	n
 internal	sdk/third_part/json/internal/biginteger.h	/^namespace internal {$/;"	n
 internal	sdk/third_part/json/internal/diyfp.h	/^namespace internal {$/;"	n
@@ -3724,8 +3826,8 @@ invalidKeyword	sdk/third_part/json/schema.h	/^    const Ch* invalidKeyword;$/;"	
 invalidSchemaKeyword_	sdk/third_part/json/schema.h	/^    const Ch* invalidSchemaKeyword_;$/;"	m	class:SchemaValidatingReader
 invalidSchemaPointer_	sdk/third_part/json/schema.h	/^    PointerType invalidSchemaPointer_;$/;"	m	class:SchemaValidatingReader
 is	sdk/third_part/json/reader.h	/^        InputStream& is;$/;"	m	class:GenericReader::NumberStream
-isSameHour	sdk/base/sTime.h	/^	static bool isSameHour(time_t&src,time_t&other){$/;"	f	class:TimeHelp
-isSameMinute	sdk/base/sTime.h	/^	static	bool isSameMinute(time_t&src,time_t&other){$/;"	f	class:TimeHelp
+isSameHour	sdk/base/Time.h	/^			static bool isSameHour(time_t&src,time_t&other){$/;"	f	class:sdk::TimeHelp
+isSameMinute	sdk/base/Time.h	/^			static	bool isSameMinute(time_t&src,time_t&other){$/;"	f	class:sdk::TimeHelp
 isValid_	sdk/third_part/json/schema.h	/^    bool isValid_;$/;"	m	class:SchemaValidatingReader
 is_	sdk/third_part/json/encodedstream.h	/^    InputByteStream& is_;$/;"	m	class:EncodedInputStream
 is_	sdk/third_part/json/encodedstream.h	/^    InputByteStream* is_;$/;"	m	class:AutoUTFInputStream
@@ -3879,6 +3981,8 @@ kWriteNoFlags	sdk/third_part/json/writer.h	/^    kWriteNoFlags = 0,             
 kWriteValidateEncodingFlag	sdk/third_part/json/writer.h	/^    kWriteValidateEncodingFlag = 1, \/\/!< Validate encoding of JSON strings.$/;"	e	enum:WriteFlag
 kZeroOrMore	sdk/third_part/json/internal/regex.h	/^        kZeroOrMore,$/;"	e	enum:internal::GenericRegex::Operator
 kZeroOrOne	sdk/third_part/json/internal/regex.h	/^        kZeroOrOne,$/;"	e	enum:internal::GenericRegex::Operator
+len	sdk/third_part/redis/hiredis.h	/^    int len; \/* Length of string *\/$/;"	m	struct:redisReply
+len	sdk/third_part/redis/hiredis.h	/^    size_t len; \/* Buffer length *\/$/;"	m	struct:redisReader
 length	sdk/third_part/json/document.h	/^        SizeType length;$/;"	m	struct:GenericValue::String
 length	sdk/third_part/json/document.h	/^    const SizeType length; \/\/!< length of the string (excluding the trailing NULL terminator)$/;"	m	struct:GenericStringRef
 length	sdk/third_part/json/pointer.h	/^        SizeType length;            \/\/!< Length of the name.$/;"	m	struct:GenericPointer::Token
@@ -3907,7 +4011,7 @@ localstatedir	Gate/Makefile	/^localstatedir = ${prefix}\/var$/;"	m
 localstatedir	Makefile	/^localstatedir = ${prefix}\/var$/;"	m
 localstatedir	sdk/Makefile	/^localstatedir = ${prefix}\/var$/;"	m
 localstatedir	test/Makefile	/^localstatedir = ${prefix}\/var$/;"	m
-lock	sdk/base/sMutex.h	/^		void lock(){pthread_mutex_lock(&_mutex);}$/;"	f	class:sMutex
+lock	sdk/base/Mutex.h	/^		void lock(){pthread_mutex_lock(&_mutex);}$/;"	f	class:Mutex
 longValue	sdk/base/VarList.h	/^			LONG        longValue;$/;"	m	union:VarObj::NumValue
 luaFunc	sdk/base/LuaSystem.h	/^typedef int (*luaFunc)(luaState*lua);$/;"	t
 luaSate	sdk/base/LuaSystem.h	/^typedef lua_state luaSate;$/;"	t
@@ -3917,6 +4021,7 @@ main	config.guess	/^		main()$/;"	f
 main	config.guess	/^	main ()$/;"	f
 main	config.guess	/^main ()$/;"	f
 main	sdk/ai/main.cpp	/^int main()$/;"	f
+main	sdk/third_part/redis/main.cpp	/^int main()$/;"	f
 main	test/main.cpp	/^int main()$/;"	f
 main	test/main1.cpp	/^int main()$/;"	f
 main_DEPENDENCIES	test/Makefile	/^main_DEPENDENCIES = ..\/sdk\/libsdk.la$/;"	m
@@ -3935,6 +4040,7 @@ maxDecimalPlaces_	sdk/third_part/json/writer.h	/^    int maxDecimalPlaces_;$/;"	
 maxItems_	sdk/third_part/json/schema.h	/^    SizeType maxItems_;$/;"	m	class:internal::Schema
 maxLength_	sdk/third_part/json/schema.h	/^    SizeType maxLength_;$/;"	m	class:internal::Schema
 maxProperties_	sdk/third_part/json/schema.h	/^    SizeType maxProperties_;$/;"	m	class:internal::Schema
+maxbuf	sdk/third_part/redis/hiredis.h	/^    size_t maxbuf; \/* Max length of unused buffer *\/$/;"	m	struct:redisReader
 maximum_	sdk/third_part/json/schema.h	/^    SValue maximum_;$/;"	m	class:internal::Schema
 members	sdk/third_part/json/document.h	/^        Member* members;$/;"	m	struct:GenericValue::ObjectData
 min	sdk/third_part/json/document.h	36;"	d
@@ -3979,33 +4085,35 @@ notValidatorIndex_	sdk/third_part/json/schema.h	/^    SizeType notValidatorIndex
 not_	sdk/third_part/json/schema.h	/^    const SchemaType* not_;$/;"	m	class:internal::Schema
 nullHandler_	sdk/third_part/json/schema.h	/^    OutputHandler* nullHandler_;$/;"	m	class:GenericSchemaValidator
 o	sdk/third_part/json/document.h	/^        ObjectData o;$/;"	m	union:GenericValue::Data
+obj	sdk/third_part/redis/hiredis.h	/^    void *obj; \/* holds user-generated value for a read task *\/$/;"	m	struct:redisReadTask
 objectPatternValidatorType	sdk/third_part/json/schema.h	/^    PatternValidatorType objectPatternValidatorType;$/;"	m	struct:internal::SchemaValidationContext
+obuf	sdk/third_part/redis/hiredis.h	/^    char *obuf; \/* Write buffer *\/$/;"	m	struct:redisContext
 offset_	sdk/third_part/json/error/error.h	/^    size_t offset_;$/;"	m	struct:ParseResult
 oldincludedir	Gate/Makefile	/^oldincludedir = \/usr\/include$/;"	m
 oldincludedir	Makefile	/^oldincludedir = \/usr\/include$/;"	m
 oldincludedir	sdk/Makefile	/^oldincludedir = \/usr\/include$/;"	m
 oldincludedir	test/Makefile	/^oldincludedir = \/usr\/include$/;"	m
 oneOf_	sdk/third_part/json/schema.h	/^    SchemaArray oneOf_;$/;"	m	class:internal::Schema
-operator !=	sdk/base/sTime.h	/^		bool operator != (const Time&other) const{$/;"	f	class:final
+operator !=	sdk/base/Time.h	/^			bool operator != (const Time&other) const{$/;"	f	class:sdk::final
 operator !=	sdk/third_part/json/document.h	/^    bool operator!=(ConstIterator that) const { return ptr_ != that.ptr_; }$/;"	f	class:GenericMemberIterator
 operator !=	sdk/third_part/json/document.h	/^    bool operator!=(const Ch* rhs) const { return !(*this == rhs); }$/;"	f	class:GenericValue
 operator !=	sdk/third_part/json/document.h	/^    bool operator!=(const GenericValue<Encoding, SourceAllocator>& rhs) const { return !(*this == rhs); }$/;"	f	class:GenericValue
 operator !=	sdk/third_part/json/document.h	/^    template <typename T> RAPIDJSON_DISABLEIF_RETURN((internal::IsGenericValue<T>), (bool)) operator!=(const T& rhs) const { return !(*this == rhs); }$/;"	f	class:GenericValue
 operator !=	sdk/third_part/json/document.h	/^    template <typename T> friend RAPIDJSON_DISABLEIF_RETURN((internal::IsGenericValue<T>), (bool)) operator!=(const T& lhs, const GenericValue& rhs) { return !(rhs == lhs); }$/;"	f	class:GenericValue
 operator !=	sdk/third_part/json/pointer.h	/^    bool operator!=(const GenericPointer& rhs) const { return !(*this == rhs); }$/;"	f	class:GenericPointer
-operator ()	sdk/base/sTime.h	/^		bool operator ()(const time_t& Msec){$/;"	f	class:CycleTime
+operator ()	sdk/base/Time.h	/^			bool operator ()(const time_t& Msec){$/;"	f	class:sdk::CycleTime
 operator ()	sdk/third_part/json/schema.h	/^    bool operator()(Handler& handler) {$/;"	f	class:SchemaValidatingReader
 operator *	sdk/third_part/json/document.h	/^    Reference operator*() const { return *ptr_; }$/;"	f	class:GenericMemberIterator
 operator *	sdk/third_part/json/internal/diyfp.h	/^    DiyFp operator*(const DiyFp& rhs) const {$/;"	f	struct:internal::DiyFp
 operator *=	sdk/third_part/json/internal/biginteger.h	/^    BigInteger& operator*=(uint32_t u) {$/;"	f	class:internal::BigInteger
 operator *=	sdk/third_part/json/internal/biginteger.h	/^    BigInteger& operator*=(uint64_t u) {$/;"	f	class:internal::BigInteger
-operator +	sdk/base/sTime.h	/^		Time& operator +(const Time&other){$/;"	f	class:final
+operator +	sdk/base/Time.h	/^			Time& operator +(const Time&other){$/;"	f	class:sdk::final
 operator +	sdk/third_part/json/document.h	/^    Iterator operator+(DifferenceType n) const { return Iterator(ptr_+n); }$/;"	f	class:GenericMemberIterator
 operator ++	sdk/third_part/json/document.h	/^    Iterator  operator++(int){ Iterator old(*this); ++ptr_; return old; }$/;"	f	class:GenericMemberIterator
 operator ++	sdk/third_part/json/document.h	/^    Iterator& operator++(){ ++ptr_; return *this; }$/;"	f	class:GenericMemberIterator
 operator +=	sdk/third_part/json/document.h	/^    Iterator& operator+=(DifferenceType n) { ptr_+=n; return *this; }$/;"	f	class:GenericMemberIterator
 operator +=	sdk/third_part/json/internal/biginteger.h	/^    BigInteger& operator+=(uint64_t u) {$/;"	f	class:internal::BigInteger
-operator -	sdk/base/sTime.h	/^		Time& operator - (const Time&other){$/;"	f	class:final
+operator -	sdk/base/Time.h	/^			Time& operator - (const Time&other){$/;"	f	class:sdk::final
 operator -	sdk/third_part/json/document.h	/^    DifferenceType operator-(ConstIterator that) const { return ptr_-that.ptr_; }$/;"	f	class:GenericMemberIterator
 operator -	sdk/third_part/json/document.h	/^    Iterator operator-(DifferenceType n) const { return Iterator(ptr_-n); }$/;"	f	class:GenericMemberIterator
 operator -	sdk/third_part/json/internal/diyfp.h	/^    DiyFp operator-(const DiyFp& rhs) const {$/;"	f	struct:internal::DiyFp
@@ -4014,16 +4122,16 @@ operator --	sdk/third_part/json/document.h	/^    Iterator& operator--(){ --ptr_;
 operator -=	sdk/third_part/json/document.h	/^    Iterator& operator-=(DifferenceType n) { ptr_-=n; return *this; }$/;"	f	class:GenericMemberIterator
 operator ->	sdk/third_part/json/document.h	/^    Pointer   operator->() const { return ptr_; }$/;"	f	class:GenericMemberIterator
 operator <	sdk/base/EventCallBack.h	/^			bool operator < (const EventSort&other){$/;"	f	struct:EventCallBack::EventSort
-operator <	sdk/base/sTime.h	/^			bool operator < (const TimerTask &othrer){$/;"	f	struct:TimerTaskManage::TimerTask
-operator <	sdk/base/sTime.h	/^		bool operator < (const Time&other) const{$/;"	f	class:final
+operator <	sdk/base/Time.h	/^				bool operator < (const TimerTask &othrer){$/;"	f	struct:sdk::TimerTaskManage::TimerTask
+operator <	sdk/base/Time.h	/^			bool operator < (const Time&other) const{$/;"	f	class:sdk::final
 operator <	sdk/third_part/json/document.h	/^    bool operator< (ConstIterator that) const { return ptr_ < that.ptr_; }$/;"	f	class:GenericMemberIterator
 operator <<	sdk/base/VarList.h	/^		VarList& operator<<(T value)$/;"	f	class:VarList
 operator <<	sdk/base/VarList.h	/^		VarList& operator<<(VarList& other)$/;"	f	class:VarList
 operator <<=	sdk/third_part/json/internal/biginteger.h	/^    BigInteger& operator<<=(size_t shift) {$/;"	f	class:internal::BigInteger
-operator <=	sdk/base/sTime.h	/^		bool operator <= (const Time&other) const{$/;"	f	class:final
+operator <=	sdk/base/Time.h	/^			bool operator <= (const Time&other) const{$/;"	f	class:sdk::final
 operator <=	sdk/third_part/json/document.h	/^    bool operator<=(ConstIterator that) const { return ptr_ <= that.ptr_; }$/;"	f	class:GenericMemberIterator
 operator =	proto/Gate.pb.h	/^  inline Info& operator=(const Info& from) {$/;"	f	class:Gate::Info
-operator =	sdk/base/sTime.h	/^		Time& operator = (const Time&other){$/;"	f	class:final
+operator =	sdk/base/Time.h	/^			Time& operator = (const Time&other){$/;"	f	class:sdk::final
 operator =	sdk/third_part/json/document.h	/^    GenericArray& operator=(const GenericArray& rhs) { value_ = rhs.value_; return *this; }$/;"	f	class:GenericArray
 operator =	sdk/third_part/json/document.h	/^    GenericObject& operator=(const GenericObject& rhs) { value_ = rhs.value_; return *this; }$/;"	f	class:GenericObject
 operator =	sdk/third_part/json/document.h	/^    Iterator& operator=(const NonConstIterator & it) { ptr_ = it.ptr_; return *this; }$/;"	f	class:GenericMemberIterator
@@ -4034,7 +4142,7 @@ operator =	sdk/third_part/json/internal/stack.h	/^    Stack& operator=(Stack&& r
 operator =	sdk/third_part/json/pointer.h	/^    GenericPointer& operator=(const GenericPointer& rhs) {$/;"	f	class:GenericPointer
 operator =	sdk/third_part/json/stringbuffer.h	/^    GenericStringBuffer& operator=(GenericStringBuffer&& rhs) {$/;"	f	class:GenericStringBuffer
 operator =	test/test.pb.h	/^  inline pack& operator=(const pack& from) {$/;"	f	class:muduo::pack
-operator ==	sdk/base/sTime.h	/^		bool operator == (const Time&other) const{$/;"	f	class:final
+operator ==	sdk/base/Time.h	/^			bool operator == (const Time&other) const{$/;"	f	class:sdk::final
 operator ==	sdk/third_part/json/document.h	/^    bool operator==(ConstIterator that) const { return ptr_ == that.ptr_; }$/;"	f	class:GenericMemberIterator
 operator ==	sdk/third_part/json/document.h	/^    bool operator==(const Ch* rhs) const { return *this == GenericValue(StringRef(rhs)); }$/;"	f	class:GenericValue
 operator ==	sdk/third_part/json/document.h	/^    bool operator==(const GenericValue<Encoding, SourceAllocator>& rhs) const {$/;"	f	class:GenericValue
@@ -4047,9 +4155,9 @@ operator ==	sdk/third_part/json/error/error.h	/^    friend bool operator==(Parse
 operator ==	sdk/third_part/json/internal/biginteger.h	/^    bool operator==(const BigInteger& rhs) const {$/;"	f	class:internal::BigInteger
 operator ==	sdk/third_part/json/internal/biginteger.h	/^    bool operator==(const Type rhs) const {$/;"	f	class:internal::BigInteger
 operator ==	sdk/third_part/json/pointer.h	/^    bool operator==(const GenericPointer& rhs) const {$/;"	f	class:GenericPointer
-operator >	sdk/base/sTime.h	/^		bool operator > (const Time&other) const{$/;"	f	class:final
+operator >	sdk/base/Time.h	/^			bool operator > (const Time&other) const{$/;"	f	class:sdk::final
 operator >	sdk/third_part/json/document.h	/^    bool operator> (ConstIterator that) const { return ptr_ > that.ptr_; }$/;"	f	class:GenericMemberIterator
-operator >=	sdk/base/sTime.h	/^		bool operator >= (const Time&other) const{$/;"	f	class:final
+operator >=	sdk/base/Time.h	/^			bool operator >= (const Time&other) const{$/;"	f	class:sdk::final
 operator >=	sdk/third_part/json/document.h	/^    bool operator>=(ConstIterator that) const { return ptr_ >= that.ptr_; }$/;"	f	class:GenericMemberIterator
 operator ParseResult	sdk/third_part/json/document.h	/^    operator ParseResult() const { return parseResult_; }$/;"	f	class:GenericDocument
 operator []	sdk/third_part/json/document.h	/^    GenericValue& operator[](SizeType index) {$/;"	f	class:GenericValue
@@ -4087,10 +4195,11 @@ owned	sdk/third_part/json/schema.h	/^        bool owned;$/;"	m	struct:GenericSch
 pack	test/test.pb.cc	/^pack::pack()$/;"	f	class:muduo::pack
 pack	test/test.pb.cc	/^pack::pack(const pack& from)$/;"	f	class:muduo::pack
 pack	test/test.pb.h	/^class pack : public ::google::protobuf::Message \/* @@protoc_insertion_point(class_definition:muduo.pack) *\/ {$/;"	c	namespace:muduo
-pack_descriptor_	test/test.pb.cc	/^const ::google::protobuf::Descriptor* pack_descriptor_ = NULL;$/;"	m	namespace:muduo::__anon27	file:
-pack_reflection_	test/test.pb.cc	/^  pack_reflection_ = NULL;$/;"	m	namespace:muduo::__anon27	file:
+pack_descriptor_	test/test.pb.cc	/^const ::google::protobuf::Descriptor* pack_descriptor_ = NULL;$/;"	m	namespace:muduo::__anon28	file:
+pack_reflection_	test/test.pb.cc	/^  pack_reflection_ = NULL;$/;"	m	namespace:muduo::__anon28	file:
 padding	sdk/third_part/json/document.h	/^            char padding[4];$/;"	m	struct:GenericValue::Number::I
 padding2	sdk/third_part/json/document.h	/^            char padding2[4];$/;"	m	struct:GenericValue::Number::U
+parent	sdk/third_part/redis/hiredis.h	/^    struct redisReadTask *parent; \/* parent task *\/$/;"	m	struct:redisReadTask	typeref:struct:redisReadTask::redisReadTask
 parseErrorCode_	sdk/third_part/json/pointer.h	/^    PointerParseErrorCode parseErrorCode_;  \/\/!< Parsing error code.$/;"	m	class:GenericPointer
 parseErrorOffset_	sdk/third_part/json/pointer.h	/^    size_t parseErrorOffset_;               \/\/!< Offset in code unit when parsing fail.$/;"	m	class:GenericPointer
 parseResult_	sdk/third_part/json/document.h	/^          parseResult_(rhs.parseResult_)$/;"	f	class:GenericDocument
@@ -4129,6 +4238,7 @@ pkglibexecdir	Makefile	/^pkglibexecdir = $(libexecdir)\/full-package-name$/;"	m
 pkglibexecdir	sdk/Makefile	/^pkglibexecdir = $(libexecdir)\/full-package-name$/;"	m
 pkglibexecdir	test/Makefile	/^pkglibexecdir = $(libexecdir)\/full-package-name$/;"	m
 pointer	sdk/third_part/json/schema.h	/^        PointerType pointer;$/;"	m	struct:GenericSchemaDocument::SchemaEntry
+pos	sdk/third_part/redis/hiredis.h	/^    size_t pos; \/* Buffer cursor *\/$/;"	m	struct:redisReader
 prefix	Gate/Makefile	/^prefix = \/usr\/local$/;"	m
 prefix	Makefile	/^prefix = \/usr\/local$/;"	m
 prefix	sdk/Makefile	/^prefix = \/usr\/local$/;"	m
@@ -4138,6 +4248,8 @@ prefixEnd	sdk/third_part/zip/lz4.h	/^    const unsigned char* prefixEnd;$/;"	m	s
 prefixSize	sdk/third_part/zip/lz4.h	/^    size_t prefixSize;$/;"	m	struct:__anon23
 prefixSize	sdk/third_part/zip/lz4.h	/^    size_t prefixSize;$/;"	m	struct:__anon25
 print_usage	test-driver	/^print_usage ()$/;"	f
+privdata	sdk/third_part/redis/hiredis.h	/^    void *privdata; \/* user-settable arbitrary field *\/$/;"	m	struct:redisReadTask
+privdata	sdk/third_part/redis/hiredis.h	/^    void *privdata;$/;"	m	struct:redisReader
 program_details	missing	/^program_details ()$/;"	f
 program_transform_name	Gate/Makefile	/^program_transform_name = s,x,x,$/;"	m
 program_transform_name	Makefile	/^program_transform_name = s,x,x,$/;"	m
@@ -4150,10 +4262,10 @@ protobuf_AddDesc_proto_2fGate_2eproto	proto/Gate.pb.cc	/^void protobuf_AddDesc_p
 protobuf_AddDesc_test_2eproto	test/test.pb.cc	/^void protobuf_AddDesc_test_2eproto() {$/;"	f	namespace:muduo
 protobuf_AssignDesc_proto_2fGate_2eproto	proto/Gate.pb.cc	/^void protobuf_AssignDesc_proto_2fGate_2eproto() {$/;"	f	namespace:Gate
 protobuf_AssignDesc_test_2eproto	test/test.pb.cc	/^void protobuf_AssignDesc_test_2eproto() {$/;"	f	namespace:muduo
-protobuf_AssignDescriptorsOnce	proto/Gate.pb.cc	/^inline void protobuf_AssignDescriptorsOnce() {$/;"	f	namespace:Gate::__anon31
-protobuf_AssignDescriptorsOnce	test/test.pb.cc	/^inline void protobuf_AssignDescriptorsOnce() {$/;"	f	namespace:muduo::__anon28
-protobuf_RegisterTypes	proto/Gate.pb.cc	/^void protobuf_RegisterTypes(const ::std::string&) {$/;"	f	namespace:Gate::__anon31
-protobuf_RegisterTypes	test/test.pb.cc	/^void protobuf_RegisterTypes(const ::std::string&) {$/;"	f	namespace:muduo::__anon28
+protobuf_AssignDescriptorsOnce	proto/Gate.pb.cc	/^inline void protobuf_AssignDescriptorsOnce() {$/;"	f	namespace:Gate::__anon32
+protobuf_AssignDescriptorsOnce	test/test.pb.cc	/^inline void protobuf_AssignDescriptorsOnce() {$/;"	f	namespace:muduo::__anon29
+protobuf_RegisterTypes	proto/Gate.pb.cc	/^void protobuf_RegisterTypes(const ::std::string&) {$/;"	f	namespace:Gate::__anon32
+protobuf_RegisterTypes	test/test.pb.cc	/^void protobuf_RegisterTypes(const ::std::string&) {$/;"	f	namespace:muduo::__anon29
 protobuf_ShutdownFile_proto_2fGate_2eproto	proto/Gate.pb.cc	/^void protobuf_ShutdownFile_proto_2fGate_2eproto() {$/;"	f	namespace:Gate
 protobuf_ShutdownFile_test_2eproto	test/test.pb.cc	/^void protobuf_ShutdownFile_test_2eproto() {$/;"	f	namespace:muduo
 prototypes	configure	/^   function prototypes and stuff, but not '\\xHH' hex character constants.$/;"	f
@@ -4161,7 +4273,7 @@ psdir	Gate/Makefile	/^psdir = ${docdir}$/;"	m
 psdir	Makefile	/^psdir = ${docdir}$/;"	m
 psdir	sdk/Makefile	/^psdir = ${docdir}$/;"	m
 psdir	test/Makefile	/^psdir = ${docdir}$/;"	m
-pthread_func	sdk/base/sPthread.h	/^typedef void* (*pthread_func)(void *arg);$/;"	t
+pthread_func	sdk/base/Pthread.h	/^typedef void* (*pthread_func)(void *arg);$/;"	t
 ptr_	sdk/third_part/json/document.h	/^    Pointer ptr_; \/\/!< raw pointer$/;"	m	class:GenericMemberIterator
 putFunc_	sdk/third_part/json/encodedstream.h	/^    PutFunc putFunc_;$/;"	m	class:AutoUTFOutputStream
 qValue	sdk/base/VarList.h	/^			QWORD		qValue;$/;"	m	union:VarObj::NumValue
@@ -4171,7 +4283,24 @@ rangeCount_	sdk/third_part/json/internal/regex.h	/^    SizeType rangeCount_;$/;"
 rangeStart	sdk/third_part/json/internal/regex.h	/^        SizeType rangeStart;$/;"	m	struct:internal::GenericRegex::State
 ranges_	sdk/third_part/json/internal/regex.h	/^    Stack<Allocator> ranges_;$/;"	m	class:internal::GenericRegex
 readCount_	sdk/third_part/json/filereadstream.h	/^    size_t readCount_;$/;"	m	class:FileReadStream
-recvMessage	sdk/net/sProtobuf.h	/^		inline void recvMessage(void *buf){};$/;"	f	class:ProtobufManage
+reader	sdk/third_part/redis/hiredis.h	/^    redisReader *reader; \/* Protocol reader *\/$/;"	m	struct:redisContext
+redisContext	sdk/third_part/redis/hiredis.h	/^typedef struct redisContext {$/;"	s
+redisContext	sdk/third_part/redis/hiredis.h	/^} redisContext;$/;"	t	typeref:struct:redisContext
+redisReadTask	sdk/third_part/redis/hiredis.h	/^typedef struct redisReadTask {$/;"	s
+redisReadTask	sdk/third_part/redis/hiredis.h	/^} redisReadTask;$/;"	t	typeref:struct:redisReadTask
+redisReader	sdk/third_part/redis/hiredis.h	/^typedef struct redisReader {$/;"	s
+redisReader	sdk/third_part/redis/hiredis.h	/^} redisReader;$/;"	t	typeref:struct:redisReader
+redisReply	sdk/third_part/redis/hiredis.h	/^typedef struct redisReply {$/;"	s
+redisReply	sdk/third_part/redis/hiredis.h	/^} redisReply;$/;"	t	typeref:struct:redisReply
+redisReplyObjectFunctions	sdk/third_part/redis/hiredis.h	/^typedef struct redisReplyObjectFunctions {$/;"	s
+redisReplyObjectFunctions	sdk/third_part/redis/hiredis.h	/^} redisReplyObjectFunctions;$/;"	t	typeref:struct:redisReplyObjectFunctions
+redisReplyReaderCreate	sdk/third_part/redis/hiredis.h	149;"	d
+redisReplyReaderFeed	sdk/third_part/redis/hiredis.h	151;"	d
+redisReplyReaderFree	sdk/third_part/redis/hiredis.h	150;"	d
+redisReplyReaderGetError	sdk/third_part/redis/hiredis.h	155;"	d
+redisReplyReaderGetObject	sdk/third_part/redis/hiredis.h	154;"	d
+redisReplyReaderGetReply	sdk/third_part/redis/hiredis.h	152;"	d
+redisReplyReaderSetPrivdata	sdk/third_part/redis/hiredis.h	153;"	d
 reg_t	sdk/third_part/zip/lz4.c	/^  typedef U64    reg_t;   \/* 64-bits in x32 mode *\/$/;"	t	file:
 reg_t	sdk/third_part/zip/lz4.c	/^  typedef size_t reg_t;   \/* 32-bits in x32 mode *\/$/;"	t	file:
 regex_	sdk/third_part/json/internal/regex.h	/^    const RegexType& regex_;$/;"	m	class:internal::GenericRegexSearch
@@ -4181,33 +4310,20 @@ release_str	proto/Gate.pb.cc	/^ ::std::string* Info::release_str() {$/;"	f	class
 release_str	proto/Gate.pb.h	/^inline ::std::string* Info::release_str() {$/;"	f	class:Gate::Info
 rem	sdk/third_part/json/msinttypes/inttypes.h	/^   intmax_t rem;$/;"	m	struct:__anon14
 remoteProvider_	sdk/third_part/json/schema.h	/^    IRemoteSchemaDocumentProviderType* remoteProvider_;$/;"	m	class:GenericSchemaDocument
+reply	sdk/third_part/redis/hiredis.h	/^    void *reply; \/* Temporary reply pointer *\/$/;"	m	struct:redisReader
 required	sdk/third_part/json/schema.h	/^        bool required;$/;"	m	struct:internal::Schema::Property
+ridx	sdk/third_part/redis/hiredis.h	/^    int ridx; \/* Index of current read task *\/$/;"	m	struct:redisReader
 root_	sdk/third_part/json/internal/regex.h	/^    SizeType root_;$/;"	m	class:internal::GenericRegex
 root_	sdk/third_part/json/schema.h	/^    const SchemaType& root_;$/;"	m	class:GenericSchemaValidator
 root_	sdk/third_part/json/schema.h	/^    const SchemaType* root_;                \/\/!< Root schema.$/;"	m	class:GenericSchemaDocument
-run	sdk/base/sTask.cpp	/^void Task::run()$/;"	f	class:Task
+rstack	sdk/third_part/redis/hiredis.h	/^    redisReadTask rstack[9];$/;"	m	struct:redisReader
+run	sdk/base/Task.cpp	/^void Task::run()$/;"	f	class:Task
 s	sdk/third_part/json/document.h	/^        String s;$/;"	m	union:GenericValue::Data
 s	sdk/third_part/json/document.h	/^    const Ch* const s; \/\/!< plain CharType pointer$/;"	m	struct:GenericStringRef
 s	sdk/third_part/json/reader.h	/^    Stream s;$/;"	m	class:internal::StreamLocalCopy
 s	sdk/third_part/json/reader.h	/^    Stream& s;$/;"	m	class:internal::StreamLocalCopy
-sCompress	sdk/base/sCompress.h	/^class sCompress$/;"	c
-sEpoll	sdk/net/sEpoll.h	/^class sEpoll$/;"	c
-sMutex	sdk/base/sMutex.h	/^		sMutex(){pthread_mutex_init(&_mutex,NULL);}$/;"	f	class:sMutex
-sMutex	sdk/base/sMutex.h	/^class sMutex{$/;"	c
 sPool	pool.h	/^class sPool{$/;"	c
-sPthread	sdk/base/sPthread.h	/^			sPthread(pthread_func pFunc)$/;"	f	class:sPthread
-sPthread	sdk/base/sPthread.h	/^class sPthread{$/;"	c
-sPthreadFunc	sdk/base/sPthreadFunc.h	/^class sPthreadFunc{$/;"	c
-sPthreadPool	sdk/base/sPthreadPool.h	/^	sPthreadPool()$/;"	f	class:sPthreadPool
-sPthreadPool	sdk/base/sPthreadPool.h	/^class sPthreadPool{$/;"	c
-sSctpClient	sdk/net/sSctpClient.h	/^	class sSctpClient{$/;"	c
-sSctpPool	sdk/net/sSctpPool.h	/^		sSctpPool(){$/;"	f	class:sSctpPool
-sSctpPool	sdk/net/sSctpPool.h	/^class sSctpPool$/;"	c
-sSctpPthread	sdk/net/sSctpPthread.h	/^		sSctpPthread(pthread_func pFunc):sPthread(pFunc){};$/;"	f	class:sSctpPthread
-sSctpPthread	sdk/net/sSctpPthread.h	/^class sSctpPthread :public  sPthread$/;"	c
-sSctpSocket	sdk/net/sSctpSocket.h	/^class sSctpSocket$/;"	c
-sServer	sdk/net/sServer.h	/^class sServer$/;"	c
-sSocket	sdk/net/sSocket.h	/^class sSocket$/;"	c
+sSctpClient	sdk/net/SctpClient.h	/^	class sSctpClient{$/;"	c
 saveToFile	sdk/ai/XmlFile.cpp	/^bool XmlFile::saveToFile(const char*fileName,xmlDocPtr node,const char*encoding,int format)$/;"	f	class:XmlFile
 saveToFile	sdk/base/XmlFile.cpp	/^bool XmlFile::saveToFile(const char*fileName,xmlDocPtr node,const char*encoding,int format)$/;"	f	class:XmlFile
 saveToString	sdk/ai/XmlFile.cpp	/^int XmlFile::saveToString(xmlDocPtr node,std::string &out,const char*encoding,int format)$/;"	f	class:XmlFile
@@ -4226,13 +4342,23 @@ schemaMap_	sdk/third_part/json/schema.h	/^    internal::Stack<Allocator> schemaM
 schemaRef_	sdk/third_part/json/schema.h	/^    internal::Stack<Allocator> schemaRef_;  \/\/ Stores Pointer from $ref and schema which holds the $ref$/;"	m	class:GenericSchemaDocument
 schemaStack_	sdk/third_part/json/schema.h	/^    internal::Stack<StateAllocator> schemaStack_;    \/\/!< stack to store the current path of schema (BaseSchemaType *)$/;"	m	class:GenericSchemaValidator
 schemas	sdk/third_part/json/schema.h	/^        const SchemaType** schemas;$/;"	m	struct:internal::Schema::SchemaArray
-sctpThreadFunc	sdk/net/sSctpPool.cpp	/^void *sctpThreadFunc ( void *arg)$/;"	f
 sd_	sdk/third_part/json/schema.h	/^    const SchemaDocumentType& sd_;$/;"	m	class:SchemaValidatingReader
+sdk	sdk/UserTest.h	/^namespace sdk{$/;"	n
+sdk	sdk/base/CompressManage.h	/^namespace sdk{$/;"	n
+sdk	sdk/base/HelpFunction.h	/^namespace sdk{$/;"	n
 sdk	sdk/base/JsonManager.h	/^namespace sdk$/;"	n
 sdk	sdk/base/LogManager.h	/^namespace sdk{$/;"	n
+sdk	sdk/base/Time.h	/^namespace sdk{$/;"	n
+sdk	sdk/base/Tool.h	/^namespace sdk$/;"	n
+sdk	sdk/net/Epoll.h	/^namespace sdk{$/;"	n
+sdk	sdk/net/Protobuf.h	/^namespace sdk$/;"	n
+sdk	sdk/net/SctpPool.h	/^namespace sdk{$/;"	n
+sdk	sdk/net/SctpPthread.h	/^namespace sdk{$/;"	n
+sdk	sdk/net/SctpSocket.h	/^namespace sdk{$/;"	n
+sdk	sdk/net/Server.h	/^namespace sdk{$/;"	n
 sdk	sdk/net/ServerSocket.h	/^namespace sdk{$/;"	n
-sendBuf	sdk/net/sProtobuf.h	/^		inline void sendBuf(void *buf){};$/;"	f	class:ProtobufManage
-sendMessage	sdk/net/sSocket.cpp	/^void sSocket::sendMessage(const MSG& message)$/;"	f	class:sSocket
+sdk	sdk/net/Socket.h	/^namespace sdk{$/;"	n
+sendMessage	sdk/net/Socket.cpp	/^void sSocket::sendMessage(const MSG& message)$/;"	f	class:sSocket
 setValue	sdk/base/VarList.h	/^		void setValue(FLOAT value)$/;"	f	class:VarObj
 setValue	sdk/base/VarList.h	/^		void setValue(LONG value)$/;"	f	class:VarObj
 setValue	sdk/base/VarList.h	/^		void setValue(bool value)$/;"	f	class:VarObj
@@ -4312,6 +4438,7 @@ str	proto/Gate.pb.cc	/^ const ::std::string& Info::str() const {$/;"	f	class:Gat
 str	proto/Gate.pb.h	/^inline const ::std::string& Info::str() const {$/;"	f	class:Gate::Info
 str	sdk/third_part/json/document.h	/^        Ch str[MaxChars];$/;"	m	struct:GenericValue::ShortString
 str	sdk/third_part/json/document.h	/^        const Ch* str;$/;"	m	struct:GenericValue::String
+str	sdk/third_part/redis/hiredis.h	/^    char *str; \/* Used for both REDIS_REPLY_ERROR and REDIS_REPLY_STRING *\/$/;"	m	struct:redisReply
 strValue	sdk/base/VarList.h	/^			char*		strValue;	$/;"	m	union:VarObj::NumValue
 str_	proto/Gate.pb.h	/^  ::google::protobuf::internal::ArenaStringPtr str_;$/;"	m	class:Gate::Info
 stream_	sdk/third_part/json/istreamwrapper.h	/^    StreamType& stream_;$/;"	m	class:BasicIStreamWrapper
@@ -4345,6 +4472,7 @@ target_alias	Gate/Makefile	/^target_alias = $/;"	m
 target_alias	Makefile	/^target_alias = $/;"	m
 target_alias	sdk/Makefile	/^target_alias = $/;"	m
 target_alias	test/Makefile	/^target_alias = $/;"	m
+test	sdk/third_part/redis/main.cpp	/^void test()$/;"	f
 timefd	sdk/ai/TimerTask.h	/^	int timefd;$/;"	m	class:TimerTask
 tokenCount_	sdk/third_part/json/pointer.h	/^    size_t tokenCount_;                     \/\/!< Number of tokens in tokens_.$/;"	m	class:GenericPointer
 tokens_	sdk/third_part/json/pointer.h	/^    Token* tokens_;                         \/\/!< A list of tokens.$/;"	m	class:GenericPointer
@@ -4365,6 +4493,8 @@ transform	Gate/Makefile	/^transform = $(program_transform_name)$/;"	m
 transform	Makefile	/^transform = $(program_transform_name)$/;"	m
 transform	sdk/Makefile	/^transform = $(program_transform_name)$/;"	m
 transform	test/Makefile	/^transform = $(program_transform_name)$/;"	m
+type	sdk/third_part/redis/hiredis.h	/^    int type; \/* REDIS_REPLY_* *\/$/;"	m	struct:redisReply
+type	sdk/third_part/redis/hiredis.h	/^    int type;$/;"	m	struct:redisReadTask
 type_	sdk/third_part/json/encodedstream.h	/^    UTFType type_;$/;"	m	class:AutoUTFInputStream
 type_	sdk/third_part/json/encodedstream.h	/^    UTFType type_;$/;"	m	class:AutoUTFOutputStream
 type_	sdk/third_part/json/schema.h	/^    unsigned type_; \/\/ bitmask of kSchemaType$/;"	m	class:internal::Schema
@@ -4399,7 +4529,7 @@ uint_least8_t	sdk/third_part/json/msinttypes/stdint.h	/^typedef uint8_t   uint_l
 uintmax_t	sdk/third_part/json/msinttypes/stdint.h	/^typedef uint64_t  uintmax_t;$/;"	t
 uintptr_t	sdk/third_part/json/msinttypes/stdint.h	/^   typedef _W64 unsigned int uintptr_t;$/;"	t
 uintptr_t	sdk/third_part/json/msinttypes/stdint.h	/^   typedef unsigned __int64  uintptr_t;$/;"	t
-unLock	sdk/base/sMutex.h	/^		void unLock(){pthread_mutex_unlock(&_mutex);}$/;"	f	class:sMutex
+unLock	sdk/base/Mutex.h	/^		void unLock(){pthread_mutex_unlock(&_mutex);}$/;"	f	class:Mutex
 unalign	sdk/third_part/zip/lz4.c	/^typedef union { U16 u16; U32 u32; reg_t uArch; } __attribute__((packed)) unalign;$/;"	t	typeref:union:__anon15	file:
 uniqueItems_	sdk/third_part/json/schema.h	/^    bool uniqueItems_;$/;"	m	class:internal::Schema
 unknown_fields	test/test.pb.h	/^  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {$/;"	f	class:muduo::pack
@@ -4416,6 +4546,9 @@ validatorCount_	sdk/third_part/json/schema.h	/^    SizeType validatorCount_;$/;"
 validators	sdk/third_part/json/schema.h	/^    ISchemaValidator** validators;$/;"	m	struct:internal::SchemaValidationContext
 value	sdk/third_part/json/document.h	/^    GenericValue<Encoding, Allocator> value;    \/\/!< value of member.$/;"	m	struct:GenericMember
 value	sdk/third_part/json/rapidjson.h	/^template <> struct STATIC_ASSERTION_FAILURE<true> { enum { value = 1 }; };$/;"	e	enum:STATIC_ASSERTION_FAILURE::__anon3
+value	sdk/third_part/redis/HelpTemplate.h	/^		value =0,$/;"	e	enum:error::__anon26
+value	sdk/third_part/redis/HelpTemplate.h	/^	T value;$/;"	m	struct:EmptyValue
+value	sdk/third_part/redis/main.cpp	/^	static const bool value = sizeof(AB(EmptyValue<M>::value)) == sizeof(int);$/;"	m	struct:Text	file:
 valueCount	sdk/third_part/json/writer.h	/^        size_t valueCount;  \/\/!< number of values in this level$/;"	m	struct:Writer::Level
 valuePatternValidatorType	sdk/third_part/json/schema.h	/^    PatternValidatorType valuePatternValidatorType;$/;"	m	struct:internal::SchemaValidationContext
 valueSchema	sdk/third_part/json/schema.h	/^    const SchemaType* valueSchema;$/;"	m	struct:internal::SchemaValidationContext
@@ -4443,8 +4576,10 @@ withPrefix64k	sdk/third_part/zip/lz4.c	/^typedef enum { noDict = 0, withPrefix64
 ~Info	proto/Gate.pb.cc	/^Info::~Info() {$/;"	f	class:Gate::Info
 ~LogManager	sdk/base/LogManager.h	/^			~LogManager(){$/;"	f	class:sdk::LogManager
 ~MemoryPoolAllocator	sdk/third_part/json/allocators.h	/^    ~MemoryPoolAllocator() {$/;"	f	class:MemoryPoolAllocator
+~Mutex	sdk/base/Mutex.h	/^		~Mutex(){pthread_mutex_destroy(&_mutex);}$/;"	f	class:Mutex
 ~PatternProperty	sdk/third_part/json/schema.h	/^        ~PatternProperty() { $/;"	f	struct:internal::Schema::PatternProperty
 ~Property	sdk/third_part/json/schema.h	/^        ~Property() { AllocatorType::Free(dependencies); }$/;"	f	struct:internal::Schema::Property
+~Redis	sdk/third_part/redis/Redis.h	/^	~Redis()$/;"	f	class:Redis
 ~Schema	sdk/third_part/json/schema.h	/^    ~Schema() {$/;"	f	class:internal::Schema
 ~SchemaArray	sdk/third_part/json/schema.h	/^        ~SchemaArray() { AllocatorType::Free(schemas); }$/;"	f	struct:internal::Schema::SchemaArray
 ~SchemaEntry	sdk/third_part/json/schema.h	/^        ~SchemaEntry() {$/;"	f	struct:GenericSchemaDocument::SchemaEntry
@@ -4454,4 +4589,3 @@ withPrefix64k	sdk/third_part/zip/lz4.c	/^typedef enum { noDict = 0, withPrefix64
 ~XmlFile	sdk/ai/XmlFile.h	/^		~XmlFile(){$/;"	f	class:XmlFile
 ~XmlFile	sdk/base/XmlFile.h	/^		~XmlFile(){$/;"	f	class:XmlFile
 ~pack	test/test.pb.cc	/^pack::~pack() {$/;"	f	class:muduo::pack
-~sMutex	sdk/base/sMutex.h	/^		~sMutex(){pthread_mutex_destroy(&_mutex);}$/;"	f	class:sMutex

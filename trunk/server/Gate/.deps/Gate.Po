@@ -90,13 +90,12 @@ Gate.o: Gate.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/c++/4.8.2/bits/basic_ios.tcc \
  /usr/include/c++/4.8.2/bits/ostream.tcc /usr/include/c++/4.8.2/istream \
  /usr/include/c++/4.8.2/bits/istream.tcc /usr/include/string.h Gate.h \
- ../sdk/net/sSctpSocket.h /usr/include/sys/socket.h \
- /usr/include/sys/uio.h /usr/include/bits/uio.h \
- /usr/include/bits/socket.h /usr/include/bits/socket_type.h \
- /usr/include/bits/sockaddr.h /usr/include/asm/socket.h \
- /usr/include/asm-generic/socket.h /usr/include/asm/sockios.h \
- /usr/include/asm-generic/sockios.h /usr/include/netinet/in.h \
- /usr/include/bits/in.h /usr/include/unistd.h \
+ ../sdk/net/SctpSocket.h /usr/include/sys/socket.h /usr/include/sys/uio.h \
+ /usr/include/bits/uio.h /usr/include/bits/socket.h \
+ /usr/include/bits/socket_type.h /usr/include/bits/sockaddr.h \
+ /usr/include/asm/socket.h /usr/include/asm-generic/socket.h \
+ /usr/include/asm/sockios.h /usr/include/asm-generic/sockios.h \
+ /usr/include/netinet/in.h /usr/include/bits/in.h /usr/include/unistd.h \
  /usr/include/bits/posix_opt.h /usr/include/bits/environments.h \
  /usr/include/bits/confname.h /usr/include/getopt.h \
  /usr/include/netinet/sctp.h /usr/include/linux/types.h \
@@ -107,13 +106,12 @@ Gate.o: Gate.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/asm/posix_types_64.h /usr/include/asm-generic/posix_types.h \
  /usr/include/sys/epoll.h /usr/include/bits/epoll.h /usr/include/fcntl.h \
  /usr/include/bits/fcntl.h /usr/include/bits/fcntl-linux.h \
- /usr/include/bits/stat.h ../sdk/net/sEpoll.h \
+ /usr/include/bits/stat.h ../sdk/net/Epoll.h \
  /usr/include/c++/4.8.2/functional /usr/include/c++/4.8.2/typeinfo \
  /usr/include/c++/4.8.2/tuple /usr/include/c++/4.8.2/utility \
  /usr/include/c++/4.8.2/bits/stl_relops.h /usr/include/c++/4.8.2/array \
  /usr/include/c++/4.8.2/stdexcept \
- /usr/include/c++/4.8.2/bits/uses_allocator.h \
- ../sdk/net/../base/sDefine.h
+ /usr/include/c++/4.8.2/bits/uses_allocator.h ../sdk/net/../base/Define.h
 
 /usr/include/stdc-predef.h:
 
@@ -371,7 +369,7 @@ Gate.o: Gate.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
 
 Gate.h:
 
-../sdk/net/sSctpSocket.h:
+../sdk/net/SctpSocket.h:
 
 /usr/include/sys/socket.h:
 
@@ -443,7 +441,7 @@ Gate.h:
 
 /usr/include/bits/stat.h:
 
-../sdk/net/sEpoll.h:
+../sdk/net/Epoll.h:
 
 /usr/include/c++/4.8.2/functional:
 
@@ -461,4 +459,4 @@ Gate.h:
 
 /usr/include/c++/4.8.2/bits/uses_allocator.h:
 
-../sdk/net/../base/sDefine.h:
+../sdk/net/../base/Define.h:

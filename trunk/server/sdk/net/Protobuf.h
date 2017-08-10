@@ -50,23 +50,30 @@ namespace sdk
 					buf+=size;
 				};
 
-
+		public:
 			/**
 			 * @brief 编码
 			 *
 			 * @param buf
 			 * @param message
 			 */
-			inline void decode( char*buf,const ProtoBuffMessage& message)
+			inline DWORD decode( char*buf,const ProtoBuffMessage& message)
 			{
+				int sendSize = 0;
 				char *ptr =buf;
 				const std::string& typeName = message.GetTypeName();
 				DWORD nameLen = static_cast<DWORD>(typeName.size()+1);
 				PushData(ptr,nameLen);
+				sendSize += sizeof(DWORD);
 				PushData(ptr,typeName.c_str(),nameLen);
+				sendSize += nameLen;
 				DWORD byteSize = message.ByteSize();
+				sendSize += sizeof(DWORD);
 				PushData(ptr,byteSize);
 				PushData(ptr,message.SerializeAsString().c_str(),byteSize);	
+				sendSize += byteSize;
+				return sendSize;
+
 			};
 
 
