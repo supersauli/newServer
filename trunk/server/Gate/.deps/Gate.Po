@@ -127,7 +127,7 @@ Gate.o: Gate.cpp /usr/include/stdio.h /usr/include/features.h \
   /usr/bin/../lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/stdexcept \
   /usr/bin/../lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/bits/uses_allocator.h \
   ../sdk/net/../base/Define.h ../sdk/sdk.h ../sdk/ai/AICheckRuleAction.h \
-  ../sdk/ai/AIDefine.h ../sdk/ai/XmlFile.h ../sdk/ai/sDefine.h \
+  ../sdk/ai/AIDefine.h ../sdk/ai/../base/XmlFile.h \
   /usr/local/include/libxml/tree.h \
   /usr/bin/../lib/clang/3.4.2/include/limits.h /usr/include/limits.h \
   /usr/include/bits/posix1_lim.h /usr/include/bits/local_lim.h \
@@ -146,7 +146,6 @@ Gate.o: Gate.cpp /usr/include/stdio.h /usr/include/features.h \
   /usr/local/include/libxml/encoding.h /usr/include/iconv.h \
   /usr/local/include/libxml/xmlIO.h /usr/local/include/libxml/SAX.h \
   /usr/local/include/libxml/xlink.h /usr/local/include/libxml/SAX2.h \
-  ../sdk/ai/AINode.h \
   /usr/bin/../lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/vector \
   /usr/bin/../lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/bits/stl_construct.h \
   /usr/bin/../lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/ext/alloc_traits.h \
@@ -156,6 +155,7 @@ Gate.o: Gate.cpp /usr/include/stdio.h /usr/include/features.h \
   /usr/bin/../lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/bits/stl_vector.h \
   /usr/bin/../lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/bits/stl_bvector.h \
   /usr/bin/../lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/bits/vector.tcc \
+  ../sdk/ai/AINode.h \
   /usr/bin/../lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/list \
   /usr/bin/../lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/bits/stl_list.h \
   /usr/bin/../lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/bits/list.tcc \
@@ -257,8 +257,8 @@ Gate.o: Gate.cpp /usr/include/stdio.h /usr/include/features.h \
   /usr/local/include/log4cplus/configurator.h \
   /usr/local/include/log4cplus/helpers/property.h ../sdk/base/Mutex.h \
   ../sdk/base/Pthread.h ../sdk/base/PthreadPool.h ../sdk/base/Time.h \
-  ../sdk/base/Tool.h ../sdk/base/VarList.h ../sdk/base/XmlFile.h \
-  ../sdk/net/Protobuf.h /usr/local/include/google/protobuf/message.h \
+  ../sdk/base/Tool.h ../sdk/base/VarList.h ../sdk/net/Protobuf.h \
+  /usr/local/include/google/protobuf/message.h \
   /usr/local/include/google/protobuf/stubs/type_traits.h \
   /usr/bin/../lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/cstddef \
   /usr/local/include/google/protobuf/stubs/template_util.h \
@@ -674,9 +674,7 @@ Gate.h:
 
 ../sdk/ai/AIDefine.h:
 
-../sdk/ai/XmlFile.h:
-
-../sdk/ai/sDefine.h:
+../sdk/ai/../base/XmlFile.h:
 
 /usr/local/include/libxml/tree.h:
 
@@ -736,8 +734,6 @@ Gate.h:
 
 /usr/local/include/libxml/SAX2.h:
 
-../sdk/ai/AINode.h:
-
 /usr/bin/../lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/vector:
 
 /usr/bin/../lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/bits/stl_construct.h:
@@ -755,6 +751,8 @@ Gate.h:
 /usr/bin/../lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/bits/stl_bvector.h:
 
 /usr/bin/../lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/bits/vector.tcc:
+
+../sdk/ai/AINode.h:
 
 /usr/bin/../lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/list:
 
@@ -983,8 +981,6 @@ Gate.h:
 ../sdk/base/Tool.h:
 
 ../sdk/base/VarList.h:
-
-../sdk/base/XmlFile.h:
 
 ../sdk/net/Protobuf.h:
 

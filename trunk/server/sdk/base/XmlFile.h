@@ -5,10 +5,12 @@
 #include <libxml/parser.h>
 #include <string>
 #include <string.h>
+#include <vector>
 class XmlFile
 {
 
 	public:
+
 		~XmlFile(){
 			if(_doc != nullptr){
 				xmlFreeDoc(_doc);
@@ -102,7 +104,7 @@ class XmlFile
 		static const char* GetNodeAttrStr(const xmlNodePtr node,const char*attrName);
 
 		/**
-		 * @brief 过得根节点数据
+		 * @brief 获得根节点数据
 		 *
 		 * @param node
 		 * @param name
@@ -283,6 +285,16 @@ class XmlFile
 		 * @param len
 		 */
 		void SetNodeContent(xmlNodePtr node,const char* content,int len=-1);
+
+		/**
+		 * @brief 获得当前节点的所有属性
+		 *
+		 * @param node
+		 * @param result
+		 */
+		void GetNodeAttrList(const xmlNodePtr node,std::vector<std::string>&result);
+
+
 
 	private:
 

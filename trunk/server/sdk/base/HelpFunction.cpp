@@ -169,5 +169,6 @@ DWORD HF::GetCRC(const BYTE * buf,int nLength)
 	return crc;  
 }
 
+void HF::Text(){}
 
 

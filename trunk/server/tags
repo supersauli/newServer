@@ -171,7 +171,7 @@ AddPrevSibling	sdk/ai/XmlFile.cpp	/^xmlNodePtr XmlFile::AddPrevSibling(xmlNodePt
 AddPrevSibling	sdk/base/XmlFile.cpp	/^xmlNodePtr XmlFile::AddPrevSibling(xmlNodePtr cur,xmlNodePtr elem)$/;"	f	class:XmlFile
 AddPthreadToPool	sdk/base/PthreadPool.cpp	/^bool PthreadPool::AddPthreadToPool(Pthread * pthread)$/;"	f	class:PthreadPool
 AddSibling	sdk/ai/XmlFile.cpp	/^xmlNodePtr AddSibling(xmlNodePtr cur,xmlNodePtr elem)$/;"	f
-AddSibling	sdk/base/XmlFile.cpp	/^xmlNodePtr AddSibling(xmlNodePtr cur,xmlNodePtr elem)$/;"	f
+AddSibling	sdk/base/XmlFile.cpp	/^xmlNodePtr XmlFile::AddSibling(xmlNodePtr cur,xmlNodePtr elem)$/;"	f	class:XmlFile
 AddState	sdk/third_part/json/internal/regex.h	/^    bool AddState(Stack<Allocator>& l, SizeType index) {$/;"	f	class:internal::GenericRegexSearch
 AddTask	sdk/ai/TimerTask.h	/^	bool AddTask(int time)$/;"	f	class:TimerTask
 AddType	sdk/third_part/json/schema.h	/^    void AddType(const ValueType& type) {$/;"	f	class:internal::Schema
@@ -337,7 +337,7 @@ CXX	Login/Makefile	/^CXX := clang++$/;"	m
 CXX	Makefile	/^CXX = g++$/;"	m
 CXX	proto/Makefile	/^CXX = g++$/;"	m
 CXX	sdk/Makefile	/^CXX := clang++$/;"	m
-CXX	test/Makefile	/^CXX := clang++$/;"	m
+CXX	test/Makefile	/^CXX := g++$/;"	m
 CXXCOMPILE	Gate/Makefile	/^CXXCOMPILE = $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \\$/;"	m
 CXXCOMPILE	Logic/Makefile	/^CXXCOMPILE = $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \\$/;"	m
 CXXCOMPILE	Login/Makefile	/^CXXCOMPILE = $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \\$/;"	m
@@ -364,7 +364,7 @@ CXXFLAGS	Login/Makefile	/^CXXFLAGS = -Wall -g3 -O0	-std=gnu++11 -fPIC$/;"	m
 CXXFLAGS	Makefile	/^CXXFLAGS = -Wall -g3 -O0	-std=gnu++11 -fPIC$/;"	m
 CXXFLAGS	proto/Makefile	/^CXXFLAGS = -Wall -g3 -O0	-std=gnu++11 -fPIC$/;"	m
 CXXFLAGS	sdk/Makefile	/^CXXFLAGS = -Wall -g3 -O0	-std=gnu++11 -fPIC$/;"	m
-CXXFLAGS	test/Makefile	/^CXXFLAGS = -Wall -g3 -O0	-std=gnu++11 -fPIC -I ..\/sdk\/ -lstdc++ -static -L\/usr\/local\/lib\/$/;"	m
+CXXFLAGS	test/Makefile	/^CXXFLAGS = -Wall -g3 -O0	-std=gnu++11 -fPIC -I ..\/sdk\/$/;"	m
 CXXLD	Gate/Makefile	/^CXXLD = $(CXX)$/;"	m
 CXXLD	Logic/Makefile	/^CXXLD = $(CXX)$/;"	m
 CXXLD	Login/Makefile	/^CXXLD = $(CXX)$/;"	m
@@ -954,7 +954,7 @@ GetBool	sdk/third_part/json/document.h	/^    bool GetBool() const { RAPIDJSON_AS
 GetBoolValue	sdk/base/VarList.h	/^		bool GetBoolValue(){$/;"	f	class:VarObj
 GetBoolValue	sdk/base/VarList.h	/^		bool GetBoolValue(DWORD i)$/;"	f	class:VarList
 GetBuffer	sdk/third_part/json/memorybuffer.h	/^    const Ch* GetBuffer() const {$/;"	f	struct:GenericMemoryBuffer
-GetCRC	sdk/base/HelpFunction.cpp	/^static DWORD GetCRC(BYTE * buf,int nLength)$/;"	f	file:
+GetCRC	sdk/base/HelpFunction.cpp	/^DWORD HF::GetCRC(const BYTE * buf,int nLength)$/;"	f	class:HF
 GetCachedPower	sdk/third_part/json/internal/diyfp.h	/^inline DiyFp GetCachedPower(int e, int* K) {$/;"	f	namespace:internal
 GetCachedPower10	sdk/third_part/json/internal/diyfp.h	/^inline DiyFp GetCachedPower10(int exp, int *outExp) {$/;"	f	namespace:internal
 GetCachedPowerByIndex	sdk/third_part/json/internal/diyfp.h	/^inline DiyFp GetCachedPowerByIndex(size_t index) {$/;"	f	namespace:internal
@@ -1025,6 +1025,7 @@ GetNext	sdk/base/XmlFile.cpp	/^xmlNodePtr XmlFile::GetNext(xmlNodePtr node)$/;"	
 GetNextHourSec	sdk/base/Time.h	/^			static DWORD GetNextHourSec(){$/;"	f	class:sdk::TimeHelp
 GetNode	sdk/ai/XmlFile.cpp	/^xmlNodePtr XmlFile::GetNode(const xmlNodePtr node,const char*name)$/;"	f	class:XmlFile
 GetNode	sdk/base/XmlFile.cpp	/^xmlNodePtr XmlFile::GetNode(const xmlNodePtr node,const char*name)$/;"	f	class:XmlFile
+GetNodeAttrList	sdk/base/XmlFile.cpp	/^void XmlFile::GetNodeAttrList(const xmlNodePtr node,std::vector<std::string>&result)$/;"	f	class:XmlFile
 GetNodeAttrStr	sdk/ai/XmlFile.cpp	/^const char* XmlFile::GetNodeAttrStr(const xmlNodePtr node,const char*attrName)$/;"	f	class:XmlFile
 GetNodeAttrStr	sdk/base/XmlFile.cpp	/^const char* XmlFile::GetNodeAttrStr(const xmlNodePtr node,const char*attrName)$/;"	f	class:XmlFile
 GetNodeContent	sdk/ai/XmlFile.cpp	/^std::string XmlFile::GetNodeContent(const xmlNodePtr node)$/;"	f	class:XmlFile
@@ -2981,6 +2982,7 @@ Tell	sdk/third_part/json/stream.h	/^    size_t Tell() const { return static_cast
 Tell	sdk/third_part/json/stream.h	/^    size_t Tell() { return static_cast<size_t>(src_ - head_); }$/;"	f	struct:GenericInsituStringStream
 TestJson	test/main.cpp	/^void TestJson()$/;"	f
 TestTimerTask	test/main.cpp	/^void TestTimerTask(){$/;"	f
+Text	sdk/base/HelpFunction.cpp	/^void HF::Text(){}$/;"	f	class:HF
 Text	sdk/third_part/redis/main.cpp	/^struct Text$/;"	s	file:
 Time	sdk/base/Time.h	/^			Time(){$/;"	f	class:sdk::final
 Time	sdk/base/Time.h	/^			Time(time_t dwTime):_tTime(dwTime){$/;"	f	class:sdk::final
@@ -3884,7 +3886,7 @@ datarootdir	proto/Makefile	/^datarootdir = ${prefix}\/share$/;"	m
 datarootdir	sdk/Makefile	/^datarootdir = ${prefix}\/share$/;"	m
 datarootdir	test/Makefile	/^datarootdir = ${prefix}\/share$/;"	m
 dealMsg	sdk/UserTest.cpp	/^void UserTest::dealMsg(char *arg)$/;"	f	class:UserTest
-decode	sdk/net/Protobuf.h	/^			inline DWORD decode( char*buf,const ProtoBuffMessage& message)$/;"	f	class:sdk::ProtobufManage
+decode	sdk/net/Protobuf.h	/^			inline DWORD decode( std::string &buffer,const ProtoBuffMessage& message)$/;"	f	class:sdk::ProtobufManage
 default_instance	proto/Gate.pb.cc	/^const UserLogin& UserLogin::default_instance() {$/;"	f	class:GateServer::UserLogin
 default_instance	proto/LoginProto.pb.cc	/^const Result& Result::default_instance() {$/;"	f	class:LoginProto::Result
 default_instance	test/test.pb.cc	/^const pack& pack::default_instance() {$/;"	f	class:muduo::pack

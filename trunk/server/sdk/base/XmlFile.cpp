@@ -320,9 +320,19 @@ xmlNodePtr XmlFile::AddPrevSibling(xmlNodePtr cur,xmlNodePtr elem)
 	return xmlAddPrevSibling (cur,elem);
 }
 
-xmlNodePtr AddSibling(xmlNodePtr cur,xmlNodePtr elem)
+xmlNodePtr XmlFile::AddSibling(xmlNodePtr cur,xmlNodePtr elem)
 {
 	return xmlAddSibling(cur,elem);
 }
 
-	
+void XmlFile::GetNodeAttrList(const xmlNodePtr node,std::vector<std::string>&result)
+{
+	auto attrPtr = node->properties;
+	while (attrPtr != nullptr)
+	{
+		result.push_back(reinterpret_cast<const char*>(attrPtr->name));
+		attrPtr = attrPtr->next;
+	}
+}
+
+

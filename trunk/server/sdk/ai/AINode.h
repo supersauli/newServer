@@ -4,7 +4,7 @@
 #include <list>
 //#include "AISystem.h"
 #include "Hero.h"
-#include "XmlFile.h"
+#include "../base/XmlFile.h"
 typedef Hero Obj;
 
 class AINodeBase{

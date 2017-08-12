@@ -179,6 +179,7 @@ int main()
 
 
 
+	HF::Text();
 
 
 
@@ -188,31 +189,39 @@ int main()
 
 
 
+	XmlFile xml;
+	xml.InitXml("guild_building_levelup_config.xml");
+	
+	auto root = xml.GetRootElement();
 
-//	XmlFile xml;
-//	xml.InitXml("DynamicActivity.xml");
-//	
-//	auto root = xml.GetRootElement();
-//
-//	auto children = xml.GetChildNode(root,"Property");
-//	if(children !=nullptr)	
-//	{
-//
-//		do{
-//	
-//			DWORD a = 0;
-//			xml.GetNodeValue(children,"ID",a);
-//			std::string name;
-//			xml.GetNodeValue(children,"NAME",name);
-//			cout<<a<<endl;
-//			cout<<name.c_str()<<endl;
-//			children = xml.GetNext(children);	
-//			
-//		}while(children != nullptr);
-//
-//	
-//	}
-//
+	auto children = xml.GetChildNode(root,"Property");
+	if(children !=nullptr)	
+	{
+
+		do{
+	
+			DWORD a = 0;
+			std::vector<std::string> ret;
+			xml.GetNodeAttrList(children,ret);
+			
+			for(auto it :ret)
+			{
+				cout<<it.c_str()<<endl;
+			}
+
+
+			xml.GetNodeValue(children,"ID",a);
+			;//std::string name;
+			;//xml.GetNodeValue(children,"NAME",name);
+			cout<<a<<endl;
+			;//cout<<name.c_str()<<endl;
+			children = xml.GetNext(children);	
+			
+		}while(children != nullptr);
+
+	
+	}
+
 
 
 

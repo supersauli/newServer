@@ -93,6 +93,8 @@ namespace sdk{
 			 */
 			static DWORD GetCRC(const BYTE * buf,int nLength);
 
+			static void Text();
+
 
 	};
 };

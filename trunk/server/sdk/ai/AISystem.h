@@ -7,7 +7,7 @@
 #include<vector>
 #include<list>
 #include <algorithm>
-#include "XmlFile.h"
+#include "../base/XmlFile.h"
 class AINode;
 //class BaseAction
 //{};

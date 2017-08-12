@@ -1,7 +1,7 @@
 #ifndef _AI_CHECK_RULE_ACTION_H__
 #define _AI_CHECK_RULE_ACTION_H__
 #include "AIDefine.h"
-#include "XmlFile.h"
+#include "../base/XmlFile.h"
 #include "AINode.h"
 #include "CompareRule.h"
 /**

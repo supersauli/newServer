@@ -3,7 +3,7 @@
 #include "AIDefine.h"
 #include <string>
 #include <iostream>
-#include "XmlFile.h"
+#include "../base/XmlFile.h"
 #include "AINode.h"
  
 /**
