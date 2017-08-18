@@ -101,7 +101,7 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-am_LogicServer_OBJECTS = LogicServer.$(OBJEXT)
+am_LogicServer_OBJECTS = LogicServer.$(OBJEXT) Package.$(OBJEXT)
 LogicServer_OBJECTS = $(am_LogicServer_OBJECTS)
 LogicServer_DEPENDENCIES = ../sdk/libsdk.la
 AM_V_lt = $(am__v_lt_@AM_V@)
@@ -185,12 +185,11 @@ CC = @CC@
 CCDEPMODE = @CCDEPMODE@
 CFLAGS = @CFLAGS@
 CPP = @CPP@
-CPPFLAGS = @CPPFLAGS@
-CXX = @CXX@
+CPPFLAGS = -I ../sdk/ ../proto/
+CXX := clang++
 CXXCPP = @CXXCPP@
 CXXDEPMODE = @CXXDEPMODE@
-CXXFLAGS = @CXXFLAGS@ -I ../sdk/ -lstdc++ -static -L/usr/local/lib/ \
-	-lprotobuf
+CXXFLAGS = @CXXFLAGS@
 CYGPATH_W = @CYGPATH_W@
 DEFS = @DEFS@
 DEPDIR = @DEPDIR@
@@ -293,7 +292,10 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-LogicServer_SOURCES = LogicServer.cpp
+AUTOMAKE_OPTIONS = foreign
+LogicServer_SOURCES = LogicServer.cpp \
+					Package.cpp
+
 LogicServer_LDADD = ../sdk/libsdk.la 
 LogicServer_LDFLAGS = -no-install
 all: all-am
@@ -309,9 +311,9 @@ $(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --gnu Logic/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign Logic/Makefile'; \
 	$(am__cd) $(top_srcdir) && \
-	  $(AUTOMAKE) --gnu Logic/Makefile
+	  $(AUTOMAKE) --foreign Logic/Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
 	  *config.status*) \
@@ -390,6 +392,7 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/LogicServer.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/Package.Po@am__quote@
 
 .cpp.o:
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.o$$||'`;\
@@ -628,7 +631,6 @@ uninstall-am: uninstall-binPROGRAMS
 
 .PRECIOUS: Makefile
 
-CXX: = clang++
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

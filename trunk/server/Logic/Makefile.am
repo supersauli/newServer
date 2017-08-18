@@ -1,7 +1,9 @@
-CXX: = clang++
-CXXFLAGS+=-I ../sdk/ -lstdc++ -static -L/usr/local/lib/ -lprotobuf
+AUTOMAKE_OPTIONS=foreign
+CXX :=clang++
+CPPFLAGS=-I ../sdk/ ../proto/
 bin_PROGRAMS=LogicServer
-LogicServer_SOURCES=LogicServer.cpp
+LogicServer_SOURCES=LogicServer.cpp \
+					Package.cpp
 
 LogicServer_LDADD = ../sdk/libsdk.la 
 LogicServer_LDFLAGS = -no-install
