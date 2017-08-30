@@ -37,8 +37,6 @@ struct  PropertyGroup{
 	{
 		
 	};
-
-
 	Property<int> _att;
 	Property<int> _hp;
 	Property<int> _mp;
@@ -62,6 +60,11 @@ class PackageBase{
 		PackageBase(const char* name):_packageName(name){}
 		bool Add(const char* objID,int num);
 
+		void save(){
+	
+
+		};
+
 	protected:
 
 		int _maxPosSize;
@@ -83,13 +86,13 @@ PackManageObj ObjFactory<Item>::CreateObj(const char*ID){
 	std::cout<<"createItem"<<std::endl;
 	 return std::make_shared<Item>();
  }
-class Hero{};
-template<>
-PackManageObj ObjFactory<Hero>::CreateObj(const char*ID){
-	std::cout<<"Hero"<<std::endl;
-	
-	 return std::make_shared<Item>();
- }
+//class Hero{};
+//template<>
+//PackManageObj ObjFactory<Hero>::CreateObj(const char*ID){
+//	std::cout<<"Hero"<<std::endl;
+//	
+//	 return std::make_shared<Item>();
+// }
 
 
 

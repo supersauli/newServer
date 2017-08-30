@@ -36,9 +36,104 @@ void protobuf_AddDesc_proto_2fGate_2eproto();
 void protobuf_AssignDesc_proto_2fGate_2eproto();
 void protobuf_ShutdownFile_proto_2fGate_2eproto();
 
+class NewGate;
 class UserLogin;
 
 // ===================================================================
+
+class NewGate : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:GateServer.NewGate) */ {
+ public:
+  NewGate();
+  virtual ~NewGate();
+
+  NewGate(const NewGate& from);
+
+  inline NewGate& operator=(const NewGate& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NewGate& default_instance();
+
+  void Swap(NewGate* other);
+
+  // implements Message ----------------------------------------------
+
+  inline NewGate* New() const { return New(NULL); }
+
+  NewGate* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NewGate& from);
+  void MergeFrom(const NewGate& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(NewGate* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 dwID = 1;
+  void clear_dwid();
+  static const int kDwIDFieldNumber = 1;
+  ::google::protobuf::uint32 dwid() const;
+  void set_dwid(::google::protobuf::uint32 value);
+
+  // optional string strIP = 2;
+  void clear_strip();
+  static const int kStrIPFieldNumber = 2;
+  const ::std::string& strip() const;
+  void set_strip(const ::std::string& value);
+  void set_strip(const char* value);
+  void set_strip(const char* value, size_t size);
+  ::std::string* mutable_strip();
+  ::std::string* release_strip();
+  void set_allocated_strip(::std::string* strip);
+
+  // @@protoc_insertion_point(class_scope:GateServer.NewGate)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  bool _is_default_instance_;
+  ::google::protobuf::internal::ArenaStringPtr strip_;
+  ::google::protobuf::uint32 dwid_;
+  mutable int _cached_size_;
+  friend void  protobuf_AddDesc_proto_2fGate_2eproto();
+  friend void protobuf_AssignDesc_proto_2fGate_2eproto();
+  friend void protobuf_ShutdownFile_proto_2fGate_2eproto();
+
+  void InitAsDefaultInstance();
+  static NewGate* default_instance_;
+};
+// -------------------------------------------------------------------
 
 class UserLogin : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:GateServer.UserLogin) */ {
  public:
@@ -138,6 +233,68 @@ class UserLogin : public ::google::protobuf::Message /* @@protoc_insertion_point
 // ===================================================================
 
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
+// NewGate
+
+// optional uint32 dwID = 1;
+inline void NewGate::clear_dwid() {
+  dwid_ = 0u;
+}
+inline ::google::protobuf::uint32 NewGate::dwid() const {
+  // @@protoc_insertion_point(field_get:GateServer.NewGate.dwID)
+  return dwid_;
+}
+inline void NewGate::set_dwid(::google::protobuf::uint32 value) {
+  
+  dwid_ = value;
+  // @@protoc_insertion_point(field_set:GateServer.NewGate.dwID)
+}
+
+// optional string strIP = 2;
+inline void NewGate::clear_strip() {
+  strip_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& NewGate::strip() const {
+  // @@protoc_insertion_point(field_get:GateServer.NewGate.strIP)
+  return strip_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void NewGate::set_strip(const ::std::string& value) {
+  
+  strip_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:GateServer.NewGate.strIP)
+}
+inline void NewGate::set_strip(const char* value) {
+  
+  strip_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:GateServer.NewGate.strIP)
+}
+inline void NewGate::set_strip(const char* value, size_t size) {
+  
+  strip_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:GateServer.NewGate.strIP)
+}
+inline ::std::string* NewGate::mutable_strip() {
+  
+  // @@protoc_insertion_point(field_mutable:GateServer.NewGate.strIP)
+  return strip_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* NewGate::release_strip() {
+  // @@protoc_insertion_point(field_release:GateServer.NewGate.strIP)
+  
+  return strip_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void NewGate::set_allocated_strip(::std::string* strip) {
+  if (strip != NULL) {
+    
+  } else {
+    
+  }
+  strip_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), strip);
+  // @@protoc_insertion_point(field_set_allocated:GateServer.NewGate.strIP)
+}
+
+// -------------------------------------------------------------------
+
 // UserLogin
 
 // optional uint32 dwID = 1;
@@ -199,6 +356,8 @@ inline void UserLogin::set_allocated_str(::std::string* str) {
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 

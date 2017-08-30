@@ -3,7 +3,7 @@
 #include<string.h>
 namespace sdk
 {
-
+#if 0
 	template<typename T>
 		void PushData(char*&ptr,T& data)
 		{
@@ -40,6 +40,7 @@ namespace sdk
 
 		}
 
+#endif
 }
 
 

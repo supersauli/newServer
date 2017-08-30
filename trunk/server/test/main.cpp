@@ -179,7 +179,6 @@ int main()
 
 
 
-	HF::Text();
 
 
 

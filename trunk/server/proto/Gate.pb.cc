@@ -21,6 +21,9 @@ namespace GateServer {
 
 namespace {
 
+const ::google::protobuf::Descriptor* NewGate_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  NewGate_reflection_ = NULL;
 const ::google::protobuf::Descriptor* UserLogin_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   UserLogin_reflection_ = NULL;
@@ -35,7 +38,23 @@ void protobuf_AssignDesc_proto_2fGate_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "proto/Gate.proto");
   GOOGLE_CHECK(file != NULL);
-  UserLogin_descriptor_ = file->message_type(0);
+  NewGate_descriptor_ = file->message_type(0);
+  static const int NewGate_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NewGate, dwid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NewGate, strip_),
+  };
+  NewGate_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      NewGate_descriptor_,
+      NewGate::default_instance_,
+      NewGate_offsets_,
+      -1,
+      -1,
+      -1,
+      sizeof(NewGate),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NewGate, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NewGate, _is_default_instance_));
+  UserLogin_descriptor_ = file->message_type(1);
   static const int UserLogin_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserLogin, dwid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserLogin, str_),
@@ -65,12 +84,16 @@ void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      NewGate_descriptor_, &NewGate::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       UserLogin_descriptor_, &UserLogin::default_instance());
 }
 
 }  // namespace
 
 void protobuf_ShutdownFile_proto_2fGate_2eproto() {
+  delete NewGate::default_instance_;
+  delete NewGate_reflection_;
   delete UserLogin::default_instance_;
   delete UserLogin_reflection_;
 }
@@ -83,11 +106,14 @@ void protobuf_AddDesc_proto_2fGate_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\020proto/Gate.proto\022\nGateServer\"&\n\tUserLo"
-    "gin\022\014\n\004dwID\030\001 \001(\r\022\013\n\003str\030\002 \001(\014b\006proto3", 78);
+    "\n\020proto/Gate.proto\022\nGateServer\"&\n\007NewGat"
+    "e\022\014\n\004dwID\030\001 \001(\r\022\r\n\005strIP\030\002 \001(\t\"&\n\tUserLo"
+    "gin\022\014\n\004dwID\030\001 \001(\r\022\013\n\003str\030\002 \001(\014b\006proto3", 118);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "proto/Gate.proto", &protobuf_RegisterTypes);
+  NewGate::default_instance_ = new NewGate();
   UserLogin::default_instance_ = new UserLogin();
+  NewGate::default_instance_->InitAsDefaultInstance();
   UserLogin::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_proto_2fGate_2eproto);
 }
@@ -98,6 +124,343 @@ struct StaticDescriptorInitializer_proto_2fGate_2eproto {
     protobuf_AddDesc_proto_2fGate_2eproto();
   }
 } static_descriptor_initializer_proto_2fGate_2eproto_;
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int NewGate::kDwIDFieldNumber;
+const int NewGate::kStrIPFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+NewGate::NewGate()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:GateServer.NewGate)
+}
+
+void NewGate::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
+}
+
+NewGate::NewGate(const NewGate& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:GateServer.NewGate)
+}
+
+void NewGate::SharedCtor() {
+    _is_default_instance_ = false;
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  dwid_ = 0u;
+  strip_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+NewGate::~NewGate() {
+  // @@protoc_insertion_point(destructor:GateServer.NewGate)
+  SharedDtor();
+}
+
+void NewGate::SharedDtor() {
+  strip_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != default_instance_) {
+  }
+}
+
+void NewGate::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* NewGate::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return NewGate_descriptor_;
+}
+
+const NewGate& NewGate::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_proto_2fGate_2eproto();
+  return *default_instance_;
+}
+
+NewGate* NewGate::default_instance_ = NULL;
+
+NewGate* NewGate::New(::google::protobuf::Arena* arena) const {
+  NewGate* n = new NewGate;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void NewGate::Clear() {
+// @@protoc_insertion_point(message_clear_start:GateServer.NewGate)
+  dwid_ = 0u;
+  strip_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+bool NewGate::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:GateServer.NewGate)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional uint32 dwID = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &dwid_)));
+
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_strIP;
+        break;
+      }
+
+      // optional string strIP = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_strIP:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_strip()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->strip().data(), this->strip().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "GateServer.NewGate.strIP"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:GateServer.NewGate)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:GateServer.NewGate)
+  return false;
+#undef DO_
+}
+
+void NewGate::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:GateServer.NewGate)
+  // optional uint32 dwID = 1;
+  if (this->dwid() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->dwid(), output);
+  }
+
+  // optional string strIP = 2;
+  if (this->strip().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->strip().data(), this->strip().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "GateServer.NewGate.strIP");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->strip(), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:GateServer.NewGate)
+}
+
+::google::protobuf::uint8* NewGate::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:GateServer.NewGate)
+  // optional uint32 dwID = 1;
+  if (this->dwid() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->dwid(), target);
+  }
+
+  // optional string strIP = 2;
+  if (this->strip().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->strip().data(), this->strip().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "GateServer.NewGate.strIP");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->strip(), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:GateServer.NewGate)
+  return target;
+}
+
+int NewGate::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:GateServer.NewGate)
+  int total_size = 0;
+
+  // optional uint32 dwID = 1;
+  if (this->dwid() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->dwid());
+  }
+
+  // optional string strIP = 2;
+  if (this->strip().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->strip());
+  }
+
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void NewGate::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:GateServer.NewGate)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const NewGate* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const NewGate>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:GateServer.NewGate)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:GateServer.NewGate)
+    MergeFrom(*source);
+  }
+}
+
+void NewGate::MergeFrom(const NewGate& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:GateServer.NewGate)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  if (from.dwid() != 0) {
+    set_dwid(from.dwid());
+  }
+  if (from.strip().size() > 0) {
+
+    strip_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.strip_);
+  }
+}
+
+void NewGate::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:GateServer.NewGate)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void NewGate::CopyFrom(const NewGate& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:GateServer.NewGate)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool NewGate::IsInitialized() const {
+
+  return true;
+}
+
+void NewGate::Swap(NewGate* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void NewGate::InternalSwap(NewGate* other) {
+  std::swap(dwid_, other->dwid_);
+  strip_.Swap(&other->strip_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata NewGate::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = NewGate_descriptor_;
+  metadata.reflection = NewGate_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// NewGate
+
+// optional uint32 dwID = 1;
+void NewGate::clear_dwid() {
+  dwid_ = 0u;
+}
+ ::google::protobuf::uint32 NewGate::dwid() const {
+  // @@protoc_insertion_point(field_get:GateServer.NewGate.dwID)
+  return dwid_;
+}
+ void NewGate::set_dwid(::google::protobuf::uint32 value) {
+  
+  dwid_ = value;
+  // @@protoc_insertion_point(field_set:GateServer.NewGate.dwID)
+}
+
+// optional string strIP = 2;
+void NewGate::clear_strip() {
+  strip_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ const ::std::string& NewGate::strip() const {
+  // @@protoc_insertion_point(field_get:GateServer.NewGate.strIP)
+  return strip_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void NewGate::set_strip(const ::std::string& value) {
+  
+  strip_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:GateServer.NewGate.strIP)
+}
+ void NewGate::set_strip(const char* value) {
+  
+  strip_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:GateServer.NewGate.strIP)
+}
+ void NewGate::set_strip(const char* value, size_t size) {
+  
+  strip_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:GateServer.NewGate.strIP)
+}
+ ::std::string* NewGate::mutable_strip() {
+  
+  // @@protoc_insertion_point(field_mutable:GateServer.NewGate.strIP)
+  return strip_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* NewGate::release_strip() {
+  // @@protoc_insertion_point(field_release:GateServer.NewGate.strIP)
+  
+  return strip_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void NewGate::set_allocated_strip(::std::string* strip) {
+  if (strip != NULL) {
+    
+  } else {
+    
+  }
+  strip_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), strip);
+  // @@protoc_insertion_point(field_set_allocated:GateServer.NewGate.strIP)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
 

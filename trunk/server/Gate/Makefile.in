@@ -88,7 +88,7 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-bin_PROGRAMS = Gate$(EXEEXT)
+bin_PROGRAMS = GateServer$(EXEEXT)
 subdir = Gate
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -101,9 +101,9 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-am_Gate_OBJECTS = Gate.$(OBJEXT)
-Gate_OBJECTS = $(am_Gate_OBJECTS)
-Gate_DEPENDENCIES = ../sdk/libsdk.la ../proto/libprotocol.la
+am_GateServer_OBJECTS = GateServer.$(OBJEXT)
+GateServer_OBJECTS = $(am_GateServer_OBJECTS)
+GateServer_DEPENDENCIES = ../sdk/libsdk.la ../proto/libprotocol.la
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
@@ -142,8 +142,8 @@ AM_V_CXXLD = $(am__v_CXXLD_@AM_V@)
 am__v_CXXLD_ = $(am__v_CXXLD_@AM_DEFAULT_V@)
 am__v_CXXLD_0 = @echo "  CXXLD   " $@;
 am__v_CXXLD_1 = 
-SOURCES = $(Gate_SOURCES)
-DIST_SOURCES = $(Gate_SOURCES)
+SOURCES = $(GateServer_SOURCES)
+DIST_SOURCES = $(GateServer_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -290,8 +290,8 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AUTOMAKE_OPTIONS = foreign
-Gate_SOURCES = Gate.cpp 
-Gate_LDADD = ../sdk/libsdk.la ../proto/libprotocol.la
+GateServer_SOURCES = GateServer.cpp 
+GateServer_LDADD = ../sdk/libsdk.la ../proto/libprotocol.la
 all: all-am
 
 .SUFFIXES:
@@ -375,9 +375,9 @@ clean-binPROGRAMS:
 	echo " rm -f" $$list; \
 	rm -f $$list
 
-Gate$(EXEEXT): $(Gate_OBJECTS) $(Gate_DEPENDENCIES) $(EXTRA_Gate_DEPENDENCIES) 
-	@rm -f Gate$(EXEEXT)
-	$(AM_V_CXXLD)$(CXXLINK) $(Gate_OBJECTS) $(Gate_LDADD) $(LIBS)
+GateServer$(EXEEXT): $(GateServer_OBJECTS) $(GateServer_DEPENDENCIES) $(EXTRA_GateServer_DEPENDENCIES) 
+	@rm -f GateServer$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(GateServer_OBJECTS) $(GateServer_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -385,7 +385,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/Gate.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/GateServer.Po@am__quote@
 
 .cpp.o:
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.o$$||'`;\

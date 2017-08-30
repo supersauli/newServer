@@ -1,6 +1,6 @@
 #include "JsonManager.h"
 using namespace sdk;
-bool JsonManager::OpenFile(const char* fileName,Json::Document& doc)
+bool JsonManager::ParseFile(const char* fileName,Json::Document& doc)
 {
 	if(HF::CharIsNull(fileName)){
 		return false;

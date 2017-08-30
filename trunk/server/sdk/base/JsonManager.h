@@ -12,7 +12,7 @@ namespace sdk
 	#define Json rapidjson
 	class JsonManager{
 public:
-	 static bool OpenFile(const char* fileName,Json::Document& doc);
+	 static bool ParseFile(const char* fileName,Json::Document& doc);
 	};
 };
 

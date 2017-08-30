@@ -93,8 +93,27 @@ namespace sdk{
 			 */
 			static DWORD GetCRC(const BYTE * buf,int nLength);
 
-			static void Text();
+			
+			static int AsInt(const char* buf){
+				if(CharIsNull(buf)){
+					return 0;
+				}
+				return atoi(buf);
+			};
 
+			static DOUBLE AsDouble(const char* buf){
+				if(CharIsNull(buf)){
+					return 0.0f;
+				}
+				return strtod(buf,nullptr);
+			}
+
+			static  float AsFloat(const char* buf){
+				if(CharIsNull(buf)){
+					return 0.0f;
+				}
+				return std::atof(buf);
+			}
 
 	};
 };

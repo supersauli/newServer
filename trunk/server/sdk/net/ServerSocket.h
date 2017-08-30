@@ -36,15 +36,12 @@ namespace sdk{
 		
 	};
 
-	class ServerSocket :public ProtobufManage
-	{
-		public:
-			bool Init(Json::Value& config);
-			bool Run();
-			void SendMessage(const ProtoBuffMessage& message);
-			SocketType GetSocketType();	
-			~ServerSocket();
-		private:
+	class ZmqSocket{
+		public :
+			virtual ~ZmqSocket();
+			bool Init(Json::Value& value);
+			const char* GetSocketName();
+		
 			/**
 			 * @brief 转换成zmq的类型
 			 *
@@ -53,13 +50,63 @@ namespace sdk{
 			 * @return 
 			 */
 			int SwitchSocketType(const SocketType &type);
+		
+			/**
+			 * @brief 获得socket 类型
+			 *
+			 * @return 
+			 */
+			SocketType GetSocketType();	
+
+			/**
+			 * @brief 接收消息
+			 *
+			 * @param buf
+			 *
+			 * @return 
+			 */
+			bool  Recv(char * buffer);
+
+			/**
+			 * @brief 发送消息
+			 *
+			 * @param message
+			 */
+			void Send(const char *buffer ,int size);
+
+		private:
+			std::string _socketName;
 			SocketType _type{SocketType::SOCKET_TYPE_NONE};
 			std::string _address;
 			int _timeOut{5000};
 			void *_socket{nullptr};
-			void *_ctx{nullptr};
+			void *_ctx{nullptr};	
+
+	};
+
+
+
+
+
+
+	class ServerSocket 
+	{
+		public:
+			bool Init(Json::Value& config);
+			bool Loop();
+			void SendToAll(const ProtoBuffMessage& message);
+			void Send(const char*objName,const ProtoBuffMessage& message);
+			
+			void AddMessageCallBack(const char* messageName,ProtobufManage::MessageCallBack function ){
+				_messageManage.AddMessageCallBack(messageName,function);
+			}
+			~ServerSocket();
+		private:
+		
 			//sdk::LogManager _log;
-			sdk::ProtobufManage _message;
+			sdk::ProtobufManage _messageManage;
+
+			std::map<std::string,std::shared_ptr<ZmqSocket> > _socketGroup;
 	};
 
 }

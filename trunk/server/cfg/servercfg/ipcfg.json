@@ -1,10 +1,17 @@
 {
-	"Gate":{
-		"connect_addr":"tcp://127.0.0.1:7762",
-		"type":2
-	},
-	"Login":{
-		"bind_addr":"tcp://127.0.0.1:7762",
-		"type":2
-	}
+	"Gate1":
+	[ 
+		{"connect_addr":"tcp://127.0.0.1:7762","type":2,"name":"Login"},
+		{"connect_addr":"tcp://127.0.0.1:7763","type":2,"name":"Logic"}
+	],
+	"Gate2":
+	[ 
+		{"connect_addr":"tcp://127.0.0.1:7764","type":2,"name":"Login"},
+		{"connect_addr":"tcp://127.0.0.1:7763","type":2,"name":"Logic"}
+	],
+	"Login":
+	[
+		{"bind_addr":"tcp://127.0.0.1:7762","type":2,"name":"Gate1"},
+		{"bind_addr":"tcp://127.0.0.1:7764","type":2,"name":"Gate2"}
+	]
 }

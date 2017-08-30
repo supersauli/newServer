@@ -35,20 +35,6 @@ namespace sdk
 				return nullptr;
 			};
 
-			template<class DATA>
-				void PushData(char*&buf,const DATA &data)
-				{
-					bcopy(reinterpret_cast<const BYTE*>(&data),buf,sizeof(DATA));	
-					buf+=sizeof(DATA);
-				};
-
-			template<class DATA>
-				void PushData(char*&buf,const DATA &data,int size)
-				{
-					//bcopy(reinterpret_cast<const BYTE*>(&data),buf,size);	
-					bcopy(data,buf,size);	
-					buf+=size;
-				};
 
 		public:
 			/**
@@ -110,19 +96,21 @@ namespace sdk
 				return nullptr;
 			}
 
+			typedef std::function<void(void*,const char* socketName)> MessageCallBack;
 
-			inline void MessageDel(const char * buf){
+			inline void MessageDel(const char * buf,const char* socketName){
 				auto message= ecode(buf);	
 				if(message == nullptr){
 				    printf("ecode error\n");
 					return ;	
 				}
-
 				const std::string& messageName =	message->GetTypeName();
 				auto it = _messageDeal.find(messageName.c_str());
 				if( it != _messageDeal.end())
 				{
-					it->second(message);	
+					it->second(message,socketName);	
+
+					printf("recv message %s \n",messageName.c_str());	
 				}
 				else
 				{
@@ -131,7 +119,7 @@ namespace sdk
 				delete (message);
 			};
 	public:
-			void AddMessageCallBack(const char* messageName,std::function<void(void*)> function ){
+			void AddMessageCallBack(const char* messageName,const MessageCallBack func ){
 				if(HF::CharIsNull(messageName)){
 					return ;
 				}
@@ -140,11 +128,11 @@ namespace sdk
 					printf("message %s has regist \n ",messageName);
 					return;
 				}
-				_messageDeal[messageName] = function;
+				_messageDeal[messageName] = func;
 			};
 
 		private:
-			std::map<std::string ,std::function<void(void*)>> _messageDeal;
+			std::map<std::string,MessageCallBack> _messageDeal;
 
 	};
 
