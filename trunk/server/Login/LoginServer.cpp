@@ -4,7 +4,6 @@
 #include "../proto/ProtobufList.h"
 #include "LoginMessage.h"
 using namespace sdk;
-ServerSocket *globalSocket;
 int old = -1;
 void Info(void*message)
 {
@@ -22,18 +21,40 @@ void Info(void*message)
 
 }
 
+void SendMessage(ServerSocket& socket )
+{
+	{
+		LoginProto::Result ret;
+		ret.set_dwid(1);
+		ret.set_result(2);
+
+		socket.Send("Gate1",ret);
+	}
+	{
+		LoginProto::Result ret;
+		ret.set_dwid(2);
+		ret.set_result(2);
+
+		socket.Send("Gate2",ret);
+	}
+
+
+}
 
 int main()
 {
 	ServerSocket socket;
-	globalSocket = &socket;
 	Json::Document doc;
 	JsonManager::ParseFile("/home/sauli/server/cfg/servercfg/ipcfg.json",doc);    
 	socket.Init(doc["Login"]);
 	LoginMessage loginMessage;
 	loginMessage.Init(socket);
-	socket.Loop();
-
+	while(true){
+		SendMessage(socket);
+		socket.Loop();
+		usleep(20);
+	}
+	
 //	LoginServer server("LoginServer");
 //	if(!server.LoadRes("Login.json")){
 //		assert(false);

@@ -1,13 +1,11 @@
 {
 	"Gate1":
 	[ 
-		{"connect_addr":"tcp://127.0.0.1:7762","type":2,"name":"Login"},
-		{"connect_addr":"tcp://127.0.0.1:7763","type":2,"name":"Logic"}
+		{"connect_addr":"tcp://127.0.0.1:7762","type":2,"name":"Login"}
 	],
 	"Gate2":
 	[ 
-		{"connect_addr":"tcp://127.0.0.1:7764","type":2,"name":"Login"},
-		{"connect_addr":"tcp://127.0.0.1:7763","type":2,"name":"Logic"}
+		{"connect_addr":"tcp://127.0.0.1:7764","type":2,"name":"Login"}
 	],
 	"Login":
 	[

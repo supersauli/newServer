@@ -10,7 +10,7 @@ class LoginMessage{
 		void InitMessage();
 		void InitMessageCallBack();
 
-		void NewGateway(void*message,const char*name);
+		void NewGateway1(void*message,const char*name);
 
 
 

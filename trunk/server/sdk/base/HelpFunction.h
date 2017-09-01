@@ -91,29 +91,54 @@ namespace sdk{
 			 *
 			 * @return 
 			 */
-			static DWORD GetCRC(const BYTE * buf,int nLength);
+			static DWORD GetCRC(const BYTE * str,int nLength);
 
 			
-			static int AsInt(const char* buf){
-				if(CharIsNull(buf)){
+			static int AsInt(const char* str){
+				if(CharIsNull(str)){
 					return 0;
 				}
-				return atoi(buf);
+				return atoi(str);
 			};
 
-			static DOUBLE AsDouble(const char* buf){
-				if(CharIsNull(buf)){
+			static DOUBLE AsDouble(const char* str){
+				if(CharIsNull(str)){
 					return 0.0f;
 				}
-				return strtod(buf,nullptr);
+				return strtod(str,nullptr);
 			}
 
-			static  float AsFloat(const char* buf){
-				if(CharIsNull(buf)){
+			static  float AsFloat(const char* str){
+				if(CharIsNull(str)){
 					return 0.0f;
 				}
-				return std::atof(buf);
+				return std::atof(str);
 			}
+			template<typename T>
+			static std::string AsString(T value){
+				return std::to_string(value);
+			}
+
+			/**
+			 * @brief 秒级别定时器 当前线程会挂起
+			 *
+			 * @param seconds
+			 */
+			static void SSleep(DWORD seconds);
+
+			/**
+			 * @brief 毫秒级别定时器 当前线程会挂起
+			 *
+			 * @param msec
+			 */
+			static void msleep(QWORD msec);
+
+			/**
+			 * @brief 微妙级别定时器 当前线程会挂起 
+			 *
+			 * @param usec
+			 */
+			static void usleep(QWORD usec);
 
 	};
 };

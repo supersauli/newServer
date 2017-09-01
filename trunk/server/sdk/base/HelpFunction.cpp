@@ -170,3 +170,42 @@ DWORD HF::GetCRC(const BYTE * buf,int nLength)
 }
 
 
+void ssleep(DWORD seconds)
+{
+	struct timeval tv;
+	tv.tv_sec=seconds;
+	tv.tv_usec=0;
+	int err;
+	do{
+		err = select(0,nullptr,nullptr,nullptr,&tv);
+	}while(err<0&&errno==EINTR);
+
+}
+
+void msleep(QWORD msec)
+{
+	struct timeval tv;
+	tv.tv_sec=msec/1000;
+	tv.tv_usec=(msec%1000)*1000;
+	int err;
+	do{
+		err = select(0,nullptr,nullptr,nullptr,&tv);	
+	}while(err<0&&errno==EINTR);
+
+
+}
+
+void usleep(QWORD usec)
+{
+	struct timeval tv;
+	tv.tv_sec=usec/1000000;
+	tv.tv_usec=usec%1000000;
+	int err;
+	do{
+		err = select(0,nullptr,nullptr,nullptr,&tv);	
+	}while(err<0&&errno==EINTR);
+
+
+}
+
+

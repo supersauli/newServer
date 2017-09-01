@@ -102,26 +102,35 @@ enum {
 
 int main()
 {
+	{
+	std::string a =sdk::HF::AsString(10); 
+	std::cout<<a.c_str()<<std::endl;
+	}
 
-	EventCallBack<> eventManage;
-	eventManage.AddEventCallBackFunc(EVENT_1,std::bind(&func1,222,11111));
-	eventManage.AddEventCallBackFunc(EVENT_1,std::bind(&func2,10,122),1);
 
-	//eventManage.SendEvent(EVENT_1,10,100);
-	//eventManage.SendEvent(EVENT_1);
-	int m = 10;
-	int *a = &m;
-	EventCallBack<int*> eventManage1;
 
-	eventManage1.AddEventCallBackFunc(EVENT_1,std::bind(&func1,222,11111));
-	eventManage1.AddEventCallBackFunc(EVENT_1,std::bind(&func3,std::placeholders::_1),1);
-	eventManage1.AddEventCallBackFunc(EVENT_1,std::bind(&func4,std::placeholders::_1,100),1);
+	//auto a = new int();
 
-	std::function<void(int,int)> ff = std::bind(&func1,std::placeholders::_1,std::placeholders::_2);
-	ff(1,2);
 
-	
-	eventManage1.SendEvent(EVENT_1,a);
+//	EventCallBack<> eventManage;
+//	eventManage.AddEventCallBackFunc(EVENT_1,std::bind(&func1,222,11111));
+//	eventManage.AddEventCallBackFunc(EVENT_1,std::bind(&func2,10,122),1);
+//
+//	//eventManage.SendEvent(EVENT_1,10,100);
+//	//eventManage.SendEvent(EVENT_1);
+//	int m = 10;
+//	int *a = &m;
+//	EventCallBack<int*> eventManage1;
+//
+//	eventManage1.AddEventCallBackFunc(EVENT_1,std::bind(&func1,222,11111));
+//	eventManage1.AddEventCallBackFunc(EVENT_1,std::bind(&func3,std::placeholders::_1),1);
+//	eventManage1.AddEventCallBackFunc(EVENT_1,std::bind(&func4,std::placeholders::_1,100),1);
+
+	//std::function<void(int,int)> ff = std::bind(&func1,std::placeholders::_1,std::placeholders::_2);
+	//ff(1,2);
+
+	//
+	//eventManage1.SendEvent(EVENT_1,a);
 
 
 
@@ -188,43 +197,43 @@ int main()
 
 
 
-	XmlFile xml;
-	xml.InitXml("guild_building_levelup_config.xml");
-	
-	auto root = xml.GetRootElement();
-
-	auto children = xml.GetChildNode(root,"Property");
-	if(children !=nullptr)	
-	{
-
-		do{
-	
-			DWORD a = 0;
-			std::vector<std::string> ret;
-			xml.GetNodeAttrList(children,ret);
-			
-			for(auto it :ret)
-			{
-				cout<<it.c_str()<<endl;
-			}
-
-
-			xml.GetNodeValue(children,"ID",a);
-			;//std::string name;
-			;//xml.GetNodeValue(children,"NAME",name);
-			cout<<a<<endl;
-			;//cout<<name.c_str()<<endl;
-			children = xml.GetNext(children);	
-			
-		}while(children != nullptr);
-
-	
-	}
-
-
-
-
-
+//	XmlFile xml;
+//	xml.InitXml("guild_building_levelup_config.xml");
+//	
+//	auto root = xml.GetRootElement();
+//
+//	auto children = xml.GetChildNode(root,"Property");
+//	if(children !=nullptr)	
+//	{
+//
+//		do{
+//	
+//			DWORD a = 0;
+//			std::vector<std::string> ret;
+//			xml.GetNodeAttrList(children,ret);
+//			
+//			for(auto it :ret)
+//			{
+//				cout<<it.c_str()<<endl;
+//			}
+//
+//
+//			xml.GetNodeValue(children,"ID",a);
+//			;//std::string name;
+//			;//xml.GetNodeValue(children,"NAME",name);
+//			cout<<a<<endl;
+//			;//cout<<name.c_str()<<endl;
+//			children = xml.GetNext(children);	
+//			
+//		}while(children != nullptr);
+//
+//	
+//	}
+//
+//
+//
+//
+//
 
 
 

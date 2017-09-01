@@ -110,7 +110,7 @@ namespace sdk
 				{
 					it->second(message,socketName);	
 
-					printf("recv message %s \n",messageName.c_str());	
+			//		printf("recv message %s \n",messageName.c_str());	
 				}
 				else
 				{

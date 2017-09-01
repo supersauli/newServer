@@ -39,7 +39,7 @@ namespace sdk{
 	class ZmqSocket{
 		public :
 			virtual ~ZmqSocket();
-			bool Init(Json::Value& value);
+			bool Init(Json::Value& value,void *ctx);
 			const char* GetSocketName();
 		
 			/**
@@ -75,10 +75,15 @@ namespace sdk{
 			void Send(const char *buffer ,int size);
 
 		private:
+
+			bool Bind(Json::Value& config);
+			bool Connect(Json::Value& config);
+
+
 			std::string _socketName;
 			SocketType _type{SocketType::SOCKET_TYPE_NONE};
 			std::string _address;
-			int _timeOut{5000};
+			int _timeOut{0};
 			void *_socket{nullptr};
 			void *_ctx{nullptr};	
 
@@ -106,6 +111,7 @@ namespace sdk{
 			//sdk::LogManager _log;
 			sdk::ProtobufManage _messageManage;
 
+			void *_ctx{nullptr};	
 			std::map<std::string,std::shared_ptr<ZmqSocket> > _socketGroup;
 	};
 

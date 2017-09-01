@@ -9,8 +9,12 @@ const char* ZmqSocket::GetSocketName(){
 	return _socketName.c_str();
 }
 
-bool ZmqSocket::Init(Json::Value& value)
+bool ZmqSocket::Init(Json::Value& value,void *ctx)
 {
+	if(ctx == nullptr){
+		return false;
+	}
+	_ctx = ctx;
 	if(!value.IsObject()){
 		return false;
 	}
@@ -37,9 +41,12 @@ bool ZmqSocket::Init(Json::Value& value)
 		}
 	}
 
-	_ctx = zmq_ctx_new();
-	assert(_ctx);
 	int zmqSocketType = SwitchSocketType(_type);
+	if(zmqSocketType == -1){
+		return false;
+	}
+
+
 	_socket = zmq_socket(_ctx,zmqSocketType);
 	assert(_socket != nullptr);
 	zmq_setsockopt(_socket,ZMQ_RCVTIMEO,&_timeOut,sizeof(_timeOut));
@@ -49,44 +56,63 @@ bool ZmqSocket::Init(Json::Value& value)
 
 	_socketName = config["name"].GetString();
 
-	if(config.HasMember("bind_addr"))
-	{
-		auto& bind_addr = config["bind_addr"];
-		if(bind_addr.IsNull()){
-			return false;
-		}
-		if(!bind_addr.IsString()){
-			return false;
-		}
-		_address = bind_addr.GetString();
-		int rc  = zmq_bind(_socket,_address.c_str());
-		assert(rc == 0);
-	}
-	else
-	{
-		auto& connect_addr = config["connect_addr"];
-		if(connect_addr.IsNull()){
-			return false;
-		}
-		if(!connect_addr.IsString()){
-			return false;
-		}
-		int rt = zmq_connect(_socket,connect_addr.GetString());
-		assert(rt == 0);
-	}
+	return Bind(config) || Connect(config);
+}
 
 
+bool ZmqSocket::Bind(Json::Value& config)
+{
+
+	if(!config.HasMember("bind_addr"))
+	{
+		return false;	
+	}
+	auto& bind_addr = config["bind_addr"];
+	if(bind_addr.IsNull()){
+		return false;
+	}
+	if(!bind_addr.IsString()){
+		return false;
+	}
+	_address = bind_addr.GetString();
+	int rc  = zmq_bind(_socket,_address.c_str());
+	assert(rc == 0);
 
 	return true;
 }
+bool ZmqSocket::Connect(Json::Value& config)
+{
+	if(!config.HasMember("connect_addr"))
+	{
+		return false;	
+	}
+
+	auto& connect_addr = config["connect_addr"];
+	if(connect_addr.IsNull()){
+		return false;
+	}
+	if(!connect_addr.IsString()){
+		return false;
+	}
+
+	int rt = zmq_connect(_socket,connect_addr.GetString());
+	assert(rt == 0);
+	if(_type == SocketType::SOCKET_TYPE_SUB){
+		zmq_setsockopt (_socket, ZMQ_SUBSCRIBE, "", 0);
+	}
+
+
+	return true;
+
+
+}
+
+
 
 
 ZmqSocket::~ZmqSocket(){
 	if(_socket!=nullptr){
 		zmq_close(_socket);
-	}
-	if(_ctx != nullptr){
-		zmq_ctx_term(_ctx);
 	}
 
 }
@@ -119,10 +145,16 @@ SocketType ZmqSocket::GetSocketType(){
 }
 
 bool ZmqSocket::Recv(char* buffer){
+
+	if(_type == SocketType::SOCKET_TYPE_ROUTER )
+	{
+		return false;
+	}
+
 	int recv_size = zmq_recv(_socket,buffer,SOCKET_BUFFER_SIZE,0);   
-		if(recv_size >0){   
-			return true;
-		}
+	if(recv_size >0){   
+		return true;
+	}
 	return false;
 }
 
@@ -130,7 +162,9 @@ bool ZmqSocket::Recv(char* buffer){
 
 ServerSocket::~ServerSocket()
 {
-
+	if(_ctx != nullptr){
+		zmq_ctx_term(_ctx);
+	}
 }
 
 bool ServerSocket::Init(Json::Value& value){
@@ -138,15 +172,17 @@ bool ServerSocket::Init(Json::Value& value){
 	if(!value.IsArray()){
 		return false;
 	}
-
+	_ctx = zmq_ctx_new();
+	assert(_ctx);
 	for(DWORD i =0;i<value.Size();i++)
 	{
 		auto zmqSocket = std::make_shared<ZmqSocket>();
 		if(zmqSocket == nullptr){
 			return false;
 		}
-		if(!zmqSocket->Init(value[i])){
+		if(!zmqSocket->Init(value[i],_ctx)){
 			_socketGroup.clear();
+			return false;
 		};
 		const char* socketName = zmqSocket->GetSocketName();
 		auto it = _socketGroup.find(socketName);
@@ -158,31 +194,31 @@ bool ServerSocket::Init(Json::Value& value){
 
 	}
 
-
 	return true;
 }
 
 
 bool ServerSocket::Loop()
 {
-	char buffer[SOCKET_BUFFER_SIZE];
-	while(true)
+	char buffer[SOCKET_BUFFER_SIZE]= {0};
+	for(auto it :_socketGroup)
 	{
-		for(auto it :_socketGroup)
-		{
-			if(it.second->Recv(buffer)){
-				_messageManage.MessageDel(buffer,it.first.c_str());
-			};	
-		}
-
-		usleep(200);
+		if(it.second->Recv(buffer)){
+			_messageManage.MessageDel(buffer,it.first.c_str());
+		};	
 	}
+
+	usleep(200);
 
 	return true;
 }
 
 void  ZmqSocket::Send(const char *buffer,int size){
-	zmq_send(_socket,buffer,size,0);
+	if(_type == SocketType::SOCKET_TYPE_SUB){
+		return ;
+	}
+
+	zmq_send(_socket,buffer,size,ZMQ_DONTWAIT);
 }
 
 void ServerSocket::SendToAll(const ProtoBuffMessage& message){

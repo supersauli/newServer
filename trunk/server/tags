@@ -166,7 +166,7 @@ AddMember	sdk/third_part/json/document.h	/^    GenericValue& AddMember(StringRef
 AddMember	sdk/third_part/json/document.h	/^    template <typename T> RAPIDJSON_DISABLEIF_RETURN((internal::OrExpr<internal::IsPointer<T>, internal::IsGenericValue<T> >), (GenericObject)) AddMember(StringRefType name, T value, AllocatorType& allocator) const { value_.AddMember(name, value, allocator); return *this; }$/;"	f	class:GenericObject
 AddMember	sdk/third_part/json/document.h	/^    template <typename T> RAPIDJSON_DISABLEIF_RETURN((internal::OrExpr<internal::IsPointer<T>, internal::IsGenericValue<T> >), (ValueType&)) AddMember(ValueType& name, T value, AllocatorType& allocator) const { value_.AddMember(name, value, allocator); return *this; }$/;"	f	class:GenericObject
 AddMessageCallBack	sdk/net/Protobuf.h	/^			void AddMessageCallBack(const char* messageName,const MessageCallBack func ){$/;"	f	class:sdk::ProtobufManage
-AddMessageCallBack	sdk/net/ServerSocket.h	/^			void AddMessageCallBack(const char* messageName,ProtobufManage::MessageCallBack& function ){$/;"	f	class:sdk::ServerSocket
+AddMessageCallBack	sdk/net/ServerSocket.h	/^			void AddMessageCallBack(const char* messageName,ProtobufManage::MessageCallBack function ){$/;"	f	class:sdk::ServerSocket
 AddNextSibling	sdk/base/XmlFile.cpp	/^xmlNodePtr XmlFile::AddNextSibling(xmlNodePtr cur,xmlNodePtr elem)$/;"	f	class:XmlFile
 AddPrevSibling	sdk/base/XmlFile.cpp	/^xmlNodePtr XmlFile::AddPrevSibling(xmlNodePtr cur,xmlNodePtr elem)$/;"	f	class:XmlFile
 AddPthreadToPool	sdk/base/PthreadPool.cpp	/^bool PthreadPool::AddPthreadToPool(Pthread * pthread)$/;"	f	class:PthreadPool
@@ -577,9 +577,9 @@ DIST_COMMON	Makefile	/^DIST_COMMON = $(srcdir)\/Makefile.am $(top_srcdir)\/confi
 DIST_COMMON	proto/Makefile	/^DIST_COMMON = $(srcdir)\/Makefile.am $(am__DIST_COMMON)$/;"	m
 DIST_COMMON	sdk/Makefile	/^DIST_COMMON = $(srcdir)\/Makefile.am $(am__DIST_COMMON)$/;"	m
 DIST_COMMON	test/Makefile	/^DIST_COMMON = $(srcdir)\/Makefile.am $(am__DIST_COMMON)$/;"	m
-DIST_SOURCES	Gate/Makefile	/^DIST_SOURCES = $(Gate_SOURCES)$/;"	m
+DIST_SOURCES	Gate/Makefile	/^DIST_SOURCES = $(GateServer_SOURCES)$/;"	m
 DIST_SOURCES	Logic/Makefile	/^DIST_SOURCES = $(LogicServer_SOURCES)$/;"	m
-DIST_SOURCES	Login/Makefile	/^DIST_SOURCES = $(Login_SOURCES)$/;"	m
+DIST_SOURCES	Login/Makefile	/^DIST_SOURCES = $(LoginServer_SOURCES)$/;"	m
 DIST_SOURCES	Makefile	/^DIST_SOURCES =$/;"	m
 DIST_SOURCES	proto/Makefile	/^DIST_SOURCES = $(libprotocol_la_SOURCES)$/;"	m
 DIST_SOURCES	sdk/Makefile	/^DIST_SOURCES = $(libsdk_la_SOURCES)$/;"	m
@@ -875,13 +875,13 @@ GREP	proto/Makefile	/^GREP = \/usr\/bin\/grep$/;"	m
 GREP	sdk/Makefile	/^GREP = \/usr\/bin\/grep$/;"	m
 GREP	test/Makefile	/^GREP = \/usr\/bin\/grep$/;"	m
 GZIP_ENV	Makefile	/^GZIP_ENV = --best$/;"	m
-Gate	Gate/Gate.h	/^class Gate{$/;"	c
+Gate	Gate/GateServer.h	/^class Gate{$/;"	c
 GateServer	proto/Gate.pb.cc	/^namespace GateServer {$/;"	n	file:
 GateServer	proto/Gate.pb.h	/^namespace GateServer {$/;"	n
-Gate_DEPENDENCIES	Gate/Makefile	/^Gate_DEPENDENCIES = ..\/sdk\/libsdk.la ..\/proto\/libprotocol.la$/;"	m
-Gate_LDADD	Gate/Makefile	/^Gate_LDADD = ..\/sdk\/libsdk.la ..\/proto\/libprotocol.la$/;"	m
-Gate_OBJECTS	Gate/Makefile	/^Gate_OBJECTS = $(am_Gate_OBJECTS)$/;"	m
-Gate_SOURCES	Gate/Makefile	/^Gate_SOURCES = Gate.cpp $/;"	m
+GateServer_DEPENDENCIES	Gate/Makefile	/^GateServer_DEPENDENCIES = ..\/sdk\/libsdk.la ..\/proto\/libprotocol.la$/;"	m
+GateServer_LDADD	Gate/Makefile	/^GateServer_LDADD = ..\/sdk\/libsdk.la ..\/proto\/libprotocol.la$/;"	m
+GateServer_OBJECTS	Gate/Makefile	/^GateServer_OBJECTS = $(am_GateServer_OBJECTS)$/;"	m
+GateServer_SOURCES	Gate/Makefile	/^GateServer_SOURCES = GateServer.cpp $/;"	m
 GenericArray	sdk/third_part/json/document.h	/^    GenericArray(ValueType& value) : value_(value) {}$/;"	f	class:GenericArray
 GenericArray	sdk/third_part/json/document.h	/^    GenericArray(const GenericArray& rhs) : value_(rhs.value_) {}$/;"	f	class:GenericArray
 GenericArray	sdk/third_part/json/document.h	/^class GenericArray {$/;"	c
@@ -1266,7 +1266,6 @@ ISchemaStateFactory	sdk/third_part/json/schema.h	/^class ISchemaStateFactory {$/
 ISchemaValidator	sdk/third_part/json/schema.h	/^class ISchemaValidator {$/;"	c	namespace:internal
 IStreamWrapper	sdk/third_part/json/istreamwrapper.h	/^typedef BasicIStreamWrapper<std::istream> IStreamWrapper;$/;"	t
 ImplicitConcatenation	sdk/third_part/json/internal/regex.h	/^    void ImplicitConcatenation(Stack<Allocator>& atomCountStack, Stack<Allocator>& operatorStack) {$/;"	f	class:internal::GenericRegex
-Info	Login/Login.cpp	/^void Info(void*message)$/;"	f
 Info	Login/LoginServer.cpp	/^void Info(void*message)$/;"	f
 Info	sdk/base/LogManager.cpp	/^void LogManager::Info(const char*fmt,...)$/;"	f	class:LogManager
 Init	Login/LoginMessage.cpp	/^bool LoginMessage::Init(ServerSocket& socket)$/;"	f	class:LoginMessage
@@ -1669,13 +1668,14 @@ LoginProto	proto/LoginProto.pb.cc	/^namespace LoginProto {$/;"	n	file:
 LoginProto	proto/LoginProto.pb.h	/^namespace LoginProto {$/;"	n
 LoginServer	Login/LoginServer.h	/^	LoginServer(const char* name):_serverName(name){}$/;"	f	class:LoginServer
 LoginServer	Login/LoginServer.h	/^class LoginServer$/;"	c
-Login_DEPENDENCIES	Login/Makefile	/^Login_DEPENDENCIES = ..\/sdk\/libsdk.la ..\/proto\/libprotocol.la$/;"	m
-Login_LDADD	Login/Makefile	/^Login_LDADD = ..\/sdk\/libsdk.la ..\/proto\/libprotocol.la$/;"	m
-Login_OBJECTS	Login/Makefile	/^Login_OBJECTS = $(am_Login_OBJECTS)$/;"	m
-Login_SOURCES	Login/Makefile	/^Login_SOURCES = LoginServer.cpp \\$/;"	m
+LoginServer_DEPENDENCIES	Login/Makefile	/^LoginServer_DEPENDENCIES = ..\/sdk\/libsdk.la ..\/proto\/libprotocol.la$/;"	m
+LoginServer_LDADD	Login/Makefile	/^LoginServer_LDADD = ..\/sdk\/libsdk.la ..\/proto\/libprotocol.la$/;"	m
+LoginServer_OBJECTS	Login/Makefile	/^LoginServer_OBJECTS = $(am_LoginServer_OBJECTS)$/;"	m
+LoginServer_SOURCES	Login/Makefile	/^LoginServer_SOURCES = LoginServer.cpp \\$/;"	m
 Loop	sdk/net/Epoll.cpp	/^bool Epoll::Loop()$/;"	f	class:Epoll
 Loop	sdk/net/SctpSocket.cpp	/^void SctpSocket::Loop()$/;"	f	class:SctpSocket
 Loop	sdk/net/Server.cpp	/^bool Server::Loop(){$/;"	f	class:Server
+Loop	sdk/net/ServerSocket.cpp	/^bool ServerSocket::Loop()$/;"	f	class:ServerSocket
 LuaSystem	sdk/base/LuaSystem.h	/^class LuaSystem$/;"	c
 MAKEINFO	Gate/Makefile	/^MAKEINFO = ${SHELL} \/home\/sauli\/server\/missing makeinfo$/;"	m
 MAKEINFO	Logic/Makefile	/^MAKEINFO = ${SHELL} \/home\/sauli\/server\/missing makeinfo$/;"	m
@@ -1804,13 +1804,13 @@ New	proto/LoginProto.pb.h	/^  inline Result* New() const { return New(NULL); }$/
 New	test/test.pb.cc	/^pack* pack::New(::google::protobuf::Arena* arena) const {$/;"	f	class:muduo::pack
 New	test/test.pb.h	/^  inline pack* New() const { return New(NULL); }$/;"	f	class:muduo::pack
 NewClient	sdk/net/SctpPool.cpp	/^void SctpPool::NewClient(DWORD dwSocket)$/;"	f	class:SctpPool
-NewGate	Gate/Gate.cpp	/^void NewGate(){$/;"	f
+NewGate	Gate/GateServer.cpp	/^void NewGate(){$/;"	f
 NewGate	proto/Gate.pb.cc	/^NewGate::NewGate()$/;"	f	class:GateServer::NewGate
 NewGate	proto/Gate.pb.cc	/^NewGate::NewGate(const NewGate& from)$/;"	f	class:GateServer::NewGate
 NewGate	proto/Gate.pb.h	/^class NewGate : public ::google::protobuf::Message \/* @@protoc_insertion_point(class_definition:GateServer.NewGate) *\/ {$/;"	c	namespace:GateServer
 NewGate_descriptor_	proto/Gate.pb.cc	/^const ::google::protobuf::Descriptor* NewGate_descriptor_ = NULL;$/;"	m	namespace:GateServer::__anon31	file:
 NewGate_reflection_	proto/Gate.pb.cc	/^  NewGate_reflection_ = NULL;$/;"	m	namespace:GateServer::__anon31	file:
-NewGateway1	Login/LoginMessage.cpp	/^void NewGateway1(void*message,const char*name)$/;"	f
+NewGateway1	Login/LoginMessage.cpp	/^void LoginMessage::NewGateway1(void*message,const char*name)$/;"	f	class:LoginMessage
 NewRange	sdk/third_part/json/internal/regex.h	/^    SizeType NewRange(unsigned codepoint) {$/;"	f	class:internal::GenericRegex
 NewState	sdk/third_part/json/internal/regex.h	/^    SizeType NewState(SizeType out, SizeType out1, unsigned codepoint) {$/;"	f	class:internal::GenericRegex
 NextPositiveDouble	sdk/third_part/json/internal/ieee754.h	/^    double NextPositiveDouble() const {$/;"	f	class:internal::Double
@@ -2513,7 +2513,7 @@ Reset	sdk/base/Time.h	/^			void Reset(const time_t &time){$/;"	f	class:sdk::Cycl
 Reset	sdk/third_part/json/schema.h	/^    void Reset() {$/;"	f	class:GenericSchemaValidator
 Reset	sdk/third_part/json/writer.h	/^    void Reset(OutputStream& os) {$/;"	f	class:Writer
 Resize	sdk/third_part/json/internal/stack.h	/^    void Resize(size_t newCapacity) {$/;"	f	class:internal::Stack
-Result	Gate/Gate.cpp	/^void Result(void*arg,const char*){$/;"	f
+Result	Gate/GateServer.cpp	/^void Result(void*arg,const char*){$/;"	f
 Result	proto/LoginProto.pb.cc	/^Result::Result()$/;"	f	class:LoginProto::Result
 Result	proto/LoginProto.pb.cc	/^Result::Result(const Result& from)$/;"	f	class:LoginProto::Result
 Result	proto/LoginProto.pb.h	/^class Result : public ::google::protobuf::Message \/* @@protoc_insertion_point(class_definition:LoginProto.Result) *\/ {$/;"	c	namespace:LoginProto
@@ -2524,7 +2524,6 @@ RightCurlyBracketToken	sdk/third_part/json/reader.h	/^        RightCurlyBracketT
 Run	sdk/ai/AISystem.cpp	/^bool StateMachine::Run(Obj *obj)$/;"	f	class:StateMachine
 Run	sdk/base/Pthread.h	/^		virtual void Run(){};$/;"	f	class:Pthread
 Run	sdk/net/SctpPthread.cpp	/^void SctpPthread::Run()$/;"	f	class:SctpPthread
-Run	sdk/net/ServerSocket.cpp	/^bool ServerSocket::Run()$/;"	f	class:ServerSocket
 S32	sdk/third_part/zip/lz4.c	/^  typedef   signed int        S32;$/;"	t	file:
 S32	sdk/third_part/zip/lz4.c	/^  typedef  int32_t S32;$/;"	t	file:
 SAFE_DEL	sdk/ai/sDefine.h	3;"	d
@@ -2660,9 +2659,9 @@ SOCKET_TYPE_REP	sdk/net/ServerSocket.h	/^		SOCKET_TYPE_REP,$/;"	m	class:sdk::Soc
 SOCKET_TYPE_REQ	sdk/net/ServerSocket.h	/^		SOCKET_TYPE_REQ,$/;"	m	class:sdk::SocketType
 SOCKET_TYPE_ROUTER	sdk/net/ServerSocket.h	/^		SOCKET_TYPE_ROUTER,$/;"	m	class:sdk::SocketType
 SOCKET_TYPE_SUB	sdk/net/ServerSocket.h	/^		SOCKET_TYPE_SUB,$/;"	m	class:sdk::SocketType
-SOURCES	Gate/Makefile	/^SOURCES = $(Gate_SOURCES)$/;"	m
+SOURCES	Gate/Makefile	/^SOURCES = $(GateServer_SOURCES)$/;"	m
 SOURCES	Logic/Makefile	/^SOURCES = $(LogicServer_SOURCES)$/;"	m
-SOURCES	Login/Makefile	/^SOURCES = $(Login_SOURCES)$/;"	m
+SOURCES	Login/Makefile	/^SOURCES = $(LoginServer_SOURCES)$/;"	m
 SOURCES	Makefile	/^SOURCES =$/;"	m
 SOURCES	proto/Makefile	/^SOURCES = $(libprotocol_la_SOURCES)$/;"	m
 SOURCES	sdk/Makefile	/^SOURCES = $(libsdk_la_SOURCES)$/;"	m
@@ -2731,7 +2730,7 @@ SendCmd	sdk/UserTest.cpp	/^bool UserTest::SendCmd(DWORD dwSocket,char *buf)$/;"	
 SendCmd	sdk/net/SctpPthread.cpp	/^void SctpPthread::SendCmd(DWORD dwSocket,char *buf)$/;"	f	class:SctpPthread
 SendEvent	sdk/base/EventCallBack.h	/^			void SendEvent(int eventID,T ...arg){$/;"	f	class:EventCallBack
 SendToAll	sdk/net/ServerSocket.cpp	/^void ServerSocket::SendToAll(const ProtoBuffMessage& message){$/;"	f	class:ServerSocket
-SendToLogin	Gate/Gate.cpp	/^void SendToLogin(void *arg){$/;"	f
+SendToLogin	Gate/GateServer.cpp	/^void SendToLogin(void *arg){$/;"	f
 SequenceNode	sdk/ai/AINode.h	/^class SequenceNode:public AINode$/;"	c
 SerializeWithCachedSizes	proto/Gate.pb.cc	/^void NewGate::SerializeWithCachedSizes($/;"	f	class:GateServer::NewGate
 SerializeWithCachedSizes	proto/Gate.pb.cc	/^void UserLogin::SerializeWithCachedSizes($/;"	f	class:GateServer::UserLogin
@@ -3282,7 +3281,7 @@ _W64	sdk/third_part/json/msinttypes/stdint.h	108;"	d
 __AI_BASE_DEFINE_H__	sdk/ai/AIDefine.h	2;"	d
 __AI_NODE_H__	sdk/ai/AINode.h	2;"	d
 __AI_SYSTEM_H__	sdk/ai/AISystem.h	2;"	d
-__GATE_H__	Gate/Gate.h	2;"	d
+__GATE_H__	Gate/GateServer.h	2;"	d
 __HELP_FUNCTION_H__	sdk/base/HelpFunction.h	2;"	d
 __HELP_TEMPLATE_H__	sdk/third_part/redis/HelpTemplate.h	2;"	d
 __HIREDIS_H	sdk/third_part/redis/hiredis.h	33;"	d
@@ -3387,7 +3386,7 @@ _sctpPthreadPool	sdk/net/SctpPool.h	/^			PthreadPool _sctpPthreadPool;$/;"	m	cla
 _servaddr	sdk/net/SctpSocket.h	/^		struct sockaddr_in _servaddr;$/;"	m	class:sdk::SctpSocket	typeref:struct:sdk::SctpSocket::sockaddr_in
 _serverName	Login/LoginServer.h	/^		std::string _serverName;$/;"	m	class:LoginServer
 _serverName	sdk/net/Server.h	/^			std::string _serverName;$/;"	m	class:sdk::Server
-_socket	Login/LoginMessage.h	/^		ServerSocket _socket;$/;"	m	class:LoginMessage
+_socket	Login/LoginMessage.h	/^		ServerSocket* _socket;$/;"	m	class:LoginMessage
 _socket	sdk/net/Server.h	/^			SctpSocket _socket;$/;"	m	class:sdk::Server
 _socket	sdk/net/Socket.h	/^			void *_socket;$/;"	m	class:sdk::Socket
 _socketGroup	sdk/net/ServerSocket.h	/^			std::map<std::string,std::shared_ptr<ZmqSocket> > _socketGroup;$/;"	m	class:sdk::ServerSocket
@@ -3490,9 +3489,9 @@ allocator_	sdk/third_part/json/pointer.h	/^    Allocator* allocator_;           
 allocator_	sdk/third_part/json/schema.h	/^    Allocator *allocator_;$/;"	m	class:GenericSchemaDocument
 allocator_	sdk/third_part/json/schema.h	/^    AllocatorType* allocator_;$/;"	m	class:internal::Schema
 allotMalloc	pool.cpp	/^bool sPool::allotMalloc(int index)$/;"	f	class:sPool
-am_Gate_OBJECTS	Gate/Makefile	/^am_Gate_OBJECTS = Gate.$(OBJEXT)$/;"	m
+am_GateServer_OBJECTS	Gate/Makefile	/^am_GateServer_OBJECTS = GateServer.$(OBJEXT)$/;"	m
 am_LogicServer_OBJECTS	Logic/Makefile	/^am_LogicServer_OBJECTS = LogicServer.$(OBJEXT) Package.$(OBJEXT)$/;"	m
-am_Login_OBJECTS	Login/Makefile	/^am_Login_OBJECTS = LoginServer.$(OBJEXT) ZoneManage.$(OBJEXT) \\$/;"	m
+am_LoginServer_OBJECTS	Login/Makefile	/^am_LoginServer_OBJECTS = LoginServer.$(OBJEXT) ZoneManage.$(OBJEXT) \\$/;"	m
 am__CONFIG_DISTCLEAN_FILES	Makefile	/^am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \\$/;"	m
 am__DIST_COMMON	Gate/Makefile	/^am__DIST_COMMON = $(srcdir)\/Makefile.in $(top_srcdir)\/depcomp$/;"	m
 am__DIST_COMMON	Logic/Makefile	/^am__DIST_COMMON = $(srcdir)\/Makefile.in $(top_srcdir)\/depcomp$/;"	m
@@ -3809,9 +3808,9 @@ begin	sdk/third_part/json/document.h	/^    MemberIterator begin() const { return
 begin	sdk/third_part/json/document.h	/^    ValueIterator begin() const { return value_.Begin(); }$/;"	f	class:GenericArray
 begin	sdk/third_part/json/schema.h	/^        SizeType begin; \/\/ begin index of context.validators$/;"	m	struct:internal::Schema::SchemaArray
 begin_	sdk/third_part/json/memorystream.h	/^    const Ch* begin_;   \/\/!< Original head of the string.$/;"	m	struct:MemoryStream
-bin_PROGRAMS	Gate/Makefile	/^bin_PROGRAMS = Gate$(EXEEXT)$/;"	m
+bin_PROGRAMS	Gate/Makefile	/^bin_PROGRAMS = GateServer$(EXEEXT)$/;"	m
 bin_PROGRAMS	Logic/Makefile	/^bin_PROGRAMS = LogicServer$(EXEEXT)$/;"	m
-bin_PROGRAMS	Login/Makefile	/^bin_PROGRAMS = Login$(EXEEXT)$/;"	m
+bin_PROGRAMS	Login/Makefile	/^bin_PROGRAMS = LoginServer$(EXEEXT)$/;"	m
 bin_PROGRAMS	test/Makefile	/^bin_PROGRAMS = main$(EXEEXT)$/;"	m
 bindir	Gate/Makefile	/^bindir = ${exec_prefix}\/bin$/;"	m
 bindir	Logic/Makefile	/^bindir = ${exec_prefix}\/bin$/;"	m
@@ -4395,7 +4394,7 @@ htmldir	Makefile	/^htmldir = ${docdir}$/;"	m
 htmldir	proto/Makefile	/^htmldir = ${docdir}$/;"	m
 htmldir	sdk/Makefile	/^htmldir = ${docdir}$/;"	m
 htmldir	test/Makefile	/^htmldir = ${docdir}$/;"	m
-i	Gate/Gate.cpp	/^int i = 0;$/;"	v
+i	Gate/GateServer.cpp	/^int i = 0;$/;"	v
 i	sdk/third_part/json/document.h	/^            int i;$/;"	m	struct:GenericValue::Number::I
 i	sdk/third_part/json/document.h	/^        }i;$/;"	m	union:GenericValue::Number	typeref:struct:GenericValue::Number::I
 i	sdk/third_part/json/schema.h	/^            int64_t i;$/;"	m	union:internal::Hasher::Number::U
@@ -4711,9 +4710,8 @@ lock	sdk/base/Mutex.h	/^		void lock(){pthread_mutex_lock(&_mutex);}$/;"	f	class:
 longValue	sdk/base/VarList.h	/^			LONG        longValue;$/;"	m	union:VarObj::NumValue
 luaFunc	sdk/base/LuaSystem.h	/^typedef int (*luaFunc)(luaState*lua);$/;"	t
 luaSate	sdk/base/LuaSystem.h	/^typedef lua_state luaSate;$/;"	t
-main	Gate/Gate.cpp	/^int main()$/;"	f
+main	Gate/GateServer.cpp	/^int main(int argc,char * argv[])$/;"	f
 main	Logic/LogicServer.cpp	/^int main(){$/;"	f
-main	Login/Login.cpp	/^int main()$/;"	f
 main	Login/LoginServer.cpp	/^int main()$/;"	f
 main	config.guess	/^		main()$/;"	f
 main	config.guess	/^	main ()$/;"	f
@@ -4799,7 +4797,6 @@ obj	sdk/third_part/redis/hiredis.h	/^    void *obj; \/* holds user-generated val
 objectPatternValidatorType	sdk/third_part/json/schema.h	/^    PatternValidatorType objectPatternValidatorType;$/;"	m	struct:internal::SchemaValidationContext
 obuf	sdk/third_part/redis/hiredis.h	/^    char *obuf; \/* Write buffer *\/$/;"	m	struct:redisContext
 offset_	sdk/third_part/json/error/error.h	/^    size_t offset_;$/;"	m	struct:ParseResult
-old	Login/Login.cpp	/^int old = -1;$/;"	v
 old	Login/LoginServer.cpp	/^int old = -1;$/;"	v
 oldincludedir	Gate/Makefile	/^oldincludedir = \/usr\/include$/;"	m
 oldincludedir	Logic/Makefile	/^oldincludedir = \/usr\/include$/;"	m
