@@ -323,7 +323,7 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AUTOMAKE_OPTIONS = foreign
 INCLUES = -I/sdk
-SUBDIRS = sdk  test Gate Login proto Logic
+SUBDIRS = sdk  test Gate Login proto Logic World
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
 

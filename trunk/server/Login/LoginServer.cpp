@@ -1,7 +1,6 @@
 #include "LoginServer.h"
 #include "../sdk/sdk.h"
 #include <assert.h>
-#include "../proto/ProtobufList.h"
 #include "LoginMessage.h"
 using namespace sdk;
 int old = -1;

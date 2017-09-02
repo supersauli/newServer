@@ -202,9 +202,10 @@ Array	sdk/third_part/json/document.h	/^    typedef GenericArray<false, ValueType
 ArrayData	sdk/third_part/json/document.h	/^    struct ArrayData {$/;"	s	class:GenericValue
 ArrayType	sdk/third_part/json/document.h	/^    typedef typename ValueType::Array ArrayType;$/;"	t	struct:internal::TypeHelper
 ArrayType	sdk/third_part/json/document.h	/^    typedef typename ValueType::ConstArray ArrayType;$/;"	t	struct:internal::TypeHelper
-AsDouble	sdk/base/HelpFunction.h	/^			static DOUBLE AsDouble(const char* buf){$/;"	f	class:sdk::HF
-AsFloat	sdk/base/HelpFunction.h	/^			static  float AsFloat(const char* buf){$/;"	f	class:sdk::HF
-AsInt	sdk/base/HelpFunction.h	/^			static int AsInt(const char* buf){$/;"	f	class:sdk::HF
+AsDouble	sdk/base/HelpFunction.h	/^			static DOUBLE AsDouble(const char* str){$/;"	f	class:sdk::HF
+AsFloat	sdk/base/HelpFunction.h	/^			static  float AsFloat(const char* str){$/;"	f	class:sdk::HF
+AsInt	sdk/base/HelpFunction.h	/^			static int AsInt(const char* str){$/;"	f	class:sdk::HF
+AsString	sdk/base/HelpFunction.h	/^			static std::string AsString(T value){$/;"	f	class:sdk::HF
 AssignIfExist	sdk/third_part/json/schema.h	/^    static void AssignIfExist(SizeType& out, const ValueType& value, const ValueType& name) {$/;"	f	class:internal::Schema
 AssignIfExist	sdk/third_part/json/schema.h	/^    static void AssignIfExist(bool& out, const ValueType& value, const ValueType& name) {$/;"	f	class:internal::Schema
 AssignIfExist	sdk/third_part/json/schema.h	/^    void AssignIfExist(SchemaArray& out, SchemaDocumentType& schemaDocument, const PointerType& p, const ValueType& value, const ValueType& name, const ValueType& document) {$/;"	f	class:internal::Schema
@@ -239,6 +240,7 @@ BigInteger	sdk/third_part/json/internal/biginteger.h	/^    BigInteger(const char
 BigInteger	sdk/third_part/json/internal/biginteger.h	/^    explicit BigInteger(uint64_t u) : count_(1) {$/;"	f	class:internal::BigInteger
 BigInteger	sdk/third_part/json/internal/biginteger.h	/^class BigInteger {$/;"	c	namespace:internal
 Bind	sdk/net/SctpSocket.cpp	/^bool SctpSocket::Bind()$/;"	f	class:SctpSocket
+Bind	sdk/net/ServerSocket.cpp	/^bool ZmqSocket::Bind(Json::Value& config)$/;"	f	class:ZmqSocket
 Bool	sdk/third_part/json/document.h	/^    bool Bool(bool b) { new (stack_.template Push<ValueType>()) ValueType(b); return true; }$/;"	f	class:GenericDocument
 Bool	sdk/third_part/json/prettywriter.h	/^    bool Bool(bool b)           { PrettyPrefix(b ? kTrueType : kFalseType); return Base::WriteBool(b); }$/;"	f	class:PrettyWriter
 Bool	sdk/third_part/json/reader.h	/^    bool Bool(bool) { return static_cast<Override&>(*this).Default(); }$/;"	f	struct:BaseReaderHandler
@@ -362,13 +364,13 @@ CXXDEPMODE	Makefile	/^CXXDEPMODE = depmode=gcc3$/;"	m
 CXXDEPMODE	proto/Makefile	/^CXXDEPMODE = depmode=gcc3$/;"	m
 CXXDEPMODE	sdk/Makefile	/^CXXDEPMODE = depmode=gcc3$/;"	m
 CXXDEPMODE	test/Makefile	/^CXXDEPMODE = depmode=gcc3$/;"	m
-CXXFLAGS	Gate/Makefile	/^CXXFLAGS = -Wall -g3 -O0	-std=gnu++11 -fPIC$/;"	m
-CXXFLAGS	Logic/Makefile	/^CXXFLAGS = -Wall -g3 -O0	-std=gnu++11 -fPIC$/;"	m
-CXXFLAGS	Login/Makefile	/^CXXFLAGS = -Wall -g3 -O0	-std=gnu++11 -fPIC$/;"	m
-CXXFLAGS	Makefile	/^CXXFLAGS = -Wall -g3 -O0	-std=gnu++11 -fPIC$/;"	m
-CXXFLAGS	proto/Makefile	/^CXXFLAGS = -Wall -g3 -O0	-std=gnu++11 -fPIC$/;"	m
-CXXFLAGS	sdk/Makefile	/^CXXFLAGS = -Wall -g3 -O0	-std=gnu++11 -fPIC$/;"	m
-CXXFLAGS	test/Makefile	/^CXXFLAGS = -Wall -g3 -O0	-std=gnu++11 -fPIC -I ..\/sdk\/$/;"	m
+CXXFLAGS	Gate/Makefile	/^CXXFLAGS = -Wall -g3 -O0	-std=gnu++11 -fPIC -DDEBUG$/;"	m
+CXXFLAGS	Logic/Makefile	/^CXXFLAGS = -Wall -g3 -O0	-std=gnu++11 -fPIC -DDEBUG$/;"	m
+CXXFLAGS	Login/Makefile	/^CXXFLAGS = -Wall -g3 -O0	-std=gnu++11 -fPIC -DDEBUG$/;"	m
+CXXFLAGS	Makefile	/^CXXFLAGS = -Wall -g3 -O0	-std=gnu++11 -fPIC -DDEBUG$/;"	m
+CXXFLAGS	proto/Makefile	/^CXXFLAGS = -Wall -g3 -O0	-std=gnu++11 -fPIC -DDEBUG$/;"	m
+CXXFLAGS	sdk/Makefile	/^CXXFLAGS = -Wall -g3 -O0	-std=gnu++11 -fPIC -DDEBUG$/;"	m
+CXXFLAGS	test/Makefile	/^CXXFLAGS = -Wall -g3 -O0	-std=gnu++11 -fPIC -DDEBUG -I ..\/sdk\/$/;"	m
 CXXLD	Gate/Makefile	/^CXXLD = $(CXX)$/;"	m
 CXXLD	Logic/Makefile	/^CXXLD = $(CXX)$/;"	m
 CXXLD	Login/Makefile	/^CXXLD = $(CXX)$/;"	m
@@ -479,6 +481,7 @@ CompareRuleFunc	sdk/ai/CompareRule.h	/^		typedef bool (*CompareRuleFunc)(T t1,T 
 Compress	sdk/base/CompressManage.cpp	/^int CompressManage::Compress(const char* source, char* dest, int sourceSize, int maxDestSize)$/;"	f	class:CompressManage
 CompressManage	sdk/base/CompressManage.h	/^	class CompressManage$/;"	c	namespace:sdk
 Connect	sdk/net/SctpSocket.cpp	/^bool SctpSocket::Connect()$/;"	f	class:SctpSocket
+Connect	sdk/net/ServerSocket.cpp	/^bool ZmqSocket::Connect(Json::Value& config)$/;"	f	class:ZmqSocket
 Connect	sdk/third_part/redis/Redis.cpp	/^bool Redis::Connect(const char* host,int port)$/;"	f	class:Redis
 ConstArray	sdk/third_part/json/document.h	/^    typedef GenericArray<true, ValueT> ConstArray;$/;"	t	class:GenericArray
 ConstArray	sdk/third_part/json/document.h	/^    typedef GenericArray<true, ValueType> ConstArray;$/;"	t	class:GenericValue
@@ -1278,7 +1281,7 @@ Init	sdk/net/SctpPthread.cpp	/^bool SctpPthread::Init()$/;"	f	class:SctpPthread
 Init	sdk/net/SctpSocket.cpp	/^bool SctpSocket::Init()$/;"	f	class:SctpSocket
 Init	sdk/net/Server.cpp	/^bool Server::Init()$/;"	f	class:Server
 Init	sdk/net/ServerSocket.cpp	/^bool ServerSocket::Init(Json::Value& value){$/;"	f	class:ServerSocket
-Init	sdk/net/ServerSocket.cpp	/^bool ZmqSocket::Init(Json::Value& value)$/;"	f	class:ZmqSocket
+Init	sdk/net/ServerSocket.cpp	/^bool ZmqSocket::Init(Json::Value& value,void *ctx)$/;"	f	class:ZmqSocket
 Init	sdk/net/Socket.cpp	/^bool sSocket::Init(const std::string& ipPort)$/;"	f	class:sSocket
 InitAsDefaultInstance	proto/Gate.pb.cc	/^void NewGate::InitAsDefaultInstance() {$/;"	f	class:GateServer::NewGate
 InitAsDefaultInstance	proto/Gate.pb.cc	/^void UserLogin::InitAsDefaultInstance() {$/;"	f	class:GateServer::UserLogin
@@ -2729,6 +2732,7 @@ Send	sdk/net/ServerSocket.cpp	/^void ServerSocket::Send(const char*objName,const
 SendCmd	sdk/UserTest.cpp	/^bool UserTest::SendCmd(DWORD dwSocket,char *buf)$/;"	f	class:UserTest
 SendCmd	sdk/net/SctpPthread.cpp	/^void SctpPthread::SendCmd(DWORD dwSocket,char *buf)$/;"	f	class:SctpPthread
 SendEvent	sdk/base/EventCallBack.h	/^			void SendEvent(int eventID,T ...arg){$/;"	f	class:EventCallBack
+SendMessage	Login/LoginServer.cpp	/^void SendMessage(ServerSocket& socket )$/;"	f
 SendToAll	sdk/net/ServerSocket.cpp	/^void ServerSocket::SendToAll(const ProtoBuffMessage& message){$/;"	f	class:ServerSocket
 SendToLogin	Gate/GateServer.cpp	/^void SendToLogin(void *arg){$/;"	f
 SequenceNode	sdk/ai/AINode.h	/^class SequenceNode:public AINode$/;"	c
@@ -4329,6 +4333,7 @@ func_xform	ltmain.sh	/^func_xform ()$/;"	f
 getMalloc	pool.cpp	/^void * sPool::getMalloc(int size)$/;"	f	class:sPool
 getSocket	sdk/UserTest.h	/^		DWORD getSocket(){return _dwSocket;};$/;"	f	class:sdk::UserTest
 give_advice	missing	/^give_advice ()$/;"	f
+globalIndex	Gate/GateServer.cpp	/^int globalIndex = 0;$/;"	v
 hasBOM_	sdk/third_part/json/encodedstream.h	/^    bool hasBOM_;$/;"	m	class:AutoUTFInputStream
 hasDependencies_	sdk/third_part/json/schema.h	/^    bool hasDependencies_;$/;"	m	class:internal::Schema
 hasRequired_	sdk/third_part/json/schema.h	/^    bool hasRequired_;$/;"	m	class:internal::Schema
@@ -4394,7 +4399,6 @@ htmldir	Makefile	/^htmldir = ${docdir}$/;"	m
 htmldir	proto/Makefile	/^htmldir = ${docdir}$/;"	m
 htmldir	sdk/Makefile	/^htmldir = ${docdir}$/;"	m
 htmldir	test/Makefile	/^htmldir = ${docdir}$/;"	m
-i	Gate/GateServer.cpp	/^int i = 0;$/;"	v
 i	sdk/third_part/json/document.h	/^            int i;$/;"	m	struct:GenericValue::Number::I
 i	sdk/third_part/json/document.h	/^        }i;$/;"	m	union:GenericValue::Number	typeref:struct:GenericValue::Number::I
 i	sdk/third_part/json/schema.h	/^            int64_t i;$/;"	m	union:internal::Hasher::Number::U
@@ -4763,6 +4767,7 @@ mkinstalldirs	proto/Makefile	/^mkinstalldirs = $(install_sh) -d$/;"	m
 mkinstalldirs	sdk/Makefile	/^mkinstalldirs = $(install_sh) -d$/;"	m
 mkinstalldirs	test/Makefile	/^mkinstalldirs = $(install_sh) -d$/;"	m
 move	sdk/third_part/json/schema.h	/^        schemaRef_(std::move(rhs.schemaRef_))$/;"	f	class:GenericSchemaDocument
+msleep	sdk/base/HelpFunction.cpp	/^void msleep(QWORD msec)$/;"	f
 muduo	test/test.pb.cc	/^namespace muduo {$/;"	n	file:
 muduo	test/test.pb.h	/^namespace muduo {$/;"	n
 multipleOf_	sdk/third_part/json/schema.h	/^    SValue multipleOf_;$/;"	m	class:internal::Schema
@@ -5183,6 +5188,7 @@ srcdir	test/Makefile	/^srcdir = .$/;"	m
 ss	sdk/UserTest.cpp	/^UserTest* ss = NULL;$/;"	v
 ss	sdk/third_part/json/document.h	/^        ShortString ss;$/;"	m	union:GenericValue::Data
 ss_	sdk/third_part/json/internal/regex.h	/^    SourceStream& ss_;$/;"	m	class:internal::DecodedStream
+ssleep	sdk/base/HelpFunction.cpp	/^void ssleep(DWORD seconds)$/;"	f
 stackEnd_	sdk/third_part/json/internal/stack.h	/^    char *stackEnd_;$/;"	m	class:internal::Stack
 stackStream	sdk/third_part/json/reader.h	/^        StackStream<char> stackStream;$/;"	m	class:GenericReader::NumberStream
 stackTop_	sdk/third_part/json/internal/stack.h	/^    char *stackTop_;$/;"	m	class:internal::Stack
@@ -5335,6 +5341,7 @@ uptrval	sdk/third_part/zip/lz4.c	/^  typedef uintptr_t uptrval;$/;"	t	file:
 usage_error	test-driver	/^usage_error ()$/;"	f
 userBuffer_	sdk/third_part/json/allocators.h	/^    void *userBuffer_;          \/\/!< User supplied buffer.$/;"	m	class:MemoryPoolAllocator
 usingExtDict	sdk/third_part/zip/lz4.c	/^typedef enum { noDict = 0, withPrefix64k, usingExtDict } dict_directive;$/;"	e	enum:__anon23	file:
+usleep	sdk/base/HelpFunction.cpp	/^void usleep(QWORD usec)$/;"	f
 valid_	sdk/third_part/json/pointer.h	/^        bool valid_;        \/\/!< Whether the parsing is valid.$/;"	m	class:GenericPointer::PercentDecodeStream
 valid_	sdk/third_part/json/schema.h	/^    bool valid_;$/;"	m	class:GenericSchemaValidator
 validatorCount	sdk/third_part/json/schema.h	/^    SizeType validatorCount;$/;"	m	struct:internal::SchemaValidationContext

@@ -1,6 +1,6 @@
 #ifndef __LOGIN_MESSAGE_H__
 #define __LOGIN_MESSAGE_H__
-#include "../sdk/sdk.h"
+#include "../sdk/net/ServerSocket.h"
 #include "../proto/ProtobufList.h"
 using namespace sdk;
 class LoginMessage{

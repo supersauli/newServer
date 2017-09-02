@@ -94,26 +94,40 @@ namespace sdk{
 			static DWORD GetCRC(const BYTE * str,int nLength);
 
 			
-			static int AsInt(const char* str){
-				if(CharIsNull(str)){
-					return 0;
-				}
-				return atoi(str);
-			};
+			/**
+			 * @brief string 转int
+			 *
+			 * @param str
+			 *
+			 * @return 
+			 */
+			static int AsInt(const char* str);
 
-			static DOUBLE AsDouble(const char* str){
-				if(CharIsNull(str)){
-					return 0.0f;
-				}
-				return strtod(str,nullptr);
-			}
+			/**
+			 * @brief string 转double 
+			 *
+			 * @param str
+			 *
+			 * @return 
+			 */
+			static DOUBLE AsDouble(const char* str);
 
-			static  float AsFloat(const char* str){
-				if(CharIsNull(str)){
-					return 0.0f;
-				}
-				return std::atof(str);
-			}
+			/**
+			 * @brief string 转float
+			 *
+			 * @param str
+			 *
+			 * @return 
+			 */
+			static  float AsFloat(const char* str);
+			/**
+			 * @brief *类型转string
+			 *
+			 * @tparam T
+			 * @param value
+			 *
+			 * @return 
+			 */
 			template<typename T>
 			static std::string AsString(T value){
 				return std::to_string(value);
@@ -131,14 +145,14 @@ namespace sdk{
 			 *
 			 * @param msec
 			 */
-			static void msleep(QWORD msec);
+			static void MSleep(QWORD msec);
 
 			/**
 			 * @brief 微妙级别定时器 当前线程会挂起 
 			 *
 			 * @param usec
 			 */
-			static void usleep(QWORD usec);
+			static void USleep(QWORD usec);
 
 	};
 };

@@ -18,7 +18,7 @@
 
 
 
-
+#include <stdio.h>
 
 class SData{
 	public:
@@ -26,6 +26,7 @@ class SData{
 
 	void Save(){
 		char buf[1026] = {0};
+		memcpy(buf,"100",11);
 		//sdk::PushData(buf,);
 	
 	
@@ -37,10 +38,10 @@ class SData{
 	
 	}
 private:
-	std::string _saveData;
-	int _id;
-	bool _s;
-	std::string _name;
+//	std::string _saveData;
+//	int _id{0};
+//	bool _s{0};
+//	std::string _name;
 
 
 };
@@ -56,10 +57,7 @@ using namespace std;
 int main(){
 
 
-int m = atoi(nullptr);
-std::cout<<m<<std::endl;
-
-
+//PUSH_DATA(buf,10);
 
 //	PackageBase<Item,100>	 pack("test");
 //	pack.Add("id",1);

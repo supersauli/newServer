@@ -40,6 +40,7 @@ AC_CONFIG_FILES([Makefile
 				 Logic/Makefile
 				 Login/Makefile
 				 proto/Makefile
+				 World/Makefile
                  test/Makefile
 				 ])
 AC_OUTPUT

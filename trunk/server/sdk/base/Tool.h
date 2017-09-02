@@ -1,34 +1,38 @@
 #ifndef __TOOL_H__
 #define __TOOL_H__
+
 #include<string.h>
+#include <memory>
 namespace sdk
 {
-#if 0
+
+
 	template<typename T>
-		void PushData(char*&ptr,T& data)
+		inline void PushData(char*&ptr,T& data)
 		{
 			bcopy(reinterpret_cast<T*>(&data),ptr,sizeof(T));   
 			ptr+=sizeof(T);
 		};
+
 	template<>
-		void PushData(char*&ptr, std::string&value)
+		inline void PushData(char*&ptr,const std::string& data)
 		{
-			unsigned int len = value.size();
+			unsigned int len = data.size();
 			PushData(ptr,len);
-			bcopy(value.c_str(),ptr,len);   
+			bcopy(data.c_str(),ptr,len);   
 			ptr+=len;
 		};
 
 
 	template<typename T>
-		void GetData(char*&ptr,T&data)
+		inline void GetData(char*&ptr,T&data)
 		{
 			data = *(reinterpret_cast<T*>(ptr));
 			ptr+=sizeof(T);
 		}
 
 	template<>
-		void GetData(char*&ptr,std::string&value)
+		inline void GetData(char*&ptr,std::string&value)
 		{
 			char buf[1024] = {}; 
 			unsigned int len = 0;
@@ -39,9 +43,7 @@ namespace sdk
 			ptr+=len;
 
 		}
-
-#endif
-}
+};
 
 
 

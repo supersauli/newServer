@@ -170,7 +170,7 @@ DWORD HF::GetCRC(const BYTE * buf,int nLength)
 }
 
 
-void ssleep(DWORD seconds)
+void HF::SSleep(DWORD seconds)
 {
 	struct timeval tv;
 	tv.tv_sec=seconds;
@@ -182,7 +182,7 @@ void ssleep(DWORD seconds)
 
 }
 
-void msleep(QWORD msec)
+void HF::MSleep(QWORD msec)
 {
 	struct timeval tv;
 	tv.tv_sec=msec/1000;
@@ -195,7 +195,7 @@ void msleep(QWORD msec)
 
 }
 
-void usleep(QWORD usec)
+void HF::USleep(QWORD usec)
 {
 	struct timeval tv;
 	tv.tv_sec=usec/1000000;
@@ -208,4 +208,24 @@ void usleep(QWORD usec)
 
 }
 
+ int HF::AsInt(const char* str){
+	 if(CharIsNull(str)){
+		 return 0;
+	 }
+	 return atoi(str);
+ };
+
+DOUBLE HF::AsDouble(const char* str){
+	if(CharIsNull(str)){
+		return 0.0f;
+	}
+	return strtod(str,nullptr);
+}
+
+float HF::AsFloat(const char* str){
+	if(CharIsNull(str)){
+		return 0.0f;
+	}
+	return std::atof(str);
+}
 

@@ -99,6 +99,8 @@ enum {
 	EVENT_2,
 };
 
+#include "../sdk/sdk.h"
+#include "head.h"
 
 int main()
 {
@@ -106,8 +108,6 @@ int main()
 	std::string a =sdk::HF::AsString(10); 
 	std::cout<<a.c_str()<<std::endl;
 	}
-
-
 
 	//auto a = new int();
 

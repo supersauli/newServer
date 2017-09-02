@@ -1,7 +1,9 @@
 #ifndef __ZONE_MANAGE_H__
 #define __ZONE_MANAGE_H__
-#include "../sdk/sdk.h"
-
+#include <stdio.h>
+#include <map>
+#include <vector>
+#include <memory>
 struct ZoneGate
 {
 	int _zoneID;

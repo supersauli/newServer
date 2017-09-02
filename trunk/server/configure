@@ -15438,7 +15438,7 @@ fi
 done
 
 
-ac_config_files="$ac_config_files Makefile sdk/Makefile Gate/Makefile Logic/Makefile Login/Makefile proto/Makefile test/Makefile"
+ac_config_files="$ac_config_files Makefile sdk/Makefile Gate/Makefile Logic/Makefile Login/Makefile proto/Makefile World/Makefile test/Makefile"
 
 cat >confcache <<\_ACEOF
 # This file is a shell script that caches the results of configure
@@ -16553,6 +16553,7 @@ do
     "Logic/Makefile") CONFIG_FILES="$CONFIG_FILES Logic/Makefile" ;;
     "Login/Makefile") CONFIG_FILES="$CONFIG_FILES Login/Makefile" ;;
     "proto/Makefile") CONFIG_FILES="$CONFIG_FILES proto/Makefile" ;;
+    "World/Makefile") CONFIG_FILES="$CONFIG_FILES World/Makefile" ;;
     "test/Makefile") CONFIG_FILES="$CONFIG_FILES test/Makefile" ;;
 
   *) as_fn_error $? "invalid argument: \`$ac_config_target'" "$LINENO" 5;;
