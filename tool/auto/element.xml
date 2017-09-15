@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2013 (http://www.altova.com) by  () -->
+<class name="Hero">
+	<inlcude heldList="#include &lt;string&gt;"/>
+	<property name="_name" type="string" public="true" private="true" save="true" desc="名字"/>
+	<property name="_age" type="int" public="true" private="true" save="true" desc="年龄"/>
+	<property name="_sex" type="int" public="false" private="true" save="true" desc="性别"/>
+	<map name="friend_group" maxrows="1000" save="true" public="false" private="false" desc="好友">
+		<column type="string" name="_name" desc="玩家名" Key="true"/>
+		<column type="int" name="_level" desc="等级" Key="false"/>
+	</map>
+	<struct name="Item">
+		<column type="string" name="ItemName" desc="道具名"/>
+		<column type="int" name="num" desc="数量"/>
+		<column type="int" name="max" desc="数量"/>
+	</struct>
+	<struct name="Package" desc="背包">
+		<map>
+			<column type="string" name="IteamName" desc="道具名" KeyIndex="0"/>
+			<column type="Item" name="Iteam" desc="道具名" KeyIndex="1"/>
+		</map>
+		<column type="Item" name="Item" desc="道具"/>
+		<column type="dword" name="pos1" desc=""/>
+	</struct>
+	<set name="core" maxrows="1000" save="true" public="false" private="false" desc="场景到访表">
+		<column type="dword" name="pos" desc="pos"/>
+		<column type="dword" name="pos1" desc="pos1"/>
+	</set>
+</class>
