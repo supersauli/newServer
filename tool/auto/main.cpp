@@ -24,25 +24,31 @@ struct HashFunc{
 template<class T,class M>
 struct smap:public std::map<T,M>
 {
-    std::map<T,M>& Push(M m){
-        if(HashFunc<M>::value)
+    template<class Z>
+    void Push(Z z){
+        cout<<"value="<<HashFunc<Z>::value<<endl;
+        if(HashFunc<Z>::value)
         {
             //this->insert(std::make_pair(m.GetFirstKey(),m));
-            this->insert(maker_pair(m.GetSecondKey(), m.Push(m));
+            //this->insert(make_pair(m.GetSecondKey(), Push(m)));
+               //this->insert(make_pair(z.GetFirstKey(),make_pair(z.GetSecondKey(),z)));
+               cout<<"push"<<endl;
+               (*this)[z.GetFirstKey()][z.GetSecondKey()] =z;
+               //pp(this,z);
+
         }
         else{
-            this->insert(std::make_pair(m.GetFirstKey(),m));
+//            this->insert(std::make_pair(z.GetFirstKey(),z));
         }
-        return *this;
     }
-
-    std::map<T,M> & Push(std::map<T,M>&m){
-    {
-
-        
-
-    
+    template<typename U>
+    void pp(std::map<T,M>* m,U& u){
+        (*m)[u.GetFirstKey()][u.GetSecondKey()] = u;
     }
+ //   template<typename X,typename Y>
+ //   void Push(std::map<X,Y>&m){
+ //       this->insert(std::make_pair(m.seocnd.GetFirstKey(),m));
+ //   }
 
 
 
@@ -55,6 +61,7 @@ struct Friend{
     int GetSecondKey(){return age;}
     std::string  name;
     int age;
+    int id;
 
 };
 
@@ -70,7 +77,7 @@ int main()
     f.name = "a";
     f.age = 10;
 
-    friendList.Push(f);
+    //friendList.Push(f);
 
     f1.Push(f);
 
@@ -79,6 +86,19 @@ int main()
         cout<<"name="<<it.second.name.c_str()<<"  age="<<it.second.age<<endl;
     
     }
+
+    for(auto it:f1)
+    {
+        //cout<<"name="<<it.second.name.c_str()<<"  age="<<it.second.age<<endl;
+        //
+        cout<<"firstkey = "<<it.first;
+
+        for(auto its:it.second){
+            cout<<"second="<<its.first<<"id="<<its.second.id;
+        }
+    
+    }
+
 
 
 
