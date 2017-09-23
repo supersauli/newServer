@@ -1,92 +1,28 @@
 #include<stdio.h>
 #include<string>
 #include<string.h>
+#include <vector>
 #include <map>
 #include <iostream>
-using namespace std;
-
-typedef char Yes;
-typedef Yes No[2];
-
-
-#define DEFINE_CHECK_FUNC(X) \
-    template<typename T>  \
-struct Check##X{  \
-    template<typename U> \
-    static Yes& Check(decltype(&U::X));\
-    template<typename U>   \
-    static No &Check(...);   \
-    static const constexpr int value = (sizeof(Check<T>(0))==sizeof(Yes)); \
-};
-
-DEFINE_CHECK_FUNC(Hash3Key);
-DEFINE_CHECK_FUNC(Hash2Key);
-DEFINE_CHECK_FUNC(Hash1Key);
-
-template<class T,class M>
-struct smap:public std::map<T,M>
-{
-   template<typename U>
-   typename enable_if<CheckHash3Key<U>::value,void>::type Push(U u){
-           (*this)[u.GetFirstKey()][u.GetSecondKey()][u.GetThreeKey()] =u;
-   };
-
-    template<typename U>
-    typename enable_if<CheckHash2Key<U>::value,void>::type Push(U u){
-            (*this)[u.GetFirstKey()][u.GetSecondKey()] =u;
-    };
-
-    template<typename U>
-     typename enable_if<CheckHash1Key<U>::value,void>::type Push(U u){
-            this->insert(std::make_pair(u.GetFirstKey(),u));
-    };
-
-};
-
-struct Friend{
-    void Hash2Key();
-    std::string GetFirstKey(){return name;}
-    int GetSecondKey(){return age;}
-    std::string  name;
-    int age;
-    int id{111};
-
-};
-
-struct User{
-
-    void Hash1Key();
-    std::string GetFirstKey(){return userName;}
-    std::string userName;
-};
-
-
-
-struct Npc{
-    
-    void Hash3Key();
-    std::string GetFirstKey(){return name;};
-    int GetSecondKey(){return id;};
-    int GetThreeKey(){return att;};
-
-    std::string name;
-    int id;
-    int att;
-
-
-
-};
-
+#include "template.h"
 #include<utility>
-
+using namespace std;
 int main()
 {
+
+    std::vector<std::string> ff;
+    std::map<int,int> fff;
+    cout<<CheckVector<decltype( ff)>::value<<endl;
+    cout<<CheckVector<decltype( fff)>::value<<endl;
+
+
     typedef smap<std::string,smap<int,smap<int,Npc>>>  NPC;
     NPC npcList;
     Npc npc;
     npc.name="npc";
 
-    
+    typename enable_if<CheckVector<decltype(ff)>::value,int>::type a;
+    a = 10;
 
 
    // cout<<"xxx="<<HashFunc1<Npc>::value<<endl;
@@ -99,16 +35,8 @@ int main()
     }
 
 
-
-
-
-
-
-
-
-
-
     smap<std::string ,User> userList;
+    smap<std::string,std::vector<User>> userVec;
     smap<std::string ,smap<int,Friend> > f1;
 
     Friend f;
@@ -120,6 +48,10 @@ int main()
     userList.Push(user);
 
     f1.Push(f);
+
+    userVec.Push(user);
+
+
 
     for(auto it:userList)
     {
