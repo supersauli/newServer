@@ -59,8 +59,7 @@ struct smap:public std::map<T,M>
 
    template<typename U>
    typename std::enable_if<CheckHash1Key<U>::value&&!CheckVector<M>::value,void >::type Push(U u){
-            Print("map");
-           this->insert(std::make_pair(u.GetFirstKey(),u));
+           (*this)[u.GetFirstKey()]=u;
    };
 
 };
