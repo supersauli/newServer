@@ -17,17 +17,23 @@ using namespace std;
 
 int main()
 {
-    
+
+    cout<<is_int<int>::value<<endl;
+    cout<<is_int<double>::value<<endl;
+
     Data data;
     data.InitAttrCallBack();
     data.SetLevel(10);
     data.SetAge(122);
     data.SetName("test");
+    data.Set("level",11111);
+    data.Set("age",11111);
+    data.Set("name","uuuu");
 
     auto attrList = data.GetAttrList();
     for(auto it :attrList)
     {
-        //cout<<it.c_str()<<"="<<data.GetInt(it.c_str())<<endl;;
+        cout<<it.c_str()<<"="<<data.GetInt(it.c_str())<<endl;;
     }
 
    for(auto it :attrList)
@@ -35,7 +41,6 @@ int main()
         cout<<it.c_str()<<"="<<data.GetStr(it.c_str())<<endl;;
     }
 
-        cout<<"name"<<"="<<data.GetName()<<endl;;
 
 
 

@@ -6,6 +6,7 @@
 #include<iostream>
 #include<utility>
 #include <typeinfo>
+#include "Define.h"
 typedef char Yes;
 typedef Yes No[2];
 
@@ -19,6 +20,54 @@ struct Check##X{  \
     static No &Check(...);   \
     static const constexpr int value = (sizeof(Check<T>(0))==sizeof(Yes)); \
 };
+
+template<typename T>
+struct Empty:std::false_type{};
+
+
+
+
+template<typename T>
+struct is_int:std::false_type{};
+
+template<>
+struct is_int<int>:std::true_type{};
+
+template<typename T>
+struct is_double:std::false_type{};
+
+template<>
+struct is_double<double>:std::true_type{};
+
+template<typename T>
+struct is_float:std::false_type{};
+
+template<>
+struct is_float<float>:std::true_type{};
+
+template<typename T>
+struct is_int64:std::false_type{};
+
+template<>
+struct is_int64<INT64>:std::true_type{};
+
+template<typename T>
+struct is_char:std::false_type{};
+
+template<>
+struct is_char<char*>:std::true_type{};
+
+template<>
+struct is_char<const char*>:std::true_type{};
+
+
+
+
+
+
+
+
+
 
 
 
