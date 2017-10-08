@@ -125,6 +125,8 @@ struct CheckMMM{
     typedef T Type;
 };
 
+
+
 /**
  * @brief 查看T是不是map<M,std::vector<Z>> 结构
  *
@@ -139,6 +141,14 @@ struct CheckMV{
     static const constexpr bool value = sizeof(Check<T>(T())) == sizeof(Yes);
 };
 
+template<typename T>
+struct CheckMMV{
+	template<typename U,typename A,typename B,typename C>
+	static Yes&Check(std::map<A,std::map<B,std::vector<C>>>);
+	template<typename U>
+	static No&Check(...);
+	static const constexpr bool value = sizeof(Check<T>(T())) == sizeof(Yes);
+};
 
 
 
@@ -170,6 +180,17 @@ struct smap:public std::map<T,M>
 			 typename std::enable_if<CheckHash1Key<U>::value||CheckHash2Key<U>::value || CheckHash3Key<U>::value,void>::type>::type Push(const U& u){
 			(*this)[u.GetFirstKey()] =u;
 	}
+
+//	template<typename U>
+//	typename std::enable_if<CheckMMV<SelfType>::value,typename std::enable_if<CheckHash2Key<U>::value||CheckHash3Key<U>::value,void>::type>::type Push(const U&u){
+//			(*this)[u.GetFirstKey()][u.GetSecondKey()].push_back(u);
+//	}
+//	template<typename U>
+//	typename std::enable_if<CheckMV<SelfType>::value,typename std::enable_if<CheckHash1Key<U>::value||CheckHash2Key<U>::value||CheckHash3Key<U>::value,void>::type>::type Push(const U&u){
+//			(*this)[u.GetFirstKey()].push_back(u);
+//	}
+
+
 
 };
 

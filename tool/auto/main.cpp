@@ -59,6 +59,36 @@ int main()
 	npcList3.Push(npc);
 
 
+//	std::map<std::vector<int>,std::vector<int>> f1;
+//	std::map<std::vector<int>,std::map<int,std::vector<int>>> f2;
+//
+//	cout<<CheckMV<decltype(f1)>::value<<endl;
+//	cout<<CheckMMV<decltype(f2)>::value<<endl;
+//
+	smap<std::string,std::vector<Npc>> npcList4;
+	
+
+
+//	std::vector<int> a1;
+//	a1.push_back(11);
+//	a1.push_back(12);
+//	a1.push_back(13);
+//	std::vector<int> a2;
+//	a2.push_back(112);
+//	a2.push_back(113);
+//	a2.push_back(114);
+//	f1[a1] =a2;
+//	std::vector<int> a3;
+//	{	
+//		auto it = f1.find(a3);
+//		if(it!=f1.end())
+//		{
+//			cout<<"ssssss"<<endl;	
+//		}
+//	}
+
+
+
 	//cout<<CanContinue<decltype(ff),bool,int>::value<<endl;
 
 	//std::vector<std::map<int,int>> a;
