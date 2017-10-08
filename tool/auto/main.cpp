@@ -13,11 +13,66 @@ using namespace std;
 
 #define CheckVector CheckV
 
-
+void f(int a,int b){};
+void ff(const char*){};
 
 int main()
 {
 
+
+	smap<std::string,std::map<int,std::map<int,Npc>>> npcList;
+	Npc npc;
+	npc.name = "npc";
+	npc.level = 11;
+	npc.sex = 2;
+	npcList.Push(npc);
+
+	for(auto it :npcList)
+	{
+		for(auto its:it.second)	
+		{
+			for(auto itt:its.second)
+			{
+				auto npc= itt.second;
+				cout<<"name  = " <<npc.name.c_str()<<" level = "<<npc.level<<" sex="<<npc.sex<<endl;
+			}
+		}
+	}
+
+
+	smap<std::string,std::map<int,Npc>> npcList2;
+
+	npcList2.Push(npc);
+
+	
+	for(auto it :npcList2)
+	{
+		for(auto its:it.second)	
+		{
+			auto npc= its.second;
+			cout<<"name  = " <<npc.name.c_str()<<" level = "<<npc.level<<" sex="<<npc.sex<<endl;
+		}
+	}
+
+
+	smap<std::string,Npc> npcList3;
+	npcList3.Push(npc);
+
+
+	//cout<<CanContinue<decltype(ff),bool,int>::value<<endl;
+
+	//std::vector<std::map<int,int>> a;
+	
+	//cout<<CheckM<decltype(a)>::value<<endl;
+	
+//	std::map<int,std::map<int,int>> a;
+//	cout<<CheckMMM<decltype(a)>::value<<endl;
+//
+
+
+
+
+#if 0
     cout<<is_int<int>::value<<endl;
     cout<<is_int<double>::value<<endl;
 
@@ -42,7 +97,7 @@ int main()
     }
 
 
-
+#endif
 
 
 

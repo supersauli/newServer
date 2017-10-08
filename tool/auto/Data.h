@@ -10,7 +10,7 @@
 using namespace std::placeholders;
 class ReflectData
 {
-
+	private:
     /**
      * @brief GetCB
      */
@@ -18,7 +18,6 @@ class ReflectData
     typedef std::function<const char*()>       GETSTRCALLBACK;
     typedef std::function<double()>            GETDOUBLECALLBACK;
     typedef std::function<float()>             GETFLOATCALLBACK;
-    //typedef std::function<DWORD()>             GETDOWRDCALLBACK;
     typedef std::function<INT64()>             GETINT64CALLBACK;
 
     /**
@@ -33,6 +32,62 @@ class ReflectData
 
 
     public:     
+
+	/**
+	 * @brief 增加获取属相回调
+	 *
+	 * @tparam T
+	 * @param attrName
+	 * @param callBackFunc
+	 *
+	 * @return 
+	 */
+	template<typename T>
+		bool AddGetAttrCB(const char*attrName ,T callBackFunc){
+			using Type  = typename ResultOfType<T>::type; 
+			return AddGetCB<Type>(attrName,callBackFunc);
+		}
+
+	/**
+	 * @brief 设置属性回调
+	 *
+	 * @tparam T
+	 * @param attrName
+	 * @param func
+	 *
+	 * @return 
+	 */
+	template<typename T>
+		bool AddSetAttrCB(const char* attrName,std::function<void(T)> func){
+			return   AddSetCB<T>(attrName,func);
+		}
+
+	/**
+	 * @brief 属性列表
+	 *
+	 * @return 
+	 */
+	const std::set<std::string>& GetAttrList(){
+		return _attrList;
+	}
+
+	/**
+	 * @brief 增加属性
+	 *
+	 * @param attrName
+	 *
+	 * @return 
+	 */
+	bool AddAttr(const char * attrName){
+		auto it  = _attrList.find(attrName);
+		if(it != _attrList.end()){
+			return false;
+		}
+		_attrList.insert(attrName);
+		return true;
+	}
+
+
 
     int GetInt(const char* attrName){
         auto it = _getIntCB.find(attrName);
@@ -73,6 +128,7 @@ class ReflectData
         }
         return 0;
     }
+
 
 
     bool Set(const char* attrName ,int value){
@@ -123,13 +179,8 @@ class ReflectData
         }
         return false;
     }
-
     
-    template<typename T,typename... Args>
-    bool AddGetAttrCB(const char*attrName ,T callBackFunc){
-       using Type  = decltype(std::declval<T>()(std::declval<Args>()...)); 
-       return AddGetCB<Type>(attrName,callBackFunc);
-    };
+private:    
 
 
     template<typename T>
@@ -145,7 +196,7 @@ class ReflectData
             return false; 
         };
         return true;
-    };
+    }
 
     template<typename T>
     typename std::enable_if<is_char<T>::value ,bool>::type  AddGetCB(const char* attrName,GETSTRCALLBACK func){
@@ -154,7 +205,7 @@ class ReflectData
             return false;
         }
         return true;
-    };
+    }
 
     template<typename T>
     typename std::enable_if<is_char<T>::value ,bool>::type AddGetCB(const char* attrName,GETINT64CALLBACK func){
@@ -163,7 +214,7 @@ class ReflectData
             return false;
         }
         return true;
-    };
+    }
 
     template<typename T>
      typename std::enable_if<is_float<T>::value ,bool>::type AddGetCB(const char* attrName,GETFLOATCALLBACK func){
@@ -172,7 +223,7 @@ class ReflectData
             return false;
         }
         return true;
-    };
+    }
 
     template<typename T>
     typename std::enable_if<is_double<T>::value ,bool>::type AddGetCB(const char* attrName,GETDOUBLECALLBACK func){
@@ -181,17 +232,14 @@ class ReflectData
             return false;
         }
         return true;
-    };
-   template<typename T>
-   bool AddSetAttrCB(const char* attrName,std::function<void(T)> func){
-     return   AddSetCB<T>(attrName,func);
-   }
+    }
+   
 
     template<typename T>
     bool AddSetCB(...){
         static_assert(Empty<T>::value,"error !");
         return true;
-    };
+    }
 
     template<typename T>
     typename std::enable_if<is_int<T>::value,bool>::type AddSetCB(const char* attrName,SETINTCALLBACK func){
@@ -200,7 +248,7 @@ class ReflectData
             return false;
         }
         return true;
-    };
+    }
 
 
     template<typename T>
@@ -210,7 +258,7 @@ class ReflectData
            return false; 
         };
         return true;
-    };
+    }
 
 
     template<typename T>
@@ -220,7 +268,7 @@ class ReflectData
            return false; 
         };
         return true;
-    };
+    }
 
     template<typename T>
     typename std::enable_if<is_float<T>::value,bool>::type  AddSetCB(const char* attrName,SETFLOATCALLBACK func){
@@ -229,7 +277,7 @@ class ReflectData
            return false; 
         };
         return true;
-    };
+    }
 
     template<typename T>
     typename std::enable_if<is_int64<T>::value,bool>::type  AddSetCB(const char* attrName,SETINT64CALLBACK func){
@@ -238,23 +286,10 @@ class ReflectData
            return false; 
         };
         return true;
-    };
-
-
-
-    const std::set<std::string>& GetAttrList(){
-        return _attrList;
-    };
-
-    bool AddAttr(const char * attrName){
-        auto it  = _attrList.find(attrName);
-        if(it != _attrList.end()){
-            return false;
-        }
-        _attrList.insert(attrName);
-        return true;
     }
 
+
+    
 
 
     private:
@@ -285,13 +320,13 @@ class Data :public ReflectData
 
         const char* GetName(){
             return name.c_str();
-        };
+        }
         int GetLevel(){return level;};
         int GetAge(){return age;};
 
         void SetLevel(int value){level= value;}
-        void SetAge(int value){age=value;}; 
-        void SetName(const char* value){name=value;};
+        void SetAge(int value){age=value;}
+        void SetName(const char* value){name=value;}
 
 
         void InitAttrCallBack(){
