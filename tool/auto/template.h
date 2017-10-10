@@ -371,36 +371,6 @@ class smap:public std::map<T,M>
             Push(const U&u){
                 (*this)[u.GetFirstKey()].push_back(u);
             }
-#if 0
-	template<typename U>
-	typename std::enable_if<CheckMMM<SelfType>::value,typename std::enable_if<CheckHash3Key<U>::value,void>::type>::type Push(const U&u){
-			(*this)[u.GetFirstKey()][u.GetSecondKey()][u.GetThreeKey()] =u;
-	}
-
-	template<typename U>
-	typename std::enable_if<CheckMM<SelfType>::value&&!CheckMMM<SelfType>::value,
-			 typename std::enable_if<CheckHash3Key<U>::value||CheckHash2Key<U>::value,void>::type>::type Push(const U& u){
-			(*this)[u.GetFirstKey()][u.GetSecondKey()] =u;
-	}
-
-
-	template<typename U>
-	typename std::enable_if<CheckM<SelfType>::value&&!CheckMM<SelfType>::value&&!CheckMMM<SelfType>::value,
-			 typename std::enable_if<CheckHash1Key<U>::value||CheckHash2Key<U>::value || CheckHash3Key<U>::value,void>::type>::type Push(const U& u){
-			(*this)[u.GetFirstKey()] =u;
-	}
-
-#endif
-//	template<typename U>
-//	typename std::enable_if<CheckMMV<SelfType>::value,typename std::enable_if<CheckHash2Key<U>::value||CheckHash3Key<U>::value,void>::type>::type Push(const U&u){
-//			(*this)[u.GetFirstKey()][u.GetSecondKey()].push_back(u);
-//	}
-//	template<typename U>
-//	typename std::enable_if<CheckMV<SelfType>::value,typename std::enable_if<CheckHash1Key<U>::value||CheckHash2Key<U>::value||CheckHash3Key<U>::value,void>::type>::type Push(const U&u){
-//			(*this)[u.GetFirstKey()].push_back(u);
-//	}
-
-
 
 };
 
