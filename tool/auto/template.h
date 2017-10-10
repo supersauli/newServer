@@ -24,9 +24,6 @@ struct Check##X{  \
 template<typename T>
 struct Empty:std::false_type{};
 
-
-
-
 template<typename T>
 struct is_int:std::false_type{};
 
@@ -104,6 +101,11 @@ struct CheckM{
     typedef T Type;
 };
 
+/**
+ * @brief 查看T是不是map<A,map<B,C>>
+ *
+ * @tparam T
+ */
 template<typename T>
 struct CheckMM{
 
@@ -115,6 +117,11 @@ struct CheckMM{
     typedef T Type;
 };
 
+/**
+ * @brief 查看T是不是map<A,map<B,map<C,D>>>
+ *
+ * @tparam T
+ */
 template<typename T>
 struct CheckMMM{
     template<typename U,typename A,typename B,typename C ,typename D>
@@ -128,19 +135,24 @@ struct CheckMMM{
 
 
 /**
- * @brief 查看T是不是map<M,std::vector<Z>> 结构
+ * @brief 查看T是不是map<A,std::vector<B>> 结构
  *
  * @tparam T
  */
 template<typename T>
 struct CheckMV{
-    template<typename U,typename M,typename Z>
-    static Yes& Check(std::map<M,std::vector<Z>>);
+    template<typename U,typename A,typename B>
+    static Yes& Check(std::map<A,std::vector<B>>);
     template <typename U>
     static No &Check(...);
     static const constexpr bool value = sizeof(Check<T>(T())) == sizeof(Yes);
 };
 
+/**
+ * @brief 查看T是不是map<A,map<B,std::vector<C>>> 结构
+ *
+ * @tparam T
+ */
 template<typename T>
 struct CheckMMV{
 	template<typename U,typename A,typename B,typename C>
@@ -160,9 +172,206 @@ DEFINE_CHECK_FUNC(Hash1Key);
 
 
 template<class T,class M>
-struct smap:public std::map<T,M>
+class smap:public std::map<T,M>
 {
 	using SelfType = std::map<T,M>;
+	public:
+
+    /**
+     * @brief 3Key MMM
+     *
+     * @tparam U
+     * @param u
+     *
+     * @return 
+     */
+    template<typename U>
+        typename std::enable_if<CheckM<SelfType>::value
+        &&CheckHash3Key<U>::value
+        &&CheckMM<typename SelfType::mapped_type>::value
+        ,void>::type 
+            Push(const U&u){
+                (*this)[u.GetFirstKey()][u.GetSecondKey()][u.GetThreeKey()] =u;
+            }
+
+
+    /**
+     * @brief 
+     *
+     * @tparam U 3Key MMV
+     * @param u
+     *
+     * @return 
+     */
+	template<typename U>
+        typename std::enable_if<CheckM<SelfType>::value
+        &&CheckHash3Key<U>::value
+        &&CheckMV<typename SelfType::mapped_type>::value
+        ,void>::type 
+        Push(const U&u){
+            (*this)[u.GetFirstKey()][u.GetSecondKey()].push_back(u);
+        }
+
+    /**
+     * @brief 3Key MM
+     *
+     * @tparam U
+     * @param u
+     *
+     * @return 
+     */
+    template<typename U>
+        typename std::enable_if<CheckM<SelfType>::value
+        &&CheckHash3Key<U>::value
+        &&CheckM<typename SelfType::mapped_type>::value
+        &&!CheckMV<typename SelfType::mapped_type>::value
+        &&!CheckMM<typename SelfType::mapped_type>::value
+        ,void>::type
+            Push(const U&u){
+                (*this)[u.GetFirstKey()][u.GetSecondKey()]=u;
+            }
+
+    /**
+     * @brief 3Key MV
+     *
+     * @tparam U
+     * @param u
+     *
+     * @return 
+     */
+    template<typename U>
+        typename std::enable_if<CheckM<SelfType>::value
+        &&CheckHash3Key<U>::value
+        &&CheckV<typename SelfType::mapped_type>::value
+        ,void>::type
+        Push(const U&u){
+            (*this)[u.GetFirstKey()].push_back(u);
+        }
+
+
+    /**
+     * @brief 3Key M
+     *
+     * @tparam U
+     * @param u
+     *
+     * @return 
+     */
+    template<typename U>
+        typename std::enable_if<CheckM<SelfType>::value
+        &&CheckHash3Key<U>::value
+        &&!CheckV<typename SelfType::mapped_type>::value
+        &&!CheckM<typename SelfType::mapped_type>::value
+        ,void>::type
+        Push(const U&u){
+            (*this)[u.GetFirstKey()] = u;
+        }
+
+    /**
+     * @brief 2Key MMV
+     *
+     * @tparam U
+     * @param u
+     *
+     * @return 
+     */
+    template<typename U>
+        typename std::enable_if<CheckM<SelfType>::value
+        &&CheckHash2Key<U>::value
+        &&CheckMV<typename SelfType::mapped_type>::value
+        ,void>::type
+        Push(const U&u){
+            (*this)[u.GetFirstKey()][u.GetSecondKey()].push_back(u);
+        }
+
+
+    /**
+     * @brief 2Key MV
+     *
+     * @tparam U
+     * @param u
+     *
+     * @return 
+     */
+    template<typename U>
+        typename std::enable_if<CheckM<SelfType>::value
+        &&CheckHash2Key<U>::value
+        &&CheckV<typename SelfType::mapped_type>::value
+        ,void>::type
+        Push(const U&u){
+            (*this)[u.GetFirstKey()].push_back(u);
+        }
+
+
+    /**
+     * @brief 2Key MM
+     *
+     * @tparam U
+     * @param u
+     *
+     * @return 
+     */
+    template<typename U>
+        typename std::enable_if<CheckM<SelfType>::value
+        &&CheckHash2Key<U>::value
+        &&CheckM<typename SelfType::mapped_type>::value
+        ,void>::type
+        Push(const U&u){
+            (*this)[u.GetFirstKey()][u.GetSecondKey()]=u;
+        }
+
+    /**
+     * @brief 2Key M
+     *
+     * @tparam U
+     * @param u
+     *
+     * @return 
+     */
+	template<typename U>
+		typename std::enable_if<CheckM<SelfType>::value
+        &&CheckHash2Key<U>::value
+        &&!CheckM<typename SelfType::mapped_type>::value
+        &&!CheckV<typename SelfType::mapped_type>::value
+        ,void>::type
+            Push(const U&u){
+                (*this)[u.GetFirstKey()] = u;
+            }
+
+    /**
+     * @brief 1Key M
+     *
+     * @tparam U
+     * @param u
+     *
+     * @return 
+     */
+    template<typename U>
+        typename std::enable_if<CheckM<SelfType>::value
+        &&CheckHash1Key<U>::value
+        &&!CheckV<typename SelfType::mapped_type>::value
+        ,void>::type
+        Push(const U&u){
+            (*this)[u.GetFirstKey()]=u;
+        }
+
+    /**
+     * @brief 1Key MV
+     *
+     * @tparam U
+     * @param u
+     *
+     * @return 
+     */
+    template<typename U>
+        typename std::enable_if<CheckM<SelfType>::value
+        &&CheckHash1Key<U>::value
+        &&CheckV<typename SelfType::mapped_type>::value
+        ,void>::type
+            Push(const U&u){
+                (*this)[u.GetFirstKey()].push_back(u);
+            }
+#if 0
 	template<typename U>
 	typename std::enable_if<CheckMMM<SelfType>::value,typename std::enable_if<CheckHash3Key<U>::value,void>::type>::type Push(const U&u){
 			(*this)[u.GetFirstKey()][u.GetSecondKey()][u.GetThreeKey()] =u;
@@ -181,6 +390,7 @@ struct smap:public std::map<T,M>
 			(*this)[u.GetFirstKey()] =u;
 	}
 
+#endif
 //	template<typename U>
 //	typename std::enable_if<CheckMMV<SelfType>::value,typename std::enable_if<CheckHash2Key<U>::value||CheckHash3Key<U>::value,void>::type>::type Push(const U&u){
 //			(*this)[u.GetFirstKey()][u.GetSecondKey()].push_back(u);

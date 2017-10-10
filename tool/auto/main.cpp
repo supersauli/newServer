@@ -13,19 +13,117 @@ using namespace std;
 
 #define CheckVector CheckV
 
+
+
+
 void f(int a,int b){};
 void ff(const char*){};
+
+
+
+class U{
+    public:
+ //       template<typename T>
+//            typename std::conditional<true,typename enable_if<is_int<T>::value,void>::type,void>::type Add(){
+//                cout<<"1"<<endl;
+//            }
+//typename std::conditional<CheckM<T>::value,
+//         typename std::conditional<CheckV<typename T::mapped_type>::value,
+//         typename std::enable_if<is_int<typename T::mapped_type::mapped_type>::value,void>::type,
+//         void>::type,void>::type Add(){
+//             cout<<"1"<<endl;
+//         }
+//
+//
+//
+//    template<typename T>
+//    typename std::conditional<CheckM<T>::value,
+//             typename std::conditional<CheckV<typename T::mapped_type>::value,
+//              typename std::enable_if<is_double<typename T::mapped_type::mapped_type>::value,void>::type,
+//                void>::type,void>::type Add(){
+//                cout<<"2"<<endl;
+//    }
+//
+//    template<typename T>
+//    typename std::conditional<CheckM<T>::value,
+//             typename std::conditional<CheckM<typename T::mapped_type>::value,
+//              typename std::enable_if<is_double<typename T::mapped_type::mapped_type>::value,void>::type,
+//                void>::type,void>::type Add(){
+//                cout<<"3"<<endl;
+//            }
+//
+
+};
+
+template<bool result,typename T,typename U> 
+struct Condition{
+    typedef T type;
+};
+
+template<typename T,typename U> 
+struct Condition<false,T,U>{
+};
+
+
 
 int main()
 {
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //typename enable_if<true,enable_if<false,int>::type>::type  a = 10;
+//    typename std::conditional<true,std::conditional<true,int,enable_if<false,void>>::type,int>::type a  = 10;
+
+
+//     U u;
+//     u.Add<std::map<int,std::map<int,int>>>();
+//     u.Add<std::map<int,std::map<int,double>>>();
+//
+
+    ///using type1 =  std::map<int,std::vector<int>>::mapped_type;
+    //cout<<typeid(type1).name()<<endl;
+
+
 	smap<std::string,std::map<int,std::map<int,Npc>>> npcList;
+	smap<std::string,std::map<int,Npc>> npcList2;
+	smap<std::string,std::map<int,std::vector<Npc>>> npcList3;
+	smap<std::string,std::vector<Npc>> npcList4;
+	smap<std::string,Npc> npcList5;
 	Npc npc;
 	npc.name = "npc";
 	npc.level = 11;
 	npc.sex = 2;
 	npcList.Push(npc);
+	npcList2.Push(npc);
+
+	npcList3.Push(npc);
+	npcList4.Push(npc);
+    npcList5.Push(npc);
+
+    cout<<std::is_class<Npc>::value <<endl;
+    cout<<std::is_class<std::map<int,int>>::value <<endl;
+
+
 
 	for(auto it :npcList)
 	{
@@ -40,23 +138,23 @@ int main()
 	}
 
 
-	smap<std::string,std::map<int,Npc>> npcList2;
+	//smap<std::string,std::map<int,Npc>> npcList2;
 
-	npcList2.Push(npc);
+	//npcList2.Push(npc);
 
 	
-	for(auto it :npcList2)
-	{
-		for(auto its:it.second)	
-		{
-			auto npc= its.second;
-			cout<<"name  = " <<npc.name.c_str()<<" level = "<<npc.level<<" sex="<<npc.sex<<endl;
-		}
-	}
+//	for(auto it :npcList2)
+//	{
+//		for(auto its:it.second)	
+//		{
+//			auto npc= its.second;
+//			cout<<"name  = " <<npc.name.c_str()<<" level = "<<npc.level<<" sex="<<npc.sex<<endl;
+//		}
+//	}
 
 
-	smap<std::string,Npc> npcList3;
-	npcList3.Push(npc);
+//	smap<std::string,Npc> npcList3;
+//	npcList3.Push(npc);
 
 
 //	std::map<std::vector<int>,std::vector<int>> f1;
@@ -65,9 +163,9 @@ int main()
 //	cout<<CheckMV<decltype(f1)>::value<<endl;
 //	cout<<CheckMMV<decltype(f2)>::value<<endl;
 //
-	smap<std::string,std::vector<Npc>> npcList4;
+//	smap<std::string,std::vector<Npc>> npcList4;
 	
-
+//
 
 //	std::vector<int> a1;
 //	a1.push_back(11);
@@ -98,6 +196,26 @@ int main()
 //	std::map<int,std::map<int,int>> a;
 //	cout<<CheckMMM<decltype(a)>::value<<endl;
 //
+
+
+    Friend f;
+    smap<std::string,Friend>  f1;
+    f1.Push(f);
+
+    smap<std::string,std::map<int,Friend>>  f2;
+    f2.Push(f);
+
+    smap<std::string,std::vector<Friend>>  f3;
+    f3.Push(f);
+
+
+    User u;
+    smap<std::string,User> u1;
+    smap<std::string,std::vector<User>> u2;
+    u1.Push(u);
+    u2.Push(u);
+
+
 
 
 
