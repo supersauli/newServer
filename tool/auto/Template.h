@@ -372,6 +372,35 @@ class smap:public std::map<T,M>
                 (*this)[u.GetFirstKey()].push_back(u);
             }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 };
 
 template<typename T,typename... Args >
@@ -397,40 +426,5 @@ struct CheckParamConsis{
 	static constexpr bool value = type::value;
 };
 
-
-
-struct Friend{
-    void Hash2Key();
-    const std::string GetFirstKey()const {return name;}
-    const int GetSecondKey()const{return age;}
-    std::string  name;
-    int age;
-    int id{111};
-
-};
-
-struct User{
-
-    void Hash1Key();
-    const std::string GetFirstKey()const {return userName;}
-    std::string userName;
-};
-
-
-
-struct Npc{
-    
-    void Hash3Key();
-    const std::string GetFirstKey()const{return name;};
-    const int GetSecondKey()const {return sex;};
-    const int GetThreeKey()const{return level;};
-
-    std::string name;
-    int sex;
-    int level;
-
-
-
-};
 
 #endif

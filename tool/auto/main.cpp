@@ -4,7 +4,7 @@
 #include <vector>
 #include <map>
 #include <iostream>
-#include "template.h"
+#include "Template.h"
 #include<utility>
 #include <typeinfo>
 #include"Data.h"
@@ -132,10 +132,60 @@ int main()
 			for(auto itt:its.second)
 			{
 				auto npc= itt.second;
-				cout<<"name  = " <<npc.name.c_str()<<" level = "<<npc.level<<" sex="<<npc.sex<<endl;
+			//	cout<<"name  = " <<npc.name.c_str()<<" level = "<<npc.level<<" sex="<<npc.sex<<endl;
+                //npcList.Set(it->first(),its->first(),"level",1);
+                //npcList.Del(its.second);
 			}
 		}
 	}
+
+
+
+    std::map<int,std::map<int,int>> m1;
+    for(int i = 0;i<20;i++)
+    {
+        m1[i][i] = i*10;
+    }
+
+    for(std::map<int,std::map<int,int>>::iterator it = m1.begin() ;it!=m1.end();it++) 
+    {
+        for(auto its = it->second.begin();its != it->second.end();its++)
+        {
+            cout<<its->second<<endl;
+            it->second.erase(its);
+            cout<<typeid(its).name()<<endl;
+        }
+        m1.erase(it);
+    }
+
+for(auto it = m1.begin() ;it!=m1.end();it++) 
+    {
+        for(auto its = it->second.begin();its != it->second.end();its++)
+        {
+            cout<<its->second<<endl;
+//            it->second.erase(its);
+        }
+    }
+
+
+
+
+	for(auto it :npcList4)
+	{
+        for(auto its:it.second)	
+        {
+            auto npc = its;
+            cout<<"name  = " <<npc.name.c_str()<<" level = "<<npc.level<<" sex ="<<npc.sex<<endl;
+            //npcList.Set(it->first(),its->first(),"level",1);
+            //npcList.Del(its);
+        }
+	}
+
+
+
+
+
+
 
 
 	//smap<std::string,std::map<int,Npc>> npcList2;
