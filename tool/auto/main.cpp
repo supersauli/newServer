@@ -64,15 +64,29 @@ template<typename T,typename U>
 struct Condition<false,T,U>{
 };
 
+class FC{
+	public:
+	//private:
+	//void push_back(const int &);
+	template<typename T>
+	void   push_back(const T& __x);
 
+	void Hash1Key();
+};
 
 int main()
 {
 
 
-
-
-
+//		std::vector<int> a;
+//
+//
+//
+//	cout<<"check push back " <<CheckPushBack<std::map<int,int>>::value<<endl;
+//	cout<<"check push back " <<CheckInsert<std::map<int,int>, std::map<int,int>::value_type >::value<<endl;
+//	cout<<"check push back " <<CheckPushBack<std::vector<int>,int>::value<<endl;
+//	cout<<"check push back " <<CheckPushBack<FC>::value<<endl;
+//	
 
 
 
@@ -120,10 +134,10 @@ int main()
 	npcList4.Push(npc);
     npcList5.Push(npc);
 
-    cout<<std::is_class<Npc>::value <<endl;
-    cout<<std::is_class<std::map<int,int>>::value <<endl;
-
-
+    //cout<<std::is_class<Npc>::value <<endl;
+    //cout<<std::is_class<std::map<int,int>>::value <<endl;
+	
+	//typedef decltype(npcList)::_Base_iterator uuu ;
 
 	for(auto it :npcList)
 	{
@@ -132,14 +146,26 @@ int main()
 			for(auto itt:its.second)
 			{
 				auto npc= itt.second;
-			//	cout<<"name  = " <<npc.name.c_str()<<" level = "<<npc.level<<" sex="<<npc.sex<<endl;
+				cout<<"name  = " <<npc.name.c_str()<<" level = "<<npc.level<<" sex="<<npc.sex<<endl;
                 //npcList.Set(it->first(),its->first(),"level",1);
                 //npcList.Del(its.second);
 			}
 		}
 	}
 
-
+	for(auto it :npcList)
+	{
+		for(auto its:it.second)	
+		{
+			for(auto itt:its.second)
+			{
+				auto npc= itt.second;
+				cout<<"name  = " <<npc.name.c_str()<<" level = "<<npc.level<<" sex="<<npc.sex<<endl;
+                //npcList.Set(it->first(),its->first(),"level",1);
+                //npcList.Del(its.second);
+			}
+		}
+	}	
 
     std::map<int,std::map<int,int>> m1;
     for(int i = 0;i<20;i++)

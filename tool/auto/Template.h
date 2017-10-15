@@ -10,16 +10,35 @@
 typedef char Yes;
 typedef Yes No[2];
 
-
+//这个版本不能检测模板 但不需要提供参数
 #define DEFINE_CHECK_FUNC(X) \
-    template<typename T>  \
+	template<typename T>  \
 struct Check##X{  \
-    template<typename U> \
-    static Yes& Check(decltype(&U::X));\
-    template<typename U>   \
-    static No &Check(...);   \
-    static const constexpr int value = (sizeof(Check<T>(0))==sizeof(Yes)); \
+	private:\
+			template<typename U> \
+				static Yes& Check(decltype(&U::X));\
+			template<typename U>   \
+				static No &Check(...);   \
+	public:\
+		   static const constexpr int value = (sizeof(Check<T>(0))==sizeof(Yes)); \
 };
+
+//这个版本可以检测模板 但需要提供参数
+#define DEFINE_CHECK_FUNC_EX(X) \
+	template<typename T,typename ...Args>  \
+struct Check##X##EX{  \
+	private:\
+			template<typename U> \
+				static auto Check(std::nullptr_t)-> decltype(std::declval<U>().X(std::declval<Args>()...),std::true_type()); \
+			template<typename U> \
+				static auto Check(...) -> decltype(std::false_type()); \
+	public:\
+		   static const constexpr int value = decltype(Check<T>(0))::value ; \
+};
+
+
+
+
 
 template<typename T>
 struct Empty:std::false_type{};
@@ -56,18 +75,6 @@ struct is_char<char*>:std::true_type{};
 
 template<>
 struct is_char<const char*>:std::true_type{};
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -168,13 +175,64 @@ struct CheckMMV{
 DEFINE_CHECK_FUNC(Hash3Key);
 DEFINE_CHECK_FUNC(Hash2Key);
 DEFINE_CHECK_FUNC(Hash1Key);
+DEFINE_CHECK_FUNC_EX(push_back);
+DEFINE_CHECK_FUNC_EX(insert);
 
+
+template<typename T,typename ...Args>
+struct CheckPushBack{
+	public:
+		   static const bool value = Checkpush_backEX<T,Args ...>::value;
+};
+
+template<typename T,typename ...Args>
+struct CheckInsert{
+	public:
+		   static const bool value = CheckinsertEX<T,Args ...>::value;
+};
 
 
 template<class T,class M>
 class smap:public std::map<T,M>
 {
 	using SelfType = std::map<T,M>;
+
+
+	private:
+	template <typename U>
+		void Push3KeyMap(const U&u)
+		{
+			(*this)[u.GetFirstKey()][u.GetSecondKey()][u.GetThreeKey()] =u;
+		}
+
+	template <typename U>
+		void Push2KeyMap(const U&u)
+		{
+			(*this)[u.GetFirstKey()][u.GetSecondKey()] = u;
+		}
+
+	template <typename U>
+		void Push1KeyMap(const U&u)
+		{
+			(*this)[u.GetFirstKey()] = u;
+		}
+
+	template <typename U>
+		void Push2KeyMapVec(const U&u)
+		{
+			(*this)[u.GetFirstKey()][u.GetSecondKey()].push_back(u);
+		}
+
+	template <typename U>
+		void Push1KeyMapVec(const U&u)
+		{
+			(*this)[u.GetFirstKey()].push_back(u);
+		}
+
+
+
+
+
 	public:
 
     /**
@@ -191,7 +249,7 @@ class smap:public std::map<T,M>
         &&CheckMM<typename SelfType::mapped_type>::value
         ,void>::type 
             Push(const U&u){
-                (*this)[u.GetFirstKey()][u.GetSecondKey()][u.GetThreeKey()] =u;
+				Push3KeyMap(u);
             }
 
 
@@ -209,7 +267,7 @@ class smap:public std::map<T,M>
         &&CheckMV<typename SelfType::mapped_type>::value
         ,void>::type 
         Push(const U&u){
-            (*this)[u.GetFirstKey()][u.GetSecondKey()].push_back(u);
+			Push2KeyMapVec(u);
         }
 
     /**
@@ -228,7 +286,7 @@ class smap:public std::map<T,M>
         &&!CheckMM<typename SelfType::mapped_type>::value
         ,void>::type
             Push(const U&u){
-                (*this)[u.GetFirstKey()][u.GetSecondKey()]=u;
+				Push2KeyMap(u);
             }
 
     /**
@@ -245,7 +303,7 @@ class smap:public std::map<T,M>
         &&CheckV<typename SelfType::mapped_type>::value
         ,void>::type
         Push(const U&u){
-            (*this)[u.GetFirstKey()].push_back(u);
+			Push1KeyMapVec(u);
         }
 
 
@@ -264,7 +322,7 @@ class smap:public std::map<T,M>
         &&!CheckM<typename SelfType::mapped_type>::value
         ,void>::type
         Push(const U&u){
-            (*this)[u.GetFirstKey()] = u;
+			Push1KeyMap(u);
         }
 
     /**
@@ -281,7 +339,7 @@ class smap:public std::map<T,M>
         &&CheckMV<typename SelfType::mapped_type>::value
         ,void>::type
         Push(const U&u){
-            (*this)[u.GetFirstKey()][u.GetSecondKey()].push_back(u);
+			Push2KeyMapVec(u);
         }
 
 
@@ -299,7 +357,7 @@ class smap:public std::map<T,M>
         &&CheckV<typename SelfType::mapped_type>::value
         ,void>::type
         Push(const U&u){
-            (*this)[u.GetFirstKey()].push_back(u);
+			Push1KeyMapVec(u);
         }
 
 
@@ -317,7 +375,7 @@ class smap:public std::map<T,M>
         &&CheckM<typename SelfType::mapped_type>::value
         ,void>::type
         Push(const U&u){
-            (*this)[u.GetFirstKey()][u.GetSecondKey()]=u;
+			Push2KeyMap(u);
         }
 
     /**
@@ -335,7 +393,7 @@ class smap:public std::map<T,M>
         &&!CheckV<typename SelfType::mapped_type>::value
         ,void>::type
             Push(const U&u){
-                (*this)[u.GetFirstKey()] = u;
+				Push1KeyMap(u);
             }
 
     /**
@@ -352,7 +410,7 @@ class smap:public std::map<T,M>
         &&!CheckV<typename SelfType::mapped_type>::value
         ,void>::type
         Push(const U&u){
-            (*this)[u.GetFirstKey()]=u;
+			Push1KeyMap(u);
         }
 
     /**
@@ -369,19 +427,34 @@ class smap:public std::map<T,M>
         &&CheckV<typename SelfType::mapped_type>::value
         ,void>::type
             Push(const U&u){
-                (*this)[u.GetFirstKey()].push_back(u);
+				Push1KeyMapVec(u);
             }
 
-
-
-
-
-
-
-
-
-
-
+//
+//	template<typename U>
+//	typename std::enable_if<CheckM<SelfType>::value
+//        &&CheckHash3Key<U>::value
+//        &&CheckM<typename SelfType::mapped_type>::value
+//        &&!CheckMM<typename SelfType::mapped_type>::value
+//        &&CheckMV<typename SelfType::mapped_type>::value
+//        ,void>::type
+//
+//		void Del(typename SelfType::iterator it)
+//		{
+//			//erase(it);
+//		}
+//
+//
+//	template<typename U>
+//	typename std::enable_if<CheckM<SelfType>::value
+//        &&CheckHash3Key<U>::value
+//        &&CheckMM<typename SelfType::mapped_type>::value
+//        ,void>::type
+//		 Del(typename SelfType::mapped_type::mapped_type::iterator it)
+//		{
+//			//erase(it);
+//		}
+//
 
 
 
