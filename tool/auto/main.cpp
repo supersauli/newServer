@@ -74,8 +74,39 @@ class FC{
 	void Hash1Key();
 };
 
+template<typename T>
+ void PrintType(T& obj)
+{
+
+    //for(   int i =0;i<ObjDepth<decltype(obj)>;i++)
+    {
+        cout<< typeid(DepthType<0,decltype(obj)>).name()<<endl;;
+        cout<< typeid(DepthType<1,decltype(obj)>).name()<<endl;;
+        cout<< typeid(DepthType<2,decltype(obj)>).name()<<endl;;
+    }
+}
+
+
+
+
 int main()
 {
+
+
+    cout<<CheckParamConsis<decltype(f),int,const char*>::value<<endl;
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //		std::vector<int> a;
@@ -116,8 +147,6 @@ int main()
 
     ///using type1 =  std::map<int,std::vector<int>>::mapped_type;
     //cout<<typeid(type1).name()<<endl;
-
-
 	smap<std::string,std::map<int,std::map<int,Npc>>> npcList;
 	smap<std::string,std::map<int,Npc>> npcList2;
 	smap<std::string,std::map<int,std::vector<Npc>>> npcList3;
@@ -133,6 +162,29 @@ int main()
 	npcList3.Push(npc);
 	npcList4.Push(npc);
     npcList5.Push(npc);
+    //cout<<is_containers<>::value<<endl;
+    std::map<int ,int> fff;
+    cout<< TypeDepth<decltype(npcList)>()<<endl;
+    //std::map<int,std::map<int,int>> a;
+    //cout<< typeid(typename DepthType<0,decltype(a)>::type).name()<<endl;;
+   // typename DepthType<0,decltype(a)>::type ffa;
+    cout<< typeid(DepthType<0,decltype(npcList)>::type).name()<<endl;;
+    cout<< typeid(DepthType<1,decltype(npcList)>::type).name()<<endl;;
+    cout<< typeid(DepthType<2,decltype(npcList)>::type).name()<<endl;;
+    cout<< typeid(DepthType<3,decltype(npcList)>::type).name()<<endl;;
+    cout<< TypeDepth<decltype(npcList2)>()<<endl;
+    cout<< typeid(DepthType<0,decltype(npcList2)>::type).name()<<endl;;
+    cout<< typeid(DepthType<1,decltype(npcList2)>::type).name()<<endl;;
+    cout<< typeid(DepthType<2,decltype(npcList2)>::type).name()<<endl;;
+    cout<< TypeDepth<decltype(npcList3)>()<<endl;
+    cout<< TypeDepth<decltype(npcList4)>()<<endl;
+    //PrintType(npcList4);
+
+
+
+
+
+    return 0;
 
     //cout<<std::is_class<Npc>::value <<endl;
     //cout<<std::is_class<std::map<int,int>>::value <<endl;

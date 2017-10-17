@@ -76,6 +76,21 @@ struct is_char<char*>:std::true_type{};
 template<>
 struct is_char<const char*>:std::true_type{};
 
+/**
+ * @brief 根据对象有没有iterator 判断当前对象是不是容器
+ *
+ * @tparam T
+ */
+template<typename T>
+struct is_containers
+{
+    template<typename U>
+    static const Yes& Check(typename U::iterator*);
+     template<typename U>
+    static const No& Check(...);
+    static const constexpr int value = sizeof(Check<T>(nullptr)) == sizeof(Yes);
+};
+
 
 
 /**
@@ -168,7 +183,61 @@ struct CheckMMV{
 	static No&Check(...);
 	static const constexpr bool value = sizeof(Check<T>(T())) == sizeof(Yes);
 };
+using namespace std;
 
+template<typename T>
+typename std::enable_if<CheckM<T>::value,typename T::mapped_type>::type
+ValueType(){
+}
+
+template<typename T>
+typename std::enable_if<!CheckM<T>::value,typename T::value_type>::type
+ValueType(){
+}
+
+
+
+
+/**
+ * @brief 检测对象深度 如 map<int,int> 深度是1 map<int,std::vector<int>> 深度是2
+ *
+ * @tparam T
+ *
+ * @return 
+ */
+template<typename T>
+typename std::enable_if<!is_containers<T>::value,int>::type
+ TypeDepth(){
+    return 1;
+}
+
+template<typename T>
+typename std::enable_if<is_containers<T>::value,int>::type
+ TypeDepth (){
+	using valueType  = decltype(ValueType<T>());
+    return TypeDepth<valueType>()+1;
+}
+
+
+
+
+/**
+ * @brief  对应深度类型 如map<int,std::vector<int>> 深度0时是map<int,std::vector<int>> 1 std::vector<int> 2是int
+ *
+ * @tparam depth
+ * @tparam T
+ */
+template<int depth,typename T>
+struct DepthType{
+	using valueType  = decltype(ValueType<T>());
+    using type = typename  DepthType<depth-1,valueType>::type;
+};
+
+template<typename T>
+struct DepthType<0,T>{
+	//using type  = decltype(ValueType<T>());
+	using type  = T;
+};
 
 
 
@@ -179,17 +248,38 @@ DEFINE_CHECK_FUNC_EX(push_back);
 DEFINE_CHECK_FUNC_EX(insert);
 
 
+/**
+ * @brief 是否有push_back函数
+ *
+ * @tparam T
+ * @tparam ...Args
+ */
 template<typename T,typename ...Args>
 struct CheckPushBack{
-	public:
-		   static const bool value = Checkpush_backEX<T,Args ...>::value;
+    static const bool value = Checkpush_backEX<T,Args ...>::value;
 };
 
+/**
+ * @brief 是否有insert函数
+ *
+ * @tparam T
+ * @tparam ...Args
+ */
 template<typename T,typename ...Args>
 struct CheckInsert{
-	public:
-		   static const bool value = CheckinsertEX<T,Args ...>::value;
+    static const bool value = CheckinsertEX<T,Args ...>::value;
 };
+
+/**
+ * @brief 是否是容器
+ *
+ * @tparam T
+ */
+template<typename T>
+struct CheckContainers{
+   static const constexpr bool value = is_containers<T>::value;
+};
+
 
 
 template<class T,class M>
@@ -455,31 +545,13 @@ class smap:public std::map<T,M>
 //			//erase(it);
 //		}
 //
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 };
 
 template<typename T,typename... Args >
 struct ResultOfType{
 	using type  = decltype(std::declval<T>()(std::declval<Args>()...));
 };
+
 template<typename T,typename... Args >
 using resultOfType = decltype(std::declval<T>()(std::declval<Args>()...));
 
