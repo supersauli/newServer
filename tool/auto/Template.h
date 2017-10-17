@@ -199,7 +199,7 @@ ValueType(){
 
 
 /**
- * @brief 检测对象深度 如 map<int,int> 深度是1 map<int,std::vector<int>> 深度是2
+ * @brief 检测容器深度 如 map<int,int> 深度是1 map<int,std::vector<int>> 深度是2
  *
  * @tparam T
  *
@@ -207,15 +207,15 @@ ValueType(){
  */
 template<typename T>
 typename std::enable_if<!is_containers<T>::value,int>::type
- TypeDepth(){
+ ContainersDepth(){
     return 1;
 }
 
 template<typename T>
 typename std::enable_if<is_containers<T>::value,int>::type
- TypeDepth (){
+ ContainersDepth (){
 	using valueType  = decltype(ValueType<T>());
-    return TypeDepth<valueType>()+1;
+    return ContainersDepth<valueType>()+1;
 }
 
 
@@ -228,13 +228,13 @@ typename std::enable_if<is_containers<T>::value,int>::type
  * @tparam T
  */
 template<int depth,typename T>
-struct DepthType{
+struct ContainersDepthType{
 	using valueType  = decltype(ValueType<T>());
-    using type = typename  DepthType<depth-1,valueType>::type;
+    using type = typename  ContainersDepthType<depth-1,valueType>::type;
 };
 
 template<typename T>
-struct DepthType<0,T>{
+struct ContainersDepthType<0,T>{
 	//using type  = decltype(ValueType<T>());
 	using type  = T;
 };

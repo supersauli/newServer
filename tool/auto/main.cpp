@@ -74,18 +74,6 @@ class FC{
 	void Hash1Key();
 };
 
-template<typename T>
- void PrintType(T& obj)
-{
-
-    //for(   int i =0;i<ObjDepth<decltype(obj)>;i++)
-    {
-        cout<< typeid(DepthType<0,decltype(obj)>).name()<<endl;;
-        cout<< typeid(DepthType<1,decltype(obj)>).name()<<endl;;
-        cout<< typeid(DepthType<2,decltype(obj)>).name()<<endl;;
-    }
-}
-
 
 
 
@@ -164,20 +152,20 @@ int main()
     npcList5.Push(npc);
     //cout<<is_containers<>::value<<endl;
     std::map<int ,int> fff;
-    cout<< TypeDepth<decltype(npcList)>()<<endl;
+    cout<< ContainersDepth<decltype(npcList)>()<<endl;
     //std::map<int,std::map<int,int>> a;
-    //cout<< typeid(typename DepthType<0,decltype(a)>::type).name()<<endl;;
-   // typename DepthType<0,decltype(a)>::type ffa;
-    cout<< typeid(DepthType<0,decltype(npcList)>::type).name()<<endl;;
-    cout<< typeid(DepthType<1,decltype(npcList)>::type).name()<<endl;;
-    cout<< typeid(DepthType<2,decltype(npcList)>::type).name()<<endl;;
-    cout<< typeid(DepthType<3,decltype(npcList)>::type).name()<<endl;;
-    cout<< TypeDepth<decltype(npcList2)>()<<endl;
-    cout<< typeid(DepthType<0,decltype(npcList2)>::type).name()<<endl;;
-    cout<< typeid(DepthType<1,decltype(npcList2)>::type).name()<<endl;;
-    cout<< typeid(DepthType<2,decltype(npcList2)>::type).name()<<endl;;
-    cout<< TypeDepth<decltype(npcList3)>()<<endl;
-    cout<< TypeDepth<decltype(npcList4)>()<<endl;
+    //cout<< typeid(typename ContainersDepthType<0,decltype(a)>::type).name()<<endl;;
+   // typename ContainersDepthType<0,decltype(a)>::type ffa;
+    cout<< typeid(ContainersDepthType<0,decltype(npcList)>::type).name()<<endl;;
+    cout<< typeid(ContainersDepthType<1,decltype(npcList)>::type).name()<<endl;;
+    cout<< typeid(ContainersDepthType<2,decltype(npcList)>::type).name()<<endl;;
+    cout<< typeid(ContainersDepthType<3,decltype(npcList)>::type).name()<<endl;;
+    cout<< ContainersDepth<decltype(npcList2)>()<<endl;
+    cout<< typeid(ContainersDepthType<0,decltype(npcList2)>::type).name()<<endl;;
+    cout<< typeid(ContainersDepthType<1,decltype(npcList2)>::type).name()<<endl;;
+    cout<< typeid(ContainersDepthType<2,decltype(npcList2)>::type).name()<<endl;;
+    cout<< ContainersDepth<decltype(npcList3)>()<<endl;
+    cout<< ContainersDepth<decltype(npcList4)>()<<endl;
     //PrintType(npcList4);
 
 
