@@ -219,6 +219,12 @@ typename std::enable_if<is_containers<T>::value,int>::type
 }
 
 
+template<typename T,int expectDepth>
+struct CheckContainersDepth
+{
+    static const constexpr  bool value = ContainersDepth<T>() == expectDepth ;
+};
+
 
 
 /**
@@ -408,8 +414,9 @@ class smap:public std::map<T,M>
     template<typename U>
         typename std::enable_if<CheckM<SelfType>::value
         &&CheckHash3Key<U>::value
-        &&!CheckV<typename SelfType::mapped_type>::value
-        &&!CheckM<typename SelfType::mapped_type>::value
+		&&!CheckContainers<typename SelfType::mapped_type>::value
+    //    &&!CheckV<typename SelfType::mapped_type>::value
+     //   &&!CheckM<typename SelfType::mapped_type>::value
         ,void>::type
         Push(const U&u){
 			Push1KeyMap(u);
@@ -479,8 +486,9 @@ class smap:public std::map<T,M>
 	template<typename U>
 		typename std::enable_if<CheckM<SelfType>::value
         &&CheckHash2Key<U>::value
-        &&!CheckM<typename SelfType::mapped_type>::value
-        &&!CheckV<typename SelfType::mapped_type>::value
+		&&!CheckContainers<typename SelfType::mapped_type>::value
+      //  &&!CheckM<typename SelfType::mapped_type>::value
+       // &&!CheckV<typename SelfType::mapped_type>::value
         ,void>::type
             Push(const U&u){
 				Push1KeyMap(u);
@@ -520,7 +528,20 @@ class smap:public std::map<T,M>
 				Push1KeyMapVec(u);
             }
 
-//
+
+		template<typename U>
+		typename std::enable_if<CheckM<SelfType>::value
+			&&CheckContainersDepth<SelfType, 4>::value
+			, void>::type
+			Del(U&delIt) {
+		//	if (is_same(ContainersDepthType<0, SelfType>::type::iterator, U)) {}
+
+
+
+		}
+
+
+		//
 //	template<typename U>
 //	typename std::enable_if<CheckM<SelfType>::value
 //        &&CheckHash3Key<U>::value
