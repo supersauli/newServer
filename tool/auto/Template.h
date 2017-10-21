@@ -206,24 +206,19 @@ ValueType(){
  * @return 
  */
 template<typename T>
-typename std::enable_if<!is_containers<T>::value,int>::type
- ContainersDepth(){
-    return 1;
+constexpr typename std::enable_if<!is_containers<T>::value,int>::type
+ContainersDepth(){
+    return 0;
 }
 
 template<typename T>
-typename std::enable_if<is_containers<T>::value,int>::type
+ constexpr typename std::enable_if<is_containers<T>::value,int>::type
  ContainersDepth (){
 	using valueType  = decltype(ValueType<T>());
     return ContainersDepth<valueType>()+1;
 }
 
 
-template<typename T,int expectDepth>
-struct CheckContainersDepth
-{
-    static const constexpr  bool value = ContainersDepth<T>() == expectDepth ;
-};
 
 
 
@@ -241,7 +236,6 @@ struct ContainersDepthType{
 
 template<typename T>
 struct ContainersDepthType<0,T>{
-	//using type  = decltype(ValueType<T>());
 	using type  = T;
 };
 
@@ -252,6 +246,21 @@ DEFINE_CHECK_FUNC(Hash2Key);
 DEFINE_CHECK_FUNC(Hash1Key);
 DEFINE_CHECK_FUNC_EX(push_back);
 DEFINE_CHECK_FUNC_EX(insert);
+DEFINE_CHECK_FUNC(begin);
+
+
+
+/**
+ * @brief 判断容器深度
+ *
+ * @tparam T
+ * @tparam expectDepth
+ */
+template<typename T,int expectDepth>
+struct CheckContainersDepth
+{
+    static const constexpr  bool value = ContainersDepth<T>() == expectDepth;
+};
 
 
 /**
@@ -287,10 +296,58 @@ struct CheckContainers{
 };
 
 
+template<bool key ,typename ... FuncList>
+struct CheckFunc{
+ static const constexpr bool value =  CheckFunc<key,FuncList...>::value;
+};
+
+template<typename ... FuncList>
+struct CheckFunc<false,FuncList ...>{
+ static const constexpr bool value =  false;
+};
+template<typename ... FuncList>
+struct CheckFunc<true,FuncList ...>{
+ static const constexpr bool value =CheckFunc<true,FuncList...>::value;
+;
+};
+
+
+
+//template<typename T>
+//struct CheckFF{
+//    template<typename U>
+//    static typename  std::enable_if<CheckM<U>::value,std::true_type>::type
+//        Check();
+//    template<typename U>
+//    static typename std::enable_if<!CheckM<U>::value,std::false_type>::type
+//        Check();
+//    static constexpr const auto  type = decltype(Check<T>());
+//
+//};
+//
+
+
+
+
+template<int depth, typename T,typename IT>
+struct CheckIt{
+    template<typename U>
+   static  Yes&Check(typename ContainersDepthType<depth,U>::type::iterator);
+    template<typename U>
+   static  No&Check(...);
+    static const constexpr bool value= sizeof(Check<T>(IT())) == sizeof(Yes);
+};
+
+
+
+
+
+
 
 template<class T,class M>
 class smap:public std::map<T,M>
 {
+    public:
 	using SelfType = std::map<T,M>;
 
 
@@ -326,9 +383,6 @@ class smap:public std::map<T,M>
 		}
 
 
-
-
-
 	public:
 
     /**
@@ -342,6 +396,7 @@ class smap:public std::map<T,M>
     template<typename U>
         typename std::enable_if<CheckM<SelfType>::value
         &&CheckHash3Key<U>::value
+        &&CheckContainersDepth<SelfType,3>::value
         &&CheckMM<typename SelfType::mapped_type>::value
         ,void>::type 
             Push(const U&u){
@@ -360,6 +415,7 @@ class smap:public std::map<T,M>
 	template<typename U>
         typename std::enable_if<CheckM<SelfType>::value
         &&CheckHash3Key<U>::value
+        &&CheckContainersDepth<SelfType,3>::value
         &&CheckMV<typename SelfType::mapped_type>::value
         ,void>::type 
         Push(const U&u){
@@ -378,8 +434,9 @@ class smap:public std::map<T,M>
         typename std::enable_if<CheckM<SelfType>::value
         &&CheckHash3Key<U>::value
         &&CheckM<typename SelfType::mapped_type>::value
-        &&!CheckMV<typename SelfType::mapped_type>::value
-        &&!CheckMM<typename SelfType::mapped_type>::value
+        //&&!CheckMV<typename SelfType::mapped_type>::value
+        //&&!CheckMM<typename SelfType::mapped_type>::value
+        &&CheckContainersDepth<SelfType, 2>::value
         ,void>::type
             Push(const U&u){
 				Push2KeyMap(u);
@@ -523,49 +580,146 @@ class smap:public std::map<T,M>
         typename std::enable_if<CheckM<SelfType>::value
         &&CheckHash1Key<U>::value
         &&CheckV<typename SelfType::mapped_type>::value
+        &&CheckContainersDepth<SelfType,2>::value
         ,void>::type
             Push(const U&u){
 				Push1KeyMapVec(u);
+        }
+
+// 删除操作
+
+
+
+
+
+    template<typename U>
+    typename   std::enable_if<!Empty<U>::value,void>::type
+         Pop1Key(U&delIt){
+        }
+    template<typename U>
+    typename   std::enable_if<CheckHash1Key<typename U::value_type>::value,void>::type
+         Pop2Key(U&delIt){
+                 cout<<"true pop"<<endl;
+        }
+
+    template<typename U>
+        typename   std::enable_if<!CheckHash1Key<typename U::value_type>::value,void>::type
+        Pop2Key(U&delIt){
+         auto firstIt = find(delIt->GetFirstKey());
+              if(firstIt != this->end())
+              {
+                  firstIt->erase(delIt);
+              }
+
+
+            cout<<"error pop"<<endl;
+        }
+
+
+
+    template<typename U>
+
+        void Pop3Key(U&delIt){
+            auto firstIt = find(delIt->GetFirstKey());
+            if(firstIt != this->end())
+            {
+                auto secondIt = firstIt.find(delIt->GetSecondKey);
+                if(secondIt!=firstIt.end())
+                {
+                    secondIt->erase(delIt);
+                }
             }
 
+        }
 
-		template<typename U>
-		typename std::enable_if<CheckM<SelfType>::value
-			&&CheckContainersDepth<SelfType, 4>::value
-			, void>::type
-			Del(U&delIt) {
-		//	if (is_same(ContainersDepthType<0, SelfType>::type::iterator, U)) {}
+       template<typename U>
+       typename std::enable_if<CheckIt<0,SelfType,U>::value,void>::type
+       Del(U&delIt){
+            this->erase(delIt);
+       }
+
+       template<typename U>
+       typename std::enable_if<CheckIt<1,SelfType,U>::value,void>::type
+       Del(U&delIt){
+           auto firstIt = this->find(delIt->GetFirstKey());
+           if(firstIt != this->end())
+           {
+               firstIt->second.erase(delIt);
+           }
+       }
+
+       template<typename U>
+           typename std::enable_if<CheckIt<2,SelfType,U>::value,void>::type
+           Del(U&delIt){
+               auto firstIt = this->find(delIt->GetFirstKey());
+               if(firstIt != this->end())
+               {
+                   auto secondIt = firstIt.find(delIt->GetSecondKey());
+                   if(secondIt!=firstIt.end())
+                   {
+                       secondIt->second.erase(delIt);
+                   }
+               }
+           }
 
 
 
-		}
-
-
-		//
-//	template<typename U>
-//	typename std::enable_if<CheckM<SelfType>::value
-//        &&CheckHash3Key<U>::value
-//        &&CheckM<typename SelfType::mapped_type>::value
-//        &&!CheckMM<typename SelfType::mapped_type>::value
-//        &&CheckMV<typename SelfType::mapped_type>::value
-//        ,void>::type
+       //    template<typename U>
+//        typename std::enable_if<CheckM<SelfType>::value
+//        &&!Empty<U>::value
+//        &&CheckContainersDepth<SelfType, 1>::value
+//        , void>::type
+//        Del(U&delIt) {
+//            if(std::is_same<typename ContainersDepthType<0,SelfType>::type::iterator ,U>::value)
+//            {
+//                Pop1Key(delIt);
+//            } 
 //
-//		void Del(typename SelfType::iterator it)
-//		{
-//			//erase(it);
-//		}
+//
+//        }
+//    template<typename U>
+//        typename std::enable_if<CheckM<SelfType>::value
+//        &&!Empty<U>::value
+//        &&CheckContainersDepth<SelfType, 2>::value
+//        , void>::type
+//        Del(U&delIt) {
+//            if(std::is_same<typename ContainersDepthType<0,SelfType>::type::iterator ,U>::value)
+//            {
+//                cout<<"del111111"<<endl;
+//               // Pop1Key(delIt);
+//            }else if(std::is_same<typename ContainersDepthType<1,SelfType>::type::iterator ,U>::value)
+//            {
+//                cout<<"del22222"<<endl;
+//                Pop2Key(delIt);
+//            }
+//        }
+//
+//    template<typename U>
+//        typename std::enable_if<CheckM<SelfType>::value
+//        &&!Empty<U>::value
+//        &&CheckContainersDepth<SelfType, 3>::value
+//        , void>::type
+//        Del(U&delIt) {
+//              if(std::is_same<typename ContainersDepthType<0,SelfType>::type::iterator ,U>::value)
+//            {
+//                this->erase(delIt);
+//            }else if(std::is_same<typename ContainersDepthType<1,SelfType>::type::iterator ,U>::value)
+//            {
+//                auto firstIt = find(delIt->GetFirstKey());
+//                if(firstIt != this->end())
+//                {
+//                    firstIt->erase(delIt);
+//                }
+//
+//            }else if(std::is_same<typename ContainersDepthType<2,SelfType>::type::iterator ,U>::value)
+//            {
+//                            }
+//
+//        }
 //
 //
-//	template<typename U>
-//	typename std::enable_if<CheckM<SelfType>::value
-//        &&CheckHash3Key<U>::value
-//        &&CheckMM<typename SelfType::mapped_type>::value
-//        ,void>::type
-//		 Del(typename SelfType::mapped_type::mapped_type::iterator it)
-//		{
-//			//erase(it);
-//		}
-//
+
+
 };
 
 template<typename T,typename... Args >

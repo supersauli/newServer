@@ -1,5 +1,6 @@
 #!/bin/sh
-clang++ main.cpp -o run -std=c++11 -g 
+#clang++ main.cpp -o run -std=c++11 -g  -Wc++1y-extensions
+g++ main.cpp -o run -std=c++11 -g
 
 
 
