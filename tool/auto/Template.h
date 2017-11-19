@@ -632,6 +632,10 @@ class smap:public std::map<T,M>
 
         }
 
+
+
+
+
        template<typename U>
        typename std::enable_if<CheckIt<0,SelfType,U>::value,void>::type
        Del(U&delIt){
@@ -639,7 +643,21 @@ class smap:public std::map<T,M>
        }
 
        template<typename U>
-       typename std::enable_if<CheckIt<1,SelfType,U>::value,void>::type
+       typename std::enable_if<CheckIt<1,SelfType,U>::value
+	   &&CheckContainersDepth<SelfType,3>::value
+	   ,void>::type
+       Del(U&delIt){
+           auto firstIt = this->find(delIt->second.begin()->second.GetFirstKey());
+           if(firstIt != this->end())
+           {
+               firstIt->second.erase(delIt);
+           }
+       }
+
+       template<typename U>
+       typename std::enable_if<CheckIt<1,SelfType,U>::value
+	   &&CheckContainersDepth<SelfType,2>::value
+	   ,void>::type
        Del(U&delIt){
            auto firstIt = this->find(delIt->GetFirstKey());
            if(firstIt != this->end())
@@ -647,6 +665,10 @@ class smap:public std::map<T,M>
                firstIt->second.erase(delIt);
            }
        }
+
+
+
+
 
        template<typename U>
            typename std::enable_if<CheckIt<2,SelfType,U>::value,void>::type
