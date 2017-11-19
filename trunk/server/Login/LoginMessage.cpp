@@ -33,7 +33,6 @@ void LoginMessage::NewGateway1(void*message,const char*name)
 
 
 
-
 void LoginMessage::InitMessageCallBack()
 {
 	_socket->AddMessageCallBack("GateServer.UserLogin",std::bind(&LoginMessage::NewGateway1,this,std::placeholders::_1,std::placeholders::_2));

@@ -1,6 +1,6 @@
 #ifndef _SCOMPARESS_H__
 #define _SCOMPARESS_H__
-#include "./third_part/zip/lz4.h"
+#include "../third_part/zip/lz4.h"
 namespace sdk{
 	class CompressManage
 	{

@@ -15,13 +15,23 @@ namespace sdk
 		};
 
 	template<>
-		inline void PushData(char*&ptr,const std::string& data)
+		inline void PushData(char*&ptr,std::string& data)
 		{
 			unsigned int len = data.size();
 			PushData(ptr,len);
 			bcopy(data.c_str(),ptr,len);   
 			ptr+=len;
 		};
+
+        template<>
+		inline void PushData(char*&ptr,const char*& data)
+		{
+			unsigned int len = strlen(data);
+			PushData(ptr,len);
+			bcopy(data,ptr,len);   
+			ptr+=len;
+		};
+
 
 
 	template<typename T>

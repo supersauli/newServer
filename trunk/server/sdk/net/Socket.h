@@ -6,7 +6,7 @@
 #include <sys/time.h>
 #include <assert.h>
 #include <zmq.h>
-#include "sdk/net/Protobuf.h"
+#include "Protobuf.h"
 #define MSG google::protobuf::Message
 namespace sdk{
 	class Socket
@@ -18,7 +18,7 @@ namespace sdk{
 				_overTime = time;
 			}
 
-			void sendMessage(const MSG& message);
+			void SendMessage(const MSG& message);
 
 		private:
 			std::string _ipPort;

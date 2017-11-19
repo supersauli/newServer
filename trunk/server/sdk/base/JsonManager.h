@@ -1,11 +1,11 @@
 #ifndef __JSON_MANAGER__H__
 #define __JSON_MANAGER__H__
-#include "sdk/third_part/json/document.h"
-#include "sdk/third_part/json/writer.h"
-#include "sdk/third_part/json/stringbuffer.h"
-#include "sdk/third_part/json/filereadstream.h"
+#include "../third_part/json/document.h"
+#include "../third_part/json/writer.h"
+#include "../third_part/json/stringbuffer.h"
+#include "../third_part/json/filereadstream.h"
 
-#include "sdk/base/HelpFunction.h"
+#include "../base/HelpFunction.h"
 
 namespace sdk
 {

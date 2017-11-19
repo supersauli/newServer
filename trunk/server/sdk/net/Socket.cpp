@@ -18,7 +18,7 @@ bool sSocket::Init(const std::string& ipPort)
 		return false;
 	}
 
-	zmq_setsockopt(socket,ZMQ_RCVTIMEO,&_overTime,sizeof(timeOut)))
+	zmq_setsockopt(socket,ZMQ_RCVTIMEO,&_overTime,sizeof(timeOut));
 
 	return true;
 }

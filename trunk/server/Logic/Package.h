@@ -67,8 +67,8 @@ class PackageBase{
 
 	protected:
 
-		int _maxPosSize;
-		int _posSizeNow;
+		int _maxPosSize{0};
+		int _posSizeNow{0};
 		std::string _packageName;
 		std::map<std::string,PackManageObj> _objectMap;
 		std::array<PackManageObj,maxPos> _objectArray;

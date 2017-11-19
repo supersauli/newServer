@@ -3,9 +3,9 @@
 #include <zmq.h>
 #include <iostream>
 #include <string>
-#include "sdk/base/LogManager.h"
-#include "sdk/base/JsonManager.h"
-#include "sdk/net/Protobuf.h"
+#include "../base/LogManager.h"
+#include "../base/JsonManager.h"
+#include "Protobuf.h"
 
 namespace sdk{
 	enum class SocketType

@@ -104,11 +104,31 @@ enum {
 
 int main()
 {
-	{
-	std::string a =sdk::HF::AsString(10); 
-	std::cout<<a.c_str()<<std::endl;
-	}
+    const char * src= "1.512,2.134,3.123,4,5,6,7";
+    
+    //std::vector<std::string> group;
+    std::vector<int> group;
+    //std::vector<double> group;
+    //std::vector<float> group;
+    HF::SplictString(src,group,",");
+    for(auto it:group)
+    {
 
+        cout<<it<<endl;
+
+
+    }
+
+
+
+
+
+
+//	{
+//	std::string a =sdk::HF::AsString(10); 
+//	std::cout<<a.c_str()<<std::endl;
+//	}
+//
 	//auto a = new int();
 
 

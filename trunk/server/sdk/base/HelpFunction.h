@@ -9,7 +9,16 @@
 
 namespace sdk{
 	class  HF{
-		public:
+        public:
+            template<class T>
+                struct Error{
+                    enum{
+                        value =0,
+                    };
+                };
+
+
+
 			/**
 			 * @brief 范围[numberic_limits<int>::min(),numberic_limits<int>::max()]
 			 *
@@ -102,6 +111,19 @@ namespace sdk{
 			 * @return 
 			 */
 			static int AsInt(const char* str);
+			static int AsInt(const std::string& str){
+                return AsInt(str.c_str());
+            };
+
+			static int AsInt(const double& value){
+                return static_cast<int>(value);
+            }
+			static int AsInt(const float& value){
+                return static_cast<int>(value);
+            };
+			static int AsInt(int& value){
+                return value;
+            };
 
 			/**
 			 * @brief string 转double 
@@ -110,6 +132,11 @@ namespace sdk{
 			 *
 			 * @return 
 			 */
+
+			static DOUBLE AsDouble(std::string& str){
+                return AsDouble(str.c_str());
+            }
+            ;
 			static DOUBLE AsDouble(const char* str);
 
 			/**
@@ -119,6 +146,9 @@ namespace sdk{
 			 *
 			 * @return 
 			 */
+			static  float AsFloat(std::string& str){
+                return AsFloat(str.c_str());
+            }
 			static  float AsFloat(const char* str);
 			/**
 			 * @brief *类型转string
@@ -130,8 +160,45 @@ namespace sdk{
 			 */
 			template<typename T>
 			static std::string AsString(T value){
-				return std::to_string(value);
+				return std::string(value);
 			}
+
+            template<typename T,typename M>
+            static void AsTransform(T&out,M&in){
+                static_assert(Error<T>::value,"error as Transorm");
+            }
+
+            template<typename M>
+            static void AsTransform(std::string& out,M&in){
+                    out = AsString(in);
+            }
+
+           template<typename M>
+            static void AsTransform(int& out,M&in){
+                out = AsInt(in);
+            }
+
+            template<typename M>
+            static void AsTransform(double& out,M&in){
+                out = AsDouble(in);
+            }
+
+             template<typename M>
+            static void AsTransform(float& out,M&in){
+                out = AsFloat(in);
+            }
+
+
+            template<typename T,typename M>
+            static T AutoTransform(M m){
+                T value;
+                AsTransform(value,m);
+                return value;
+            }
+
+
+
+
 
 			/**
 			 * @brief 秒级别定时器 当前线程会挂起
@@ -154,7 +221,30 @@ namespace sdk{
 			 */
 			static void USleep(QWORD usec);
 
-	};
+            template<typename ResultType>
+            static void SplictString(const char* srcStr,std::vector<ResultType>& result,const char* splictStr){
+
+                    std::string src  = srcStr;
+                    std::string::size_type pos1 = 0, pos2 = 0;
+
+                    if(!CharIsNull(splictStr)){
+                        do{
+                            pos2 = src.find(splictStr,pos1);
+                            if(pos2 == std::string::npos){
+                                break;
+                            }
+                            result.push_back(AutoTransform<ResultType>(src.substr(pos1,pos2-pos1))); 
+                            pos1 = pos2+1;
+                        }while(true);
+                    }
+                    else {
+                        if(pos1 != src.length()){
+                            result.push_back(AutoTransform<ResultType>(src.substr(pos1)));
+                        }
+                    }
+            }
+
+    };
 };
 
 #endif
